@@ -81,32 +81,35 @@ Dataset & Source (*) & Format &
 \multicolumn{1}{P{1.1cm}}{\raggedleft\# of entities} &
 \multicolumn{1}{P{0.75cm}}{\raggedleft\# of attr.} & List of attributes (**)\\
 \midrule
-Wikidata & SPARQL endpoint & CSV & 22,697 & 13 &
-name, alt.\ names\mv, acronyms\mv, country, country code, city, website, founding year,
-latitude\mv, longitude\mv, students\mv, types, member of\mv\\
+Wikidata & SPARQL endpoint & CSV & 22,697 & 16 &
+Wikidata id, name, alt.\ names\mv, acronyms\mv, country, country code, city, website, founding
+year, latitude\mv, longitude\mv, students\mv, types, member of\mv, ROR id\mv, Wikipedia
+title\mv\\
 \addlinespace[2pt]
-DBpedia & SPARQL endpoint & CSV & 27,728 & 12 &
-name, alt.\ names\mv, country, state\mv, city, website, founding year\mv, latitude\mv,
-longitude\mv, students\mv, types\mv, affiliations\mv\\
+DBpedia & SPARQL endpoint & CSV & 27,728 & 14 &
+DBpedia id, name, alt.\ names\mv, country, state\mv, city, website, founding year\mv,
+latitude\mv, longitude\mv, students\mv, types\mv, affiliations\mv, Wikidata id\\
 \addlinespace[2pt]
-ROR & Data dump (Zenodo) & CSV & 30,131 & 15 &
-name, alt.\ names, acronyms\mv, country, country code, region, city, website, domains\mv,
-founding year, latitude, longitude, types, status, parent organisation\mv\\
+ROR & Data dump (Zenodo) & CSV & 30,131 & 18 &
+ROR id, name, alt.\ names, acronyms\mv, country, country code, region, city, website,
+domains\mv, founding year, latitude, longitude, types, status, parent organisation\mv,
+Wikidata id, Wikipedia title\mv\\
 \addlinespace[2pt]
-THE & Ranking web page & CSV & 3,118 & 21 &
-name, country, ranking status, rank, overall score, 5 pillar scores, 5 pillar ranks, students,
-students per staff, international students \%, female students \%, subjects, profile URL\\
+THE & Ranking web page & CSV & 3,118 & 22 &
+THE id, name, country, ranking status, rank, overall score, 5 pillar scores, 5 pillar ranks,
+students, students per staff, international students \%, female students \%, subjects, profile
+URL\\
 \bottomrule
 \end{tabularx}
 
 \smallskip
 (*) See ``Data sources and preprocessing''. \enspace (**) (MV) = more than 30\% missing values.
-Identifiers and links to other sources are not counted as attributes.
+The identifiers and the links to other sources serve only as gold standard for the matching.
 \end{table}
 
 \paragraph{Missing values.}
-Over all attributes, 33\% of the values are missing in Wikidata, 39\% in DBpedia, 15\% in ROR
-and 18\% in THE. This does not hinder
+Over all attributes, 32\% of the values are missing in Wikidata, 33\% in DBpedia, 17\% in ROR
+and 17\% in THE. This does not hinder
 identity resolution, because the attributes we match on are well filled: the name is never
 missing and the country only in 3\% of the Wikidata and 19\% of the DBpedia records. For the
 fusion the gaps are the reason for the project, because the sources fill each other's gaps:
