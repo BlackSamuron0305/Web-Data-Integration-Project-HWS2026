@@ -1,0 +1,54 @@
+% Final project report, Web Data Integration HWS 2026
+% Springer LNCS template: llncs.cls v2.26. Build: latexmk -pdf report.tex
+%
+% Rules from the course slides (slide 15):
+%   - 12 pages, counted without title page, table of contents and literature list;
+%     every extra page (appendix included) lowers the mark by 0.33
+%   - due Sunday, 29 November 2026, 23:59, via ILIAS, together with the code and (a subset of) the data
+%   - cite sources properly, preferred style [Author, year]
+%   - hand in a table on who did what together with the report (slide 7)
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+% citation style preferred in the course: [Author, year]
+% (for Springer's own numbered style remove natbib and use \bibliographystyle{splncs04})
+\usepackage[square,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\renewcommand{\bibsection}{\section*{References}}
+\renewcommand{\bibfont}{\small}
+
+\begin{document}
+
+\title{Integrating Worldwide University Data from Wikidata, DBpedia, ROR and THE}
+\subtitle{Project Report -- Web Data Integration, HWS 2026}
+\titlerunning{Integrating Worldwide University Data}
+
+\author{Laith Sandouk \and Mohammad Hadad \and Sanjeevani Rajpurohit \and Chellapuram Keerthan Reddy
+\and Lakpa Dolma Sherpa}
+\authorrunning{Web Data Integration, HWS 2026}
+\institute{University of Mannheim, Germany}
+
+\maketitle
+
+\section{Introduction}
+% Use case and goal of the integrated dataset.
+
+\section{Phase I: Data Collection and Data Translation}
+% Datasets and their profile, integrated schema, schema mapping and translation with MapForce.
+
+\section{Phase II: Identity Resolution}
+% Gold standard, similarity measures and matching rules that were compared, blocking, evaluation.
+
+\section{Phase III: Data Fusion}
+% Conflict resolution strategies that were compared, quality and completeness of the fused dataset.
+
+\section{Summary}
+
+\nocite{*} % lists every entry of references.bib; remove once the sources are cited in the text
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

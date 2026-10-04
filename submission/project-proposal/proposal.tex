@@ -1,0 +1,218 @@
+% Project abstract (max. 4 pages), Web Data Integration HWS 2026
+% Springer LNCS template: llncs.cls v2.26. Build: latexmk -pdf proposal.tex
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float} % [H] keeps each table between two paragraphs instead of inside a sentence
+\setlength{\intextsep}{9pt plus 2pt minus 2pt}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+% let long links break after hyphens as well
+\makeatletter\g@addto@macro{\UrlBreaks}{\do\-}\makeatother
+\newcommand{\mv}{\,(MV)}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\begin{document}
+
+\title{Integrating Worldwide University Data from Wikidata, DBpedia, ROR and THE}
+\subtitle{Project Abstract -- Web Data Integration, HWS 2026}
+\titlerunning{Integrating Worldwide University Data}
+
+\author{Laith Sandouk \and Mohammad Hadad \and Sanjeevani Rajpurohit \and Chellapuram Keerthan Reddy
+\and Lakpa Dolma Sherpa}
+\authorrunning{Web Data Integration, HWS 2026}
+\institute{University of Mannheim, Germany}
+
+\maketitle
+
+\section{Use Case}
+
+Students, researchers and other stakeholders who need information about universities worldwide
+face a fragmented landscape: registries, knowledge bases and rankings differ in format,
+definitions and coverage, which makes institutions hard to compare. The Research Organization
+Registry (ROR) has reliable names and locations, but few descriptive facts. Wikidata and
+DBpedia add founding years, student numbers and institution types, but they are incomplete and
+often contradict each other. The Times Higher Education (THE) World University Rankings add
+scores, student statistics and subjects, but for only 3,100 institutions.
+
+We integrate these four sources into one coherent dataset that describes every institution
+exactly once. Students can compare universities by location, ranking and subjects; analysts,
+policy makers and university administrators can benchmark institutions without consolidating
+sources by hand.
+
+\section{Datasets: Schema and Basic Profile}
+
+Table~\ref{tab:datasets} profiles the four datasets, one more than required. Each contains a
+single class, \emph{University}, with one record per entity.
+
+\paragraph{Data sources and preprocessing.}
+Our Python scripts retrieved all data on 2 October 2026 and store each source as one CSV file
+with one row per university. Attributes with several values are kept as lists, and website
+links that differ only in \texttt{http}/\texttt{https} or \texttt{www} are merged.
+\begin{itemize}
+\setlength{\emergencystretch}{2em}% lets the long links break without sticking out
+\item \emph{Wikidata}, \url{https://query.wikidata.org/sparql}: all items that are an instance
+of \emph{university} (Q3918) or of one of its subclasses. Identifiers of countries, places and
+types were replaced by English labels; per university we kept the earliest founding year, the
+preferred or most recent student number and the city of its headquarters or location.
+\item \emph{DBpedia}, \url{https://dbpedia.org/sparql}: all resources of class
+\texttt{dbo:University}, fetched with one paged query per attribute, because the endpoint
+returns at most 10,000 rows. We kept the earliest founding year and the largest student number,
+cut leftover wiki markup off the website links and unwrapped archived links.
+\item \emph{ROR}, data dump v2.13 of 22 September 2026,
+\url{https://doi.org/10.5281/zenodo.22902037}: of its 141,528 records we kept the 30,131 of
+type \emph{education} that are not withdrawn (withdrawn records are merged duplicates).
+\item \emph{THE},
+\url{https://www.timeshighereducation.com/world-university-rankings/2026/world-ranking}: the
+table that the web page loads, with 2,191 ranked institutions and 927 ``reporters'' that
+supplied data but got no rank. We added the ranking status, turned text such as ``22,005'' and
+``43\%'' into numbers and split the subjects into a list.
+\end{itemize}
+
+\begin{table}[H]
+\caption{Datasets}\label{tab:datasets}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}lP{1.5cm}lrrL@{}}
+\toprule
+Dataset & Source (*) & Format &
+\multicolumn{1}{P{1.1cm}}{\raggedleft\# of entities} &
+\multicolumn{1}{P{0.75cm}}{\raggedleft\# of attr.} & List of attributes (**)\\
+\midrule
+Wikidata & SPARQL endpoint & CSV & 22,697 & 13 &
+name, alt.\ names\mv, acronyms\mv, country, country code, city, website, founding year,
+latitude\mv, longitude\mv, students\mv, types, member of\mv\\
+\addlinespace[2pt]
+DBpedia & SPARQL endpoint & CSV & 27,728 & 12 &
+name, alt.\ names\mv, country, state\mv, city, website, founding year\mv, latitude\mv,
+longitude\mv, students\mv, types\mv, affiliations\mv\\
+\addlinespace[2pt]
+ROR & Data dump (Zenodo) & CSV & 30,131 & 15 &
+name, alt.\ names, acronyms\mv, country, country code, region, city, website, domains\mv,
+founding year, latitude, longitude, types, status, parent organisation\mv\\
+\addlinespace[2pt]
+THE & Ranking web page & CSV & 3,118 & 21 &
+name, country, ranking status, rank, overall score, 5 pillar scores, 5 pillar ranks, students,
+students per staff, international students \%, female students \%, subjects, profile URL\\
+\bottomrule
+\end{tabularx}
+
+\smallskip
+(*) See ``Data sources and preprocessing''. \enspace (**) (MV) = more than 30\% missing values.
+Identifiers and links to other sources are not counted as attributes.
+\end{table}
+
+\paragraph{Missing values.}
+Over all attributes, 33\% of the values are missing in Wikidata, 39\% in DBpedia, 15\% in ROR
+and 18\% in THE. This does not hinder
+identity resolution, because the attributes we match on are well filled: the name is never
+missing and the country only in 3\% of the Wikidata and 19\% of the DBpedia records. For the
+fusion the gaps are the reason for the project, because the sources fill each other's gaps:
+student numbers are missing in 84\% of the Wikidata and 67\% of the DBpedia records but in only
+1\% of the THE records, and the coordinates missing in 31\% of the Wikidata records are complete
+in ROR.
+
+\paragraph{Ranking coverage.}
+The largest gap is the ranking: THE lists only 3,118 institutions, 6\% of the joint dataset
+(2,191 with a rank and 927 reporters without one). We see two options and would welcome
+feedback: (a) keep all institutions and label those that THE does not list as \emph{unranked}
+in the ranking status; or (b) restrict the final dataset to the institutions that THE lists.
+Option (b) makes the dataset dense and, with 3,118 entities, still meets the required 2,500, but
+it stays below the range of more than 10,000 that the requirements call good.
+
+\section{Integrated Schema and Overlap with Input Schemata}
+
+The integrated schema has one class, \emph{University}, with 34 attributes
+(Table~\ref{tab:schema}). 14 attributes occur in at least two datasets and nine in at least
+three, eight of them besides the name, so fusion by voting is possible. Six attributes are
+lists. No single attribute serves as a key: the identifiers of the sources are not part of the
+schema, and the name alone is ambiguous (in ROR, ``National University'' exists in four
+countries). A university is identified by the combination of name and country, which is unique
+for 97.2\% of the Wikidata, 99.8\% of the DBpedia and ROR, and all THE records; the city
+separates most of the rest.
+
+\begin{table}[H]
+\caption{Attribute Intersection with Integrated Schema}\label{tab:schema}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{4.9cm}lL@{}}
+\toprule
+Attribute name & Attribute type & Datasets in which the attribute is found\\
+\midrule
+name, country & string & Wikidata, DBpedia, ROR, THE\\
+alternative names & list of strings & Wikidata, DBpedia, ROR\\
+city & string & Wikidata, DBpedia, ROR\\
+website & URL & Wikidata, DBpedia, ROR\\
+founding year & date (year) & Wikidata, DBpedia, ROR\\
+latitude, longitude & decimal & Wikidata, DBpedia, ROR\\
+number of students & integer & Wikidata, DBpedia, THE\\
+acronyms & list of strings & Wikidata, ROR\\
+country code (ISO) & string & Wikidata, ROR\\
+region (DBpedia: state) & string & DBpedia, ROR\\
+institution types, memberships & list of strings & Wikidata, DBpedia\\
+parent organisation, status & string & ROR\\
+internet domains & list of strings & ROR\\
+ranking status, rank, overall score & string & THE\\
+5 pillar scores, 5 pillar ranks & decimal, integer & THE\\
+students per staff, international students~\%, female students~\% & decimal & THE\\
+subjects offered & list of strings & THE\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The mapping is not one-to-one everywhere: the \emph{affiliations} of DBpedia also contain parent
+universities, which we separate during translation, and the \emph{types} of ROR only hold
+registry categories such as \emph{education} or \emph{funder}, so they are not mapped to the
+institution types.
+
+\section{Entities Contained in Multiple Datasets}
+
+\paragraph{Wikidata, DBpedia and ROR.}
+These three sources reference each other through ROR identifiers, Wikidata identifiers and
+Wikipedia article titles (the DBpedia identifiers); 59\% to 93\% of the records of each source
+carry such a link. Following these links through the complete files, instead of a small
+sample, groups the records into 50,036 distinct institutions; 19,895 of them are contained in
+at least two sources and 9,829 in all three.
+
+\paragraph{THE.}
+THE shares no identifier with the other sources. Comparing normalised names with the names and
+alternative names of the other sources links 2,626 of the 3,118 THE universities (84\%). This
+is a lower bound: of a random sample of 100 that we checked by hand, 98 are contained in another
+source, 16 of them under a different spelling. With THE, the joint dataset describes about
+50,500 institutions: 19,993 in at least two sources, 10,125 in at least three and 2,225 in all
+four (Table~\ref{tab:requirements}).
+
+\paragraph{Identity resolution remains a real task.}
+The identifier columns are removed from the matching input and serve only as gold standard;
+for THE it is labelled by hand. Names alone do not suffice: 25\% of the linked Wikidata--ROR
+and 18\% of the linked Wikidata--DBpedia pairs differ in name even after normalisation.
+
+\begin{table}[H]
+\caption{Project requirements and how the project meets them}\label{tab:requirements}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}llL@{}}
+\toprule
+& Requirement & Our project\\
+\midrule
+1. & 3 different datasets & 4: Wikidata, DBpedia, ROR, THE\\
+2. & $\geq$\,2,500 entities in total, good: $>$\,10,000 & about 50,500 (from 83,674 records)\\
+3. & $\geq$\,1,000 entities in at least two datasets & about 20,000\\
+4. & $\geq$\,8 attributes, identifiable by two of them & 34; name + country, no identifier\\
+5. & $\geq$\,5 attributes in two datasets, some in three & 14 in two, 9 in three or more\\
+6. & At least one list attribute & 6, e.g.\ alternative names, subjects\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Independence of the sources.}
+ROR is curated by its own team, and the THE figures are submitted by the universities
+themselves. DBpedia is extracted from the English Wikipedia, on which Wikidata partly draws as
+well, so we count the two as one source for name and coordinates (63\% of the linked pairs have
+identical coordinates). For the attributes fused by voting they behave independently: where
+exactly one of the three linked sources deviates in the founding year, Wikidata and DBpedia
+agree against ROR least often (5.6\%, against 8.5\% and 6.6\% for the other pairings). Without
+DBpedia, only the country would remain in three datasets.
+
+\end{document}
