@@ -7,16 +7,15 @@
 \usepackage{float} % [H] keeps each table between two paragraphs instead of inside a sentence
 \setlength{\intextsep}{9pt plus 2pt minus 2pt}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xurl} % lets long links break at any character
 \urlstyle{same}
-% let long links break after hyphens as well
-\makeatletter\g@addto@macro{\UrlBreaks}{\do\-}\makeatother
 \newcommand{\mv}{\,(MV)}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \begin{document}
 
-\title{Integrating Worldwide University Data from Wikidata, DBpedia, ROR and THE}
+\title{Integrating Worldwide University Data from Wikidata, ROR and DEQAR}
 \subtitle{Project Abstract -- Web Data Integration, HWS 2026}
 \titlerunning{Integrating Worldwide University Data}
 
@@ -30,192 +29,203 @@
 \section{Use Case}
 
 Students, researchers and other stakeholders who need information about universities worldwide
-face a fragmented landscape: registries, knowledge bases and rankings differ in format,
-definitions and coverage, which makes institutions hard to compare. The Research Organization
-Registry (ROR) has reliable names and locations, but few descriptive facts. Wikidata and
-DBpedia add founding years, student numbers and institution types, but they are incomplete and
-often contradict each other. The Times Higher Education (THE) World University Rankings add
-scores, student statistics and subjects, but for only 3,100 institutions.
+face a fragmented landscape: registries, knowledge bases and quality assurance databases differ
+in format, definitions and coverage, which makes institutions hard to compare. The Research
+Organization Registry (ROR) has reliable names and locations, but few descriptive facts. Wikidata
+adds founding years, student numbers, institution types and memberships, but it is incomplete.
+The Database of External Quality Assurance Results (DEQAR) of the European Quality Assurance
+Register for Higher Education (EQAR) records the official name of an institution, its mergers
+and closures and its external quality assurance reports, but 89\% of its institutions lie in the
+European Higher Education Area.
 
-We integrate these four sources into one coherent dataset that describes every institution
-exactly once. Students can compare universities by location, ranking and subjects; analysts,
-policy makers and university administrators can benchmark institutions without consolidating
-sources by hand.
+We integrate these three sources into one coherent dataset that describes every university
+exactly once. Students can look up where a university is located, how old and how large it is
+and whether it has been quality-assured; analysts, policy makers and university administrators
+can compare institutions without consolidating sources by hand.
+
+\paragraph{What we count as a university.}
+A university in this project is a higher education institution that awards academic degrees and
+is an organisation of its own. The sources draw this line differently, so two kinds of records
+need care. (i)~\emph{Parts of a university}: the type \emph{education} of ROR also holds
+colleges, institutes and branches; 2,786 of its records name a parent organisation, e.g.\
+``Islamic Azad University South Tehran Branch''. DEQAR lists faculties, schools and departments
+of Spanish universities (1,275 records with a parent institution, such as ``Faculty of Law'')
+and single sites of French schools.
+(ii)~\emph{Predecessors}: DEQAR keeps 916 closed institutions and records mergers, absorptions
+and split-offs for 1,054 institutions, e.g.\ Paris-Sorbonne University, closed in 2018 and
+succeeded by Sorbonne Universit\'e. A part is never merged with the university it belongs to,
+and a predecessor is a different entity than its successor, whereas a former name of the same
+institution is one of its alternative names. Such records stay in the input data; they are the
+hard non-matches of our gold standard.
 
 \section{Datasets: Schema and Basic Profile}
 
-Table~\ref{tab:datasets} profiles the four datasets, one more than required. Each contains a
-single class, \emph{University}, with one record per entity.
+Table~\ref{tab:datasets} profiles the three datasets. Each contains a single class,
+\emph{University}, so the number of records per class is the number of entities in the table.
 
 \paragraph{Data sources and preprocessing.}
-Our Python scripts retrieved all data on 2 October 2026 and store each source as one CSV file
-with one row per university. Attributes with several values are kept as lists, and website
-links that differ only in \texttt{http}/\texttt{https} or \texttt{www} are merged.
+Our Python scripts retrieved Wikidata and ROR on 2 October 2026 and DEQAR on 9 October 2026 and
+store each source as one CSV file with one row per university. Attributes with several values
+are kept as lists, and website links that differ only in \texttt{http}/\texttt{https} or
+\texttt{www} are merged.
 \begin{itemize}
-\setlength{\emergencystretch}{2em}% lets the long links break without sticking out
 \item \emph{Wikidata}, \url{https://query.wikidata.org/sparql}: all items that are an instance
 of \emph{university} (Q3918) or of one of its subclasses. Identifiers of countries, places and
 types were replaced by English labels; per university we kept the earliest founding year, the
 preferred or most recent student number and the city of its headquarters or location.
-\item \emph{DBpedia}, \url{https://dbpedia.org/sparql}: all resources of class
-\texttt{dbo:University}, fetched with one paged query per attribute, because the endpoint
-returns at most 10,000 rows. We kept the earliest founding year and the largest student number,
-cut leftover wiki markup off the website links and unwrapped archived links.
 \item \emph{ROR}, data dump v2.13 of 22 September 2026,
 \url{https://doi.org/10.5281/zenodo.22902037}: of its 141,528 records we kept the 30,131 of
-type \emph{education} that are not withdrawn (withdrawn records are merged duplicates).
-\item \emph{THE},
-\url{https://www.timeshighereducation.com/world-university-rankings/2026/world-ranking}: the
-table that the web page loads, with 2,191 ranked institutions and 927 ``reporters'' that
-supplied data but got no rank. We added the ranking status, turned text such as ``22,005'' and
-``43\%'' into numbers and split the subjects into a list.
+type \emph{education} that are not withdrawn.
+\item \emph{DEQAR}, \url{https://www.eqar.eu/qa-results/download-data-sets/}: the list of higher
+education institutions that EQAR publishes as a CSV file and refreshes every night. It is based
+on records of the European Tertiary Education Register (ETER) and on entries by the quality
+assurance agencies registered with EQAR. We merged the rows that repeat an institution once per
+location, kept the year of the founding and closure dates and, where the file gives no country,
+took the country from the code that starts the ETER identifier.
 \end{itemize}
 
 \begin{table}[H]
 \caption{Datasets}\label{tab:datasets}
-\footnotesize
+\scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabularx}{\textwidth}{@{}lP{1.5cm}lrrL@{}}
+\begin{tabularx}{\textwidth}{@{}lP{2.0cm}lrrL@{}}
 \toprule
 Dataset & Source (*) & Format &
-\multicolumn{1}{P{1.1cm}}{\raggedleft\# of entities} &
-\multicolumn{1}{P{0.75cm}}{\raggedleft\# of attr.} & List of attributes (**)\\
+\multicolumn{1}{P{0.95cm}}{\raggedleft\# of entities} &
+\multicolumn{1}{P{1.3cm}}{\raggedleft\# of attributes} & List of attributes (**)\\
 \midrule
-Wikidata & SPARQL endpoint & CSV & 22,697 & 16 &
+Wikidata & \url{query.wikidata.org/sparql} & CSV & 22,697 & 16 &
 Wikidata id, name, alt.\ names\mv, acronyms\mv, country, country code, city, website, founding
 year, latitude\mv, longitude\mv, students\mv, types, member of\mv, ROR id\mv, Wikipedia
 title\mv\\
 \addlinespace[2pt]
-DBpedia & SPARQL endpoint & CSV & 27,728 & 14 &
-DBpedia id, name, alt.\ names\mv, country, state\mv, city, website, founding year\mv,
-latitude\mv, longitude\mv, students\mv, types\mv, affiliations\mv, Wikidata id\\
-\addlinespace[2pt]
-ROR & Data dump (Zenodo) & CSV & 30,131 & 18 &
+ROR & \url{doi.org/10.5281/zenodo.22902037} & CSV & 30,131 & 18 &
 ROR id, name, alt.\ names, acronyms\mv, country, country code, region, city, website,
 domains\mv, founding year, latitude, longitude, types, status, parent organisation\mv,
 Wikidata id, Wikipedia title\mv\\
 \addlinespace[2pt]
-THE & Ranking web page & CSV & 3,118 & 22 &
-THE id, name, country, ranking status, rank, overall score, 5 pillar scores, 5 pillar ranks,
-students, students per staff, international students \%, female students \%, subjects, profile
-URL\\
+DEQAR & \url{eqar.eu/qa-results/download-data-sets} & CSV & 8,979 & 13 &
+DEQAR id, name, alt.\ names\mv, country, city, website, founding year\mv, closure year\mv,
+parent institutions\mv, history\mv, QA reports\mv, last QA report\mv, ROR id\mv\\
 \bottomrule
 \end{tabularx}
 
 \smallskip
-(*) See ``Data sources and preprocessing''. \enspace (**) (MV) = more than 30\% missing values.
-The identifiers and the links to other sources serve only as gold standard for the matching.
+(*) Retrieved with our own Python scripts from the address shown: Wikidata by SPARQL queries and
+ROR as a data dump on 2 October 2026, DEQAR as a CSV download on 9 October 2026; see ``Data
+sources and preprocessing''. \enspace (**) (MV) = more than 30\% missing values. The
+identifiers and the links to other sources serve only as gold standard for the matching.
 \end{table}
 
 \paragraph{Missing values.}
-Over all attributes, 32\% of the values are missing in Wikidata, 33\% in DBpedia, 17\% in ROR
-and 17\% in THE. This does not hinder
-identity resolution, because the attributes we match on are well filled: the name is never
-missing and the country only in 3\% of the Wikidata and 19\% of the DBpedia records. For the
-fusion the gaps are the reason for the project, because the sources fill each other's gaps:
-student numbers are missing in 84\% of the Wikidata and 67\% of the DBpedia records but in only
-1\% of the THE records, and the coordinates missing in 31\% of the Wikidata records are complete
-in ROR.
-
-\paragraph{Ranking coverage.}
-The largest gap is the ranking: THE lists only 3,118 institutions, 6\% of the joint dataset
-(2,191 with a rank and 927 reporters without one). We see two options and would welcome
-feedback: (a) keep all institutions and label those that THE does not list as \emph{unranked}
-in the ranking status; or (b) restrict the final dataset to the institutions that THE lists.
-Option (b) makes the dataset dense and, with 3,118 entities, still meets the required 2,500, but
-it stays below the range of more than 10,000 that the requirements call good.
+Over all attributes, 32\% of the values are missing in Wikidata, 17\% in ROR and 39\% in DEQAR.
+In DEQAR this is partly by nature: a closure year and a history exist only for institutions
+that were closed or merged. The attributes we match on are well filled: the name is never
+missing, and the country is missing in 3\% of the Wikidata, 1\% of the DEQAR and none of the ROR
+records. The sources fill each other's gaps: the founding year is missing in 19\% of the
+Wikidata and 41\% of the DEQAR records but in only 11\% of the ROR records, and the coordinates
+missing in 31\% of the Wikidata records are complete in ROR.
 
 \section{Integrated Schema and Overlap with Input Schemata}
 
-The integrated schema has one class, \emph{University}, with 34 attributes
-(Table~\ref{tab:schema}). 14 attributes occur in at least two datasets and nine in at least
-three, eight of them besides the name, so fusion by voting is possible. Six attributes are
-lists. No single attribute serves as a key: the identifiers of the sources are not part of the
-schema, and the name alone is ambiguous (in ROR, ``National University'' exists in four
-countries). A university is identified by the combination of name and country, which is unique
-for 97.2\% of the Wikidata, 99.8\% of the DBpedia and ROR, and all THE records; the city
-separates most of the rest.
+The integrated schema has one class, \emph{University}, with 21 attributes
+(Table~\ref{tab:schema}): 11 are contained in at least two datasets, five other than the name
+in all three (for fusion by voting), and seven are lists. No single attribute serves as a key:
+the source identifiers are not part of the schema, and the name alone is ambiguous (in ROR,
+``National University'' exists in four countries). A university is identified by the
+combination of name and country, unique for 99.1\% of the Wikidata, 99.8\% of the ROR and
+94.5\% of the DEQAR records; in DEQAR the Spanish faculties share names such as ``Faculty of
+Law'', and with the city and the parent institution 99.8\% of its records are unique.
 
 \begin{table}[H]
 \caption{Attribute Intersection with Integrated Schema}\label{tab:schema}
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}P{4.9cm}lL@{}}
+\scriptsize
+\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\textwidth}{@{}P{4.6cm}P{2.6cm}L@{}}
 \toprule
 Attribute name & Attribute type & Datasets in which the attribute is found\\
 \midrule
-name, country & string & Wikidata, DBpedia, ROR, THE\\
-alternative names & list of strings & Wikidata, DBpedia, ROR\\
-city & string & Wikidata, DBpedia, ROR\\
-website & URL & Wikidata, DBpedia, ROR\\
-founding year & date (year) & Wikidata, DBpedia, ROR\\
-latitude, longitude & decimal & Wikidata, DBpedia, ROR\\
-number of students & integer & Wikidata, DBpedia, THE\\
-acronyms & list of strings & Wikidata, ROR\\
-country code (ISO) & string & Wikidata, ROR\\
-region (DBpedia: state) & string & DBpedia, ROR\\
-institution types, memberships & list of strings & Wikidata, DBpedia\\
-parent organisation, status & string & ROR\\
-internet domains & list of strings & ROR\\
-ranking status, rank, overall score & string & THE\\
-5 pillar scores, 5 pillar ranks & decimal, integer & THE\\
-students per staff, international students~\%, female students~\% & decimal & THE\\
-subjects offered & list of strings & THE\\
+name & string & Wikidata, ROR, DEQAR\\
+alternative names & string/list & Wikidata, ROR, DEQAR\\
+country & string & Wikidata, ROR, DEQAR\\
+city & string & Wikidata, ROR, DEQAR\\
+website & string & Wikidata, ROR, DEQAR\\
+founding year & date & Wikidata, ROR, DEQAR\\
+acronyms & string/list & Wikidata, ROR\\
+country code & string & Wikidata, ROR\\
+latitude & decimal & Wikidata, ROR\\
+longitude & decimal & Wikidata, ROR\\
+parent organisation & string/list & ROR, DEQAR\\
+region & string & ROR\\
+status & string & ROR\\
+internet domains & string/list & ROR\\
+institution types & string/list & Wikidata\\
+number of students & integer & Wikidata\\
+memberships & string/list & Wikidata\\
+closure year & date & DEQAR\\
+history (mergers and split-offs) & string/list & DEQAR\\
+number of quality assurance reports & integer & DEQAR\\
+date of last quality assurance report & date & DEQAR\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-The mapping is not one-to-one everywhere: the \emph{affiliations} of DBpedia also contain parent
-universities, which we separate during translation, and the \emph{types} of ROR only hold
-registry categories such as \emph{education} or \emph{funder}, so they are not mapped to the
-institution types.
+The mapping is not one-to-one everywhere: ROR names a parent organisation by its identifier,
+which we replace by the name, and the \emph{types} of ROR only hold registry categories such as
+\emph{education} or \emph{funder}, so they are not mapped to the institution types.
 
 \section{Entities Contained in Multiple Datasets}
 
-\paragraph{Wikidata, DBpedia and ROR.}
-These three sources reference each other through ROR identifiers, Wikidata identifiers and
-Wikipedia article titles (the DBpedia identifiers); 59\% to 93\% of the records of each source
-carry such a link. Following these links through the complete files, instead of a small
-sample, groups the records into 50,036 distinct institutions; 19,895 of them are contained in
-at least two sources and 9,829 in all three.
+\paragraph{Estimate based on small samples.}
+We drew two random samples of 100 records. Of 100 Wikidata universities, 56 carry a link to a
+ROR record, which extrapolates to about 12,700 entities in at least two datasets. Of 100 DEQAR
+institutions, 41 carry a link to a ROR record; we checked the other 59 by hand and found 19 more
+in ROR or Wikidata, so 60 are contained in another dataset, which extrapolates to about 5,400.
+Both estimates are far above the required 1,000.
 
-\paragraph{THE.}
-THE shares no identifier with the other sources. Comparing normalised names with the names and
-alternative names of the other sources links 2,626 of the 3,118 THE universities (84\%). This
-is a lower bound: of a random sample of 100 that we checked by hand, 98 are contained in another
-source, 16 of them under a different spelling. With THE, the joint dataset describes about
-50,500 institutions: 19,993 in at least two sources, 10,125 in at least three and 2,225 in all
-four (Table~\ref{tab:requirements}).
-
-\paragraph{Identity resolution remains a real task.}
-The identifier columns are removed from the matching input and serve only as gold standard;
-for THE it is labelled by hand. Names alone do not suffice: 25\% of the linked Wikidata--ROR
-and 18\% of the linked Wikidata--DBpedia pairs differ in name even after normalisation.
+\paragraph{Check on the complete files.}
+Wikidata and ROR reference each other through ROR and Wikidata identifiers, and DEQAR carries
+ROR identifiers. Following these links groups the 61,807 records into 45,081 distinct
+institutions, 14,372 of them in at least two sources and 2,183 in all three
+(Table~\ref{tab:requirements}); an exact comparison of names and countries raises these lower
+bounds to 14,658 and 2,627. The identifiers are removed from the matching input, and names alone
+do not suffice: 25\% of the linked Wikidata--ROR and 52\% of the linked DEQAR--ROR pairs differ
+in name even after normalisation.
 
 \begin{table}[H]
 \caption{Project requirements and how the project meets them}\label{tab:requirements}
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{\textwidth}{@{}llL@{}}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}lP{7.0cm}L@{}}
 \toprule
 & Requirement & Our project\\
 \midrule
-1. & 3 different datasets & 4: Wikidata, DBpedia, ROR, THE\\
-2. & $\geq$\,2,500 entities in total, good: $>$\,10,000 & about 50,500 (from 83,674 records)\\
-3. & $\geq$\,1,000 entities in at least two datasets & about 20,000\\
-4. & $\geq$\,8 attributes, identifiable by two of them & 34; name + country, no identifier\\
-5. & $\geq$\,5 attributes in two datasets, some in three & 14 in two, 9 in three or more\\
-6. & At least one list attribute & 6, e.g.\ alternative names, subjects\\
+1. & 3 different data sets & 3: Wikidata, ROR, DEQAR\\
+2. & at least 2,500 entities in total (good: $>$\,10,000 but $<$\,100,000) & about 45,000 (from 61,807 records)\\
+3. & at least 1,000 entities contained in at least two datasets & about 14,400\\
+4. & at least 8 attributes; identifiable by at least two attributes & 21; name + country\\
+5. & at least 5 attributes in at least two datasets; some in three & 11; 5 other than name in three\\
+6. & at least one list attribute & 7, e.g.\ alternative names, history\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\paragraph{Independence of the sources.}
-ROR is curated by its own team, and the THE figures are submitted by the universities
-themselves. DBpedia is extracted from the English Wikipedia, on which Wikidata partly draws as
-well, so we count the two as one source for name and coordinates (63\% of the linked pairs have
-identical coordinates). For the attributes fused by voting they behave independently: where
-exactly one of the three linked sources deviates in the founding year, Wikidata and DBpedia
-agree against ROR least often (5.6\%, against 8.5\% and 6.6\% for the other pairings). Without
-DBpedia, only the country would remain in three datasets.
+\paragraph{Gold standard.}
+The links give us matching pairs, but they are incomplete: 19 of the 60 DEQAR sample
+institutions that are contained in another dataset carry no link. We therefore do not derive
+non-matches from missing links; we check pairs that look alike but are not linked by hand and
+label them as match or non-match. We add corner cases by hand: a faculty, site or branch against
+its university (16 of the 59 unlinked sample records are such parts), a closed predecessor
+against its successor (2 of the 59), and universities that share a name in different countries.
+
+\paragraph{Distinct sources.}
+Compared with our first abstract we dropped THE and DBpedia. DBpedia is extracted from the
+English Wikipedia, on which Wikidata partly draws as well: 63\% of the linked Wikidata--DBpedia
+pairs have coordinates that are identical to about ten metres. The remaining sources have
+different origins: Wikidata is edited by volunteers, ROR is curated by its own team, and DEQAR
+is based on ETER and on the entries of quality assurance agencies. On linked records the
+founding year of DEQAR equals that of ROR in only 73\% and that of Wikidata in 74\% of the cases.
+DEQAR is the smallest dataset, but about 60\% of its institutions are contained in another
+dataset, and it shares five attributes besides the name with both.
 
 \end{document}
