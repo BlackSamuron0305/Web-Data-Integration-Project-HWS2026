@@ -22,7 +22,7 @@
 
 \begin{document}
 
-\title{Integrating Worldwide University Data from Wikidata, DBpedia, ROR and THE}
+\title{Integrating Worldwide University Data from Wikidata, ROR and DEQAR}
 \subtitle{Project Report -- Web Data Integration, HWS 2026}
 \titlerunning{Integrating Worldwide University Data}
 
@@ -38,6 +38,27 @@
 
 \section{Phase I: Data Collection and Data Translation}
 % Datasets and their profile, integrated schema, schema mapping and translation with MapForce.
+
+\paragraph{Sources considered but not used.}
+We examined four further sources and decided against them. \emph{DBpedia}
+\citep{lehmann2015dbpedia}: its 27,728 universities are extracted from the English Wikipedia, on
+which Wikidata partly draws as well. Of the linked Wikidata--DBpedia pairs, 63\% have coordinates
+that are identical to about ten metres, so DBpedia is not sufficiently distinct from Wikidata.
+\emph{OpenStreetMap} \citep{osm2026}: its 47,706 universities are independent of Wikidata (only
+4\% of the linked pairs have coordinates that are identical to about ten metres), but beyond the
+name and the location they are sparsely described: a website and a city are given for a third
+of them and a founding year for 2\%, and the tag also covers single faculties and buildings.
+\emph{University rankings}:
+we retrieved the Times Higher Education World University Rankings 2026 \citep{the2025rankings}
+and, before that, the QS ranking. THE lists only 3,118 institutions, against more than
+20,000 in each of our other sources, so a rank, a score or a subject list would be missing for
+most universities of the integrated dataset. The overlap of the schemata is
+small as well: besides the name, THE shares only the country and the number of students with the
+other sources. \emph{The Hipo university domains list} \citep{hipo2026domains}: its 10,224
+records hold a name, a country, a state or province (filled for 13\% of the records) and the
+websites of a university. By website or exact name, 82\% of its universities are already
+contained in ROR, and every one of its attributes is already supplied by our other sources, so
+it would add no new information to the integrated dataset.
 
 \section{Phase II: Identity Resolution}
 % Gold standard, similarity measures and matching rules that were compared, blocking, evaluation.
