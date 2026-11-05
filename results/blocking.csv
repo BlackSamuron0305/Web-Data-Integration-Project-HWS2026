@@ -1,0 +1,19 @@
+pair,strategy,candidates,pair_completeness,reduction_ratio,seconds,note
+wikidata-ror,standard: normalised name,10626,0.756605222734255,0.9999844622614834,0.9,
+wikidata-ror,standard: country + first word,871695,0.8383256528417818,0.9987253746493333,1.7,
+wikidata-ror,sorted neighbourhood (window 10),240642,0.840937019969278,0.9996481241791737,1.5,
+wikidata-ror,token: words of the name,236622985,,0.6540009346945501,,"too many pairs, not run"
+wikidata-ror,token: country-scoped name tokens,596521,0.9922427035330261,0.999127744464744,3.7,
+wikidata-ror,token (scoped) + same web domain,596857,0.9970814132104455,0.999127253152854,7.3,
+deqar-ror,standard: normalised name,2399,0.5033913299911531,0.9999911327545332,0.6,
+deqar-ror,standard: country + first word,147936,0.6815098790917133,0.9994531951540752,0.8,
+deqar-ror,sorted neighbourhood (window 10),100625,0.6797404895311118,0.9996280672884139,0.7,
+deqar-ror,token: words of the name,90587248,,0.6651690853788181,,"too many pairs, not run"
+deqar-ror,token: country-scoped name tokens,193222,0.991153052196992,0.9992858078767893,3.7,
+deqar-ror,token (scoped) + same web domain,193937,0.9964612208787968,0.99928316507541,2.6,
+wikidata-deqar,standard: normalised name,1957,0.5993470149253731,0.9999903972771094,0.6,
+wikidata-deqar,standard: country + first word,101376,0.7569962686567164,0.9995025622709469,0.6,
+wikidata-deqar,sorted neighbourhood (window 10),94919,0.7593283582089553,0.999534245858941,0.7,
+wikidata-deqar,token: words of the name,83838573,,0.588615950913707,,"too many pairs, not run"
+wikidata-deqar,token: country-scoped name tokens,109733,0.9864738805970149,0.9994615556510201,1.2,
+wikidata-deqar,token (scoped) + same web domain,110308,0.9948694029850746,0.9994587342071458,3.8,

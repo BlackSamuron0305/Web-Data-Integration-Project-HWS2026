@@ -6,19 +6,25 @@
 %     every extra page (appendix included) lowers the mark by 0.33
 %   - due Sunday, 29 November 2026, 23:59, via ILIAS, together with the code and (a subset of) the data
 %   - cite sources properly, preferred style [Author, year]
-%   - hand in a table on who did what together with the report (slide 7)
+%   - hand in a table on who did what together with the report (slide 7): contributions.md
+% The result tables in tables/ are written by scripts/make_report_tables.py.
 \documentclass[runningheads,a4paper]{llncs}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
-% citation style preferred in the course: [Author, year]
-% (for Springer's own numbered style remove natbib and use \bibliographystyle{splncs04})
 \usepackage[square,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
 \urlstyle{same}
 \renewcommand{\bibsection}{\section*{References}}
 \renewcommand{\bibfont}{\small}
+\newcommand{\mv}{\,(MV)}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
 
 \begin{document}
 
@@ -33,42 +39,320 @@
 
 \maketitle
 
-\section{Introduction}
-% Use case and goal of the integrated dataset.
+\begin{abstract}
+We integrate three open sources on universities: Wikidata, the Research Organization Registry (ROR)
+and the Database of External Quality Assurance Results (DEQAR). The 61,807 records describe 44,340
+distinct institutions, 14,630 of them in at least two sources and 2,837 in all three. We translate the
+sources into one XML schema with 21 attributes, build a gold standard from the identifier links of the
+sources and from hand-picked corner cases, compare blocking strategies, similarity measures, rules
+and learned matchers with PyDI, and fuse the matched records with seven conflict resolution
+strategies. Learned matchers reach an F1 of 96--99\% on the gold standard, 4--8 points above the
+best matcher that uses names only; the fused dataset fills attributes such as the founding year for 99\%
+of the entities that are in at least two sources.
+\end{abstract}
 
-\section{Phase I: Data Collection and Data Translation}
-% Datasets and their profile, integrated schema, schema mapping and translation with MapForce.
+\section{Introduction}
+
+Students, researchers and policy makers who compare universities worldwide meet registries,
+knowledge bases and quality assurance databases that differ in format, definitions and coverage.
+ROR has reliable names and locations but few descriptive facts, Wikidata adds founding years,
+student numbers and memberships but is incomplete, and DEQAR records mergers, closures and external
+quality assurance reports, mostly of European institutions. Our goal is one dataset that describes
+every university exactly once, with the best value for each attribute.
+
+As in the project abstract, a \emph{university} is a higher education institution that awards
+academic degrees and is an organisation of its own; a college or institute that meets both
+conditions counts, a branch, faculty or campus does not. The sources draw this line differently
+(ROR also holds branches, DEQAR faculties and closed predecessors), and none of them records
+whether an institution awards degrees. We therefore keep such records in the input and use them as
+hard non-matches of the gold standard (Sect.~\ref{sec:gold}) instead of filtering them by rules the
+data cannot support. The integration follows the three phases of the course: data collection and
+translation (Sect.~\ref{sec:phase1}), identity resolution (Sect.~\ref{sec:phase2}) and data fusion
+(Sect.~\ref{sec:phase3}). All code, the translated data, the gold standards and the fused dataset
+are part of the submission (folders \url{scripts/} and \url{data/}).
+
+\section{Phase I: Data Collection and Translation}\label{sec:phase1}
+
+\paragraph{Datasets.}
+Our Python scripts retrieved Wikidata and ROR on 2 October 2026 and DEQAR on 9 October 2026 and store
+each source as one CSV file with one row per institution; attributes with several values are lists.
+\emph{Wikidata} \citep{vrandecic2014wikidata} comes from SPARQL queries against
+\url{query.wikidata.org/sparql}: all items that are an instance of \emph{university} (Q3918) or one of
+its subclasses, with identifiers replaced by English labels. \emph{ROR} \citep{ror2026dump} is the data
+dump v2.13 of 22 September 2026; of its 141,528 records we kept the 30,131 of type \emph{education}
+that are not withdrawn. \emph{DEQAR} \citep{eqar2026deqar} is the list of higher education
+institutions that EQAR publishes as a nightly CSV file; we merged rows that repeat an institution
+once per location and took the country from the ETER identifier where the file has none. The three
+sources are edited by volunteers (Wikidata), a curation team (ROR) and quality assurance agencies
+(DEQAR). On linked records the founding year of DEQAR equals that of ROR in only 73\% and that of
+Wikidata in 74\% of the cases, so the sources are sufficiently distinct to vote against each other.
+Table~\ref{tab:datasets} profiles them.
+
+\begin{table}[t]
+\caption{Datasets}\label{tab:datasets}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}lP{2.3cm}lP{0.9cm}P{1.1cm}L@{}}
+\toprule
+Dataset & Source (*) & Format & \# entities & \# attributes & List of attributes (**)\\
+\midrule
+Wikidata & \url{query.wikidata.org/sparql} & CSV & 22,697 & 16 &
+Wikidata id, name, alt.\ names\mv, acronyms\mv, country, country code, city, website, founding
+year, latitude\mv, longitude\mv, students\mv, types, member of\mv, ROR id\mv, Wikipedia title\mv\\
+\addlinespace[2pt]
+ROR & \url{doi.org/10.5281/zenodo.22902037} & CSV & 30,131 & 18 &
+ROR id, name, alt.\ names, acronyms\mv, country, country code, region, city, website, domains,
+founding year, latitude, longitude, types, status, parent organisation\mv, Wikidata id,
+Wikipedia title\mv\\
+\addlinespace[2pt]
+DEQAR & \url{eqar.eu/qa-results/download-data-sets} & CSV & 8,979 & 13 &
+DEQAR id, name, alt.\ names\mv, country, city, website, founding year\mv, closure year\mv,
+parent institutions\mv, history\mv, QA reports\mv, last QA report\mv, ROR id\mv\\
+\bottomrule
+\end{tabularx}
+
+\smallskip
+\scriptsize (*) Retrieved with our own scripts (\url{scripts/fetch_*.py}, \url{build_ror_education.py}). (**) (MV) =
+more than 30\% missing values. The identifiers and links to other sources are used only as gold standard.
+\end{table}
 
 \paragraph{Sources considered but not used.}
-We examined four further sources and decided against them. \emph{DBpedia}
-\citep{lehmann2015dbpedia}: its 27,728 universities are extracted from the English Wikipedia, on
-which Wikidata partly draws as well. Of the linked Wikidata--DBpedia pairs, 63\% have coordinates
-that are identical to about ten metres, so DBpedia is not sufficiently distinct from Wikidata.
-\emph{OpenStreetMap} \citep{osm2026}: its 47,706 universities are independent of Wikidata (only
-4\% of the linked pairs have coordinates that are identical to about ten metres), but beyond the
-name and the location they are sparsely described: a website and a city are given for a third
-of them and a founding year for 2\%, and the tag also covers single faculties and buildings.
-\emph{University rankings}:
-we retrieved the Times Higher Education World University Rankings 2026 \citep{the2025rankings}
-and, before that, the QS ranking. THE lists only 3,118 institutions, against more than
-20,000 in each of our other sources, so a rank, a score or a subject list would be missing for
-most universities of the integrated dataset. The overlap of the schemata is
-small as well: besides the name, THE shares only the country and the number of students with the
-other sources. \emph{The Hipo university domains list} \citep{hipo2026domains}: its 10,224
-records hold a name, a country, a state or province (filled for 13\% of the records) and the
-websites of a university. By website or exact name, 82\% of its universities are already
-contained in ROR, and every one of its attributes is already supplied by our other sources, so
-it would add no new information to the integrated dataset.
+\emph{DBpedia} \citep{lehmann2015dbpedia} is extracted from the English Wikipedia, on which Wikidata
+partly draws as well: 63\% of its linked pairs with Wikidata have coordinates identical to about ten metres,
+so it is not distinct enough. \emph{OpenStreetMap} \citep{osm2026} (47,706 universities) is
+independent but gives little beyond name and position (founding year for 2\%). The \emph{THE ranking}
+\citep{the2025rankings} has only 3,118 institutions and shares only name, country and student numbers,
+and the \emph{Hipo domain list} \citep{hipo2026domains} adds nothing that our sources lack.
 
-\section{Phase II: Identity Resolution}
-% Gold standard, similarity measures and matching rules that were compared, blocking, evaluation.
+\paragraph{Integrated schema.}
+We applied the rules of thumb for schema integration to the attribute lists of Table~\ref{tab:datasets}.
+The integrated schema has one class, \emph{University}, with the 21 attributes of
+Table~\ref{tab:schema}; 11 are in at least two datasets, five besides the name are in all three
+(alternative names, country, city, website, founding year) and seven are lists. Two mappings are not
+one-to-one: ROR names a parent organisation by identifier, which we replace by its name, and the
+\emph{types} of ROR are registry categories such as \emph{education} or \emph{funder} and are therefore
+not mapped to the institution types of Wikidata. The internet domain is derived from the website for
+Wikidata and DEQAR. No attribute is a key; the source identifiers are not part of the schema, and a
+university is identified by name and country, which is unique for 99.1\% (Wikidata), 99.8\% (ROR)
+and 94.5\% (DEQAR) of the records.
 
-\section{Phase III: Data Fusion}
-% Conflict resolution strategies that were compared, quality and completeness of the fused dataset.
+\begin{table}[t]
+\caption{Attribute intersection with the integrated schema (W = Wikidata, R = ROR, D = DEQAR)}\label{tab:schema}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llc@{\hspace{6pt}}llc@{}}
+\toprule
+Attribute & Type & Found in & Attribute & Type & Found in\\
+\midrule
+name & string & W, R, D & parent organisation & string/list & R, D\\
+alternative names & string/list & W, R, D & region, status & string & R\\
+country & string & W, R, D & internet domains & string/list & R, W, D\\
+city & string & W, R, D & institution types & string/list & W\\
+website & string & W, R, D & number of students & integer & W\\
+founding year & integer & W, R, D & memberships & string/list & W\\
+acronyms & string/list & W, R & closure year & integer & D\\
+country code & string & W, R & history & string/list & D\\
+latitude, longitude & decimal & W, R & QA reports, last date & integer, date & D\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\section{Summary}
+\paragraph{Schema mapping and translation.}
+We first defined the target schema as an XSD (\url{data/target.xsd}): the elements \emph{id,
+name, alternativeNames, acronyms, location, web, lifecycle, parentInstitutions, institutionTypes,
+numberOfStudents, memberships, qualityAssurance} and \emph{status}. A first MapForce mapping for
+Wikidata and DEQAR had flaws: ROR was not translated, the lists were split with stray spaces, the
+institution types were not split, names and countries were lower-cased, and the DEQAR parent
+institutions, which are needed for the hard non-matches, were missing. So that all three sources follow
+exactly the same rules, the final files \url{data/Wikidata_Mapping.xml}, \url{data/ROR_Mapping.xml} and
+\url{data/deqar_Mapping.xml} are written by one script (\url{translate_to_xml.py}) with the element
+structure of the first mapping. They contain 22,697, 30,131 and 8,979 institutions, keep the original
+spelling of names and countries, and validate against the XSD. All following steps read these XML files.
 
-\nocite{*} % lists every entry of references.bib; remove once the sources are cited in the text
+\section{Phase II: Identity Resolution}\label{sec:phase2}
+
+\subsection{Gold standard}\label{sec:gold}
+
+The sources link each other through identifier columns (Wikidata with ROR,
+DEQAR with ROR); two records are linked across Wikidata and DEQAR if they point to the same ROR
+record. We use the links that connect two records one-to-one as \emph{matches}: 13,020
+Wikidata--ROR, 3,391 DEQAR--ROR and 2,144 Wikidata--DEQAR pairs. The links are only used for the gold
+standard; the identifiers never enter the matching. They are incomplete, so we do not derive
+non-matches from missing links. Table~\ref{tab:gold} shows the \emph{non-matches}:
+\emph{hard} are candidate pairs of the most similar names in which both records are linked to a
+different record of the other dataset (so neither can be the other's partner), \emph{random} a random draw
+of such pairs, and three kinds of corner cases that the proposal singled out: a \emph{part of} an
+institution (a ROR record with a parent) against the institution or against another part, a closed
+DEQAR institution against the successor named in its history (\emph{predecessor}), and
+\emph{same name} in different countries. The pairs are split by their left record into a development
+part (tuning) and a test part (reported), so that no record is in both.
+
+\input{tables/gold}
+
+\subsection{Blocking}\label{sec:blocking}
+
+Comparing all records would take 0.7 billion pairs for Wikidata--ROR. We compared the blockers of PyDI
+\citep{pydi2026}, which implement the standard techniques \citep{christen2012matching}, by \emph{pair completeness} (share of the linked pairs that survive blocking) and
+number of candidate pairs (Table~\ref{tab:blocking}). Equality of the normalised name finds only half to
+three quarters of the matches, because 25--52\% of the linked pairs differ in name even after
+normalisation (local-language names, abbreviations); a country-and-first-word key and sorted
+neighbourhood reach 68--84\%. Token blocking on the words of the names produces hundreds of millions of
+pairs because words such as \emph{university} are everywhere. Our best strategy scopes the tokens of the
+name, alternative names and acronyms to the country (\texttt{DE\_heidelberg}), drops tokens that occur
+in more than 150 records of a country, adds rare tokens without country for records whose country
+differs or is missing, and adds all pairs that share an internet domain. It keeps 99.5--99.7\% of the
+matches with 0.11--0.60 million candidate pairs (reduction ratio above 99.9\%).
+
+\input{tables/blocking}
+
+\subsection{Matching}\label{sec:matching}
+
+\paragraph{Comparators.}
+For every pair we compute 11 similarities with PyDI's comparators: the name with four string measures
+(Jaro-Winkler, Levenshtein, Jaccard on words, Sørensen-Dice), the best match over all names of the two
+records (name, alternative names, acronyms) with Jaro-Winkler and with Jaccard, the country (1 if equal, 0.5 if unknown, 0 if different), the
+shared internet domain, the city (Jaro-Winkler), the founding year (absolute difference scaled to 10
+years) and the distance between the coordinates (1 up to 2\,km, 0 from 50\,km). A missing value gives 0.
+Four indicator features tell whether both records have a domain, city, year or position.
+
+\paragraph{Experiments.}
+We compared (i) single similarity measures on the name, (ii) five rule-based matchers that are the
+weighted average of an increasing set of attributes (PyDI's \texttt{RuleBasedMatcher}), with integer
+weights from 0 to 6 found by random search on the development part, and (iii) three learned matchers
+(logistic regression, random forest, gradient boosting of scikit-learn \citep{pedregosa2011sklearn}, in
+PyDI's \texttt{MLBasedMatcher}) on all 15 features. Thresholds were tuned on the development part (learned
+matchers: five-fold cross validation). Table~\ref{tab:matching} shows precision (P), recall (R) and F1
+on the test part. As in PyDI's evaluator, a predicted pair is a false positive only if the gold standard
+labels it as a non-match; matches lost by blocking count as missed.
+
+\input{tables/matching}
+
+\paragraph{Findings.}
+(1)~The choice of the string measure hardly matters (F1 85.3--85.8\% for Wikidata--ROR), but comparing
+\emph{all} names of two records instead of the main names raises F1 by 8--19 points, because the
+main names often differ by language. (2)~The web domain is the most useful further attribute (+0.8 to
++7.8 points on top of names and country); the country helps most for Wikidata--ROR (+2.0 points), where
+names such as ``Victoria University'' exist in several countries. (3)~Adding all attributes to a
+weighted average does \emph{not} help (``all attributes'' is 0.3--2.3 points below the rule with names,
+country and domain): the founding year and the coordinates are missing for many records, and a missing
+value counts as 0 and lowers the score of true matches. (4)~Learned matchers, which see the indicator
+features, are best by 0.7--1.6 points over the best rule: random forest for Wikidata--ROR and gradient
+boosting for DEQAR--ROR and Wikidata--DEQAR were chosen by their development F1. The domain is the most important
+feature of the DEQAR pairs (importance 0.36 and 0.80), then the best name match. Recall at the final
+threshold (0.8, see below) is 97\%, 93\% and 95\% for test matches in which both records have a website but
+86\%, 64\% and 47\% when one has none (414, 25 and 19 matches). (5)~The final threshold misses 3.5\%, 7.4\% and 5.6\% of the
+test matches. They are mostly records with names in different languages and different
+websites (e.g.\ \emph{Academy of fine arts of Roma} -- \emph{Accademia di Belle Arti di Roma}) or a
+campus against its university (\emph{Oklahoma State University} -- \emph{Oklahoma State
+University-Main Campus}); 5--7\% of the missed matches were already lost by blocking.
+
+\subsection{One-to-one matching and the final threshold}
+
+Every institution should be matched at most once per dataset, so we compared PyDI's post-clustering
+algorithms (Table~\ref{tab:post}). Greedy and stable one-to-one matching give the same
+result and raise precision to 99.1--100\% at a recall loss of 0.6--1.0 points; maximum bipartite
+matching is worse. We use greedy matching.
+
+The F1-optimal thresholds were found on a gold standard whose non-matches are mostly easy. We therefore
+checked, for each dataset pair, 60 randomly drawn correspondences that are \emph{not} in the gold standard
+by hand (Table~\ref{tab:threshold}, columns ``Sample''). At the F1-optimal threshold only 75\% of
+the new Wikidata--ROR pairs were correct, the errors being similar institutions in one city
+(\emph{British University of Nicosia} -- \emph{Cyprus Aydin University}), a part against the whole
+(\emph{Kmct Polytechnic College} -- \emph{KMCT Group of Educational Institutions}) and predecessors
+(\emph{University of Auvergne} -- \emph{Universit\'e Blaise Pascal}). A threshold of 0.8 raises the
+precision of the new pairs to 97\% (Wikidata--ROR), 94\% (DEQAR--ROR) and 98\% (Wikidata--DEQAR) for a
+loss of at most 1.6 points of recall on the gold standard. We use 0.8 for all pairs. The resulting
+20,079 correspondences contain 2,318 pairs that are not in the gold standard, i.e.\ links that the
+sources do not give; the sample suggests that nearly all of them are correct.
+
+\input{tables/final}
+
+\section{Phase III: Data Fusion}\label{sec:phase3}
+
+\paragraph{Groups.}
+We merge the three correspondence sets into groups (connected components) with PyDI. Because the
+sets are matched pairwise, they can contradict each other (two Wikidata records linked to one
+ROR record through DEQAR); we therefore accept correspondences from the highest score down and reject
+one that would put two records of the same dataset into a group. This rejected 49 of 20,079
+correspondences. The 61,807 records form 44,340 groups, i.e.\ \textbf{44,340 entities}: 15,771 only in ROR,
+9,465 only in Wikidata, 4,474 only in DEQAR, 10,125 in ROR and Wikidata, 1,398 in DEQAR and ROR, 270 in
+DEQAR and Wikidata and 2,837 in all three.
+
+\paragraph{Strategies.}
+The conflict resolution functions follow the usual taxonomy \citep{bleiholder2009fusion}. For the list attributes (alternative names, acronyms, domains, parent institutions, types, memberships,
+history) we take the union. For the single-valued attributes we compared seven strategies with PyDI's
+fusion engine: PyDI's default (first non-null value), \emph{favour a source} with each of three orders
+(ROR, Wikidata or DEQAR first; PyDI's \texttt{prefer\_higher\_trust}), and majority \emph{voting} on
+normalised values (own resolver) with ties decided in favour of ROR, in favour of Wikidata, or of the
+earliest year. Coordinates are fused with the median of the values. Attributes of only one source need no
+resolution. In 99.4\% of the groups with two country codes the sources agree, but only 70\% agree on
+the name, 74\% on the city, 80\% on the founding year and 86\% on the web domain; the rest are the conflicts
+that fusion has to resolve. With two sources most votes are ties, so a vote is in effect a
+trust-based choice among the disagreeing pairs.
+
+\paragraph{Evaluation.}
+We evaluated the strategies on a fusion gold standard of 39 well-known universities that are in all
+three datasets (\url{data/gold_standard/fusion_gold.csv}); the expected name (English or official
+local name), country, city, founding year and web domain were compiled by hand from general knowledge
+of these institutions, not from one of the sources. Table~\ref{tab:fusion} shows the accuracy. Voting is
+as good as or better than every rule that favours a source, except for the founding year. Favouring
+DEQAR, which is also what PyDI's default does here, is least accurate (founding year 89.7\%, name 92.3\%:
+three official local names are not among the accepted names); favouring Wikidata sometimes takes a district as
+the city (Wikidata gives ``Taka-T\"o\"ol\"o'' for the Sibelius Academy in Helsinki) and is wrong for 13\% of the entities. For the
+founding year, Wikidata first (97.4\%) is one entity better than voting (94.9\%), which is not a
+reliable difference on 39 entities. Our final strategy takes, per attribute,
+the best accuracy and decides ties in favour of voting: voting for name, country, city and domain, and
+Wikidata first for the founding year. The set is small and its universities are well documented, so
+it can show that a strategy is bad but not rank the good ones.
+
+\input{tables/fusion}
+
+\paragraph{Quality of the fused dataset.}
+Fusion fills the gaps of the sources (Table~\ref{tab:completeness}). For the entities that are in at
+least two sources the fused record has a founding year in 99\%, a city in 100\%, coordinates in
+99\% and alternative names in 91\%, where the best single source has 94\%, 98\%, 98\% and 76\%.
+Over all 44,340 entities, attributes that only one source provides remain sparse
+(students 8\%, memberships 11\%, quality assurance reports 11\%) because
+only few of their entities are in that source.
+
+\input{tables/completeness}
+
+\section{Conclusion}
+
+All requirements of the course are met: three datasets from distinct sources, 44,340 entities
+(61,807 records), 14,630 entities in at least two and 2,837 in all three datasets, 21 attributes of
+which five besides the name are in all three, and seven list attributes. The main lessons are: names alone
+are not enough across languages (the best match over all names and the web domain matter most);
+learned matchers beat hand-weighted rules mainly because they handle missing values; a gold standard
+whose non-matches are easy gives thresholds that are too low, which a hand-checked sample of the
+correspondences revealed; and with only two sources voting is mostly a trust decision.
+
+\begin{table}[t]
+\caption{Project requirements (slide 12) and how the project meets them}\label{tab:requirements}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}lP{6.2cm}L@{}}
+\toprule
+& Requirement & Our project\
+\midrule
+1. & 3 different data sets & 3: Wikidata, ROR, DEQAR\
+2. & at least 2,500 entities in total (good: $>$\,10,000 but $<$\,100,000) & 44,340 entities (61,807 records)\
+3. & at least 1,000 entities in at least two datasets & 14,630 (2,837 in all three)\
+4. & at least 8 attributes; entities identifiable by at least two attributes & 21; name + country\
+5. & at least 5 attributes in at least two datasets; some in three & 11; 5 other than the name in all three\
+6. & ideally at least one list attribute & 7, e.g.\ alternative names, history\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Limitations.}
+The matches of the gold standard are the pairs that the sources link themselves, so they are
+over-represented among records with a website and a Wikidata or ROR identifier, and the
+recall on unlinked records is unknown. The hand-checked samples (60 pairs per dataset pair) give a
+precision with a margin of roughly $\pm 6$ points, and the fusion gold standard has 39 entities.
+Parts and predecessors are kept as separate entities but the data cannot tell a branch from a
+university in general, so non-universities of ROR and DEQAR remain in the fused dataset.
+
 \bibliographystyle{plainnat}
 \bibliography{references}
 

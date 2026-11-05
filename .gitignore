@@ -9,3 +9,6 @@
 *.fdb_latexmk
 *.synctex.gz
 *.bst
+
+results/cache/
+__pycache__/

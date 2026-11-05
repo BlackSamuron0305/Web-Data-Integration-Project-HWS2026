@@ -1,0 +1,47 @@
+\begin{table}[t]
+\caption{Post-clustering of the correspondences (threshold of the matcher, test part of the gold standard)}\label{tab:post}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+Pair & Post-clustering & Correspondences & P & R & F1\\
+\midrule
+Wikidata--ROR & no post-clustering & 14{,}625 & 99.1 & 98.2 & 98.6\\
+ & Greedy one-to-one & 13{,}293 & 100.0 & 97.6 & 98.8\\
+ & Maximum bipartite matching & 13{,}301 & 99.7 & 95.1 & 97.4\\
+ & Stable matching & 13{,}290 & 100.0 & 97.6 & 98.8\\
+DEQAR--ROR & no post-clustering & 4{,}818 & 98.3 & 94.2 & 96.2\\
+ & Greedy one-to-one & 4{,}278 & 99.6 & 93.6 & 96.5\\
+ & Maximum bipartite matching & 4{,}281 & 99.1 & 90.7 & 94.7\\
+ & Stable matching & 4{,}277 & 99.6 & 93.6 & 96.5\\
+Wikidata--DEQAR & no post-clustering & 3{,}666 & 98.1 & 94.1 & 96.1\\
+ & Greedy one-to-one & 3{,}010 & 99.1 & 93.1 & 96.0\\
+ & Maximum bipartite matching & 3{,}014 & 99.0 & 91.4 & 95.0\\
+ & Stable matching & 3{,}008 & 99.1 & 93.1 & 96.0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Threshold analysis after greedy one-to-one matching: gold standard (test part) and hand-checked sample of the correspondences that are not in the gold standard}\label{tab:threshold}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Pair & Threshold & Corr. & P & R & F1 & Sample & Sample precision\\
+\midrule
+Wikidata--ROR & 0.5 & 13{,}293 & 100.0 & 97.6 & 98.8 & 60 & 75.0\\
+ & 0.7 & 13{,}048 & 100.0 & 96.8 & 98.4 & 42 & 92.9\\
+ & 0.8 & 12{,}912 & 100.0 & 96.0 & 98.0 & 39 & 97.4\\
+ & 0.9 & 12{,}609 & 100.0 & 93.7 & 96.8 & 32 & 100.0\\
+DEQAR--ROR & 0.5 & 4{,}278 & 99.6 & 93.6 & 96.5 & 60 & 88.3\\
+ & 0.7 & 4{,}231 & 99.7 & 93.0 & 96.2 & 58 & 91.4\\
+ & 0.8 & 4{,}157 & 99.7 & 92.0 & 95.7 & 54 & 94.4\\
+ & 0.9 & 4{,}039 & 99.7 & 89.8 & 94.5 & 49 & 93.9\\
+Wikidata--DEQAR & 0.5 & 3{,}010 & 99.1 & 93.1 & 96.0 & 60 & 98.3\\
+ & 0.7 & 3{,}010 & 99.1 & 93.1 & 96.0 & 60 & 98.3\\
+ & 0.8 & 3{,}010 & 99.1 & 93.1 & 96.0 & 60 & 98.3\\
+ & 0.9 & 2{,}929 & 99.3 & 92.5 & 95.8 & 57 & 98.2\\
+\bottomrule
+\end{tabular}
+\end{table}

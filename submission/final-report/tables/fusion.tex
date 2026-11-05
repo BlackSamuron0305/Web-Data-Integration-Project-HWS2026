@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{Accuracy (\%) of the fusion strategies on the 39 entities of the fusion gold standard}\label{tab:fusion}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Strategy & Name & Country & City & Founding year & Domain\\
+\midrule
+first non-null (PyDI default) & 92.3 & 100.0 & 100.0 & 89.7 & 97.4\\
+ROR first & 100.0 & 100.0 & 100.0 & 94.9 & 97.4\\
+Wikidata first & 100.0 & 100.0 & 87.2 & 97.4 & 100.0\\
+DEQAR first & 92.3 & 100.0 & 100.0 & 89.7 & 97.4\\
+vote, tie: ROR & 100.0 & 100.0 & 100.0 & 94.9 & 100.0\\
+vote, tie: Wikidata & 100.0 & 100.0 & 100.0 & 94.9 & 100.0\\
+vote, tie: earliest year & 100.0 & 100.0 & 100.0 & 94.9 & 100.0\\
+\bottomrule
+\end{tabular}
+\end{table}

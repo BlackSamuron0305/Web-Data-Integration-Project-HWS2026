@@ -1,0 +1,6 @@
+uma-pydi==0.2.1
+pandas
+numpy
+scikit-learn
+rapidfuzz
+lxml

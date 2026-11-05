@@ -1,0 +1,8 @@
+strategy,name,country_code,city,founding_year,domain
+first non-null (PyDI default),0.923,1.0,1.0,0.897,0.974
+ROR first,1.0,1.0,1.0,0.949,0.974
+Wikidata first,1.0,1.0,0.872,0.974,1.0
+DEQAR first,0.923,1.0,1.0,0.897,0.974
+"vote, tie: ROR",1.0,1.0,1.0,0.949,1.0
+"vote, tie: Wikidata",1.0,1.0,1.0,0.949,1.0
+"vote, tie: earliest year",1.0,1.0,1.0,0.949,1.0

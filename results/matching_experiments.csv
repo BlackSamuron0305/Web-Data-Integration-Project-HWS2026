@@ -1,0 +1,43 @@
+pair,group,config,threshold,dev_f1,test_precision,test_recall,test_f1
+wikidata-ror,similarity measure,name_jaro_winkler,0.97,0.8597,0.9638,0.7704,0.8563
+wikidata-ror,similarity measure,name_levenshtein,0.94,0.8598,0.9739,0.7674,0.8584
+wikidata-ror,similarity measure,name_jaccard,0.78,0.86,0.9448,0.778,0.8533
+wikidata-ror,similarity measure,name_sorensen_dice,0.88,0.86,0.9448,0.778,0.8533
+wikidata-ror,similarity measure,names_best_jaro_winkler,0.98,0.9382,0.9325,0.9522,0.9423
+wikidata-ror,similarity measure,names_best_jaccard,0.89,0.9375,0.9355,0.9504,0.9429
+wikidata-ror,rule,names {'names_best_jaro_winkler': 1},0.98,0.9382,0.9325,0.9522,0.9423
+wikidata-ror,rule,"names+country {'names_best_jaro_winkler': 6, 'country': 1}",0.98,0.9557,0.9798,0.944,0.9616
+wikidata-ror,rule,"names+country+domain {'names_best_jaro_winkler': 4, 'country': 5, 'domain': 5}",0.64,0.9701,0.9592,0.9808,0.9699
+wikidata-ror,rule,"names+country+domain+city {'names_best_jaro_winkler': 5, 'country': 3, 'domain': 3, 'city': 0}",0.72,0.9696,0.9584,0.9814,0.9698
+wikidata-ror,rule,"all attributes {'names_best_jaro_winkler': 3, 'country': 0, 'domain': 5, 'city': 0, 'founding_year': 1, 'geo': 0}",0.44,0.9495,0.9651,0.9296,0.947
+wikidata-ror,learned,logistic regression,0.52,0.9762,0.9792,0.9731,0.9761
+wikidata-ror,learned,random forest,0.5,0.9803,0.9911,0.9817,0.9864
+wikidata-ror,learned,gradient boosting,0.68,0.9803,0.9949,0.9763,0.9855
+deqar-ror,similarity measure,name_jaro_winkler,0.96,0.6958,0.9018,0.5472,0.6811
+deqar-ror,similarity measure,name_levenshtein,0.89,0.6924,0.9165,0.5443,0.683
+deqar-ror,similarity measure,name_jaccard,0.75,0.7049,0.952,0.5502,0.6973
+deqar-ror,similarity measure,name_sorensen_dice,0.86,0.7049,0.952,0.5502,0.6973
+deqar-ror,similarity measure,names_best_jaro_winkler,0.97,0.8831,0.9593,0.8076,0.8769
+deqar-ror,similarity measure,names_best_jaccard,0.75,0.8879,0.9581,0.8229,0.8854
+deqar-ror,rule,names {'names_best_jaro_winkler': 1},0.96,0.8803,0.9119,0.8247,0.8661
+deqar-ror,rule,"names+country {'names_best_jaro_winkler': 6, 'country': 4}",0.98,0.8886,0.9579,0.8064,0.8756
+deqar-ror,rule,"names+country+domain {'names_best_jaro_winkler': 6, 'country': 5, 'domain': 2}",0.84,0.9505,0.9765,0.9327,0.9541
+deqar-ror,rule,"names+country+domain+city {'names_best_jaro_winkler': 4, 'country': 3, 'domain': 1, 'city': 0}",0.86,0.9458,0.9644,0.9286,0.9462
+deqar-ror,rule,"all attributes {'names_best_jaro_winkler': 6, 'country': 5, 'domain': 2, 'city': 1, 'founding_year': 0, 'geo': 3}",0.7,0.9426,0.9833,0.9014,0.9406
+deqar-ror,learned,logistic regression,0.44,0.9494,0.9772,0.9357,0.956
+deqar-ror,learned,random forest,0.66,0.9494,0.9894,0.9357,0.9618
+deqar-ror,learned,gradient boosting,0.62,0.9514,0.9834,0.9421,0.9623
+wikidata-deqar,similarity measure,name_jaro_winkler,0.95,0.7729,0.9334,0.6566,0.7709
+wikidata-deqar,similarity measure,name_levenshtein,0.9,0.768,0.9659,0.6235,0.7578
+wikidata-deqar,similarity measure,name_jaccard,0.75,0.7865,0.9603,0.6667,0.787
+wikidata-deqar,similarity measure,name_sorensen_dice,0.86,0.7865,0.9603,0.6667,0.787
+wikidata-deqar,similarity measure,names_best_jaro_winkler,0.96,0.8907,0.9533,0.8246,0.8843
+wikidata-deqar,similarity measure,names_best_jaccard,0.75,0.8972,0.9547,0.832,0.8891
+wikidata-deqar,rule,names {'names_best_jaro_winkler': 1},0.96,0.8907,0.9533,0.8246,0.8843
+wikidata-deqar,rule,"names+country {'names_best_jaro_winkler': 3, 'country': 0}",0.96,0.8907,0.9533,0.8246,0.8843
+wikidata-deqar,rule,"names+country+domain {'names_best_jaro_winkler': 4, 'country': 5, 'domain': 5}",0.64,0.9717,0.9681,0.9467,0.9573
+wikidata-deqar,rule,"names+country+domain+city {'names_best_jaro_winkler': 4, 'country': 5, 'domain': 5, 'city': 0}",0.64,0.9717,0.9681,0.9467,0.9573
+wikidata-deqar,rule,"all attributes {'names_best_jaro_winkler': 1, 'country': 5, 'domain': 5, 'city': 0, 'founding_year': 0, 'geo': 2}",0.46,0.9685,0.9618,0.9467,0.9542
+wikidata-deqar,learned,logistic regression,0.44,0.968,0.9736,0.9486,0.9609
+wikidata-deqar,learned,random forest,0.46,0.9666,0.9659,0.9614,0.9636
+wikidata-deqar,learned,gradient boosting,0.8,0.9741,0.9809,0.9412,0.9606

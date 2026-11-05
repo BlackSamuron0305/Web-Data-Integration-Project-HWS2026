@@ -1,0 +1,23 @@
+{
+ "wikidata-ror": {
+  "kind": "learned",
+  "name": "random forest",
+  "threshold": 0.5000000000000001,
+  "weights": null,
+  "dev_f1": 0.9803496828098406
+ },
+ "deqar-ror": {
+  "kind": "learned",
+  "name": "gradient boosting",
+  "threshold": 0.6200000000000001,
+  "weights": null,
+  "dev_f1": 0.9513641755634639
+ },
+ "wikidata-deqar": {
+  "kind": "learned",
+  "name": "gradient boosting",
+  "threshold": 0.8000000000000002,
+  "weights": null,
+  "dev_f1": 0.974063400576369
+ }
+}

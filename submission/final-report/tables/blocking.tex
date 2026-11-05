@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{Blocking: pair completeness (PC) and number of candidate pairs}\label{tab:blocking}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Strategy & \multicolumn{2}{c}{Wikidata--ROR} & \multicolumn{2}{c}{DEQAR--ROR} & \multicolumn{2}{c}{Wikidata--DEQAR}\\ & PC (\%) & Cand. & PC (\%) & Cand. & PC (\%) & Cand.\\
+\midrule
+Standard: normalised name & 75.7 & 11k & 50.3 & 2k & 59.9 & 2k\\
+Standard: country + first word & 83.8 & 872k & 68.2 & 148k & 75.7 & 101k\\
+Sorted neighbourhood (window 10) & 84.1 & 241k & 68.0 & 101k & 75.9 & 95k\\
+Token: words of the name & -- & 237M & -- & 91M & -- & 84M\\
+Token: country-scoped name tokens & 99.2 & 597k & 99.1 & 193k & 98.6 & 110k\\
+Token (scoped) + same web domain & 99.7 & 597k & 99.6 & 194k & 99.5 & 110k\\
+\bottomrule
+\end{tabular}
+\end{table}
