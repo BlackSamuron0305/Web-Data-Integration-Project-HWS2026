@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2026r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="35">
+	<settings>
+		<libraries>
+			<import path="..\deqar_SchemeMapping\deqarMapping.mfd" saverelative="1"/>
+		</libraries>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1">
+		<properties ShowLibraryNameInHeader="1" SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="concat" library="core" uid="15" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="23"/>
+						<datapoint pos="1" key="24"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="1056" lty="-188" rbx="1139" rby="-138"/>
+				</component>
+				<component name="constant" library="core" uid="16" kind="2">
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="837" lty="-225" rbx="976" rby="-209"/>
+					<data>
+						<constant value="deqar_" datatype="string"/>
+					</data>
+				</component>
+				<component name="get-domainname" library="user" uid="60" kind="19" visible="0">
+					<view ltx="618" lty="482" rbx="723" rby="499"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value" inpkey="102" componentid="57"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="domain" outkey="103" componentid="62"/>
+						</root>
+					</data>
+				</component>
+				<component name="deqar_institutions" library="text" uid="74" kind="16">
+					<properties/>
+					<view ltx="143" lty="-87" rbx="403" rby="292"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="106" expanded="1">
+										<entry name="deqar_id" outkey="107"/>
+										<entry name="name" outkey="108"/>
+										<entry name="alt_names" outkey="109"/>
+										<entry name="country" outkey="110"/>
+										<entry name="city" outkey="111"/>
+										<entry name="website" outkey="112"/>
+										<entry name="founding_year" outkey="113"/>
+										<entry name="closure_year" outkey="114"/>
+										<entry name="parent_institutions" outkey="124"/>
+										<entry name="history" outkey="115"/>
+										<entry name="qa_reports" outkey="116"/>
+										<entry name="last_qa_report" outkey="117"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="..\Web-Data-Integration-Project-HWS2026-main\data\deqar_institutions.csv">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="deqar_institutions" block="Rows">
+									<field0 name="deqar_id" type="string"/>
+									<field1 name="name" type="string"/>
+									<field2 name="alt_names" type="string"/>
+									<field3 name="country" type="string"/>
+									<field4 name="city" type="string"/>
+									<field5 name="website" type="string"/>
+									<field6 name="founding_year" type="integer"/>
+									<field7 name="closure_year" type="integer"/>
+									<field8 name="parent_institutions" type="string"/>
+									<field9 name="history" type="string"/>
+									<field10 name="qa_reports" type="string"/>
+									<field11 name="last_qa_report" type="date"/>
+									<field12 name="ror_id" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="target" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1284" lty="-85" rbx="1656" rby="1042"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="institutions" expanded="1">
+										<entry name="institution" inpkey="26" expanded="1">
+											<entry name="id" inpkey="27"/>
+											<entry name="name" inpkey="28"/>
+											<entry name="alternativeNames" expanded="1">
+												<entry name="alternativeName" inpkey="7"/>
+											</entry>
+											<entry name="acronyms" expanded="1"/>
+											<entry name="location" expanded="1">
+												<entry name="country" inpkey="30"/>
+												<entry name="city" inpkey="33"/>
+											</entry>
+											<entry name="web" expanded="1">
+												<entry name="website" inpkey="36"/>
+												<entry name="domains" expanded="1">
+													<entry name="domain" inpkey="37"/>
+												</entry>
+											</entry>
+											<entry name="lifecycle" expanded="1">
+												<entry name="foundingYear" inpkey="38"/>
+												<entry name="closureYear" inpkey="118"/>
+												<entry name="history" expanded="1">
+													<entry name="event" inpkey="119"/>
+												</entry>
+											</entry>
+											<entry name="institutionTypes" expanded="1"/>
+											<entry name="memberships" expanded="1"/>
+											<entry name="qualityAssurance" expanded="1">
+												<entry name="numberOfQAReports" inpkey="120"/>
+												<entry name="lastQAReportDate" inpkey="121"/>
+											</entry>
+											<entry name="parentInstitutions" expanded="1">
+												<entry name="parentInstitution" inpkey="126"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\deqar_SchemeMapping\target.xsd" instanceroot="{}institutions" inputinstance="..\deqar_SchemeMapping\target.xml" outputinstance="..\deqar_SchemeMapping\target.xml"/>
+					</data>
+				</component>
+				<component name="Tokenize_alt names_acronyms_domains" library="user" uid="59" kind="19" visible="0">
+					<view ltx="914" lty="-54" rbx="1072" rby="11"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="input3" componentid="55"/>
+							<entry name="input" componentid="53"/>
+							<entry name="input2" inpkey="82" componentid="54"/>
+							<entry name="input4" inpkey="122" componentid="79"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="domain" componentid="56"/>
+							<entry name="acronym" componentid="58"/>
+							<entry name="alternativeName" outkey="85" componentid="57"/>
+							<entry name="parentInstitution" outkey="123" componentid="82"/>
+						</root>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="85" to="7"/>
+			<edge from="22" to="23"/>
+			<edge from="107" to="24"/>
+			<edge from="106" to="26"/>
+			<edge from="25" to="27"/>
+			<edge from="108" to="28"/>
+			<edge from="110" to="30"/>
+			<edge from="111" to="33"/>
+			<edge from="112" to="36"/>
+			<edge from="103" to="37"/>
+			<edge from="113" to="38"/>
+			<edge from="109" to="82"/>
+			<edge from="112" to="102"/>
+			<edge from="114" to="118"/>
+			<edge from="115" to="119"/>
+			<edge from="116" to="120"/>
+			<edge from="117" to="121"/>
+			<edge from="124" to="122"/>
+			<edge from="123" to="126"/>
+		</connections>
+	</component>
+	<component name="Tokenize alt name  acronyms  domains" library="user" uid="26" inline="1">
+		<structure>
+			<children>
+				<component name="result" library="core" uid="27" kind="7">
+					<sources>
+						<datapoint/>
+					</sources>
+					<view ltx="800" rbx="850" rby="35"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="result"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections/>
+	</component>
+	<component name="Tokenize alt name  acronyms  domains " library="user" uid="28" inline="1">
+		<structure>
+			<children>
+				<component name="tokenize" library="core" uid="29" kind="5">
+					<sources>
+						<datapoint pos="0" key="6"/>
+						<datapoint pos="1" key="5"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="300" lty="34" rbx="381" rby="84"/>
+				</component>
+				<component name="constant" library="core" uid="30" kind="2">
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="456" lty="35" rbx="498" rby="51"/>
+					<data>
+						<constant value="|" datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="31" kind="5">
+					<sources>
+						<datapoint pos="0" key="9"/>
+						<datapoint pos="1" key="8"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="584" rbx="665" rby="50"/>
+				</component>
+				<component name="delimiter" library="core" uid="33" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view lty="200" rbx="88" rby="235"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="delimiter"/>
+					</data>
+				</component>
+				<component name="input" library="core" uid="34" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view lty="150" rbx="70" rby="185"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input"/>
+					</data>
+				</component>
+				<component name="input2" library="core" uid="35" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view lty="50" rbx="76" rby="85"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input2"/>
+					</data>
+				</component>
+				<component name="input3" library="core" uid="36" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view rbx="76" rby="35"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input3"/>
+					</data>
+				</component>
+				<component name="delimiter2" library="core" uid="37" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view lty="100" rbx="93" rby="135"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="delimiter2"/>
+					</data>
+				</component>
+				<component name="domain" library="core" uid="38" kind="7">
+					<sources>
+						<datapoint pos="0" key="16"/>
+					</sources>
+					<view ltx="765" rbx="824" rby="35"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="domain"/>
+					</data>
+				</component>
+				<component name="alternativeName" library="core" uid="39" kind="7">
+					<sources>
+						<datapoint pos="0" key="17"/>
+					</sources>
+					<view ltx="765" lty="100" rbx="866" rby="135"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="alternativeName"/>
+					</data>
+				</component>
+				<component name="acronym" library="core" uid="40" kind="7">
+					<sources>
+						<datapoint pos="0" key="18"/>
+					</sources>
+					<view ltx="765" lty="50" rbx="829" rby="85"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="acronym"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="3"/>
+						<datapoint pos="1" key="1"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="381" lty="200" rbx="462" rby="250"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="11" to="1"/>
+			<edge from="12" to="3"/>
+			<edge from="15" to="5"/>
+			<edge from="13" to="6"/>
+			<edge from="7" to="8"/>
+			<edge from="14" to="9"/>
+			<edge from="10" to="16"/>
+			<edge from="4" to="17"/>
+			<edge from="2" to="18"/>
+		</connections>
+	</component>
+	<component name="Tokenize alt names_ acronyms domains" library="user" uid="46" inline="1">
+		<structure>
+			<children>
+				<component name="result" library="core" uid="47" kind="7">
+					<sources>
+						<datapoint/>
+					</sources>
+					<view ltx="800" rbx="878" rby="35"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="result"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections/>
+	</component>
+	<component name="Tokenize_alt names_acronyms_domains" library="user" uid="48" inline="1">
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="51" kind="2">
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="300" lty="132" rbx="416" rby="148"/>
+					<data>
+						<constant value="|" datatype="string"/>
+					</data>
+				</component>
+				<component name="input" library="core" uid="53" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view lty="50" rbx="80" rby="87"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input"/>
+					</data>
+				</component>
+				<component name="input3" library="core" uid="55" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view rbx="86" rby="37"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input3"/>
+					</data>
+				</component>
+				<component name="acronym" library="core" uid="58" kind="7">
+					<sources>
+						<datapoint pos="0" key="16"/>
+					</sources>
+					<view ltx="913" lty="66" rbx="1010" rby="103"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="acronym"/>
+					</data>
+				</component>
+				<component name="domain" library="core" uid="56" kind="7">
+					<sources>
+						<datapoint pos="0" key="14"/>
+					</sources>
+					<view ltx="913" lty="16" rbx="1005" rby="53"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="domain"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="49" kind="5">
+					<sources>
+						<datapoint pos="0" key="6"/>
+						<datapoint pos="1" key="10"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="594" rbx="689" rby="53"/>
+				</component>
+				<component name="normalize-space" library="core" uid="76" kind="5">
+					<sources>
+						<datapoint pos="0" key="17"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="754" lty="17" rbx="887" rby="54"/>
+				</component>
+				<component name="tokenize" library="core" uid="52" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="594" lty="84" rbx="689" rby="137"/>
+				</component>
+				<component name="normalize-space" library="core" uid="77" kind="5">
+					<sources>
+						<datapoint pos="0" key="19"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="729" lty="101" rbx="862" rby="138"/>
+				</component>
+				<component name="input2" library="core" uid="54" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="-6" lty="132" rbx="80" rby="169"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input2"/>
+					</data>
+				</component>
+				<component name="input4" library="core" uid="79" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="-6" lty="213" rbx="80" rby="250"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input4"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="50" kind="5">
+					<sources>
+						<datapoint pos="0" key="9"/>
+						<datapoint pos="1" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="594" lty="165" rbx="689" rby="218"/>
+				</component>
+				<component name="normalize-space" library="core" uid="78" kind="5">
+					<sources>
+						<datapoint pos="0" key="21"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="754" lty="181" rbx="887" rby="218"/>
+				</component>
+				<component name="tokenize" library="core" uid="80" kind="5">
+					<sources>
+						<datapoint pos="0" key="25"/>
+						<datapoint pos="1" key="24"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="586" lty="255" rbx="681" rby="308"/>
+				</component>
+				<component name="alternativeName" library="core" uid="57" kind="7">
+					<sources>
+						<datapoint pos="0" key="15"/>
+					</sources>
+					<view ltx="913" lty="164" rbx="1046" rby="201"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="alternativeName"/>
+					</data>
+				</component>
+				<component name="normalize-space" library="core" uid="81" kind="5">
+					<sources>
+						<datapoint pos="0" key="28"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="754" lty="271" rbx="887" rby="308"/>
+				</component>
+				<component name="parentInstitution" library="core" uid="82" kind="7">
+					<sources>
+						<datapoint pos="0" key="29"/>
+					</sources>
+					<view ltx="923" lty="270" rbx="1057" rby="307"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="parentInstitution"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="1" to="2"/>
+			<edge from="1" to="3"/>
+			<edge from="11" to="4"/>
+			<edge from="13" to="6"/>
+			<edge from="12" to="9"/>
+			<edge from="1" to="10"/>
+			<edge from="18" to="14"/>
+			<edge from="22" to="15"/>
+			<edge from="20" to="16"/>
+			<edge from="7" to="17"/>
+			<edge from="5" to="19"/>
+			<edge from="8" to="21"/>
+			<edge from="1" to="24"/>
+			<edge from="23" to="25"/>
+			<edge from="26" to="28"/>
+			<edge from="27" to="29"/>
+		</connections>
+	</component>
+</mapping>

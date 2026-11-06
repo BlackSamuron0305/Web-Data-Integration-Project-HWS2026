@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Two example records. Values are illustrative; check them against your source files. -->
+<institutions>
+
+  <!-- Example 1: active institution, Wikidata/ROR-style attributes filled -->
+  <institution>
+    <id>wikidata_Q317070</id>
+    <name>University of Mannheim</name>
+    <alternativeNames>
+      <alternativeName>Universität Mannheim</alternativeName>
+      <alternativeName>Mannheim University</alternativeName>
+    </alternativeNames>
+    <acronyms>
+      <acronym>UMA</acronym>
+    </acronyms>
+    <location>
+      <country>Germany</country>
+      <countryCode>DE</countryCode>
+      <region>Baden-Württemberg</region>
+      <city>Mannheim</city>
+      <latitude>49.4833</latitude>
+      <longitude>8.4625</longitude>
+    </location>
+    <web>
+      <website>https://www.uni-mannheim.de</website>
+      <domains>
+        <domain>uni-mannheim.de</domain>
+      </domains>
+    </web>
+    <lifecycle>
+      <foundingYear>1967</foundingYear>
+      <status>active</status>
+    </lifecycle>
+    <institutionTypes>
+      <institutionType>public university</institutionType>
+    </institutionTypes>
+    <numberOfStudents>11500</numberOfStudents>
+    <memberships>
+      <membership>German Rectors' Conference</membership>
+      <membership>ENGAGE.EU</membership>
+    </memberships>
+  </institution>
+
+  <!-- Example 2: closed predecessor, DEQAR-style attributes filled -->
+  <institution>
+    <id>deqar_0002</id>
+    <name>Paris-Sorbonne University</name>
+    <alternativeNames>
+      <alternativeName>Université Paris-Sorbonne</alternativeName>
+      <alternativeName>Paris IV</alternativeName>
+    </alternativeNames>
+    <location>
+      <country>France</country>
+      <city>Paris</city>
+    </location>
+    <web>
+      <website>http://www.paris-sorbonne.fr</website>
+    </web>
+    <lifecycle>
+      <foundingYear>1971</foundingYear>
+      <closureYear>2018</closureYear>
+      <history>
+        <event>2018: merged with Pierre and Marie Curie University into Sorbonne Université</event>
+      </history>
+    </lifecycle>
+    <qualityAssurance>
+      <numberOfQAReports>2</numberOfQAReports>
+      <lastQAReportDate>2017-03-15</lastQAReportDate>
+    </qualityAssurance>
+    <parentInstitutions>
+        <parentInstitution> </parentInstitution>
+    </parentInstitutions>
+  </institution>
+
+</institutions>
