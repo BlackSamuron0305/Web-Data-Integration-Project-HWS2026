@@ -1,44 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Integrated target schema for institutions.
+  Base: target.xsd (flexible: everything optional except id)
+  Change: generic "list" type (xs:any) replaced by explicit, named child elements
+          so that list attributes can be mapped directly in MapForce.
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<!-- ===== Root ===== -->
 	<xs:element name="institutions">
-		<xs:complexType><xs:sequence>
-			<xs:element name="institution" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="institution" type="InstitutionType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- ===== Institution ===== -->
+	<xs:complexType name="InstitutionType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="alternativeNames" minOccurs="0">
 				<xs:complexType><xs:sequence>
-					<xs:element name="id" type="xs:string"/>
-					<xs:element name="name" type="xs:string" minOccurs="0"/>
-					<xs:element name="alternativeNames" type="list" minOccurs="0"/>
-					<xs:element name="acronyms" type="list" minOccurs="0"/>
-					<xs:element name="location" minOccurs="0"><xs:complexType><xs:sequence>
-						<xs:element name="country" type="xs:string" minOccurs="0"/>
-						<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
-						<xs:element name="region" type="xs:string" minOccurs="0"/>
-						<xs:element name="city" type="xs:string" minOccurs="0"/>
-						<xs:element name="latitude" type="xs:decimal" minOccurs="0"/>
-						<xs:element name="longitude" type="xs:decimal" minOccurs="0"/>
-					</xs:sequence></xs:complexType></xs:element>
-					<xs:element name="web" minOccurs="0"><xs:complexType><xs:sequence>
-						<xs:element name="website" type="xs:string" minOccurs="0"/>
-						<xs:element name="domains" type="list" minOccurs="0"/>
-					</xs:sequence></xs:complexType></xs:element>
-					<xs:element name="lifecycle" minOccurs="0"><xs:complexType><xs:sequence>
-						<xs:element name="foundingYear" type="xs:integer" minOccurs="0"/>
-						<xs:element name="closureYear" type="xs:integer" minOccurs="0"/>
-						<xs:element name="history" type="list" minOccurs="0"/>
-					</xs:sequence></xs:complexType></xs:element>
-					<xs:element name="parentInstitutions" type="list" minOccurs="0"/>
-					<xs:element name="institutionTypes" type="list" minOccurs="0"/>
-					<xs:element name="numberOfStudents" type="xs:integer" minOccurs="0"/>
-					<xs:element name="memberships" type="list" minOccurs="0"/>
-					<xs:element name="qualityAssurance" minOccurs="0"><xs:complexType><xs:sequence>
-						<xs:element name="numberOfQAReports" type="xs:integer" minOccurs="0"/>
-						<xs:element name="lastQAReportDate" type="xs:string" minOccurs="0"/>
-					</xs:sequence></xs:complexType></xs:element>
-					<xs:element name="status" type="xs:string" minOccurs="0"/>
+					<xs:element name="alternativeName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence></xs:complexType>
 			</xs:element>
-		</xs:sequence></xs:complexType>
-	</xs:element>
-	<xs:complexType name="list"><xs:sequence>
-		<xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
-	</xs:sequence></xs:complexType>
+			<xs:element name="acronyms" minOccurs="0">
+				<xs:complexType><xs:sequence>
+					<xs:element name="acronym" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence></xs:complexType>
+			</xs:element>
+			<xs:element name="location" type="LocationType" minOccurs="0"/>
+			<xs:element name="web" type="WebType" minOccurs="0"/>
+			<xs:element name="lifecycle" type="LifecycleType" minOccurs="0"/>
+			<xs:element name="parentInstitutions" minOccurs="0">
+				<xs:complexType><xs:sequence>
+					<xs:element name="parentInstitution" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence></xs:complexType>
+			</xs:element>
+			<xs:element name="institutionTypes" minOccurs="0">
+				<xs:complexType><xs:sequence>
+					<xs:element name="institutionType" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence></xs:complexType>
+			</xs:element>
+			<xs:element name="numberOfStudents" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="memberships" minOccurs="0">
+				<xs:complexType><xs:sequence>
+					<xs:element name="membership" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence></xs:complexType>
+			</xs:element>
+			<xs:element name="qualityAssurance" type="QualityAssuranceType" minOccurs="0"/>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- ===== Location ===== -->
+	<xs:complexType name="LocationType">
+		<xs:sequence>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="region" type="xs:string" minOccurs="0"/>
+			<xs:element name="city" type="xs:string" minOccurs="0"/>
+			<xs:element name="latitude" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="longitude" type="xs:decimal" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- ===== Web ===== -->
+	<xs:complexType name="WebType">
+		<xs:sequence>
+			<xs:element name="website" type="xs:string" minOccurs="0"/>
+			<xs:element name="domains" minOccurs="0">
+				<xs:complexType><xs:sequence>
+					<xs:element name="domain" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence></xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- ===== Lifecycle ===== -->
+	<xs:complexType name="LifecycleType">
+		<xs:sequence>
+			<xs:element name="foundingYear" type="xs:integer" minOccurs="0"/>
+			<xs:element name="closureYear" type="xs:integer" minOccurs="0"/>
+			<xs:element name="history" minOccurs="0">
+				<xs:complexType><xs:sequence>
+					<xs:element name="event" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence></xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- ===== Quality assurance ===== -->
+	<xs:complexType name="QualityAssuranceType">
+		<xs:sequence>
+			<xs:element name="numberOfQAReports" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<!-- kept as string: source formats vary; normalise to YYYY-MM-DD in MapForce if possible -->
+			<xs:element name="lastQAReportDate" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
 </xs:schema>

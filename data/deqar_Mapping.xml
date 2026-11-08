@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<institutions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="target.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<institutions xsi:noNamespaceSchemaLocation="target.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<institution>
 		<id>deqar_DEQARINST0001</id>
 		<name>University of Vienna</name>
@@ -77843,7 +77843,7 @@
 		<web>
 			<website>http://www.ntu.edu.ua, http://www.ntu.kar.net</website>
 			<domains>
-				<domain>ntu.edu.ua, http</domain>
+				<domain>ntu.edu.ua, www.ntu.kar.net</domain>
 			</domains>
 		</web>
 	</institution>
@@ -79562,7 +79562,7 @@
 		<web>
 			<website>http://www.ubgd.lviv.ua, http://www.ldubgd.edu.ua</website>
 			<domains>
-				<domain>ubgd.lviv.ua, http</domain>
+				<domain>ubgd.lviv.ua, www.ldubgd.edu.ua</domain>
 			</domains>
 		</web>
 	</institution>
@@ -79972,7 +79972,7 @@
 		<web>
 			<website>http://www.uni-sport.edu.u?</website>
 			<domains>
-				<domain>uni-sport.edu.u</domain>
+				<domain>uni-sport.edu.u?</domain>
 			</domains>
 		</web>
 	</institution>
@@ -80548,7 +80548,7 @@
 		<web>
 			<website>http://www.ki?.kr.ua</website>
 			<domains>
-				<domain>ki</domain>
+				<domain>ki?.kr.ua</domain>
 			</domains>
 		</web>
 	</institution>
@@ -81500,6 +81500,9 @@
 		</location>
 		<web>
 			<website>http://www.??p.kiev.ua</website>
+			<domains>
+				<domain>??p.kiev.ua</domain>
+			</domains>
 		</web>
 	</institution>
 	<institution>
@@ -82112,7 +82115,7 @@
 		<web>
 			<website>http://dubno-med.ucoz.ua http://dmk.edu.ua/</website>
 			<domains>
-				<domain>dubno-med.ucoz.ua http</domain>
+				<domain>dubno-med.ucoz.ua dmk.edu.ua</domain>
 			</domains>
 		</web>
 	</institution>
@@ -82718,7 +82721,7 @@
 		<web>
 			<website>http://DKFsport@narod.ru</website>
 			<domains>
-				<domain>narod.ru</domain>
+				<domain>dkfsport@narod.ru</domain>
 			</domains>
 		</web>
 	</institution>
@@ -83340,6 +83343,9 @@
 		</location>
 		<web>
 			<website>http://www.????.kiev.ua</website>
+			<domains>
+				<domain>????.kiev.ua</domain>
+			</domains>
 		</web>
 	</institution>
 	<institution>
@@ -87591,7 +87597,7 @@
 		<web>
 			<website>http://xemtt?.at.ua</website>
 			<domains>
-				<domain>xemtt</domain>
+				<domain>xemtt?.at.ua</domain>
 			</domains>
 		</web>
 	</institution>
@@ -97243,6 +97249,9 @@
 		</location>
 		<web>
 			<website>/</website>
+			<domains>
+				<domain></domain>
+			</domains>
 		</web>
 		<lifecycle>
 			<foundingYear>1950</foundingYear>
@@ -97264,6 +97273,9 @@
 		</location>
 		<web>
 			<website>/</website>
+			<domains>
+				<domain></domain>
+			</domains>
 		</web>
 		<lifecycle>
 			<foundingYear>1936</foundingYear>
@@ -140709,7 +140721,7 @@
 		<web>
 			<website>hhtp://www.psych.pan.pl</website>
 			<domains>
-				<domain>psych.pan.pl</domain>
+				<domain>hhtp:</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -180726,7 +180738,7 @@
 		<web>
 			<website>http:www.unifiji.ac.fj</website>
 			<domains>
-				<domain>http</domain>
+				<domain>http:www.unifiji.ac.fj</domain>
 			</domains>
 		</web>
 		<qualityAssurance>
