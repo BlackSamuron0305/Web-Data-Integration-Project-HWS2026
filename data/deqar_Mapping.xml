@@ -140721,7 +140721,7 @@
 		<web>
 			<website>hhtp://www.psych.pan.pl</website>
 			<domains>
-				<domain>hhtp:</domain>
+				<domain>hhtp</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -180738,7 +180738,7 @@
 		<web>
 			<website>http:www.unifiji.ac.fj</website>
 			<domains>
-				<domain>http:www.unifiji.ac.fj</domain>
+				<domain>http</domain>
 			</domains>
 		</web>
 		<qualityAssurance>

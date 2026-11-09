@@ -50,35 +50,6 @@
 					</targets>
 					<view ltx="822" lty="-48" rbx="926" rby="5"/>
 				</component>
-				<component name="normalize-space" library="core" uid="89" kind="5">
-					<sources>
-						<datapoint pos="0" key="118"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="119"/>
-					</targets>
-					<view ltx="750" lty="764" rbx="883" rby="801"/>
-				</component>
-				<component name="concat" library="core" uid="91" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="113"/>
-						<datapoint pos="1" key="114"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="115"/>
-					</targets>
-					<view ltx="396" lty="532" rbx="482" rby="585"/>
-				</component>
-				<component name="substring-before" library="core" uid="87" kind="5">
-					<sources>
-						<datapoint pos="0" key="110"/>
-						<datapoint pos="1" key="111"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="112"/>
-					</targets>
-					<view ltx="616" lty="611" rbx="750" rby="664"/>
-				</component>
 				<component name="constant" library="core" uid="85" kind="2">
 					<targets>
 						<datapoint pos="0" key="116"/>
@@ -86,31 +57,6 @@
 					<view ltx="553" lty="472" rbx="669" rby="489"/>
 					<data>
 						<constant value="|" datatype="string"/>
-					</data>
-				</component>
-				<component name="Tokenize_alt names_acronyms_domains" library="user" uid="59" kind="19" visible="0">
-					<view ltx="750" lty="329" rbx="907" rby="378"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="input3" inpkey="80" componentid="55"/>
-							<entry name="input" inpkey="81" componentid="53"/>
-							<entry name="input2" inpkey="82" componentid="54"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="domain" outkey="83" componentid="56"/>
-							<entry name="acronym" outkey="84" componentid="58"/>
-							<entry name="alternativeName" outkey="85" componentid="57"/>
-						</root>
 					</data>
 				</component>
 				<component name="normalize-space" library="core" uid="115" kind="5">
@@ -190,15 +136,6 @@
 					</targets>
 					<view ltx="374" lty="855" rbx="480" rby="892"/>
 				</component>
-				<component name="logical-not" library="core" uid="131" kind="5">
-					<sources>
-						<datapoint pos="0" key="154"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="158"/>
-					</targets>
-					<view ltx="407" lty="961" rbx="513" rby="998"/>
-				</component>
 				<component name="equal" library="core" uid="129" kind="5">
 					<sources>
 						<datapoint pos="0" key="147"/>
@@ -229,24 +166,90 @@
 					</targets>
 					<view ltx="762" lty="65" rbx="856" rby="118"/>
 				</component>
-				<component name="constant" library="core" uid="123" kind="2">
+				<component name="acronyms" library="core" uid="130" kind="3">
+					<sources>
+						<datapoint pos="0" key="152"/>
+						<datapoint pos="1" key="151"/>
+					</sources>
 					<targets>
-						<datapoint pos="0" key="128"/>
+						<datapoint pos="0" key="149"/>
+						<datapoint/>
 					</targets>
-					<view ltx="-41" lty="818" rbx="72" rby="835"/>
+					<view ltx="567" lty="876" rbx="671" rby="929"/>
+				</component>
+				<component name="Tokenize_alt names_acronyms_domains" library="user" uid="59" kind="19" visible="0">
+					<view ltx="750" lty="329" rbx="907" rby="378"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="input3" inpkey="80" componentid="55"/>
+							<entry name="input" inpkey="81" componentid="53"/>
+							<entry name="input2" inpkey="82" componentid="54"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="domain" componentid="56"/>
+							<entry name="acronym" outkey="84" componentid="58"/>
+							<entry name="alternativeName" outkey="85" componentid="57"/>
+						</root>
+					</data>
+				</component>
+				<component name="substitute-missing" library="core" uid="135" kind="5">
+					<sources>
+						<datapoint pos="0" key="181"/>
+						<datapoint pos="1" key="182"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="183"/>
+					</targets>
+					<view ltx="925" lty="911" rbx="1067" rby="964"/>
+				</component>
+				<component name="constant" library="core" uid="142" kind="2">
+					<targets>
+						<datapoint pos="0" key="184"/>
+					</targets>
+					<view ltx="750" lty="961" rbx="863" rby="978"/>
 					<data>
 						<constant datatype="string"/>
 					</data>
 				</component>
-				<component name="equal" library="core" uid="132" kind="5">
+				<component name="equal" library="core" uid="139" kind="5">
 					<sources>
-						<datapoint pos="0" key="155"/>
-						<datapoint pos="1" key="156"/>
+						<datapoint pos="0" key="185"/>
+						<datapoint pos="1" key="186"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="153"/>
+						<datapoint pos="0" key="187"/>
 					</targets>
-					<view ltx="277" lty="945" rbx="358" rby="998"/>
+					<view ltx="941" lty="1052" rbx="1022" rby="1105"/>
+				</component>
+				<component name="if-else" library="core" uid="143" kind="4">
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="728" lty="809" rbx="824" rby="878"/>
+				</component>
+				<component name="logical-not" library="core" uid="141" kind="5">
+					<sources>
+						<datapoint pos="0" key="188"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="189"/>
+					</targets>
+					<view ltx="961" lty="1162" rbx="1067" rby="1199"/>
 				</component>
 				<component name="parent_ror_id" library="core" uid="124" kind="3">
 					<sources>
@@ -270,16 +273,101 @@
 					</targets>
 					<view ltx="567" lty="785" rbx="671" rby="838"/>
 				</component>
-				<component name="acronyms" library="core" uid="130" kind="3">
+				<component name="concat" library="core" uid="91" kind="5" growable="1" growablebasename="value">
 					<sources>
-						<datapoint pos="0" key="152"/>
-						<datapoint pos="1" key="151"/>
+						<datapoint pos="0" key="113"/>
+						<datapoint pos="1" key="114"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="149"/>
-						<datapoint/>
+						<datapoint pos="0" key="115"/>
 					</targets>
-					<view ltx="567" lty="876" rbx="671" rby="929"/>
+					<view ltx="447" lty="508" rbx="533" rby="561"/>
+				</component>
+				<component name="substring-before" library="core" uid="87" kind="5">
+					<sources>
+						<datapoint pos="0" key="110"/>
+						<datapoint pos="1" key="111"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="112"/>
+					</targets>
+					<view ltx="567" lty="589" rbx="701" rby="642"/>
+				</component>
+				<component name="normalize-space" library="core" uid="89" kind="5">
+					<sources>
+						<datapoint pos="0" key="118"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="119"/>
+					</targets>
+					<view ltx="822" lty="692" rbx="955" rby="729"/>
+				</component>
+				<component name="get-domainname" library="user" uid="146" kind="19" visible="0">
+					<view ltx="1177" lty="1035" rbx="1283" rby="1052"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value" inpkey="192" componentid="57"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="domain" outkey="193" componentid="62"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="154" kind="2">
+					<targets>
+						<datapoint pos="0" key="198"/>
+					</targets>
+					<view ltx="1152" lty="1365" rbx="1268" rby="1382"/>
+					<data>
+						<constant value="|" datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="148" kind="5">
+					<sources>
+						<datapoint pos="0" key="199"/>
+						<datapoint pos="1" key="200"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="201"/>
+					</targets>
+					<view ltx="1281" lty="1220" rbx="1377" rby="1273"/>
+				</component>
+				<component name="normalize-space" library="core" uid="151" kind="5">
+					<sources>
+						<datapoint pos="0" key="202"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="203"/>
+					</targets>
+					<view ltx="1423" lty="1220" rbx="1556" rby="1257"/>
+				</component>
+				<component name="normalize-space" library="core" uid="137" kind="5">
+					<sources>
+						<datapoint pos="0" key="190"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="191"/>
+					</targets>
+					<view ltx="987" lty="997" rbx="1120" rby="1034"/>
+				</component>
+				<component name="distinct-values" library="core" uid="153" kind="5">
+					<sources>
+						<datapoint pos="0" key="204"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="205"/>
+					</targets>
+					<view ltx="1522" lty="1149" rbx="1646" rby="1186"/>
 				</component>
 				<component name="target" library="xml" uid="3" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
@@ -337,16 +425,53 @@
 						<document schema="target.xsd" instanceroot="{}institutions" userdefinedschemalocation="target.xsd" outputinstance="ROR_Mapping.xml"/>
 					</data>
 				</component>
-				<component name="domains" library="core" uid="133" kind="3">
+				<component name="logical-not" library="core" uid="131" kind="5">
 					<sources>
-						<datapoint pos="0" key="160"/>
-						<datapoint pos="1" key="159"/>
+						<datapoint pos="0" key="154"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="157"/>
-						<datapoint/>
+						<datapoint pos="0" key="158"/>
 					</targets>
-					<view ltx="600" lty="982" rbx="704" rby="1035"/>
+					<view ltx="389" lty="998" rbx="495" rby="1035"/>
+				</component>
+				<component name="normalize-space" library="core" uid="157" kind="5">
+					<sources>
+						<datapoint pos="0" key="206"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="207"/>
+					</targets>
+					<view ltx="303" lty="1161" rbx="436" rby="1198"/>
+				</component>
+				<component name="if-else" library="core" uid="144" kind="4">
+					<sources>
+						<datapoint pos="0" key="194"/>
+						<datapoint pos="1" key="195"/>
+						<datapoint pos="2" key="196"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="197"/>
+					</targets>
+					<view ltx="214" lty="1415" rbx="310" rby="1484"/>
+				</component>
+				<component name="constant" library="core" uid="123" kind="2">
+					<targets>
+						<datapoint pos="0" key="128"/>
+					</targets>
+					<view ltx="-239" lty="785" rbx="-126" rby="802"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="132" kind="5">
+					<sources>
+						<datapoint pos="0" key="155"/>
+						<datapoint pos="1" key="156"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="153"/>
+					</targets>
+					<view ltx="228" lty="982" rbx="309" rby="1035"/>
 				</component>
 				<component name="ror_education" library="text" uid="4" kind="16">
 					<properties/>
@@ -408,6 +533,17 @@
 						</text>
 					</data>
 				</component>
+				<component name="Rows" library="core" uid="133" kind="3">
+					<sources>
+						<datapoint pos="0" key="160"/>
+						<datapoint pos="1" key="159"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="157"/>
+						<datapoint/>
+					</targets>
+					<view ltx="600" lty="982" rbx="704" rby="1035"/>
+				</component>
 			</children>
 		</structure>
 		<connections>
@@ -425,7 +561,7 @@
 			<edge from="49" to="34"/>
 			<edge from="50" to="35"/>
 			<edge from="119" to="36"/>
-			<edge from="83" to="37"/>
+			<edge from="205" to="37"/>
 			<edge from="48" to="38"/>
 			<edge from="52" to="55"/>
 			<edge from="61" to="56"/>
@@ -462,13 +598,28 @@
 			<edge from="150" to="151"/>
 			<edge from="13" to="152"/>
 			<edge from="153" to="154"/>
-			<edge from="47" to="155"/>
+			<edge from="207" to="155"/>
 			<edge from="128" to="156"/>
 			<edge from="158" to="159"/>
-			<edge from="47" to="160"/>
+			<edge from="40" to="160"/>
 			<edge from="141" to="178"/>
 			<edge from="149" to="179"/>
 			<edge from="157" to="180"/>
+			<edge from="47" to="181"/>
+			<edge from="184" to="182"/>
+			<edge from="191" to="185"/>
+			<edge from="184" to="186"/>
+			<edge from="187" to="188"/>
+			<edge from="183" to="190"/>
+			<edge from="119" to="192"/>
+			<edge from="189" to="194"/>
+			<edge from="47" to="195"/>
+			<edge from="193" to="196"/>
+			<edge from="197" to="199"/>
+			<edge from="198" to="200"/>
+			<edge from="201" to="202"/>
+			<edge from="203" to="204"/>
+			<edge from="197" to="206"/>
 		</connections>
 	</component>
 	<component name="Tokenize alt name  acronyms  domains" library="user" uid="26" inline="1">
@@ -812,14 +963,12 @@
 		</connections>
 	</component>
 	<component name="parent Name" library="user" uid="93" inline="1">
-		<description/>
 		<structure>
 			<children/>
 		</structure>
 		<connections/>
 	</component>
 	<component name="parent Name" library="parent Name" uid="98">
-		<description/>
 		<structure>
 			<children>
 				<component name="exists" library="core" uid="106" kind="5">

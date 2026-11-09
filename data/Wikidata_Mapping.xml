@@ -180884,7 +180884,6 @@
 			<website>http://acsi.edu.ph/main</website>
 			<domains>
 				<domain>acsi.edu.ph</domain>
-				<domain>acsi.edu.ph:80</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -212465,7 +212464,7 @@
 		<web>
 			<website>http://dnyan.in:8080/index.htm</website>
 			<domains>
-				<domain>dnyan.in:8080</domain>
+				<domain>dnyan.in</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -393197,7 +393196,7 @@
 		<web>
 			<website>http://fasab.udistrital.edu.co:8080/</website>
 			<domains>
-				<domain>fasab.udistrital.edu.co:8080</domain>
+				<domain>fasab.udistrital.edu.co</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -438080,7 +438079,7 @@
 		<web>
 			<website>http://ysu.edu.ng:80/web/index.html</website>
 			<domains>
-				<domain>ysu.edu.ng:80</domain>
+				<domain>ysu.edu.ng</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -468215,7 +468214,7 @@
 		<web>
 			<website>http://www.hugs.ac.kr:18080/site/foreign/main_en.do</website>
 			<domains>
-				<domain>hugs.ac.kr:18080</domain>
+				<domain>hugs.ac.kr</domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -478982,7 +478981,7 @@
 		<web>
 			<website>http://mochima.cenamec.gob.ve:8085/</website>
 			<domains>
-				<domain>mochima.cenamec.gob.ve:8085</domain>
+				<domain>mochima.cenamec.gob.ve</domain>
 				<domain>unem.edu.ve</domain>
 			</domains>
 		</web>
@@ -515397,7 +515396,7 @@
 		<web>
 			<website>https://htpps://poltekamangun.ac.id</website>
 			<domains>
-				<domain>htpps:</domain>
+				<domain>htpps</domain>
 			</domains>
 		</web>
 		<lifecycle>
