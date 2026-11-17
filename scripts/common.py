@@ -1,5 +1,5 @@
-"""Shared code of the pipeline: reads the three CSV files into the integrated schema,
-normalises values and derives the gold-standard links from the identifier columns.
+"""Shared code of the pipeline: reads the three CSV files into the integrated schema
+and normalises values.
 
 The integrated schema (Table 2 of the project abstract) is the same for all datasets;
 a dataset that does not have an attribute leaves the column empty. Attributes that
@@ -14,8 +14,6 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-RESULTS = ROOT / "results"
-RESULTS.mkdir(exist_ok=True)
 
 SEP = " | "
 
@@ -160,123 +158,20 @@ def to_schema_deqar(d, lookup):
     return _frame(rows)
 
 
-def add_match_columns(df):
-    """Helper columns used by blocking and comparison (not part of the schema)."""
-    df = df.copy()
-    df["name_norm"] = df["name"].map(norm_text)
-    df["alt_norm"] = df["alt_names"].map(lambda L: sorted({norm_text(a) for a in L} - {""}))
-    df["names_all"] = [sorted(({n} | set(a) | {norm_text(x) for x in ac}) - {""})
-                       for n, a, ac in zip(df["name_norm"], df["alt_norm"], df["acronyms"])]
-    df["city_norm"] = df["city"].map(norm_text)
-    df["domain"] = df["domains"].map(lambda L: L[0] if L else "")
-    return df
-
-
 def load_schema():
     """The three datasets in the integrated schema, with their raw frames."""
     w, r, d = load_raw()
     lookup = build_country_lookup(r)
     out = {
-        "wikidata": add_match_columns(to_schema_wikidata(w, lookup)),
-        "ror": add_match_columns(to_schema_ror(r, lookup)),
-        "deqar": add_match_columns(to_schema_deqar(d, lookup)),
+        "wikidata": to_schema_wikidata(w, lookup),
+        "ror": to_schema_ror(r, lookup),
+        "deqar": to_schema_deqar(d, lookup),
     }
     for name, df in out.items():
         df.attrs["dataset_name"] = name
     return out, (w, r, d)
 
 
-# ----------------------------------------------------------- gold-standard links
-def link_pairs(raw):
-    """Pairs of records that the sources themselves declare to be the same institution.
-
-    Returns a dict with the pairs for wikidata-ror, deqar-ror and wikidata-deqar
-    (the last one through the shared ROR record), as sets of (id1, id2) with the
-    schema ids. These identifier links are only used as gold standard, never for matching.
-    """
-    w, r, d = raw
-    wset, rset = set(w["wikidata_id"]), set(r["ror_id"])
-    wr = set()
-    for a, b in zip(w["wikidata_id"], w["ror_id"]):
-        for x in split_list(b):
-            if x in rset:
-                wr.add((a, x))
-    for a, b in zip(r["wikidata_id"], r["ror_id"]):
-        for x in split_list(a):
-            if x in wset:
-                wr.add((x, b))
-    dr = {(a, b) for a, b in zip(d["deqar_id"], d["ror_id"]) if b in rset}
-    by_ror = {}
-    for a, b in wr:
-        by_ror.setdefault(b, set()).add(a)
-    wd = {(x, a) for a, b in dr for x in by_ror.get(b, ())}
-
-    def prefix(pairs, p1, p2):
-        return {(p1 + a, p2 + b) for a, b in pairs}
-
-    return {
-        ("wikidata", "ror"): prefix(wr, "wikidata_", "ror_"),
-        ("deqar", "ror"): prefix(dr, "deqar_", "ror_"),
-        ("wikidata", "deqar"): prefix(wd, "wikidata_", "deqar_"),
-    }
-
-
-def one_to_one(pairs):
-    """Keep only the pairs in which neither record is linked to another record."""
-    from collections import Counter
-    c1 = Counter(a for a, _ in pairs)
-    c2 = Counter(b for _, b in pairs)
-    return {(a, b) for a, b in pairs if c1[a] == 1 and c2[b] == 1}
-
-
-# ------------------------------------------------------ reading the translated XML
+# ------------------------------------------------------ output files
 FILES = {"wikidata": "Wikidata_Mapping.xml", "ror": "ROR_Mapping.xml", "deqar": "deqar_Mapping.xml"}
 
-
-def _text(el, path):
-    t = el.findtext(path)
-    return t.strip() if t and t.strip() else ""
-
-
-def _items(el, path):
-    return [x.text.strip() for x in el.findall(path) if x.text and x.text.strip()]
-
-
-def read_target_xml(path):
-    """Reads one translated XML file (data/*_Mapping.xml) back into the integrated schema."""
-    import xml.etree.ElementTree as ET
-    rows = []
-    for _, e in ET.iterparse(path):
-        if e.tag != "institution":
-            continue
-        rows.append(dict(
-            id=_text(e, "id"), name=_text(e, "name"),
-            alt_names=_items(e, "alternativeNames/alternativeName"),
-            acronyms=_items(e, "acronyms/acronym"),
-            country=_text(e, "location/country"), country_code=_text(e, "location/countryCode"),
-            city=_text(e, "location/city"), region=_text(e, "location/region"),
-            website=_text(e, "web/website"), domains=_items(e, "web/domains/domain"),
-            founding_year=to_number(_text(e, "lifecycle/foundingYear"), int),
-            closure_year=to_number(_text(e, "lifecycle/closureYear"), int),
-            latitude=to_number(_text(e, "location/latitude")),
-            longitude=to_number(_text(e, "location/longitude")),
-            parent=_items(e, "parentInstitutions/parentInstitution"),
-            types=_items(e, "institutionTypes/institutionType"),
-            students=to_number(_text(e, "numberOfStudents"), int),
-            memberships=_items(e, "memberships/membership"),
-            history=_items(e, "lifecycle/history/event"),
-            qa_reports=to_number(_text(e, "qualityAssurance/numberOfQAReports"), int),
-            last_qa_report=_text(e, "qualityAssurance/lastQAReportDate"),
-            status=_text(e, "status")))
-        e.clear()
-    return _frame(rows)
-
-
-def load_target():
-    """The three datasets as produced by Phase I (read from data/*_Mapping.xml)."""
-    out = {}
-    for name, file in FILES.items():
-        df = add_match_columns(read_target_xml(DATA / file))
-        df.attrs["dataset_name"] = name
-        out[name] = df
-    return out
