@@ -1,0 +1,294 @@
+IDENTITY RESOLUTION - LAB JOURNAL (what we tried, why, how it went)
+====================================================================
+Project: Web Data Integration HWS 2026 - Wikidata, ROR, DEQAR (universities)
+Branch:  identity-resolution-laith          Nothing here is committed.
+
+All numbers below come from real runs of the scripts in scripts/identity_resolution/; the raw logs are
+results/ir/blocking.csv and results/ir/matching.csv (one row per run, column "round").
+
+
+0. SOURCES WE FOLLOWED
+----------------------
+  [L]  lecture slides  "WDI05 - Identity Resolution" (HWS2026)
+  [E]  exercise slides "Exercise: Identity Resolution"      (03_Identity_Resolution.zip)
+  [T]  exercise notebook  Identity_Resolution_Exercise_Task.ipynb
+  [S]  solution notebook  Identity_Resolution_Exercise_Solution.ipynb
+  "[L 37]" = lecture slide 37, "[E 6]" = exercise slide 6.
+
+What the course asks for in Phase 2 [E 4-10]: use PyDI; try blockers, several similarity
+measures, matching rules AND learned matchers; evaluate with P / R / F1 and reduction ratio;
+three labelled sets (train / validation / test), each >= 300 pairs; ~20% random matches,
+~50% corner cases, ~30% random non-matches, manually checked [E 8, L 34]; pair completeness
+> 0.97 [L 37]; do not report pair quality [T]; report a table
+"# | Matcher | Blocker | P | R | F1 | # Corr | Time" and the group size distribution [E 10];
+match at least two dataset pairs, through a "connector" dataset, often the largest [T].
+
+
+1. SET-UP
+---------
+  Input: the MapForce output of the schema mapping (data/<source>/*_Mapping.xml, from main), loaded with
+  PyDI load_xml as in the exercise notebook.
+      Wikidata 22,697 | ROR 30,131 | DEQAR 8,979 records
+  Dataset pairs: Wikidata-ROR and DEQAR-ROR. ROR is the connector: largest dataset, and the other
+  two already point to it. (Wikidata-DEQAR follows through ROR.)
+  Python 3.12 + PyDI 0.2.1 (uma-pydi), scikit-learn. Venv: .venv (not committed).
+
+  How to run everything again (from scripts/identity_resolution/):
+      python ir_labels.py 1        round-1 labels
+      python ir_labels.py pool     candidates to check by hand  -> data/labels/pool_*.csv
+      python ir_labels.py 2        checked labels (uses data/labels/review_*.csv)
+      python ir_blocking.py 1|2|3  blocking experiments
+      python ir_matching.py 1|2|3  matching experiments, final correspondences, group sizes
+
+
+2. LABELLED PAIRS
+-----------------
+ROUND 1 (quick first set, like "create small labelled sets first" [E 6])
+  Matches = random ID links of the sources (Wikidata->ROR, DEQAR->ROR); non-matches = random pairs.
+  Not checked. 900 pairs per dataset pair, ~300 per split, half matches.
+  -> Section 3 shows why this was a mistake: the non-matches are far too easy.
+
+ROUND 2 (built following [E 8] / [L 34])
+  A pool of ~1,000 pairs per dataset pair, then every pair checked by hand:
+                                       Wikidata-ROR   DEQAR-ROR
+      random matches (ID links)              200          200     ~20%
+      corner matches: linked, but names      221          237     \
+        look different (language, renamed)                         |
+      similar name, other university         160          160      |  ~50% corner cases
+      part of / parent (campus, faculty)      60           59      |
+      same name, other country                40           39     /
+      random non-matches                     300          300     ~30%
+  Result of the check:
+      Wikidata-ROR: 981 pairs, 12 labels changed, 20 dropped as unclear
+      DEQAR-ROR:    995 pairs, 26 labels changed, 10 dropped as unclear
+  Typical corrections: wrong ID links (University of Glamorgan linked to "Glamorgan Archives",
+  Instituto Superior Tecnico linked to a school in Coimbra), campus vs university, a predecessor
+  linked to its successor, and - the other way round - the SAME university with different
+  country codes (University of French Polynesia FR vs PF, Faroe Islands DK vs FO, Svalbard NO
+  vs SJ, Vatican universities VA vs IT). Every decision and its reason is in
+  data/labels/review_*.csv. Lesson: the ID links of DEQAR are much less reliable than those of
+  Wikidata (26 vs 12 changes) - "weak supervision, quality questionable" [L 76].
+  IMPORTANT for the report: the checking was done by Claude in this session, pair by pair. A team
+  member should spot-check data/labels/review_*.csv and the pools before the report calls them
+  "manually verified".
+  Split by the left record (no record in two splits):
+                    train        validation     test
+      Wikidata-ROR  339 (144 m)  310 (138 m)    312 (123 m)
+      DEQAR-ROR     347 (151 m)  328 (141 m)    310 (123 m)      (m = matches)
+  Every split >= 300 pairs, as required [E 6].
+  Definitions used for "same university": a renamed institution is a match; a campus, branch,
+  faculty or research unit against the university is not; a predecessor against its successor
+  (merger) is not; a main campus record ("X University-Main Campus") against X is a match.
+
+
+3. ROUND 1 - "DO IT LIKE THE EXERCISE NOTEBOOK"            (labels round 1)
+------------------------------------------------------
+Blocking (validation, PC = pair completeness, RR = reduction ratio):
+                                              Wikidata-ROR             DEQAR-ROR
+  no blocking                                 684M pairs, not run      271M pairs, not run
+  standard: exercise key (2 letters x 3 words) 238k  PC 0.810           56k  PC 0.572
+  standard: normalised name                    11k  PC 0.752             2k  PC 0.513
+  sorted neighbourhood, name, window 20       482k  PC 0.876           209k  PC 0.664
+  token: words of all names                   236M - too many, not materialised
+  -> nothing reaches PC 0.97. We still went on with sorted neighbourhood (best PC), to get
+     through the whole exercise once [E 6].
+
+Matching (rule as in the notebook: name Levenshtein + year, then the solution's re-weighting):
+                                              threshold  P      R      F1     # Corr
+  W-R  Levenshtein 0.5 + year 0.5               0.30    1.000  0.876  0.934  133,694
+  W-R  Levenshtein 0.7 + year 0.3               0.30    1.000  0.876  0.934  219,854
+  D-R  Levenshtein 0.7 + year 0.3               0.30    1.000  0.664  0.798   72,191
+  Test: W-R F1 0.950, D-R F1 0.809.
+
+WHAT WENT WRONG
+  Precision is 1.000 and the best threshold is the lowest one we allow (0.30). That looks great
+  but is meaningless: the random non-matches are so different that nothing can score as a false
+  positive, so the threshold falls to the floor and every candidate becomes a correspondence -
+  133,694 correspondences for 22,697 Wikidata records. The group size distribution showed it at
+  once: groups of up to 11,422 records. Exactly the warning of the notebook: "your evaluation is
+  only as good as your evaluation set" and look at the cluster sizes [T]. Recall is only the
+  blocking loss. -> Round 2: real labels with corner cases, and a better blocker.
+
+
+4. ROUND 2 - CHECKED LABELS, MORE BLOCKERS, ALL MATCHER FAMILIES   (labels round 2)
+----------------------------------------------------------------
+Blocking (validation):                        Wikidata-ROR                DEQAR-ROR
+  standard: exercise key                      238k  PC 0.529             56k  PC 0.390
+  standard: normalised name                    11k  PC 0.420              2k  PC 0.270
+  sorted neighbourhood, window 20             482k  PC 0.659            209k  PC 0.525
+  token: words of all names                   236M  not materialised     70M  not materialised
+  token: character 3-grams [S]                2.1B  not materialised    693M  not materialised
+  token: country + name word (*)              601k  PC 0.891            207k  PC 0.922
+  token: same web domain                       12k  PC 0.797              5k  PC 0.759
+  embedding: name, top 10 (MiniLM) [L 33]     221k  PC 0.797  47 s       87k  PC 0.723  29 s
+  union: country+word | domain                602k  PC 0.993            208k  PC 0.965
+  union: country+word | domain | embedding    755k  PC 0.993  48 s      273k  PC 0.972  29 s
+  (*) tokens of all names (main, alternative, acronyms) scoped to the country (DE_heidelberg);
+      tokens shared by >150 records of a country and generic words (university, college ...)
+      dropped - "choose a good blocking key", sub-buckets [L 28].
+  RR of every materialised blocker > 0.999.
+  Why: with the corner-case labels the simple keys collapse (the "different name" matches are
+  exactly what a name key cannot catch). Plain word / 3-gram tokens explode because "university"
+  is everywhere. Multi-pass (union) of country-word and domain [L 31] keeps 99.3% for W-R, but
+  D-R stays at 96.5%; adding the embedding pass lifts it to 97.2% -> meets the 0.97 target.
+  The 5 matches still lost are renamed institutions (Institut Paul Bocuse -> Institut Lyfe,
+  Zsigmond Kiraly -> Milton Friedman University) - no name-based blocker can find them.
+
+Matching on that blocker (threshold chosen on validation):
+                                                   W-R: P   R     F1    #Corr     D-R: P   R     F1    #Corr
+  one measure on the main name
+    Levenshtein                                     .661 .833 .737  435,504       .665 .773 .715  129,077
+    Jaro-Winkler                                    .662 .993 .794  730,509       .668 .972 .792  273,344
+    Jaccard (words)                                 .632 .710 .669  208,303       .660 .660 .660   55,521
+  best match over all names
+    Jaro-Winkler                                    .659 .993 .792  754,122       .668 .972 .792  273,378
+    Jaccard                                         .609 .790 .688  302,284       .663 .894 .761   85,816
+  linear rules (PyDI RuleBasedMatcher, weights by hand)
+    names .8 + country .2                           .659 .993 .792  754,092       .672 .972 .794  231,076
+    names .5 + country .2 + domain .3               .982 .797 .880   12,393       .959 .823 .885    5,428
+    names .6 + country .1 + domain .3               .982 .783 .871   12,339       .959 .823 .885    5,429
+    + city                                          .952 .870 .909   13,861       .975 .816 .888    5,123
+    + city, year, position (all attributes)         .961 .899 .929   17,387       .939 .872 .904    8,216
+  learned (PyDI MLBasedMatcher, trained on train, 14 features)
+    logistic regression                             .951 .978 .964   56,990       .930 .936 .933   20,569
+    random forest                                   .963 .949 .956   45,003       .964 .943 .953   19,354
+    gradient boosting                               .970 .942 .956   34,187       .984 .879 .929   16,649
+  Time per run: rules 43-108 s (W-R) / 15-34 s (D-R); learned ~187 s (W-R) / ~58 s (D-R).
+
+  Global matching on the best matcher (validation):
+                              W-R (logistic regression)        D-R (random forest)
+    none                      .951 .978 .964   56,990          .964 .943 .953   19,354
+    greedy one-to-one         .992 .957 .974   14,898          .992 .894 .940    4,704
+    stable matching           .992 .949 .970   14,482          .992 .879 .932    4,621
+    maximum bipartite         .992 .848 .914   15,356          .989 .660 .791    4,873
+
+  Test of the round-2 choice:  W-R  logistic regression + greedy   P .982 R .886 F1 .932  14,898
+                               D-R  random forest + NO one-to-one  P .885 R .935 F1 .909  19,354
+
+WHAT WE LEARNED
+  1. A name alone is not enough once the labels contain look-alikes: precision drops to ~0.66
+     whatever measure we use ("Seisen University" Tokyo vs Nagano, "Pacific University" US vs IN).
+     Which measure hardly matters; Jaro-Winkler keeps the most recall.
+  2. The web domain is what makes rules precise (.66 -> .96-.98). Unlike our earlier run, adding
+     city / year / position to the rule helped a little (W-R .880 -> .929) - with harder labels
+     every extra hint counts.
+  3. Learned matchers win (W-R .964, D-R .953), mainly through recall: they learn that a missing
+     year or website is not evidence against a match (the "has_..." features) [L 13, L 75].
+  4. One-to-one (greedy) is the best global matching; maximum bipartite loses a lot of recall
+     because maximising the SUM of scores swaps strong pairs for several weak ones [L 19].
+  5. FAILURE: for D-R our script picked "no one-to-one" because its validation F1 was 0.013
+     higher. On the test labels that choice dropped precision to 0.885, and the group size
+     distribution showed groups of up to 4,509 records. A metric on 300 labelled pairs cannot see
+     that one record is matched to 20 others - the cluster sizes can [T].
+
+  Error analysis (validation, results/ir/errors_*_r2.csv):
+     - names in another language: "Ibero-American University of Torreon" vs
+       "Universidad Iberoamericana Torreon"
+     - part against the whole: "Pacific University Health Professions Campus" vs "Pacific
+       University Oregon", "South University-West Palm Beach" vs "South University", a research
+       unit of Avignon University vs the university
+     - renamed institutions (cannot be fixed with these data)
+     - look-alikes: "NHL" vs "HZ University of Applied Sciences", "IPAG" vs "ISG"
+
+
+5. ROUND 3 - FIXES FROM THE ERROR ANALYSIS                  (labels round 2)
+------------------------------------------
+  a) translate common words in names before comparing (universidad/universita/... -> university,
+     accademia -> academy, belle arti -> fine arts ...; a word list, no external service) [L 16-17]
+  b) a new feature "part_word": 1 if both or neither name contains campus / branch / centre /
+     faculty / laboratory ..., 0 if only one does
+  c) always enforce one-to-one (greedy), because the sources are duplicate-free [T]
+
+  Blocking with translated names: unchanged (W-R PC 0.993, D-R 0.972 with the embedding pass).
+  Matching (validation):
+                                                   W-R: P   R     F1    #Corr     D-R: P   R     F1    #Corr
+    best of all names, Jaro-Winkler                 .659 .993 .792  755,511       .668 .972 .792  274,187
+    rule: all attributes                            .961 .899 .929   17,636       .939 .872 .904    8,440
+    logistic regression                             .951 .978 .964   54,702       .930 .936 .933   20,455
+    random forest                                   .931 .978 .954   72,829       .951 .957 .954   20,097
+    gradient boosting                               .956 .949 .953   34,126       .969 .879 .922   13,806
+    logistic regression + part_word                 .950 .971 .961   53,022       .962 .901 .930    8,921
+    random forest + part_word                       .970 .935 .952   33,178       .950 .950 .950   22,477
+    gradient boosting + part_word                   .950 .957 .953   44,506       .969 .887 .926   14,144
+    best + greedy one-to-one                        .993 .971 .982   14,824       .985 .908 .945    4,714
+
+  How it went:
+     a) translation: no real effect (-0.007 to +0.001 F1 per matcher, before one-to-one). Most of these
+        pairs were already caught through the alternative names, which often contain the English
+        or the local form. Kept, because it costs nothing.
+     b) part_word: did NOT help (-0.004 to +0.004 F1, no consistent direction). Too few labelled campus pairs for the
+        learner to use it, and many parts do not carry such a word in their name.
+     c) one-to-one always: the clear win. Group sizes are now only 2 and 3 (see Section 7).
+
+  FINAL (test labels, the only time they were used for the final choice):
+     W-R  logistic regression + greedy one-to-one   P 0.982  R 0.894  F1 0.936   14,824 corr.  237 s
+     D-R  random forest + greedy one-to-one         P 0.991  R 0.894  F1 0.940    4,714 corr.   79 s
+  Test recall (0.894) is lower than validation recall (0.971 / 0.908): the threshold and the
+  model were chosen on validation, so validation is optimistic - this is why the course keeps a
+  separate test set.
+  Correspondences: results/ir/correspondences_wikidata_ror_r3.csv, ..._deqar_ror_r3.csv
+
+
+6. TABLE FOR THE REPORT  (format of [E 10]; P/R/F1 on validation unless marked TEST)
+------------------------------------------------------------------------------------
+  #  Pair  Matcher                                  Blocker                          P     R     F1    # Corr   Time
+  1  W-R   name Levenshtein + year (0.5/0.5)        sorted neighbourhood (round 1)   1.000 .876  .934  133,694   29 s
+  2  W-R   name Levenshtein                         union country-word|domain|emb.   .661  .833  .737  435,504   43 s
+  3  W-R   best of all names, Jaro-Winkler          union ...                        .659  .993  .792  754,122   65 s
+  4  W-R   rule names+country+domain                union ...                        .982  .797  .880   12,393   67 s
+  5  W-R   rule all attributes                      union ...                        .961  .899  .929   17,387   81 s
+  6  W-R   logistic regression                      union ...                        .951  .978  .964   56,990  187 s
+  7  W-R   logistic regression + greedy 1:1         union ...                        .992  .957  .974   14,898  187 s
+  8  W-R   final: LR + greedy (translated names)    union ...                  TEST  .982  .894  .936   14,824  237 s
+  9  D-R   name Levenshtein + year (0.7/0.3)        sorted neighbourhood (round 1)   1.000 .664  .798   72,191   12 s
+  10 D-R   best of all names, Jaro-Winkler          union ...                        .668  .972  .792  273,378   22 s
+  11 D-R   rule names+country+domain                union ...                        .959  .823  .885    5,428   23 s
+  12 D-R   rule all attributes                      union ...                        .939  .872  .904    8,216   26 s
+  13 D-R   random forest                            union ...                        .964  .943  .953   19,354   59 s
+  14 D-R   random forest, no 1:1 (round 2 choice)   union ...                  TEST  .885  .935  .909   19,354   59 s
+  15 D-R   final: RF + greedy (translated names)    union ...                  TEST  .991  .894  .940    4,714   79 s
+  Rows 1 and 9 used the round-1 labels (too easy); all others the checked round-2 labels.
+  Time = PyDI matcher run on all candidate pairs (feature extraction + training included).
+
+
+7. GROUP SIZE DISTRIBUTION  (both dataset pairs together, PyDI create_cluster_size_distribution)
+-----------------------------------------------------------------------------------------------
+  round 1 (no 1:1, easy labels):  groups of 2 to 11,422 records
+  round 2 (W-R 1:1, D-R not):     11,195 of size 2, 1,027 of size 3, ... largest 4,509
+  round 3 (final, 1:1 everywhere): 13,230 groups of size 2, 3,154 of size 3, nothing larger
+  Round 3 in entities: 61,807 records -> 42,269 entities; 16,384 entities in at least two
+  datasets (requirement: 1,000), 3,154 in all three.
+  Files: results/ir/group_sizes_r1.csv, _r2.csv, _r3.csv
+
+
+8. COMPARING AND COMBINING APPROACHES
+-------------------------------------
+  Compared:   one name measure  <  name + country rule  <  rule with domain  <  rule with all
+              attributes  <  learned matchers;  greedy = stable > bipartite.
+  Combined (used in the final pipeline):
+    - multi-pass blocking: country-scoped name tokens UNION shared domain UNION embedding
+      neighbours [L 31] - each pass finds matches the others miss (domain: renamed universities;
+      embedding: other spellings)
+    - several measures of the same attribute as features, the learner picks [L 71]
+    - learned matcher -> threshold on validation -> greedy one-to-one -> clusters
+  Tried and rejected:  the "part_word" feature, picking "no one-to-one" by F1, maximum bipartite.
+  Not tried, and why:
+    - LLM matcher [T, L 88]: needs a paid API key. Would fit the uncertain band only
+      (scores 0.4-0.7), a few hundred pairs; we leave the decision and the key to the team.
+    - character 3-gram blocking: 2.1 billion candidate pairs, not runnable.
+
+
+9. EARLIER ATTEMPT (branch "legacy") AND WHY THE NUMBERS DIFFER
+---------------------------------------------------------------
+  The first version took ~50,000 labelled pairs straight from the ID links, unchecked, with
+  dev/test only. It reported F1 96-99%. With checked labels that include corner cases the same
+  kind of pipeline reaches 93-94% on test. The data did not get harder - the evaluation set got
+  honest. Same lesson as round 1, at a smaller scale [L 36].
+
+
+10. STILL OPEN
+--------------
+  - A team member spot-checks data/labels/review_*.csv (see Section 2).
+  - Wikidata-DEQAR is only matched through ROR; ~270 universities that are in Wikidata and DEQAR
+    but not in ROR cannot be joined this way.
+  - Weights of the rules were set by hand (a few tries), not searched systematically.

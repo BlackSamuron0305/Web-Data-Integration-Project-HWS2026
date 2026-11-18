@@ -1,0 +1,2 @@
+round,pair,matcher,threshold,F1,seconds
+1,deqar-ror,name Levenshtein 0.7 + year 0.3,0.3,0.7984189723320159,13.2

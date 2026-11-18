@@ -103,7 +103,7 @@ parent institutions\mv, history\mv, QA reports\mv, last QA report\mv, ROR id\mv\
 \end{tabularx}
 
 \smallskip
-\scriptsize (*) Retrieved with our own scripts (\url{scripts/fetch_*.py}, \url{build_ror_education.py}). (**) (MV) =
+\scriptsize (*) Retrieved with our own scripts (\url{scripts/data_collection/}). (**) (MV) =
 more than 30\% missing values. The identifiers and links to other sources are not part of the integrated schema.
 \end{table}
 
@@ -151,13 +151,16 @@ latitude, longitude & decimal & W, R & QA reports, last date & integer, date & D
 \paragraph{Schema mapping and translation.}
 We first defined the target schema as an XSD (\url{data/target.xsd}): the elements \emph{id,
 name, alternativeNames, acronyms, location, web, lifecycle, parentInstitutions, institutionTypes,
-numberOfStudents, memberships, qualityAssurance} and \emph{status}. A first MapForce mapping for
-Wikidata and DEQAR had flaws: ROR was not translated, the lists were split with stray spaces, the
-institution types were not split, names and countries were lower-cased, and the DEQAR parent
-institutions were missing. So that all three sources follow
-exactly the same rules, the final files \url{data/Wikidata_Mapping.xml}, \url{data/ROR_Mapping.xml} and
-\url{data/deqar_Mapping.xml} are written by one script (\url{translate_to_xml.py}) with the element
-structure of the first mapping. They contain 22,697, 30,131 and 8,979 institutions, keep the original
+numberOfStudents, memberships, qualityAssurance} and \emph{status}; every list attribute has its own
+named child element. One Altova MapForce mapping per source (\url{data/<source>/*_Mapping.mfd}) translates
+the CSV files into this schema. List values are split on the separator and trimmed
+(\emph{tokenize}, \emph{normalize-space}); a shared function (\url{data/functions.mfd}) derives the
+internet domain from the website, with ROR's own domain list used first; two lookup tables add the
+country code to DEQAR (\url{data/deqar/country_codes.csv}) and replace ROR parent identifiers by names
+(\url{data/ror/ror_names.csv}). A first version of the mappings had flaws (ROR not translated, lists with
+stray spaces, lower-cased names, DEQAR parent institutions missing), which the final version fixes.
+The output files \url{data/wikidata/Wikidata_Mapping.xml}, \url{data/ror/ROR_Mapping.xml} and
+\url{data/deqar/deqar_Mapping.xml} contain 22,697, 30,131 and 8,979 institutions, keep the original
 spelling of names and countries, and validate against the XSD.
 
 \section{Conclusion}

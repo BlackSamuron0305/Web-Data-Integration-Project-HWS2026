@@ -1,0 +1,33 @@
+id1,id2,decision,reason
+wikidata_Q8049772,ror_01kxpxf76,flip,different institutions (institute of science vs open university)
+wikidata_Q21825728,ror_054maaz15,flip,"different universities, Wikidata has wrong website"
+wikidata_Q7122755,ror_03g873n36,flip,campus vs university
+wikidata_Q7676818,ror_05t7j3v51,flip,different institutions
+wikidata_Q4304097,ror_054xjq184,flip,successor vs predecessor (merger 2016)
+wikidata_Q7692472,ror_01mymm084,flip,predecessor merged into TEI Western Greece
+wikidata_Q12323381,ror_00tge7270,flip,predecessor merged into new academy 2025
+wikidata_Q7896172,ror_038z2eg27,flip,"same university, country coded US vs PR"
+wikidata_Q16682067,ror_00nb39k71,flip,"same university, country coded FR vs GF"
+wikidata_Q1695245,ror_03ay59x86,flip,"same university, country coded FR vs PF"
+wikidata_Q1707020,ror_01dfpjy51,flip,"same university, ROR country code wrong"
+wikidata_Q11400830,ror_042zqcx93,flip,"same college, country coded US vs MP"
+wikidata_Q9371183,ror_03dw9f533,drop,unclear if renamed
+wikidata_Q4563603,ror_031gjxb79,drop,"school merged into academy, unclear"
+wikidata_Q25521053,ror_05416zy49,drop,unclear which institution
+wikidata_Q17212679,ror_03s1qdk24,drop,"college vs university, unclear"
+wikidata_Q115616935,ror_012crs830,drop,"unclear, different cities and years"
+wikidata_Q101421511,ror_058v0t886,drop,Wikidata name is wrong (Ministry of Minerals)
+wikidata_Q115152318,ror_035y2ya61,drop,"college vs university, same domain"
+wikidata_Q2210297,ror_02552gk22,drop,"two related institutions, unclear"
+wikidata_Q7498312,ror_03ram9582,drop,junior college vs university
+wikidata_Q11581363,ror_03wkbyb17,drop,junior college vs university
+wikidata_Q6888547,ror_02exeb428,drop,Wikidata name does not fit website
+wikidata_Q1622188,ror_00zk46w34,drop,unclear if merged
+wikidata_Q16826177,ror_052tgfs08,drop,unclear if renamed
+wikidata_Q5592017,ror_028pbhy75,drop,"two institutions of one group, unclear"
+wikidata_Q5060452,ror_01jdxxe39,drop,"same name and domain, other city (campus?)"
+wikidata_Q4470499,ror_00kx55e87,drop,ROR holds the same university twice
+wikidata_Q19972112,ror_05cczs510,drop,ROR holds the same university twice
+wikidata_Q30266928,ror_05b2p8944,drop,unclear if same
+wikidata_Q28942624,ror_026vbyp30,drop,renamed (Kainar -> Q University) but Wikidata linked elsewhere
+wikidata_Q6000961,ror_04xa8cd78,drop,"predecessor or campus, unclear"

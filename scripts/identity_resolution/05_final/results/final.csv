@@ -1,0 +1,11 @@
+round,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
+1,wikidata-ror,name Levenshtein 0.5 + year 0.5 + no global matching,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.876,0.934,133694,33.5,
+1,wikidata-ror,name Levenshtein 0.5 + year 0.5 + greedy one-to-one,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.817,0.899,16405,35.1,
+1,wikidata-ror,name Levenshtein 0.5 + year 0.5 + stable matching,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.824,0.903,14722,34.2,
+1,wikidata-ror,name Levenshtein 0.5 + year 0.5 + maximum bipartite,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.15,0.261,18074,36.7,
+1,wikidata-ror,name Levenshtein 0.5 + year 0.5 + none,"sorted neighbourhood: name, window 20",test,0.3,1.0,0.905,0.95,133694,33.5,final choice of this round
+1,deqar-ror,name Levenshtein 0.7 + year 0.3 + no global matching,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.664,0.798,72191,13.2,
+1,deqar-ror,name Levenshtein 0.7 + year 0.3 + greedy one-to-one,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.612,0.759,6094,13.9,
+1,deqar-ror,name Levenshtein 0.7 + year 0.3 + stable matching,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.612,0.759,5670,13.7,
+1,deqar-ror,name Levenshtein 0.7 + year 0.3 + maximum bipartite,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.033,0.064,6448,14.9,
+1,deqar-ror,name Levenshtein 0.7 + year 0.3 + none,"sorted neighbourhood: name, window 20",test,0.3,1.0,0.679,0.809,72191,13.2,final choice of this round
