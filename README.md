@@ -10,8 +10,8 @@ Web Data Integration project, HWS 2026 (University of Mannheim). The report is i
   `data/functions.mfd` the functions the three mappings share.
 - `scripts/data_collection/`: downloads the three sources (`fetch_wikidata.py`, `build_ror_education.py`,
   `fetch_deqar.py`).
-- `scripts/identity_resolution/`: Phase II, one folder per approach, each with its script and a
-  `results/` folder; `common.py` holds the shared code (loading, blocking keys, comparators, evaluation).
+- `scripts/identity_resolution/`: Phase II, one folder per approach, each with its script, a
+  `results/` folder and `plots.ipynb` (charts of those results); `common.py` holds the shared code (loading, blocking keys, comparators, evaluation).
 - `IDENTITY_RESOLUTION_REASONING.txt`: the journal of the three rounds of Phase II (what we tried, why,
   results).
 

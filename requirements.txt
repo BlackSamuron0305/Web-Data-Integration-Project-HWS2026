@@ -5,3 +5,5 @@ requests
 scikit-learn
 rapidfuzz
 lxml
+matplotlib
+ipykernel

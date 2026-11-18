@@ -3,8 +3,9 @@ IDENTITY RESOLUTION - LAB JOURNAL (what we tried, why, how it went)
 Project: Web Data Integration HWS 2026 - Wikidata, ROR, DEQAR (universities)
 Branch:  identity-resolution-laith          Nothing here is committed.
 
-All numbers below come from real runs of the scripts in scripts/identity_resolution/; the raw logs are
-results/ir/blocking.csv and results/ir/matching.csv (one row per run, column "round").
+All numbers below come from real runs of the scripts in scripts/identity_resolution/. Each step has
+its own folder with the script, a results/ folder (one row per run, column "round") and a
+plots.ipynb with the charts.
 
 
 0. SOURCES WE FOLLOWED
@@ -33,12 +34,14 @@ match at least two dataset pairs, through a "connector" dataset, often the large
   two already point to it. (Wikidata-DEQAR follows through ROR.)
   Python 3.12 + PyDI 0.2.1 (uma-pydi), scikit-learn. Venv: .venv (not committed).
 
-  How to run everything again (from scripts/identity_resolution/):
-      python ir_labels.py 1        round-1 labels
-      python ir_labels.py pool     candidates to check by hand  -> data/labels/pool_*.csv
-      python ir_labels.py 2        checked labels (uses data/labels/review_*.csv)
-      python ir_blocking.py 1|2|3  blocking experiments
-      python ir_matching.py 1|2|3  matching experiments, final correspondences, group sizes
+  How to run everything again (each script from its own folder in scripts/identity_resolution/):
+      01_labels/labels.py 1         round-1 labels
+      01_labels/labels.py pool      candidates to check by hand  -> results/pool_*.csv
+      01_labels/labels.py 2         checked labels (uses results/review_*.csv)
+      02_blocking/blocking.py 1|2|3       blocking experiments
+      03_rule_based/rule_based.py 1|2|3   name measures and rules
+      04_ml_based/ml_based.py 2|3         learned matchers
+      05_final/final.py 1|2|3             global matching, test, correspondences, group sizes
 
 
 2. LABELLED PAIRS
@@ -66,10 +69,10 @@ ROUND 2 (built following [E 8] / [L 34])
   linked to its successor, and - the other way round - the SAME university with different
   country codes (University of French Polynesia FR vs PF, Faroe Islands DK vs FO, Svalbard NO
   vs SJ, Vatican universities VA vs IT). Every decision and its reason is in
-  data/labels/review_*.csv. Lesson: the ID links of DEQAR are much less reliable than those of
+  01_labels/results/review_*.csv. Lesson: the ID links of DEQAR are much less reliable than those of
   Wikidata (26 vs 12 changes) - "weak supervision, quality questionable" [L 76].
   IMPORTANT for the report: the checking was done by Claude in this session, pair by pair. A team
-  member should spot-check data/labels/review_*.csv and the pools before the report calls them
+  member should spot-check 01_labels/results/review_*.csv and the pools before the report calls them
   "manually verified".
   Split by the left record (no record in two splits):
                     train        validation     test
@@ -181,7 +184,7 @@ WHAT WE LEARNED
      distribution showed groups of up to 4,509 records. A metric on 300 labelled pairs cannot see
      that one record is matched to 20 others - the cluster sizes can [T].
 
-  Error analysis (validation, results/ir/errors_*_r2.csv):
+  Error analysis (validation, 05_final/results/errors_*_r2.csv):
      - names in another language: "Ibero-American University of Torreon" vs
        "Universidad Iberoamericana Torreon"
      - part against the whole: "Pacific University Health Professions Campus" vs "Pacific
@@ -226,7 +229,7 @@ WHAT WE LEARNED
   Test recall (0.894) is lower than validation recall (0.971 / 0.908): the threshold and the
   model were chosen on validation, so validation is optimistic - this is why the course keeps a
   separate test set.
-  Correspondences: results/ir/correspondences_wikidata_ror_r3.csv, ..._deqar_ror_r3.csv
+  Correspondences: 05_final/results/correspondences_wikidata_ror_r3.csv, ..._deqar_ror_r3.csv
 
 
 6. TABLE FOR THE REPORT  (format of [E 10]; P/R/F1 on validation unless marked TEST)
@@ -258,7 +261,7 @@ WHAT WE LEARNED
   round 3 (final, 1:1 everywhere): 13,230 groups of size 2, 3,154 of size 3, nothing larger
   Round 3 in entities: 61,807 records -> 42,269 entities; 16,384 entities in at least two
   datasets (requirement: 1,000), 3,154 in all three.
-  Files: results/ir/group_sizes_r1.csv, _r2.csv, _r3.csv
+  Files: 05_final/results/group_sizes_r1.csv, _r2.csv, _r3.csv
 
 
 8. COMPARING AND COMBINING APPROACHES
@@ -288,7 +291,7 @@ WHAT WE LEARNED
 
 10. STILL OPEN
 --------------
-  - A team member spot-checks data/labels/review_*.csv (see Section 2).
+  - A team member spot-checks 01_labels/results/review_*.csv (see Section 2).
   - Wikidata-DEQAR is only matched through ROR; ~270 universities that are in Wikidata and DEQAR
     but not in ROR cannot be joined this way.
   - Weights of the rules were set by hand (a few tries), not searched systematically.
