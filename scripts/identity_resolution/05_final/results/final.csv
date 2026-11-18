@@ -9,3 +9,13 @@ round,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
 1,deqar-ror,name Levenshtein 0.7 + year 0.3 + stable matching,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.612,0.759,5670,13.7,
 1,deqar-ror,name Levenshtein 0.7 + year 0.3 + maximum bipartite,"sorted neighbourhood: name, window 20",validation,0.3,1.0,0.033,0.064,6448,14.9,
 1,deqar-ror,name Levenshtein 0.7 + year 0.3 + none,"sorted neighbourhood: name, window 20",test,0.3,1.0,0.679,0.809,72191,13.2,final choice of this round
+2,wikidata-ror,logistic regression + no global matching,union: country + name word | same domain | embedding,validation,0.45,0.951,0.978,0.964,56990,188.1,
+2,wikidata-ror,logistic regression + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.45,0.993,0.964,0.978,14898,189.0,
+2,wikidata-ror,logistic regression + stable matching,union: country + name word | same domain | embedding,validation,0.45,0.992,0.949,0.97,14482,188.6,
+2,wikidata-ror,logistic regression + maximum bipartite,union: country + name word | same domain | embedding,validation,0.45,0.992,0.862,0.922,15356,189.5,
+2,wikidata-ror,logistic regression + greedy one-to-one,union: country + name word | same domain | embedding,test,0.45,0.982,0.886,0.932,14898,188.1,final choice of this round
+2,deqar-ror,random forest + no global matching,union: country + name word | same domain | embedding,validation,0.35,0.964,0.943,0.953,19354,60.0,
+2,deqar-ror,random forest + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.35,0.992,0.894,0.94,4704,60.2,
+2,deqar-ror,random forest + stable matching,union: country + name word | same domain | embedding,validation,0.35,0.992,0.879,0.932,4621,60.1,
+2,deqar-ror,random forest + maximum bipartite,union: country + name word | same domain | embedding,validation,0.35,0.989,0.652,0.786,4873,60.5,
+2,deqar-ror,random forest + none,union: country + name word | same domain | embedding,test,0.35,0.885,0.935,0.909,19354,60.0,final choice of this round

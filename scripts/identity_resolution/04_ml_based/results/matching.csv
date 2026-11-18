@@ -1,0 +1,10 @@
+round,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
+2,wikidata-ror,logistic regression,union: country + name word | same domain | embedding,validation,0.45,0.951,0.978,0.964,56990,188.1,
+2,wikidata-ror,random forest,union: country + name word | same domain | embedding,validation,0.65,0.963,0.949,0.956,45003,190.3,
+2,wikidata-ror,gradient boosting,union: country + name word | same domain | embedding,validation,0.7,0.97,0.942,0.956,34187,189.1,
+2,deqar-ror,logistic regression,union: country + name word | same domain | embedding,validation,0.3,0.93,0.936,0.933,20569,60.1,
+2,deqar-ror,random forest,union: country + name word | same domain | embedding,validation,0.35,0.964,0.943,0.953,19354,60.0,
+2,deqar-ror,gradient boosting,union: country + name word | same domain | embedding,validation,0.35,0.984,0.879,0.929,16649,60.2,
+3,wikidata-ror,logistic regression,union: country + name word | same domain | embedding,validation,0.45,0.951,0.978,0.964,54702,241.6,
+3,wikidata-ror,random forest,union: country + name word | same domain | embedding,validation,0.55,0.931,0.978,0.954,72829,237.8,
+3,wikidata-ror,gradient boosting,union: country + name word | same domain | embedding,validation,0.65,0.956,0.949,0.953,34126,238.8,
