@@ -1,0 +1,13 @@
+pair,matcher,blocker,candidates,reduction_ratio,note,pair_completeness,threshold,train_f1,precision,recall,f1,tp,fp,fn,corr,block_s,match_s,time_s
+wikidata-ror,-,No blocking,683883307,0.0,not run: too many pairs,,,,,,,,,,,,,
+wikidata-ror,Rule1: names+country+domain,Standard: normalised name,10626,0.999984,,0.7694,0.51,0.8562,0.9967,0.769,0.8682,2131.0,7.0,640.0,10197.0,0.2,1.4,1.7
+wikidata-ror,Rule1: names+country+domain,Standard: country + first word,871695,0.998725,,0.8517,0.7,0.8953,0.9886,0.8441,0.9106,2339.0,27.0,432.0,12225.0,0.5,109.2,109.7
+wikidata-ror,Rule1: names+country+domain,Standard: web domain,12192,0.999982,,0.8289,0.79,0.8853,0.9779,0.8286,0.8971,2296.0,52.0,475.0,12033.0,0.2,1.8,2.0
+deqar-ror,-,No blocking,270546249,0.0,not run: too many pairs,,,,,,,,,,,,,
+deqar-ror,Rule1: names+country+domain,Standard: normalised name,2399,0.999991,,0.513,0.51,0.6721,0.9888,0.5116,0.6743,353.0,4.0,337.0,2313.0,0.2,0.4,0.5
+deqar-ror,Rule1: names+country+domain,Standard: country + first word,147936,0.999453,,0.6841,0.69,0.7904,0.9848,0.6565,0.7878,453.0,7.0,237.0,3145.0,0.2,17.3,17.6
+deqar-ror,Rule1: names+country+domain,Standard: web domain,4805,0.999982,,0.8362,0.84,0.8842,0.9795,0.8319,0.8997,574.0,12.0,116.0,4023.0,0.2,0.7,0.9
+wikidata-deqar,-,No blocking,203796363,0.0,not run: too many pairs,,,,,,,,,,,,,
+wikidata-deqar,Rule1: names+country+domain,Standard: normalised name,1957,0.99999,,0.6192,0.51,0.7444,0.9929,0.6192,0.7627,278.0,2.0,171.0,1876.0,0.1,0.3,0.4
+wikidata-deqar,Rule1: names+country+domain,Standard: country + first word,101227,0.999503,,0.755,0.68,0.8377,0.991,0.7394,0.8469,332.0,3.0,117.0,2768.0,0.4,12.1,12.5
+wikidata-deqar,Rule1: names+country+domain,Standard: web domain,3428,0.999983,,0.8396,0.3,0.8937,0.9818,0.8396,0.9052,377.0,7.0,72.0,3428.0,0.1,0.5,0.6
