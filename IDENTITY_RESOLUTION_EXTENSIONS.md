@@ -1004,3 +1004,96 @@ No further model or threshold optimization.
 Proceed to qualitative error analysis.
 
 Status: Completed successfully.
+
+
+### Experiment 10 - Error Analysis
+
+Objective:
+Investigate matching failures, blocking limitations,
+competing assignments and baseline reproducibility.
+
+Methodology:
+- Analyze false positives and false negatives.
+- Inspect institution names and structured attributes.
+- Identify missing blocking candidates.
+- Identify competing one-to-one assignments.
+- Compare original and reproduced ML correspondences.
+- Generate additional correspondence samples for review.
+
+Error summary:
+
+| Pair | Method | Error | Diagnostic | Count |
+|---|---|---|---|---:|
+| wikidata-ror | tfidf | false_negative | competing_assignment_present | 27 |
+| wikidata-ror | tfidf | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | tfidf | false_positive | incorrect_labeled_match | 2 |
+| wikidata-ror | semantic_only | false_negative | competing_assignment_present | 29 |
+| wikidata-ror | semantic_only | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | semantic_only | false_positive | incorrect_labeled_match | 4 |
+| wikidata-ror | semantic_hybrid | false_negative | competing_assignment_present | 9 |
+| wikidata-ror | semantic_hybrid | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | optimized_rules | false_negative | competing_assignment_present | 18 |
+| wikidata-ror | optimized_rules | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | optimized_rules | false_positive | incorrect_labeled_match | 3 |
+| wikidata-ror | original_rules | false_negative | competing_assignment_present | 5 |
+| wikidata-ror | original_rules | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | original_rules | false_positive | incorrect_labeled_match | 1 |
+| wikidata-ror | ml_original_threshold | false_negative | competing_assignment_present | 8 |
+| wikidata-ror | ml_original_threshold | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | ml_original_threshold | false_positive | incorrect_labeled_match | 2 |
+| wikidata-ror | ml_retuned_threshold | false_negative | competing_assignment_present | 8 |
+| wikidata-ror | ml_retuned_threshold | false_negative | not_generated_by_blocking | 5 |
+| wikidata-ror | ml_retuned_threshold | false_positive | incorrect_labeled_match | 2 |
+| deqar-ror | tfidf | false_negative | competing_assignment_present | 19 |
+| deqar-ror | tfidf | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | tfidf | false_positive | incorrect_labeled_match | 6 |
+| deqar-ror | semantic_only | false_negative | competing_assignment_present | 47 |
+| deqar-ror | semantic_only | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | semantic_only | false_positive | incorrect_labeled_match | 5 |
+| deqar-ror | semantic_hybrid | false_negative | competing_assignment_present | 12 |
+| deqar-ror | semantic_hybrid | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | semantic_hybrid | false_positive | incorrect_labeled_match | 2 |
+| deqar-ror | optimized_rules | false_negative | blocked_but_not_selected | 2 |
+| deqar-ror | optimized_rules | false_negative | competing_assignment_present | 11 |
+| deqar-ror | optimized_rules | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | optimized_rules | false_positive | incorrect_labeled_match | 2 |
+| deqar-ror | original_rules | false_negative | competing_assignment_present | 10 |
+| deqar-ror | original_rules | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | original_rules | false_positive | incorrect_labeled_match | 1 |
+| deqar-ror | ml_original_threshold | false_negative | competing_assignment_present | 11 |
+| deqar-ror | ml_original_threshold | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | ml_original_threshold | false_positive | incorrect_labeled_match | 1 |
+| deqar-ror | ml_retuned_threshold | false_negative | competing_assignment_present | 11 |
+| deqar-ror | ml_retuned_threshold | false_negative | not_generated_by_blocking | 2 |
+| deqar-ror | ml_retuned_threshold | false_positive | incorrect_labeled_match | 1 |
+
+
+Baseline reproducibility:
+
+| Pair | Original | Reproduced | Intersection | Jaccard |
+|---|---:|---:|---:|---:|
+| wikidata-ror | 14824 | 14824 | 14817 | 0.999056 |
+| deqar-ror | 4714 | 4714 | 4710 | 0.998304 |
+
+
+Observations:
+- 308 error observations across all configurations.
+- 80 additional correspondence samples generated.
+- Original weighted rules produced the fewest test errors.
+- Five Wikidata-ROR positive test pairs were missed by blocking.
+- Two DEQAR-ROR positive test pairs were missed by blocking.
+- Test blocking completeness: 118/123 for Wikidata-ROR.
+- Test blocking completeness: 121/123 for DEQAR-ROR.
+- Competing assignments are common among false negatives.
+- Original ML predictions were almost exactly reproduced.
+
+Limitations:
+- Automated diagnostics do not establish causal explanations.
+- Repeated errors across matchers are not independent.
+- Unlabeled correspondences are not necessarily incorrect.
+- Additional samples exclude test labels but may overlap
+  with training or validation labels.
+- Human verification remains pending.
+
+Status:
+Automated error analysis completed successfully.

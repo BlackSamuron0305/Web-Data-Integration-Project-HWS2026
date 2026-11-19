@@ -1,0 +1,3 @@
+pair,original_count,reproduced_count,intersection,original_only,reproduced_only,jaccard,identical
+wikidata-ror,14824,14824,14817,7,7,0.9990560312858202,False
+deqar-ror,4714,4714,4710,4,4,0.9983043662568886,False
