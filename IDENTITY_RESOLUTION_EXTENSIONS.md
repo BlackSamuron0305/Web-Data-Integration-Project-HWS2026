@@ -328,3 +328,45 @@ the experimental methodology or reinstalling dependencies.
 
 Status: CPU compatibility verified.
 Full candidate regeneration pending.
+
+
+#### Experiment 3.2 - Successful Blocking Regeneration
+
+The Round 3 multi-pass blocking strategy was successfully
+executed using CPU-based embedding generation.
+
+| Blocking method | Wikidata-ROR | DEQAR-ROR |
+|---|---:|---:|
+| Country + name tokens | 602373 | 207638 |
+| Shared website domain | 12445 | 4826 |
+| Embedding blocking | 220647 | 87153 |
+| Union | 756323 | 274186 |
+| Pair completeness | 0.9928 | 0.9716 |
+| Reduction ratio | 0.998894 | 0.998987 |
+
+Execution time per blocking pass (seconds):
+
+| Blocking method | Wikidata-ROR | DEQAR-ROR |
+|---|---:|---:|
+| Country + name tokens | 0.9 | 0.6 |
+| Shared website domain | 0.2 | 0.1 |
+| Embedding blocking | 110.3 | 72.2 |
+
+Observations:
+- CPU execution resolved the MPS compatibility issue.
+- Both dataset pairs satisfy the pair completeness target.
+- A total of 1030509 unique candidate pairs were generated.
+- The existing blocking strategy remains unchanged.
+- Exact candidate equivalence with the original run has
+  not been established.
+
+Decision:
+Keep these regenerated candidates fixed for all subsequent
+matching experiments.
+
+Candidate file SHA-256 checksums:
+
+- deqar_ror_r3_union__country___name_word___same_domain___embedding.csv: 798e61e57fa6be2492e015cb4c0f5473b1ba269f4b12c8cf8d192e881e201d2d
+- wikidata_ror_r3_union__country___name_word___same_domain___embedding.csv: 1fecf1571771f9180f6a12f52f5adba39681caec96a93910d35f86466170abdb
+
+Status: Completed successfully.
