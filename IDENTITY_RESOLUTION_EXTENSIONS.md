@@ -883,3 +883,62 @@ Candidate regeneration, dependency versions and
 tie-breaking may prevent exact historical reproduction.
 
 Status: Implementation completed. Execution pending.
+
+
+#### Experiment 7.1 - Controlled Baseline Results
+
+Both selected ML classifiers were successfully reproduced
+using the regenerated Round 3 blocking candidates.
+
+| Pair | Classifier | Configuration | Threshold | P | R | F1 | Corr. |
+|---|---|---|---:|---:|---:|---:|---:|
+| wikidata-ror | logistic regression | original_threshold | 0.45 | 0.9926 | 0.9710 | 0.9817 | 14824 |
+| wikidata-ror | logistic regression | retuned_threshold | 0.25 | 0.9926 | 0.9710 | 0.9817 | 16637 |
+| deqar-ror | random forest | original_threshold | 0.35 | 0.9846 | 0.9078 | 0.9446 | 4714 |
+| deqar-ror | random forest | retuned_threshold | 0.20 | 0.9847 | 0.9149 | 0.9485 | 5319 |
+
+
+Observations:
+- Original validation metrics and correspondence counts
+  were reproduced for both dataset pairs.
+- Exact correspondence-level equivalence remains unverified.
+- Logistic regression achieved identical validation F1
+  after threshold retuning.
+- Random forest improved from 0.9446 to 0.9485.
+- Retuned original rule weights outperformed the retuned
+  random forest on DEQAR-ROR validation data.
+- All matching approaches now share the same regenerated
+  blocking candidates.
+
+Decision:
+Conclude model development and parameter optimization.
+Freeze the selected configurations before test evaluation.
+
+Status: Completed successfully.
+
+
+### Experiment 8 - Configuration Freezing
+
+All 14 selected configurations were successfully frozen
+before final test evaluation.
+
+Verification:
+- Saved validation metrics reproduced.
+- Correspondence counts verified.
+- One-to-one matching constraints verified.
+- SHA-256 checksums recorded for prediction files.
+- Seven configurations selected per dataset pair.
+- No test labels accessed during configuration freezing.
+
+All experimental prediction files will be version-controlled
+to support reproducibility and independent evaluation.
+
+Decision:
+No further model, weight or threshold optimization.
+Proceed to final test-set evaluation.
+
+Limitation:
+The existing test sets were previously evaluated in the
+original project experiments and are not completely unseen.
+
+Status: Completed successfully.
