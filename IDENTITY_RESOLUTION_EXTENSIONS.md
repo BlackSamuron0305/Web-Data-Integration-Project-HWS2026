@@ -370,3 +370,56 @@ Candidate file SHA-256 checksums:
 - wikidata_ror_r3_union__country___name_word___same_domain___embedding.csv: 1fecf1571771f9180f6a12f52f5adba39681caec96a93910d35f86466170abdb
 
 Status: Completed successfully.
+
+
+### Experiment 4 - TF-IDF and Cosine Similarity
+
+Objective:
+Investigate corpus-based text similarity as an alternative
+to traditional string similarity measures.
+
+Configuration:
+- Fixed Round 3 blocking candidates
+- Normalized primary institution names
+- Word-level n-grams: 1-2
+- Character-level n-grams: 3-5
+- L2 normalization
+- Sublinear term frequency
+- Cosine similarity
+- Sparse matrix computation
+- Batch size: 4096
+- Threshold selection using validation F1
+- Greedy one-to-one global matching
+
+Results (validation):
+
+| Pair | Method | Global matching | P | R | F1 | Corr. | Time (s) |
+|---|---|---|---:|---:|---:|---:|---:|
+| W-R | Word | None | .7273 | .7536 | .7402 | 95235 | 5.4 |
+| W-R | Word | Greedy | .9495 | .6812 | .7932 | 15119 | 8.4 |
+| W-R | Character | None | .7119 | .9130 | .8000 | 293534 | 15.5 |
+| W-R | Character | Greedy | .9444 | .7391 | .8293 | 18141 | 24.6 |
+| D-R | Word | None | .7000 | .6950 | .6975 | 25566 | 1.9 |
+| D-R | Word | Greedy | .9100 | .6454 | .7552 | 4970 | 2.6 |
+| D-R | Character | None | .6686 | .8014 | .7290 | 78807 | 6.6 |
+| D-R | Character | Greedy | .9286 | .6454 | .7615 | 6526 | 8.6 |
+
+Observations:
+- Character TF-IDF achieved higher F1 on both dataset pairs.
+- Greedy matching increased precision but reduced recall.
+- TF-IDF was computationally efficient.
+- All configurations selected a threshold of 0.30.
+
+Limitations:
+- Only primary institution names were considered.
+- The selected threshold is at the lower search boundary.
+- Thresholds were selected before global matching.
+- Other institution attributes were not considered.
+- No test-set evaluation was performed.
+
+Next steps:
+- Include alternative names and acronyms.
+- Expand the threshold search range.
+- Optimize thresholds after global matching.
+
+Status: Initial experiment completed successfully.
