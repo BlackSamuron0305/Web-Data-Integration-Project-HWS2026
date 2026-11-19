@@ -463,3 +463,77 @@ Additional computational cost due to repeated greedy matching.
 Runtime now includes the complete threshold search.
 
 Status: Fix implemented. Full experiment must be rerun.
+
+
+#### Experiment 4.2 - Refined TF-IDF Results
+
+Objective:
+Investigate the impact of alternative institution names,
+acronyms, translated names and threshold optimization.
+
+Configuration:
+- Word-level n-grams: 1-2
+- Character-level n-grams: 3-5
+- Primary names versus all available name variants
+- Pooled TF-IDF representation for alternative names
+- Threshold range: 0.05 to 1.00, step 0.05
+- Independent threshold optimization for greedy matching
+- Fixed Round 3 blocking candidates
+- Validation data only
+
+Results:
+
+| Pair | Method | Names | Global | Threshold | P | R | F1 | Corr. | Time |
+|---|---|---|---|---:|---:|---:|---:|---:|---:|
+| wikidata-ror | word_tfidf | primary_name | none | 0.05 | 0.6739 | 0.8986 | 0.7702 | 456596 | 50.7s |
+| wikidata-ror | word_tfidf | primary_name | greedy | 0.05 | 0.9423 | 0.7101 | 0.8099 | 19124 | 50.7s |
+| wikidata-ror | word_tfidf | all_names | none | 0.30 | 0.7708 | 0.8043 | 0.7872 | 53407 | 43.2s |
+| wikidata-ror | word_tfidf | all_names | greedy | 0.10 | 0.9907 | 0.7681 | 0.8653 | 18481 | 43.2s |
+| wikidata-ror | char_tfidf | primary_name | none | 0.25 | 0.7049 | 0.9348 | 0.8037 | 350021 | 92.3s |
+| wikidata-ror | char_tfidf | primary_name | greedy | 0.05 | 0.9537 | 0.7464 | 0.8374 | 20158 | 92.3s |
+| wikidata-ror | char_tfidf | all_names | none | 0.40 | 0.7346 | 0.8623 | 0.7933 | 105083 | 87.2s |
+| wikidata-ror | char_tfidf | all_names | greedy | 0.05 | 0.9730 | 0.7826 | 0.8675 | 20277 | 87.2s |
+| deqar-ror | word_tfidf | primary_name | none | 0.10 | 0.6790 | 0.7801 | 0.7261 | 93944 | 14.8s |
+| deqar-ror | word_tfidf | primary_name | greedy | 0.10 | 0.9135 | 0.6738 | 0.7755 | 6718 | 14.8s |
+| deqar-ror | word_tfidf | all_names | none | 0.30 | 0.7469 | 0.8582 | 0.7987 | 17129 | 14.9s |
+| deqar-ror | word_tfidf | all_names | greedy | 0.05 | 0.9508 | 0.8227 | 0.8821 | 6967 | 14.9s |
+| deqar-ror | char_tfidf | primary_name | none | 0.15 | 0.6816 | 0.8652 | 0.7625 | 137357 | 28.6s |
+| deqar-ror | char_tfidf | primary_name | greedy | 0.25 | 0.9300 | 0.6596 | 0.7718 | 6828 | 28.6s |
+| deqar-ror | char_tfidf | all_names | none | 0.10 | 0.6700 | 0.9645 | 0.7907 | 211384 | 30.6s |
+| deqar-ror | char_tfidf | all_names | greedy | 0.15 | 0.9391 | 0.7660 | 0.8437 | 6952 | 30.6s |
+
+Observations:
+- Alternative names improved greedy matching F1 across
+  both TF-IDF methods and both dataset pairs.
+- Best Wikidata-ROR configuration: character TF-IDF
+  with all names (F1 = 0.8675).
+- Best DEQAR-ROR configuration: word TF-IDF
+  with all names (F1 = 0.8821).
+- Greedy matching consistently improved precision
+  at the cost of recall.
+- Runtime includes the complete threshold search.
+
+Improvement over initial best TF-IDF results:
+- Wikidata-ROR: 0.8293 to 0.8675
+- DEQAR-ROR: 0.7615 to 0.8821
+
+Limitations:
+- Alternative names are pooled rather than individually
+  compared.
+- Some optimal thresholds remain at the search boundary.
+- Name-only matching underperforms the existing
+  multi-attribute classifiers.
+- Improvements over the initial experiment cannot be
+  attributed solely to alternative names.
+- No test-set evaluation was performed.
+
+Conclusion:
+TF-IDF provides a computationally efficient statistical
+matching approach. Incorporating name variants improves
+performance, but additional attributes remain important.
+
+Decision:
+Conclude TF-IDF experimentation and proceed to
+multilingual semantic embedding matching.
+
+Status: Completed successfully.
