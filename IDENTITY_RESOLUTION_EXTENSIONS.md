@@ -1097,3 +1097,99 @@ Limitations:
 
 Status:
 Automated error analysis completed successfully.
+
+
+#### Experiment 10.1 - Qualitative Error Analysis
+
+Analysis scope:
+- 308 error observations
+- 130 unique erroneous record pairs
+- 112 unique false-negative pairs
+- 18 unique false-positive pairs
+- 80 additional correspondence samples
+
+Identified failure patterns:
+1. Multilingual institution names.
+2. Institutional renaming.
+3. Identical names across different countries.
+4. Parent institutions versus individual campuses.
+5. Competing assignments during global matching.
+6. Shared domains across distinct institutions.
+
+Externally investigated name changes:
+
+Bloomsbury Institute:
+- Formerly London School of Business and Management.
+- Renamed in September 2018.
+- Source:
+  https://find-and-update.company-information.service.gov.uk/company/04511191
+
+IB Hochschule Berlin:
+- Renamed Health Innovation University of Applied Sciences
+  in March 2026.
+- Source:
+  https://www.hi-university.de/en/faq
+
+Demiroglu Bilim University:
+- Formerly Istanbul Bilim University.
+- Renamed in January 2019.
+- Source:
+  https://apsis.demiroglu.bilim.edu.tr/bilgi-paketi/en/universite-hakkinda
+
+Additional correspondence screening:
+
+| Indicator | Original rules | Semantic hybrid |
+|---|---:|---:|
+| Samples | 40 | 40 |
+| Conflicting country codes | 0 | 6 |
+| Shared domains | 4 | 1 |
+| Missing country information | 0 | 1 |
+
+Selected externally investigated correspondences:
+
+- Ivan Franko National University of Lviv / Lviv University:
+  match.
+  https://lnu.edu.ua/en/about/history/
+
+- University of Reggio Calabria / Universita Mediterranea:
+  match.
+  https://www.international.unirc.it/en/international/international-student
+
+- Indian Institute of Remote Sensing /
+  Indian Institute of Geomagnetism: non-match.
+  https://www.iirs.gov.in/about-iirs
+  https://www.iigm.res.in/about-us
+
+- University of the Arts Singapore /
+  University of Glasgow Singapore: non-match.
+  https://uas.edu.sg/about-us
+  https://www.gla.ac.uk/international/country/singapore/
+
+- University of Karlsruhe /
+  Center for Art and Media Karlsruhe: non-match.
+  https://www.kit.edu/kit/english/history.php
+  https://zkm.de/en/organization
+
+- Instituto Politecnico Jean Piaget do Norte /
+  Instituto Politecnico Jean Piaget do Sul: non-match.
+  https://www.ipiaget.org/instituicoes-ip/
+
+Conclusions:
+- Institutional history is important for identity resolution.
+- Semantic similarity alone does not establish identity.
+- Identical names and shared domains can be misleading.
+- Strong labeled test performance does not guarantee
+  equally strong precision across all correspondences.
+- Blocking limitations constrain achievable recall.
+
+Limitations:
+- Qualitative categories are not exhaustive.
+- External verification was AI-assisted.
+- Only selected examples were externally investigated.
+- Full human annotation remains pending.
+- Disagreement samples are not representative of all
+  generated correspondences.
+- Training and validation overlap has not been excluded.
+- No frozen predictions or test labels were modified.
+
+Status: Preliminary qualitative error analysis completed.
