@@ -594,3 +594,65 @@ Limitations:
 - Missing domain information contributes zero similarity.
 
 Status: Implementation completed. Execution pending.
+
+
+#### Experiment 5.1 - Semantic Matching Results
+
+Model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Revision: e8f8c211226b894fcb81acc59f3b34ba3efd5f42
+Device: cpu
+Random seed: 2026
+
+Embedding generation:
+- wikidata: 41.4s
+- ror: 57.5s
+- deqar: 21.9s
+
+
+Results (validation):
+
+| Pair | Matcher | Global | Threshold | P | R | F1 | Corr. | Search time |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| wikidata-ror | semantic_only | none | 0.50 | 0.6683 | 0.9783 | 0.7941 | 579615 | 207.9s |
+| wikidata-ror | semantic_only | greedy | 0.45 | 0.9340 | 0.7174 | 0.8115 | 20437 | 207.9s |
+| wikidata-ror | semantic_hybrid | none | 0.70 | 0.9915 | 0.8406 | 0.9098 | 13163 | 171.2s |
+| wikidata-ror | semantic_hybrid | greedy | 0.25 | 0.9924 | 0.9493 | 0.9704 | 20559 | 171.2s |
+| deqar-ror | semantic_only | none | 0.25 | 0.6683 | 0.9716 | 0.7919 | 265190 | 74.8s |
+| deqar-ror | semantic_only | greedy | 0.50 | 0.9286 | 0.6454 | 0.7615 | 7763 | 74.8s |
+| deqar-ror | semantic_hybrid | none | 0.60 | 0.8344 | 0.8936 | 0.8630 | 19479 | 55.4s |
+| deqar-ror | semantic_hybrid | greedy | 0.50 | 0.9766 | 0.8865 | 0.9294 | 5137 | 55.4s |
+
+Observations:
+- All 61807 institution records were represented by
+  384-dimensional embeddings.
+- CPU execution completed without compatibility issues.
+- Pure semantic similarity achieved relatively high
+  recall but low precision before global matching.
+- Combining semantic similarity with country and domain
+  information substantially improved matching performance.
+- Best Wikidata-ROR validation F1: 0.9704.
+- Best DEQAR-ROR validation F1: 0.9294.
+- Hybrid matching approached the performance of the
+  existing supervised ML approaches without model training.
+
+Limitations:
+- Only primary institution names were encoded.
+- Semantic similarity does not necessarily imply identity.
+- Hybrid attribute weights were manually selected.
+- The hybrid matcher generated more correspondences than
+  the existing final pipeline, requiring error analysis.
+- Validation performance may be optimistic.
+- No test-set evaluation was performed.
+- Encoding and scoring times are shared across configurations
+  and must not be counted twice.
+
+Conclusion:
+Combining multilingual semantic representations with
+structured attributes is substantially more effective
+than using semantic name similarity alone.
+
+Decision:
+Proceed to systematic optimization of attribute weights
+and matching thresholds.
+
+Status: Completed successfully.
