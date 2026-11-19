@@ -537,3 +537,60 @@ Conclude TF-IDF experimentation and proceed to
 multilingual semantic embedding matching.
 
 Status: Completed successfully.
+
+
+### Experiment 5 - Multilingual Semantic Matching
+
+Research question:
+Can pretrained multilingual sentence embeddings improve
+identity resolution across higher education institution datasets?
+
+Motivation:
+Lexical similarity measures rely on surface-level text
+similarity and may struggle with multilingual institution names.
+
+Model:
+sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+Reference:
+https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+Configuration:
+- Pretrained multilingual sentence transformer
+- 384-dimensional dense embeddings
+- Original primary institution names
+- L2-normalized vectors
+- Cosine similarity clipped to [0, 1]
+- CPU execution to avoid the previously observed MPS crash
+- Encoding batch size: 32
+- Candidate scoring batch size: 4096
+- Random seed: 2026
+- Fixed Round 3 blocking candidates
+- Validation-only threshold optimization
+- Greedy one-to-one matching
+- No model fine-tuning
+
+Configurations:
+1. Pure semantic similarity.
+2. Hybrid semantic similarity with country and web domain.
+
+Hybrid weights:
+- Semantic name similarity: 0.5
+- Country: 0.2
+- Web domain: 0.3
+
+The hybrid configuration reuses an existing weighting
+scheme from the original experiments.
+
+Efficiency:
+Each unique primary name is encoded once per dataset.
+ROR embeddings are reused for both dataset pairs.
+Candidate similarities are computed in batches.
+
+Limitations:
+- Semantic similarity does not necessarily imply identity.
+- Only primary names are encoded in this experiment.
+- Hybrid weights are not optimized yet.
+- Missing domain information contributes zero similarity.
+
+Status: Implementation completed. Execution pending.
