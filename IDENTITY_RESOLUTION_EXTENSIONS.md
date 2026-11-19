@@ -266,3 +266,65 @@ datasets for controlled comparisons of additional methods.
 Use validation results for parameter and model selection.
 
 Status: Completed successfully.
+
+
+### Experiment 3 - Blocking Candidate Regeneration
+
+Date: 2026-11-19
+
+Objective:
+Regenerate the Round 3 blocking candidates while keeping
+the existing blocking methodology fixed for fair comparison.
+
+Initial results (Wikidata-ROR):
+- Country + name tokens: 602373 candidate pairs
+- Shared website domain: 12445 candidate pairs
+- Embedding-based blocking: failed
+
+Technical issue:
+PyTorch attempted to execute embedding generation using
+the Apple Silicon MPS backend. Execution terminated due
+to an NSInvalidArgumentException involving MPSNDArray.
+
+Proposed solution:
+Execute embedding generation on the CPU instead of MPS,
+without changing the underlying blocking methodology.
+
+Status: CPU compatibility testing pending.
+
+
+#### Experiment 3.1 - CPU Compatibility Fix
+
+Environment:
+- macOS 14.5
+- Apple Silicon ARM64
+- PyTorch 2.15.0
+- MPS available but incompatible during embedding execution
+
+Compatibility test:
+- Model: sentence-transformers/all-MiniLM-L6-v2
+- Device: CPU
+- Input: three university names
+- Output shape: (3, 384)
+- Result: successful
+
+Implementation:
+Created scripts/identity_resolution/06_extensions/
+regenerate_candidates.py.
+
+The script reuses the existing Round 3 multi-pass blocking
+strategy while explicitly setting the embedding device to CPU.
+
+Unchanged parameters:
+- Embedding model: all-MiniLM-L6-v2
+- Top-k: 10
+- Similarity threshold: 0.5
+- Country-scoped token blocking
+- Shared website domain blocking
+
+Rationale:
+Resolve the hardware compatibility issue without changing
+the experimental methodology or reinstalling dependencies.
+
+Status: CPU compatibility verified.
+Full candidate regeneration pending.
