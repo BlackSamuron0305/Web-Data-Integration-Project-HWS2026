@@ -423,3 +423,43 @@ Next steps:
 - Optimize thresholds after global matching.
 
 Status: Initial experiment completed successfully.
+
+
+#### Experiment 4.1 - Refined TF-IDF: Initial Attempt
+
+Extensions:
+- Alternative institution names and acronyms
+- Translated name variants
+- Expanded threshold range: 0.05 to 1.00
+- Threshold optimization after greedy matching
+
+Initial results for Wikidata-ROR, primary-name word TF-IDF:
+
+| Metric | Original | Refined |
+|---|---:|---:|
+| Precision | 0.9495 | 0.9423 |
+| Recall | 0.6812 | 0.7101 |
+| F1 | 0.7932 | 0.8099 |
+
+Technical issue:
+The equivalence assertion between thresholding before and
+after greedy matching failed for the all-names configuration.
+
+A possible explanation is inconsistent tie-breaking between
+candidate pairs with identical similarity scores. The exact
+internal cause has not yet been confirmed.
+
+Solution:
+Execute PyDI greedy matching independently at each threshold
+and evaluate the resulting correspondences on validation data.
+Retain the configuration with the highest F1-score.
+
+Additional verification:
+Check that the final correspondences satisfy the one-to-one
+matching constraint.
+
+Trade-off:
+Additional computational cost due to repeated greedy matching.
+Runtime now includes the complete threshold search.
+
+Status: Fix implemented. Full experiment must be rerun.

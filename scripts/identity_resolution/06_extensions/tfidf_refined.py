@@ -129,39 +129,47 @@ def main():
 
                     raw_best = optimize(corr, gold)
 
-                    greedy = (
-                        GreedyOneToOneMatchingAlgorithm()
-                        .cluster(corr.copy())
-                    )
+                    # Evaluate greedy matching separately
+                    # at every validation threshold.
+                    greedy_best = None
+                    final = None
+                    best_key = None
 
-                    greedy_best = optimize(greedy, gold)
+                    for threshold in THRESHOLDS:
+                        selected = corr[
+                            corr["score"] >= threshold
+                        ].copy()
 
-                    threshold = greedy_best["threshold"]
+                        if selected.empty:
+                            predictions = selected
+                        else:
+                            predictions = (
+                                GreedyOneToOneMatchingAlgorithm()
+                                .cluster(selected)
+                            )
 
-                    final = greedy[
-                        greedy["score"] >= threshold
-                    ]
+                        p, r, f = evaluate(predictions, gold)
 
-                    # Verify that thresholding after greedy
-                    # gives the same pairs as thresholding first.
-                    check = (
-                        GreedyOneToOneMatchingAlgorithm()
-                        .cluster(
-                            corr[
-                                corr["score"] >= threshold
-                            ].copy()
-                        )
-                    )
+                        key = (f, p, threshold)
 
-                    cols = ["id1", "id2"]
+                        if best_key is None or key > best_key:
+                            best_key = key
 
-                    assert set(map(tuple, final[cols].values)) == (
-                        set(map(tuple, check[cols].values))
-                    ), "Greedy threshold equivalence failed"
+                            greedy_best = {
+                                "threshold": threshold,
+                                "precision": p,
+                                "recall": r,
+                                "f1": f
+                            }
+
+                            final = predictions.copy()
+
+                    assert not final["id1"].duplicated().any()
+                    assert not final["id2"].duplicated().any()
 
                 for stage, metrics, predictions in [
                     ("none", raw_best, corr),
-                    ("greedy", greedy_best, greedy)
+                    ("greedy", greedy_best, final)
                 ]:
                     row = {
                         "pair": f"{a}-{b}",
