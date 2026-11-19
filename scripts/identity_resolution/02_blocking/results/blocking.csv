@@ -53,3 +53,47 @@ round,pair,blocker,candidates,pair_completeness,reduction_ratio,seconds,note
 3,deqar-ror,"embedding: name, top 10",87153,0.7234,0.999678,28.3,
 3,deqar-ror,union: country + name word | same domain,208397,0.9645,0.99923,0.6,
 3,deqar-ror,union: country + name word | same domain | embedding,274187,0.9716,0.998987,28.9,
+4,wikidata-ror,no blocking (all pairs),651663112,,0.0,,"too many pairs, not run"
+4,wikidata-ror,standard: exercise key (2 letters x 3 words),218328,0.5072,0.999665,0.2,
+4,wikidata-ror,standard: normalised name,10569,0.4203,0.999984,0.2,
+4,wikidata-ror,"sorted neighbourhood: name, window 20",470833,0.6449,0.999277,0.3,
+4,wikidata-ror,token: words of all names,272750620,,0.581455,0.4,"too many pairs, not run"
+4,wikidata-ror,token: character 3-grams of the name,2015809696,,-2.093331,0.4,"too many pairs, not run"
+4,wikidata-ror,token: country + name word,578968,0.8623,0.999112,0.7,
+4,wikidata-ror,token: same web domain,12170,0.7826,0.999981,0.1,
+4,wikidata-ror,"embedding: name, top 10",217600,0.7754,0.999666,41.3,
+4,wikidata-ror,union: country + name word | same domain,579448,0.9638,0.999111,0.8,
+4,wikidata-ror,union: country + name word | same domain | embedding,730590,0.9638,0.998879,42.1,
+4,deqar-ror,no blocking (all pairs),214932152,,0.0,,"too many pairs, not run"
+4,deqar-ror,standard: exercise key (2 letters x 3 words),53193,0.3901,0.999753,0.1,
+4,deqar-ror,standard: normalised name,2387,0.2695,0.999989,0.1,
+4,deqar-ror,"sorted neighbourhood: name, window 20",190147,0.5248,0.999115,0.2,
+4,deqar-ror,token: words of all names,73303767,,0.658945,0.4,"too many pairs, not run"
+4,deqar-ror,token: character 3-grams of the name,594204752,,-1.764615,0.3,"too many pairs, not run"
+4,deqar-ror,token: country + name word,191121,0.922,0.999111,0.2,
+4,deqar-ror,token: same web domain,4202,0.7589,0.99998,0.1,
+4,deqar-ror,"embedding: name, top 10",71770,0.7234,0.999666,25.3,
+4,deqar-ror,union: country + name word | same domain,191358,0.9645,0.99911,0.3,
+4,deqar-ror,union: country + name word | same domain | embedding,242322,0.9716,0.998873,25.6,
+6,wikidata-ror,no blocking (all pairs),681690982,,0.0,,"too many pairs, not run"
+6,wikidata-ror,standard: exercise key (2 letters x 3 words),237064,0.5217,0.999652,0.5,
+6,wikidata-ror,standard: normalised name,10578,0.413,0.999984,0.2,
+6,wikidata-ror,"sorted neighbourhood: name, window 20",480993,0.6522,0.999294,0.3,
+6,wikidata-ror,token: words of all names,281549735,,0.586983,0.2,"too many pairs, not run"
+6,wikidata-ror,token: character 3-grams of the name,2084347473,,-2.057613,0.5,"too many pairs, not run"
+6,wikidata-ror,token: country + name word,601395,0.8913,0.999118,0.8,
+6,wikidata-ror,token: same web domain,12422,0.7899,0.999982,0.1,
+6,wikidata-ror,"embedding: name, top 10",219987,0.7899,0.999677,43.5,
+6,wikidata-ror,union: country + name word | same domain,601928,0.9855,0.999117,0.9,
+6,wikidata-ror,union: country + name word | same domain | embedding,754864,0.9855,0.998893,44.4,
+6,deqar-ror,no blocking (all pairs),270073852,,0.0,,"too many pairs, not run"
+6,deqar-ror,standard: exercise key (2 letters x 3 words),56148,0.3901,0.999792,0.2,
+6,deqar-ror,standard: normalised name,2389,0.2695,0.999991,0.4,
+6,deqar-ror,"sorted neighbourhood: name, window 20",208375,0.5248,0.999228,0.2,
+6,deqar-ror,token: words of all names,84533750,,0.686998,0.1,"too many pairs, not run"
+6,deqar-ror,token: character 3-grams of the name,691639566,,-1.560928,0.3,"too many pairs, not run"
+6,deqar-ror,token: country + name word,207393,0.922,0.999232,0.5,
+6,deqar-ror,token: same web domain,4812,0.7589,0.999982,0.1,
+6,deqar-ror,"embedding: name, top 10",87032,0.7234,0.999678,29.9,
+6,deqar-ror,union: country + name word | same domain,208149,0.9645,0.999229,0.6,
+6,deqar-ror,union: country + name word | same domain | embedding,273855,0.9716,0.998986,30.5,

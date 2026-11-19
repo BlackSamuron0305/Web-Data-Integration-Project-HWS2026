@@ -1,0 +1,2 @@
+round,pair,matcher,threshold,F1,seconds
+4,wikidata-ror,"rule: all attributes (+ year, position)",0.65,0.9201520912547528,88.9

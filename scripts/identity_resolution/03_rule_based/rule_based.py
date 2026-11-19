@@ -32,6 +32,7 @@ RULES = {
     },
 }
 RULES[3] = {k: RULES[2][k] for k in ["best of all names, Jaro-Winkler", "rule: all attributes (+ year, position)"]}
+RULES[4] = RULES[6] = RULES[3]   # round 4: round 3 on the filtered data; round 6: on the deduplicated data
 
 
 def main(round_):

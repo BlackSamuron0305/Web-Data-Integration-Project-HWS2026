@@ -25,6 +25,7 @@ def models(features):
 MODELS = {2: models(ALL)}
 MODELS[3] = models(ALL)
 MODELS[3].update({f"{name} + part_word": m for name, m in models(ALL + ["part_word"]).items()})
+MODELS[4] = MODELS[6] = models(ALL)   # round 3 without part_word (did not help); 4: filtered, 6: deduplicated data
 
 
 def main(round_):

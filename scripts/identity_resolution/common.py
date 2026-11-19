@@ -26,12 +26,22 @@ FILES = {
     "ror": "ror/ROR_Mapping.xml",
     "deqar": "deqar/deqar_Mapping.xml",
 }
+# input of later rounds, written by scripts/additional_filtering/<source>/apply.py
+#   round 4: without the rows that are not a university of their own (filter BEFORE matching; rejected)
+#   round 5: like round 3; the non-universities are removed AFTER matching (final.py)
+#   round 6: without duplicates within a source; non-universities removed after matching
+FILTERING = IR.parent / "additional_filtering"
+MAPPING = {"wikidata": "Wikidata_Mapping", "ror": "ROR_Mapping", "deqar": "deqar_Mapping"}
+INPUT = {4: "filtered", 6: "deduplicated"}
 PAIRS = [("wikidata", "ror"), ("deqar", "ror")]   # ROR connects the other two
 
 BLOCKER = {
     1: "sorted neighbourhood: name, window 20",
     2: "union: country + name word | same domain | embedding",
     3: "union: country + name word | same domain | embedding",
+    4: "union: country + name word | same domain | embedding",
+    5: "union: country + name word | same domain | embedding",
+    6: "union: country + name word | same domain | embedding",
 }
 
 
@@ -81,8 +91,8 @@ def translate(name):
     return " ".join(WORD.get(t, t) for t in name.split() if t not in STOP)
 
 
-def load(name, translated=False):
-    df = load_xml(DATA / FILES[name], name=name)
+def load(name, translated=False, path=None):
+    df = load_xml(DATA / (path or FILES[name]), name=name)
     col = lambda c: df[c] if c in df.columns else pd.Series([None] * len(df), index=df.index)
 
     names = []
@@ -106,7 +116,23 @@ def load(name, translated=False):
 
 
 def load_all(round_=1):
-    return {name: load(name, translated=round_ >= 3) for name in FILES}
+    """Rounds 4 and 6 read the XML written by scripts/additional_filtering/<source>/apply.py."""
+    data = {}
+    for name in FILES:
+        path = FILTERING / name / f"{MAPPING[name]}_{INPUT[round_]}.xml" if round_ in INPUT else None
+        if path and not path.exists():
+            raise SystemExit(f"{path.name} is missing: run scripts/additional_filtering/{name}/apply.py first")
+        data[name] = load(name, translated=round_ >= 3, path=path)
+    return data
+
+
+def non_universities():
+    """Ids of every record marked university = n in scripts/additional_filtering/<source>/hand_check.csv."""
+    out = set()
+    for name in FILES:
+        h = pd.read_csv(FILTERING / name / "hand_check.csv", dtype=str, keep_default_na=False)
+        out |= set(h.loc[h["university"] == "n", "id"])
+    return out
 
 
 def links():

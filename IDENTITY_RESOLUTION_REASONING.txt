@@ -42,6 +42,7 @@ match at least two dataset pairs, through a "connector" dataset, often the large
       03_rule_based/rule_based.py 1|2|3   name measures and rules
       04_ml_based/ml_based.py 2|3         learned matchers
       05_final/final.py 1|2|3             global matching, test, correspondences, group sizes
+      ../additional_filtering/<source>/filter.py, apply.py   rows that are not a university (round 4)
 
 
 2. LABELLED PAIRS
@@ -295,3 +296,82 @@ WHAT WE LEARNED
   - Wikidata-DEQAR is only matched through ROR; ~270 universities that are in Wikidata and DEQAR
     but not in ROR cannot be joined this way.
   - Weights of the rules were set by hand (a few tries), not searched systematically.
+  - The hand checks of Section 11 (hand_check.csv, duplicate_check.csv) are still to be done.
+
+
+11. ADDITIONAL FILTERING AND DEDUPLICATION (rounds 4, 5, 6)
+------------------------------------------------------------
+WHY. The error analysis of rounds 2 and 3 kept showing two problems:
+  a) records that are not a university of their own: "Pacific University Health Professions Campus"
+     linked to "Pacific University Oregon", "South University-West Palm Beach" to "South University",
+     a research unit of Avignon University to the university. The proposal excludes branches,
+     faculties and campuses, but all three sources contain them (ROR "education" also has high
+     schools, school districts, labs, museums; DEQAR lists faculties with their own QA report).
+     Round 3's final links: 281 of 14,824 Wikidata-ROR (1.9%) and 102 of 4,714 DEQAR-ROR (2.2%)
+     touch such a record. The part_word feature of round 3 did not fix it.
+  b) duplicates within a source, which break the one-to-one assumption: the right partner is
+     "taken" by the other copy ("Transnational University Limburg" twice in DEQAR, once per country).
+
+WHAT (scripts/additional_filtering/<source>/, shared code in common.py):
+  filter.py      word and type rules flag candidates -> hand_check.csv (university y / n)
+  duplicates.py  same link to another source (ror_id, wikidata_id, Wikipedia article) or same name +
+                 country -> duplicate_check.csv (same y / n, keep = the row that stays)
+  apply.py       *_filtered.csv/.xml (no non-universities), *_deduplicated.csv/.xml (no duplicates),
+                 campuses.csv. XML = MapForce output with the same rows taken out (one CSV row is one
+                 <institution>), valid against target.xsd. data/ keeps the original sources.
+  Every flagged row / pair was judged by an AI pre-check (Claude subagents, own knowledge, no web
+  search); the rules were then tightened where it disagreed often:
+                         first flags  AI: wrong/unclear  after tightening  removed  to check by hand
+     Wikidata (types)        540          92 / 13              307           300        134
+     ROR (names, parent)   1,050           9 /  6            1,050         1,035        164
+     DEQAR (parent, names) 1,732          49 / 10            1,607         1,592        123
+  Rules dropped after the AI check: Wikidata "campus"/"faculty" type when the record also has a
+  university type (Heidelberg, Warwick, Tehran carry "campus"), theological faculty types (pontifical
+  faculties), "constituent college" (King's College London); DEQAR parent in France (INSA, Sciences Po
+  have an umbrella COMUE as parent), "campus" in the name (CAMPUS 02, Link Campus University, US main
+  campuses), alliances that are institutions (University of London, Epitech); ROR "lab",
+  "kindergarten" with a university word, research institutes with "college" in the name.
+  Hand check (check_by_hand = yes): every risky row (a rule word can mean something else there:
+  "University of Texas Medical BRANCH"), every row the AI doubted, 10 random rows per safe group
+  (e.g. ROR high schools without a university word, Spanish faculties with a university parent,
+  institutes of an academy of sciences). NOT DONE YET - a team member fills checked_by.
+  Duplicates: 517 candidate pairs, AI: 98 duplicates (Wikidata 66, ROR 19, DEQAR 13), 11 unclear
+  (kept apart); 88 rows removed (66 / 9 / 13). To check by hand: 94 / 42 / 37 pairs.
+
+ROUND 4 - non-universities removed BEFORE matching (rejected)
+  Rounds 3's pipeline on *_filtered.xml. Problem: the sources draw the line differently, so a record
+  removed in one source leaves its counterpart in another without partner, and the matcher gives it a
+  wrong one: ROR removed the branch "Islamic Azad University of Nishapur", Wikidata kept its own record
+  of it, which then linked to "Neyshabur University of Medical Sciences"; DEQAR removed ESADE (a
+  centre attached to a university), ROR's "Esade" then linked to "ESDAPC". 78 such new links
+  (55 / 23), most of the examples wrong.
+
+ROUND 5 - non-universities removed AFTER matching (kept)
+  The matching of round 3, then every link that touches a record marked n is dropped (final.py).
+  No new links can appear. 281 + 102 links removed.
+
+ROUND 6 - duplicates removed before matching, non-universities after
+  Rounds 3's pipeline on *_deduplicated.xml, then the filter of round 5.
+
+RESULTS (test labels; "fair" = only pairs whose two records are not non-universities; 05_final/
+results/filtering_effect.csv, compare_filtering.py)
+                         Wikidata-ROR fair          DEQAR-ROR fair         links W-R / D-R   to non-unis
+                         P     R     F1             P     R     F1
+  round 3              .982  .893  .935           .991  .900  .943       14,824 / 4,714     281 / 102
+  round 4 (before)     .982  .884  .930           .991  .917  .952       14,640 / 4,649       0 / 0  (+78 orphans)
+  round 5 (after)      .982  .893  .935           .991  .900  .943       14,543 / 4,612       0 / 0
+  round 6 (+ dedup)    .982  .893  .935           .991  .908  .948       14,522 / 4,610       0 / 0
+  Round 6 vs 5 on the test labels: one more match (Transnational University Limburg). The motivating
+  duplicates "Anna University" / "Anna University, Chennai" are not found: different names, and the
+  duplicate search only looks for the same name or the same link.
+  Groups (round 6): 12,928 of size 2, 3,102 of size 3 (round 3: 13,230 / 3,154).
+  Reading: on the test labels the effect is small (they hold only 21 + 28 pairs with a non-university,
+  mostly non-matches that round 3 already got right). The gain is in the full output: 383 links to
+  non-universities gone, 88 duplicate rows gone, no new wrong links.
+
+CAMPUSES AS A LIST (campuses.csv per source, for the fusion)
+  Removed campuses and branches are attached to their university (parent link, "branch of X", or the
+  longest start of the name that is a kept university of the same country): Wikidata 115 -> 62
+  universities, ROR 148 -> 61, DEQAR 36 -> 12; 299 in total. The fusion can give each university a
+  list attribute "campuses". Not used in matching (would be a round 7: country/city compared against
+  any location - risk: "Pacific University" US vs IN).

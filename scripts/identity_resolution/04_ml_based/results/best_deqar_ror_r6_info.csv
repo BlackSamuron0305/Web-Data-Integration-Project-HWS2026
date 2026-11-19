@@ -1,0 +1,2 @@
+round,pair,matcher,threshold,F1,seconds
+6,deqar-ror,random forest,0.35,0.9540636042402827,80.2
