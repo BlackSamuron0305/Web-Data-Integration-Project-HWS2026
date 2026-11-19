@@ -942,3 +942,65 @@ The existing test sets were previously evaluated in the
 original project experiments and are not completely unseen.
 
 Status: Completed successfully.
+
+
+### Experiment 9 - Final Test Evaluation
+
+Objective:
+Evaluate all frozen matching configurations on the
+existing test datasets without further optimization.
+
+Verification:
+- All frozen prediction checksums verified.
+- All one-to-one matching constraints verified.
+- PyDI evaluation metrics independently reproduced
+  using confusion matrix calculations.
+- Fourteen configurations evaluated.
+- No parameters changed during test evaluation.
+
+Results:
+
+| Pair | Method | Threshold | P | R | F1 | TP | FP | TN | FN | Corr. |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| wikidata-ror | tfidf | 0.05 | 0.9785 | 0.7398 | 0.8426 | 91 | 2 | 187 | 32 | 20277 |
+| wikidata-ror | semantic_only | 0.45 | 0.9570 | 0.7236 | 0.8241 | 89 | 4 | 185 | 34 | 20437 |
+| wikidata-ror | semantic_hybrid | 0.25 | 1.0000 | 0.8862 | 0.9397 | 109 | 0 | 189 | 14 | 20559 |
+| wikidata-ror | optimized_rules | 0.10 | 0.9709 | 0.8130 | 0.8850 | 100 | 3 | 186 | 23 | 19872 |
+| wikidata-ror | original_rules | 0.50 | 0.9912 | 0.9187 | 0.9536 | 113 | 1 | 188 | 10 | 15995 |
+| wikidata-ror | ml_original_threshold | 0.45 | 0.9821 | 0.8943 | 0.9362 | 110 | 2 | 187 | 13 | 14824 |
+| wikidata-ror | ml_retuned_threshold | 0.25 | 0.9821 | 0.8943 | 0.9362 | 110 | 2 | 187 | 13 | 16637 |
+| deqar-ror | tfidf | 0.05 | 0.9444 | 0.8293 | 0.8831 | 102 | 6 | 181 | 21 | 6967 |
+| deqar-ror | semantic_only | 0.50 | 0.9367 | 0.6016 | 0.7327 | 74 | 5 | 182 | 49 | 7763 |
+| deqar-ror | semantic_hybrid | 0.50 | 0.9820 | 0.8862 | 0.9316 | 109 | 2 | 185 | 14 | 5137 |
+| deqar-ror | optimized_rules | 0.40 | 0.9818 | 0.8780 | 0.9270 | 108 | 2 | 185 | 15 | 4786 |
+| deqar-ror | original_rules | 0.50 | 0.9911 | 0.9024 | 0.9447 | 111 | 1 | 186 | 12 | 4870 |
+| deqar-ror | ml_original_threshold | 0.35 | 0.9910 | 0.8943 | 0.9402 | 110 | 1 | 186 | 13 | 4714 |
+| deqar-ror | ml_retuned_threshold | 0.20 | 0.9910 | 0.8943 | 0.9402 | 110 | 1 | 186 | 13 | 5319 |
+
+
+Findings:
+- Retuned original rule weights achieved the highest
+  observed test F1 on both dataset pairs.
+- Wikidata-ROR F1 improved from 0.9362 to 0.9536.
+- DEQAR-ROR F1 improved from 0.9402 to 0.9447.
+- Hybrid semantic matching substantially outperformed
+  pure semantic similarity.
+- Systematic weight optimization did not outperform
+  the original weights.
+- ML threshold retuning did not improve test F1.
+- Original ML test metrics were successfully reproduced.
+
+Limitations:
+- Existing test sets were previously evaluated.
+- Ground-truth labels require human verification.
+- Statistical significance has not been established.
+- Evaluation covers labeled pairs rather than all
+  generated correspondences.
+- Perfect measured precision does not imply that
+  every generated correspondence is correct.
+
+Decision:
+No further model or threshold optimization.
+Proceed to qualitative error analysis.
+
+Status: Completed successfully.
