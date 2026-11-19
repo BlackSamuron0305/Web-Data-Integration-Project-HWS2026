@@ -847,3 +847,39 @@ experimental results, including negative findings, and
 proceed to final comparative evaluation.
 
 Status: Completed successfully.
+
+
+### Experiment 7 - Controlled Baseline Reproduction
+
+Objective:
+Reproduce the selected supervised ML baselines on the
+same regenerated blocking candidates used by the
+extension matchers.
+
+Methodology:
+- Reuse the original selected classifiers.
+- Preserve original features and model hyperparameters.
+- Train using the existing training labels.
+- Verify candidate file checksums.
+- Score candidates in batches of 25000.
+- Reuse PyDI feature extraction and ML-based matching.
+- Evaluate the original matching thresholds.
+- Additionally optimize thresholds after greedy matching.
+- Select thresholds using validation F1.
+- Do not evaluate or tune on test data at this stage.
+
+Implementation differences:
+- Batched candidate scoring.
+- Initial probability cutoff of 0.01 to support the
+  expanded threshold search.
+- Deterministic candidate presorting for threshold search.
+
+Rationale:
+Ensure a more controlled comparison between existing
+matchers and the newly implemented approaches.
+
+Limitations:
+Candidate regeneration, dependency versions and
+tie-breaking may prevent exact historical reproduction.
+
+Status: Implementation completed. Execution pending.
