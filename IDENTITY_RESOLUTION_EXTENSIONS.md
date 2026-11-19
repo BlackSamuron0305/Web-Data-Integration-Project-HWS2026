@@ -768,3 +768,82 @@ Optimize attribute weights separately for each dataset pair.
 Reuse cached features throughout the optimization process.
 
 Status: Feature extraction completed successfully.
+
+
+#### Experiment 6.2 - Weight Optimization Results
+
+Configuration:
+- 252 grid weight combinations
+- One original weight configuration
+- Weight increments of 0.20
+- Training-set screening
+- Top three grid configurations per dataset pair
+- Full candidate matching on shortlisted configurations
+- Validation threshold optimization
+- Greedy one-to-one matching
+
+Results:
+
+| Pair | Configuration | Global | Threshold | P | R | F1 | Corr. | Time |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| wikidata-ror | grid_026 | none | 0.20 | 0.8816 | 0.9710 | 0.9241 | 135369 | 56.7s |
+| wikidata-ror | grid_026 | greedy | 0.10 | 0.9841 | 0.8986 | 0.9394 | 18126 | 56.7s |
+| wikidata-ror | grid_040 | none | 0.20 | 0.8816 | 0.9710 | 0.9241 | 132701 | 54.7s |
+| wikidata-ror | grid_040 | greedy | 0.10 | 0.9843 | 0.9058 | 0.9434 | 18090 | 54.7s |
+| wikidata-ror | grid_084 | none | 0.40 | 0.8933 | 0.9710 | 0.9306 | 120598 | 95.8s |
+| wikidata-ror | grid_084 | greedy | 0.10 | 0.9921 | 0.9130 | 0.9509 | 19872 | 95.8s |
+| wikidata-ror | original | none | 0.65 | 0.9688 | 0.8986 | 0.9323 | 17528 | 136.5s |
+| wikidata-ror | original | greedy | 0.50 | 0.9926 | 0.9710 | 0.9817 | 15995 | 136.5s |
+| deqar-ror | grid_044 | none | 0.40 | 0.9110 | 0.9433 | 0.9268 | 36445 | 26.3s |
+| deqar-ror | grid_044 | greedy | 0.40 | 0.9845 | 0.9007 | 0.9407 | 4726 | 26.3s |
+| deqar-ror | grid_085 | none | 0.40 | 0.8940 | 0.9574 | 0.9247 | 46313 | 30.2s |
+| deqar-ror | grid_085 | greedy | 0.40 | 0.9923 | 0.9149 | 0.9520 | 4786 | 30.2s |
+| deqar-ror | grid_082 | none | 0.35 | 0.9270 | 0.9007 | 0.9137 | 17111 | 21.6s |
+| deqar-ror | grid_082 | greedy | 0.20 | 0.9836 | 0.8511 | 0.9125 | 5488 | 21.6s |
+| deqar-ror | original | none | 0.60 | 0.9389 | 0.8723 | 0.9044 | 8440 | 45.0s |
+| deqar-ror | original | greedy | 0.50 | 0.9924 | 0.9291 | 0.9597 | 4870 | 45.0s |
+
+
+Best optimized weights:
+
+| Feature | Original | Wikidata-ROR | DEQAR-ROR |
+|---|---:|---:|---:|
+| Name | 0.35 | 0.00 | 0.00 |
+| Country | 0.15 | 0.20 | 0.20 |
+| Domain | 0.25 | 0.40 | 0.40 |
+| City | 0.10 | 0.20 | 0.20 |
+| Year | 0.10 | 0.00 | 0.20 |
+| Geography | 0.05 | 0.20 | 0.00 |
+
+Observations:
+- Best optimized Wikidata-ROR F1: 0.9509.
+- Best optimized DEQAR-ROR F1: 0.9520.
+- Original weights achieved F1 of 0.9817 and 0.9597.
+- Original weights outperformed all shortlisted grid
+  configurations after greedy matching.
+- Both optimized configurations assigned zero weight
+  to name similarity.
+- Local training-pair performance did not translate
+  directly into superior global matching performance.
+
+Limitations:
+- Coarse weight search with increments of 0.20.
+- Only three optimized configurations were shortlisted.
+- Initial screening did not account for global conflicts.
+- Blocking already incorporates name evidence, even
+  when the matching rule assigns zero weight to names.
+- Validation results may be optimistic.
+- Test-set evaluation has not been performed.
+
+Conclusion:
+Systematic optimization did not improve upon the original
+weights under the investigated search strategy. The results
+demonstrate the importance of considering global matching
+constraints during parameter optimization.
+
+Decision:
+Conclude matching algorithm development. Preserve all
+experimental results, including negative findings, and
+proceed to final comparative evaluation.
+
+Status: Completed successfully.
