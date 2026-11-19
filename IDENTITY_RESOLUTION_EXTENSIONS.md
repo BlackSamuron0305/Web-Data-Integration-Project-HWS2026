@@ -656,3 +656,56 @@ Proceed to systematic optimization of attribute weights
 and matching thresholds.
 
 Status: Completed successfully.
+
+
+### Experiment 6 - Optimized Rule-Based Matching
+
+Research question:
+Can systematically optimized attribute weights improve
+identity resolution compared with manually selected weights?
+
+Features:
+- Best Jaro-Winkler similarity across institution names
+- Country
+- Website domain
+- City similarity
+- Founding year similarity
+- Geographic proximity
+
+Original weights:
+[0.35, 0.15, 0.25, 0.10, 0.10, 0.05]
+
+Proposed optimization methodology:
+- Nonnegative weights summing to one
+- Grid search with weight increments of 0.20
+- 252 grid configurations plus the original weights
+- Initial configuration screening on training labels
+- Full candidate matching for shortlisted configurations
+- Threshold and configuration selection on validation data
+- Greedy one-to-one matching
+- Fixed Round 3 blocking candidates
+- No test-set tuning
+
+Preliminary compatibility test:
+- 25 Wikidata-ROR candidate pairs
+- Six similarity features extracted successfully
+- Output shape including record identifiers: (25, 8)
+- No missing feature values in the sample
+
+Efficiency:
+- Extract similarity features once
+- Process candidates in batches of 25000
+- Cache feature matrices as float32 NumPy arrays
+- Record candidate and feature checksums
+- Reuse matrices across weight configurations
+
+Limitations:
+- Grid search does not guarantee a globally optimal solution.
+- Existing comparators retain their original missing-value
+  handling.
+- A zero similarity can indicate disagreement or missing
+  information, depending on the comparator.
+- Ground-truth label quality remains a potential limitation.
+
+Status: Feature extraction implementation completed.
+Full extraction and weight optimization pending.
