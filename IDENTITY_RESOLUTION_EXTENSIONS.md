@@ -709,3 +709,62 @@ Limitations:
 
 Status: Feature extraction implementation completed.
 Full extraction and weight optimization pending.
+
+
+#### Experiment 6.1 - Feature Extraction Results
+
+Full similarity feature extraction completed successfully
+for both dataset pairs.
+
+All extracted values are finite and within [0, 1].
+
+
+Dataset pair: wikidata-ror
+- candidate_sha256: 1fecf1571771f9180f6a12f52f5adba39681caec96a93910d35f86466170abdb
+- feature_sha256: 2e8abde82878d9cc27a7dd4ce8030b509c0fad03c0edd9419b866b8bf056e01a
+- rows: 756323
+- columns: 6
+- seconds: 175.2
+
+| Feature | Min | Max | Mean | Std | Zero fraction |
+|---|---:|---:|---:|---:|---:|
+| names_best_jaro_winkler | 0.0000 | 1.0000 | 0.7443 | 0.1139 | 0.0011 |
+| country | 0.0000 | 1.0000 | 0.8475 | 0.3553 | 0.1462 |
+| domain | 0.0000 | 1.0000 | 0.0165 | 0.1271 | 0.9835 |
+| city | 0.0000 | 1.0000 | 0.4736 | 0.2875 | 0.1867 |
+| year | 0.0000 | 1.0000 | 0.1130 | 0.2691 | 0.8169 |
+| geo | 0.0000 | 1.0000 | 0.1239 | 0.3055 | 0.8459 |
+
+Dataset pair: deqar-ror
+- candidate_sha256: 798e61e57fa6be2492e015cb4c0f5473b1ba269f4b12c8cf8d192e881e201d2d
+- feature_sha256: d2f3df5eaaa26e228f3139bccc8a432d597724044f8b458e0a93c574b9f735d6
+- rows: 274186
+- columns: 6
+- seconds: 55.7
+
+| Feature | Min | Max | Mean | Std | Zero fraction |
+|---|---:|---:|---:|---:|---:|
+| names_best_jaro_winkler | 0.3510 | 1.0000 | 0.7347 | 0.1080 | 0.0000 |
+| country | 0.0000 | 1.0000 | 0.7914 | 0.4055 | 0.2074 |
+| domain | 0.0000 | 1.0000 | 0.0176 | 0.1316 | 0.9824 |
+| city | 0.0000 | 1.0000 | 0.3952 | 0.3338 | 0.3439 |
+| year | 0.0000 | 1.0000 | 0.0905 | 0.2465 | 0.8575 |
+| geo | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 1.0000 |
+
+
+Observations:
+- 1030509 candidate pairs processed.
+- 6183054 similarity values computed.
+- Combined feature matrix size: 23.59 MiB.
+- Wikidata-ROR extraction time: 175.2 seconds.
+- DEQAR-ROR extraction time: 55.7 seconds.
+- Geographic similarity is zero for every DEQAR-ROR pair.
+- Domain similarity is zero for over 98 percent of candidates.
+- Zero similarity does not necessarily indicate missing data.
+- Feature distributions are influenced by the blocking strategy.
+
+Decision:
+Optimize attribute weights separately for each dataset pair.
+Reuse cached features throughout the optimization process.
+
+Status: Feature extraction completed successfully.
