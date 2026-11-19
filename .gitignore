@@ -16,3 +16,5 @@ __pycache__/
 logs/
 scripts/identity_resolution/02_blocking/results/candidates/
 scripts/identity_resolution/02_blocking/results/pydi_output/
+
+.DS_Store
