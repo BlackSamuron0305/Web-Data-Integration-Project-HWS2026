@@ -172,3 +172,97 @@ To be updated throughout the project.
 ## 11. References
 
 To be added alongside the relevant experiments.
+
+
+### Experiment 1 - Environment Setup
+
+Date: 2026-11-19
+
+Objective:
+Establish an isolated and reproducible environment compatible
+with the existing identity resolution pipeline.
+
+Configuration:
+- Python: 3.12.16
+- Architecture: arm64
+- Operating system: Darwin
+- Environment manager: Conda
+- Environment directory: .venv
+
+Installed dependencies:
+
+| Package | Version |
+|---|---|
+| uma-pydi | 0.2.1 |
+| pandas | 2.3.3 |
+| numpy | 2.1.3 |
+| scikit-learn | 1.9.1 |
+| rapidfuzz | 3.14.6 |
+| lxml | 5.4.0 |
+| matplotlib | 3.10.0 |
+| sentence-transformers | 5.7.0 |
+| torch | 2.15.0 |
+
+Observations:
+- All required package imports succeeded.
+- pip check reported no broken requirements.
+- Sentence Transformers and PyTorch are already available.
+- No additional dependencies were required at this stage.
+- Blocking candidates are excluded from Git and must be
+  regenerated locally.
+
+Reproducibility:
+Installed Python package versions are recorded in
+requirements-identity-resolution-lock.txt.
+
+Status: Completed successfully.
+
+
+### Experiment 2 - Baseline Verification (2026-11-19)
+
+Objective:
+Verify the evaluation metrics reported by the existing
+identity resolution implementation before introducing
+additional matching approaches.
+
+Method:
+Loaded the saved Round 3 correspondences and evaluated
+them against the existing labeled validation and test
+sets using the PyDI evaluation framework.
+
+Dataset statistics:
+
+| Dataset pair | Train | Validation | Test | Total |
+|---|---:|---:|---:|---:|
+| Wikidata-ROR | 339 | 310 | 312 | 961 |
+| DEQAR-ROR | 347 | 328 | 310 | 985 |
+
+Results:
+
+| Dataset pair | Split | Precision | Recall | F1 | Correspondences |
+|---|---|---:|---:|---:|---:|
+| Wikidata-ROR | Validation | 0.9926 | 0.9710 | 0.9817 | 14824 |
+| Wikidata-ROR | Test | 0.9821 | 0.8943 | 0.9362 | 14824 |
+| DEQAR-ROR | Validation | 0.9846 | 0.9078 | 0.9446 | 4714 |
+| DEQAR-ROR | Test | 0.9910 | 0.8943 | 0.9402 | 4714 |
+
+Observations:
+- All reported Round 3 evaluation metrics were reproduced.
+- All labeled splits contain at least 300 pairs.
+- Both dataset pairs exhibit high precision.
+- Recall remains comparatively lower.
+- Additional approaches should investigate whether recall
+  can be improved without significantly reducing precision.
+
+Limitations:
+- Evaluation was performed on saved correspondences.
+- The complete matching pipeline was not rerun.
+- Ground-truth labels still require human verification.
+- The existing test set has been evaluated previously.
+
+Decision:
+Reuse the existing Round 3 blocking strategy and labeled
+datasets for controlled comparisons of additional methods.
+Use validation results for parameter and model selection.
+
+Status: Completed successfully.
