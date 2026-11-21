@@ -41,11 +41,13 @@
 \begin{abstract}
 We integrate three open sources on universities: Wikidata, the Research Organization Registry (ROR)
 and the Database of External Quality Assurance Results (DEQAR), 61,807 records in total. We translate
-the sources into one XML schema with 21 attributes. For identity resolution, a union of three blockers
-keeps 97--99\% of the matches, and a learned matcher with one-to-one matching is correct for 98--99\% of
-its correspondences and finds 89\% of the matches on checked test pairs. Removing campuses, faculties
-and other non-universities after matching, and duplicates before it, takes out 383 wrong-category
-correspondences without adding errors.
+the sources into one XML schema with 21 attributes and remove, with five fixed rules, the 9,519
+records that are not universities of their own (schools, community colleges, faculties, research
+institutes, duplicates). For identity resolution, a union of three blockers keeps 98--99\% of the
+matches, and a learned matcher with one-to-one matching and a strict final cut-off is correct for
+99--100\% of its correspondences and finds 87--91\% of the matches on checked test pairs. Data fusion
+with ROR as the preferred source yields 35,996 universities, 13,642 of them described by at least two
+sources, with 98.7\% correct values on a fusion gold standard of 869 universities.
 \end{abstract}
 
 \section{Introduction}
@@ -57,14 +59,22 @@ student numbers and memberships but is incomplete, and DEQAR records mergers, cl
 quality assurance reports, mostly of European institutions. Our goal is one dataset that describes
 every university exactly once, with the best value for each attribute.
 
-As in the project abstract, a \emph{university} is a higher education institution that awards
-academic degrees and is an organisation of its own; a college or institute that meets both
-conditions counts, a branch, faculty or campus does not. The sources draw this line differently
-(ROR also holds branches, DEQAR faculties and closed predecessors), and none of them records
-whether an institution awards degrees. We therefore translate all records and remove the clear
-non-universities after identity resolution (Sect.~\ref{sec:filtering}). This report covers data
-collection and translation (Sect.~\ref{sec:phase1}) and identity resolution (Sect.~\ref{sec:phase2}).
-All code and the translated data are part of the submission (folders \url{scripts/} and \url{data/}).
+A \emph{university} in our sense is a recognised higher education institution that awards
+bachelor's degrees or higher (ISCED levels 6--8) and is an organisation of its own; universities of
+applied sciences, polytechnics and art and music academies count, a branch, faculty or campus does
+not. The sources draw this line differently (ROR also holds schools and hospitals, DEQAR faculties
+and vocational centres, Wikidata seminaries and junior colleges), and none of them records whether
+an institution awards degrees.
+
+The report follows the order in which we worked. We collected the sources with a first, simple
+selection and translated them into one schema (Sect.~\ref{sec:phase1}), then resolved identities on
+all records (Sect.~\ref{sec:phase2}). The scores were good, but the errors showed that much of the
+data was not about universities at all. We therefore went back, defined which records are
+universities, cleaned each source with fixed rules and repeated schema mapping and identity
+resolution on the cleaned data (Sect.~\ref{sec:cleaning}); some test scores got worse, the dataset
+got better. Finally we fused the matched records (Sect.~\ref{sec:phase3}). All code and data are part
+of the submission: the pipeline in \url{scripts/}, the original and the cleaned data in \url{data/},
+and every approach we tried and dropped, with its code, in \url{approaches/}.
 
 \section{Phase I: Data Collection and Translation}\label{sec:phase1}
 
@@ -77,7 +87,8 @@ its subclasses, with identifiers replaced by English labels. \emph{ROR} \citep{r
 dump v2.13 of 22 September 2026; of its 141,528 records we kept the 30,131 of type \emph{education}
 that are not withdrawn. \emph{DEQAR} \citep{eqar2026deqar} is the list of higher education
 institutions that EQAR publishes as a nightly CSV file; we merged rows that repeat an institution
-once per location and took the country from the ETER identifier where the file has none. The three
+once per location and took the country from the ETER identifier where the file has none. This first
+selection was deliberately simple: one type or class per source, no look at the single records. The three
 sources are edited by volunteers (Wikidata), a curation team (ROR) and quality assurance agencies
 (DEQAR). On linked records the founding year of DEQAR equals that of ROR in only 73\% and that of
 Wikidata in 74\% of the cases, so the sources are sufficiently distinct.
@@ -107,7 +118,7 @@ parent institutions\mv, history\mv, QA reports\mv, last QA report\mv, ROR id\mv\
 \end{tabularx}
 
 \smallskip
-\scriptsize (*) Retrieved with our own scripts (\url{scripts/data_collection/}). (**) (MV) =
+\scriptsize (*) Retrieved with our own scripts (\url{scripts/01_data_collection/}). (**) (MV) =
 more than 30\% missing values. The identifiers and links to other sources are not part of the integrated schema.
 \end{table}
 
@@ -161,19 +172,25 @@ the CSV files into this schema. List values are split on the separator and trimm
 (\emph{tokenize}, \emph{normalize-space}); a shared function (\url{data/functions.mfd}) derives the
 internet domain from the website, with ROR's own domain list used first; two lookup tables add the
 country code to DEQAR (\url{data/deqar/country_codes.csv}) and replace ROR parent identifiers by names
-(\url{data/ror/ror_names.csv}). A first version of the mappings had flaws (ROR not translated, lists with
+(\url{data/ror/ror_names.csv}). Both are built from our own data by
+\url{scripts/01_data_collection/build_lookup_tables.py}: the ROR table is the identifier and name columns
+of the ROR file, the DEQAR table gives each of the 135 country names in DEQAR its ISO 3166-1 code, taken
+from the country and code pairs of ROR and Wikidata, except for 12 DEQAR-specific names
+(\emph{United Kingdom (Scotland)}, \emph{Belgium (Flemish Community)}) whose code we set by hand.
+A first version of the mappings had flaws (ROR not translated, lists with
 stray spaces, lower-cased names, DEQAR parent institutions missing), which the final version fixes.
-The output files \url{data/wikidata/Wikidata_Mapping.xml}, \url{data/ror/ROR_Mapping.xml} and
-\url{data/deqar/deqar_Mapping.xml} contain 22,697, 30,131 and 8,979 institutions, keep the original
+The output files in \url{data/<source>/original/} (\emph{Wikidata\_Mapping.xml}, \emph{ROR\_Mapping.xml},
+\emph{deqar\_Mapping.xml}) contain 22,697, 30,131 and 8,979 institutions, keep the original
 spelling of names and countries, and validate against the XSD.
 
-\section{Phase II: Identity Resolution}\label{sec:phase2}
+\section{Phase II: Identity Resolution on All Records}\label{sec:phase2}
 
 We use PyDI \citep{pydi2026} and scikit-learn \citep{pedregosa2011sklearn} on the translated XML files. ROR
 connects the other two datasets: it is the largest, and Wikidata and DEQAR already point to it. We
 therefore match two dataset pairs, Wikidata--ROR and DEQAR--ROR; Wikidata and DEQAR records meet
 through their common ROR record. We worked in rounds: each round changed one thing that the
-evaluation or the error analysis of the round before had shown to be weak.
+evaluation or the error analysis of the round before had shown to be weak. Rounds 1 to 3, described in
+this section, ran on all translated records.
 
 \subsection{Labelled Pairs}\label{sec:labels}
 \emph{Round 1} took 900 pairs per dataset pair straight from the identifier links of the sources
@@ -183,13 +200,15 @@ lowest one allowed, and Wikidata--ROR got 133,694 correspondences for 22,697 Wik
 groups of up to 11,422 records. For \emph{round 2} we built a pool of about 1,000 pairs per dataset
 pair as recommended: 20\% random matches, 50\% corner cases (linked pairs whose names differ, similar
 names of different universities, a campus or faculty against its university, the same name in another
-country) and 30\% random non-matches. Every pair was checked individually (LLM-assisted); 12
+country) and 30\% random non-matches. We checked every pair against both records (LLM-assisted); 12
 (Wikidata--ROR) and 26 (DEQAR--ROR) labels were changed and 30 unclear pairs dropped. Typical
 corrections are wrong identifier links (\emph{University of Glamorgan} linked to \emph{Glamorgan
 Archives}) and, the other way round, the same university with two country codes (French Polynesia,
 FR and PF). The identifier links of DEQAR are clearly less reliable than those of Wikidata. We split
-the pairs by the left record into training, validation and test sets of 310 to 347 pairs each, 123
-to 151 of them matches; the test sets are used once, for the final choice of a round.
+the pairs by the left record into training and validation sets of 310 to 347 pairs each, 138 to 151
+of them matches. To reach more than 500 test pairs we later added 200 pairs per dataset pair in the
+same mix to the test sets (510 pairs, 164 and 169 matches; LLM-assisted labels). The test sets are
+used once, for the final choice of a round.
 % TODO (team): spot-check 01_labels/results/review_*.csv before submission and name who did it.
 
 \subsection{Blocking}\label{sec:blocking}
@@ -208,7 +227,8 @@ languages). The union reaches a PC of 0.993 and 0.972 with 0.75 and 0.27 million
 it still loses are renamed institutions such as \emph{Institut Paul Bocuse}, now \emph{Institut Lyfe}.
 
 \begin{table}[t]
-\caption{Blocking on the validation pairs of round 2: candidate pairs and pair completeness (PC)}\label{tab:blocking}
+\caption{Blocking on all records, validation pairs of round 2: candidate pairs and pair completeness
+(PC). Last row: the same blocker on the cleaned data (round 8, Sect.~\ref{sec:redo})}\label{tab:blocking}
 \scriptsize
 \begin{tabularx}{\textwidth}{@{}Lrrrr@{}}
 \toprule
@@ -223,6 +243,8 @@ Token: country + name word & 600,969 & .891 & 206,798 & .922\\
 Token: same web domain & 12,445 & .797 & 4,826 & .759\\
 Embedding: ten nearest names & 220,647 & .797 & 87,153 & .723\\
 Union: country + name word $\mid$ domain $\mid$ embedding & 754,933 & .993 & 273,378 & .972\\
+\midrule
+Union, cleaned data (round 8) & 631,099 & .992 & 228,426 & .977\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -237,7 +259,7 @@ missing. Thresholds were chosen on the validation pairs.
 Three findings stand out. First, a name alone is not enough once the labels contain look-alikes:
 precision stays near 0.66 whatever the measure (\emph{Seisen University} in Tokyo and in Nagano).
 Second, the web domain makes rules precise (0.66 to 0.98), and with hard labels every further
-attribute helps a little (F1 0.880 to 0.929). Third, the learned matchers win, mainly through recall:
+attribute helps a little (F1 0.880 to 0.933). Third, the learned matchers win, mainly through recall:
 they learn that a missing founding year or website is no evidence against a match.
 
 \paragraph{Global matching.}
@@ -245,7 +267,7 @@ The sources are almost free of duplicates, so each record should have at most on
 one-to-one matching and stable matching both raise precision to 0.99; maximum bipartite matching
 loses much recall, because maximising the sum of scores trades one strong pair for several weak ones.
 In round 2 our script chose \emph{no} global matching for DEQAR--ROR, which was 0.013 better in F1 on
-the validation pairs. On the test pairs precision dropped to 0.885, and the group size distribution
+the validation pairs. On the test pairs precision dropped to 0.874, and the group size distribution
 showed groups of up to 4,509 records. A score on 300 pairs cannot see that one record is linked to 20
 others; the group sizes can. From round 3 on we always apply greedy one-to-one matching.
 
@@ -260,132 +282,321 @@ Neither the translation nor the part-word feature changed F1 by more than 0.007:
 often contain the English form already, and few labelled pairs show a campus. One-to-one matching was
 the clear gain. We did not try an LLM matcher, which would need a paid API.
 
+\paragraph{Result of the first pass.}
+With round 3, 98--99\% of the correspondences on the test pairs were correct and 89\% of the matches
+were found (F1 0.936 and 0.940), with 14,824 Wikidata--ROR and 4,714 DEQAR--ROR correspondences. By
+the scores, identity resolution was done.
+
+\paragraph{Further matchers on round 3.}
+In parallel we tried three other matchers on the round-3 candidates, with thresholds chosen on the
+validation pairs after greedy one-to-one matching (Table~\ref{tab:extensions}; code in
+\url{scripts/03_identity_resolution/06_...} to \url{11_...}): TF-IDF on all names, multilingual name
+embeddings \citep{reimers2020multilingual} alone or with country and web domain, and a search over 252
+weightings of six attribute similarities. Names alone fall short again (F1 0.73 to 0.88). The searched
+weights give the name no weight: they classify single training pairs well but do worse after one-to-one
+matching than our hand-set weights. That rule, with its threshold chosen after one-to-one matching,
+scored highest (3 and 1 more matches found); as the test pairs had been used before and the gain is a
+few pairs, we kept the learned matchers.
+
 \begin{table}[t]
-\caption{Matching results (validation pairs unless marked test). Blocker: SN = sorted neighbourhood
-(round 1), U = union of country + name word, domain and embedding. Time = matcher run on all candidate
-pairs, feature extraction and training included}\label{tab:matching}
+\caption{Further matchers on round 3, round-3 test pairs before the 200 added ones (312 and 310 pairs,
+123 matches each)}\label{tab:extensions}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}Lrrrrrr@{}}
+\toprule
+& \multicolumn{3}{c}{Wikidata--ROR} & \multicolumn{3}{c}{DEQAR--ROR}\\
+Matcher & P & R & F1 & P & R & F1\\
+\midrule
+TF-IDF on all names & .978 & .740 & .843 & .944 & .829 & .883\\
+Semantic: name embeddings only & .957 & .724 & .824 & .937 & .602 & .733\\
+Semantic + country + web domain & 1.000 & .886 & .940 & .982 & .886 & .932\\
+Searched weights, six attributes & .971 & .813 & .885 & .982 & .878 & .927\\
+Hand-set rule, threshold chosen after one-to-one matching & .991 & .919 & \textbf{.954} & .991 & .902 & \textbf{.945}\\
+Learned matcher of the first pass (Table~\ref{tab:matching}) & .982 & .894 & .936 & .991 & .894 & .940\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[t]
+\caption{Matching results (validation pairs unless marked test). Rd = round: 1 = round-1 labels,
+2--3 = all records, 8 = cleaned data (Sect.~\ref{sec:redo}). Blocker: SN = sorted neighbourhood, U =
+union of country + name word, domain and embedding. Time = matcher run on all candidate pairs, feature
+extraction and training included}\label{tab:matching}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{@{}rlLcrrrrr@{}}
 \toprule
-\# & Pair & Matcher & Blocker & P & R & F1 & \# Corr & Time\\
+Rd & Pair & Matcher & Blocker & P & R & F1 & \# Corr & Time\\
 \midrule
-1 & W--R & Levenshtein 0.5 + year 0.5 (round-1 labels) & SN & 1.000 & .876 & .934 & 133,694 & 29\,s\\
-2 & W--R & Levenshtein on the name & U & .661 & .833 & .737 & 435,504 & 43\,s\\
-3 & W--R & best of all names, Jaro-Winkler & U & .659 & .993 & .792 & 754,122 & 65\,s\\
-4 & W--R & rule: names + country + domain & U & .982 & .797 & .880 & 12,393 & 67\,s\\
-5 & W--R & rule: all attributes & U & .961 & .899 & .929 & 17,387 & 81\,s\\
-6 & W--R & logistic regression & U & .951 & .978 & .964 & 56,990 & 187\,s\\
-7 & W--R & logistic regression + greedy one-to-one & U & .992 & .957 & .974 & 14,898 & 187\,s\\
-8 & W--R & final (round 3): logistic regression + greedy, \textbf{test} & U & .982 & .894 & .936 & 14,824 & 237\,s\\
+1 & W--R & Levenshtein 0.5 + year 0.5 & SN & 1.000 & .876 & .934 & 133,694 & 29\,s\\
+3 & W--R & Levenshtein on the name & U & .661 & .833 & .737 & 435,504 & 43\,s\\
+8 & W--R & best of all names, Jaro-Winkler & U & .661 & .992 & .794 & 630,803 & 74\,s\\
+3 & W--R & rule: names + country + domain & U & .982 & .797 & .880 & 12,393 & 67\,s\\
+8 & W--R & rule: all attributes & U & .966 & .903 & .933 & 16,227 & 104\,s\\
+8 & W--R & logistic regression & U & .960 & .976 & .968 & 46,180 & 408\,s\\
+8 & W--R & logistic regression + greedy one-to-one & U & 1.000 & .968 & .984 & 13,673 & 409\,s\\
+3 & W--R & first pass: logistic regression + greedy, \textbf{test} & U & .982 & .894 & .936 & 14,824 & 237\,s\\
+8 & W--R & final: \ldots{} + cut-off 0.7, \textbf{test} & U & .993 & .865 & .924 & 12,266 & 408\,s\\
 \midrule
-9 & D--R & Levenshtein 0.7 + year 0.3 (round-1 labels) & SN & 1.000 & .664 & .798 & 72,191 & 12\,s\\
-10 & D--R & best of all names, Jaro-Winkler & U & .668 & .972 & .792 & 273,378 & 22\,s\\
-11 & D--R & rule: names + country + domain & U & .959 & .823 & .885 & 5,428 & 23\,s\\
-12 & D--R & rule: all attributes & U & .939 & .872 & .904 & 8,216 & 26\,s\\
-13 & D--R & random forest & U & .964 & .943 & .953 & 19,354 & 59\,s\\
-14 & D--R & random forest, no global matching (round 2), \textbf{test} & U & .885 & .935 & .909 & 19,354 & 59\,s\\
-15 & D--R & final (round 3): random forest + greedy, \textbf{test} & U & .991 & .894 & .940 & 4,714 & 79\,s\\
+1 & D--R & Levenshtein 0.7 + year 0.3 & SN & 1.000 & .664 & .798 & 72,191 & 12\,s\\
+8 & D--R & best of all names, Jaro-Winkler & U & .672 & .977 & .796 & 228,426 & 26\,s\\
+3 & D--R & rule: names + country + domain & U & .959 & .823 & .885 & 5,428 & 23\,s\\
+8 & D--R & rule: all attributes & U & .936 & .886 & .911 & 7,639 & 31\,s\\
+8 & D--R & random forest & U & .947 & .955 & .951 & 18,072 & 111\,s\\
+2 & D--R & random forest, no global matching, \textbf{test} & U & .874 & .947 & .909 & 19,354 & 59\,s\\
+3 & D--R & first pass: random forest + greedy, \textbf{test} & U & .991 & .894 & .940 & 4,714 & 79\,s\\
+8 & D--R & final: \ldots{} + cut-off 0.55, \textbf{test} & U & 1.000 & .906 & .950 & 4,026 & 111\,s\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\paragraph{Result of round 3.}
-On the test pairs, 98--99\% of the correspondences are correct and 89\% of the matches are found,
-with 14,824 Wikidata--ROR and 4,714 DEQAR--ROR correspondences. Recall on the test pairs is lower
-than on the validation pairs (0.894 against 0.971 and 0.908), because model and threshold were chosen
-on the latter. The groups have two or three records (13,230 and 3,154 groups): the 61,807 records form
-42,269 entities, 16,384 of them in at least two datasets and 3,154 in all three. A first version of
-this pipeline, evaluated on unchecked identifier links, had reported an F1 of 96--99\%; the data did
-not get harder, the evaluation set got honest.
+\section{Back to the Data: Cleaning and a Second Pass}\label{sec:cleaning}
 
-\subsection{Additional Filtering and Deduplication}\label{sec:filtering}
+\paragraph{What the first pass showed.}
+The scores hid a problem with the data itself. The error analysis kept showing correct-looking links
+between things that are not universities of their own (\emph{Pacific University Health Professions
+Campus} and \emph{Pacific University Oregon}) and duplicates within one source that break the one-to-one
+assumption (DEQAR lists \emph{Transnational University Limburg} once per country). A closer look at the
+sources showed how far our first, simple selection was from our definition of a university: ROR's
+type \emph{education} also holds schools, school districts, hospitals and research institutes, DEQAR
+lists faculties and vocational centres that have a quality report of their own, and Wikidata's
+subclasses of \emph{university} include seminaries and Japanese junior colleges. In random samples of
+1,000 ROR and 1,000 DEQAR records, judged against our definition (LLM-assisted), only 63\% and 65\% were universities in our
+sense. The test pairs could not show this: only 49 of the original test pairs contained such a record, most of them
+non-matches that round~3 already rejected.
 
-\paragraph{Motivation.}
-The error analysis of our best matchers kept showing two kinds of errors that better similarity
-measures cannot fix. First, records that are not universities of their own by our definition are
-linked to universities (\emph{Pacific University Health Professions Campus} to \emph{Pacific
-University Oregon}): campuses, branches, faculties, research units and even high schools, which ROR
-files under ``education'' and DEQAR lists when they have a quality assurance report of their own.
-281 of the 14,824 Wikidata--ROR correspondences (1.9\%) and 102 of the 4,714 DEQAR--ROR
-correspondences (2.2\%) of round~3 touch such a record; a feature for part words such as
-\emph{campus} did not help. Second, duplicates within a source break the one-to-one assumption of the
-global matching: the second copy takes the partner of the first (DEQAR lists \emph{Transnational
-University Limburg} once per country).
+\paragraph{What we tried.}
+First we kept the matching and filtered around it, with per-source lists of non-universities found by
+word and type rules and an LLM-assisted check. Removing them before matching (round~4) created new
+errors, because that
+filter drew the line between a university and its parts differently in each source: a record removed
+in one source left its counterpart without partner, and the matcher gave it a wrong one (78 new
+correspondences; once ROR's record of the branch \emph{Islamic Azad University of Nishapur} was gone,
+the Wikidata record of the same branch was linked to \emph{Neyshabur University of Medical Sciences}).
+Removing them after matching (rounds~5 and~6, with duplicates removed before) added no errors but left
+the matcher working on campuses and schools, and matching, removing and matching again (round~7)
+brought no gain. We concluded that the problem lies in the data, not in the matcher, and went back to
+the beginning of the pipeline: define precisely which records are universities, clean each source with
+the same kind of rules, and then repeat schema mapping and identity resolution on the cleaned data.
 
-\paragraph{Method.}
-For each source, rules flag candidate non-universities. ROR: school words, and \emph{campus},
-\emph{branch} or \emph{faculty of} only if ROR names a parent organisation; DEQAR: a parent university
-together with a part word, Spanish faculties, institutes of academies of sciences, European university
-alliances; Wikidata: types such as \emph{campus} or \emph{military lyceum}. A second set of rules flags
-candidate duplicates (the same link to another source, or the same name and country). An LLM
-pre-check judged every flagged row and pair; where it often disagreed, we narrowed or dropped the rule
-(Wikidata also types \emph{Heidelberg University} as \emph{campus}; French grandes écoles have an
-umbrella group as parent). A team member checks by hand every row where a rule word can mean
-something else (\emph{University of Texas Medical Branch}), every row the LLM doubted, and ten random
-rows of each remaining group (Table~\ref{tab:filtering}).
-% TODO (team): after the hand check: "N rows checked by NAME, X corrected".
+\paragraph{Rules.}
+A record stays only if it passes five rules (\url{rules.md}): it awards degrees at bachelor's level or
+higher (1), it is recognised (2; DEQAR records always are, through their quality review), it is an
+organisation of its own (3), its main purpose is education (4), and it appears only once in its source
+(5). Every rule is a fixed condition: if it matches, the record goes, without case-by-case decisions
+or review lists. Most rules look at the name and are shared by all sources
+(\url{scripts/02_filtering/common.py}), each with the few exceptions our checks showed to be necessary:
+\emph{seminary}, \emph{community college}, \emph{high school}, \emph{vocational} or \emph{technical
+college} (but not the Polish \emph{higher vocational schools}), \emph{campus}, \emph{faculty of} (only
+if the source names a parent), \emph{school of \ldots{} University}, \emph{research institute} in
+several languages (unless the name also says university or college), \emph{consortium} or
+\emph{association}. Two rules depend on the country: \emph{polytechnic} means a diploma school in
+eleven countries such as India and Nigeria, and \emph{college} a short-cycle school in six post-Soviet
+countries. Each source adds what its data offers: Wikidata its type labels (\emph{junior college in
+Japan}, \emph{Catholic seminary}), but only when no higher education type stands next to them, because
+Wikidata also types \emph{Heidelberg University} as \emph{campus}; ROR its types \emph{healthcare},
+\emph{facility} and \emph{government} when the name has no higher education word; DEQAR its parent
+field (a school, institute or department whose parent is a university is part of it; not applied in
+France, where the parent is usually a group of independent institutions). Two records are duplicates
+if they share cleaned name, country and web domain; the city is ignored, and a record without website
+is never a duplicate (\emph{Wheaton College} in Illinois and in Massachusetts have different domains).
 
 \begin{table}[t]
-\caption{Additional filtering per source: rows flagged, removed as non-universities, removed as
-duplicates, and checked by hand (rows and pairs)}\label{tab:filtering}
+\caption{Data cleaning per source: records removed per rule and kept, and the LLM-assisted validation: removed records that are real universities, and non-universities in a
+fresh random sample of the kept records}\label{tab:cleaning}
 \scriptsize
-\begin{tabularx}{\textwidth}{@{}Lrrrrr@{}}
+\begin{tabularx}{\textwidth}{@{}Lrrr@{}}
 \toprule
-Source & Records & Flagged & Non-universities & Duplicate rows & Checked by hand\\
+& Wikidata & ROR & DEQAR\\
 \midrule
-Wikidata & 22,697 & 307 & 300 & 66 & 134 + 94\\
-ROR & 30,131 & 1,050 & 1,035 & 9 & 164 + 42\\
-DEQAR & 8,979 & 1,607 & 1,592 & 13 & 123 + 37\\
+Records & 22,697 & 30,131 & 8,979\\
+Removed: 1 level / 2 recognised / 3 part of another / 4 not education / 5 duplicate &
+2,162 / 14 / 807 / 84 / 25 & 3,230 / -- / 601 / 374 / 7 & 801 / -- / 1,290 / 113 / 11\\
+\textbf{Kept} & \textbf{19,605} & \textbf{25,919} & \textbf{6,764}\\
+\midrule
+Removed records checked / of those real universities & 2,470 / 1.5\% & 4,108 / 1.1\% & 1,902 / 2.0\%\\
+Kept records checked / of those not universities & 387 / 11.4\% & 496 / 15.3\% & 469 / 8.1\%\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\paragraph{Before or after matching?}
-Removing these records before matching (round~4) backfired. The sources draw the line between
-a university and its parts differently, so a record removed in one source left its counterpart in
-another source without partner, and the matcher gave it a wrong one (78 new correspondences). For
-example, once ROR's record of the branch \emph{Islamic Azad University of Nishapur} was removed, the
-Wikidata record of the same branch was linked to \emph{Neyshabur University of Medical Sciences}.
-We therefore remove the non-universities after matching:
-every correspondence that touches a non-university is dropped (round~5), which cannot create new
-links. Round~6 also removes the duplicates before matching. The removed campuses and branches are not
-lost: 299 of them are attached to their university (by parent link or name) and become a list
-attribute in data fusion.
+\paragraph{Results of the cleaning.}
+The rules keep 52,288 of the 61,807 records (Table~\ref{tab:cleaning}). The largest groups removed are
+580 Japanese junior colleges and 366 Catholic seminaries in Wikidata, 1,129 vocational colleges, 700
+community and junior colleges and 472 school districts in ROR, and 574 faculties, 310 schools of
+universities and 271 Ukrainian colleges in DEQAR. To tune and validate the rules, we had about 12,700 records judged against Rules 1--5
+(LLM-assisted): every removed record and random samples of the kept ones. We kept a rule only if it
+removed many records and almost no real universities. Of the
+removed records, 1--2\% are real universities; of a fresh sample of kept records drawn after the rules
+were fixed, 8--15\% are still not universities. What remains is what a name cannot show: US community
+colleges called \emph{X College}, campuses and research institutes with plain names, and diploma-level
+schools. Closed institutions are kept for now.
+% TODO (team): spot-check the AI verdicts (scripts/02_filtering/<source>/validation/ai_checks.csv).
+
+\subsection{Second Pass: Schema Mapping and Identity Resolution on the Cleaned Data}\label{sec:redo}
+One script per source (\url{scripts/02_filtering/<source>/filter.py}) writes to
+\url{data/<source>/filtered/} the cleaned CSV, the list of removed records with rule and reason, and
+the schema-mapped XML of the source without the removed records; this cleaned XML replaces the full
+translation in \url{data/<source>/original/} as input of identity resolution. We then
+repeated identity resolution unchanged in method (round~8): the same labels (only the pairs whose two
+records remain: validation 254 and 275, test 441 and 447 pairs), the same blocker, which keeps 99.2\%
+and 97.7\% of the matches (Table~\ref{tab:blocking}), and the matchers and thresholds chosen again on
+the validation pairs (logistic regression and random forest, as before). Table~\ref{tab:rounds} compares
+the two passes on the same test pairs: the scores do not drop, and none of the 1,353 Wikidata--ROR and
+275 DEQAR--ROR correspondences of the first pass that touch a removed record is left.
 
 \begin{table}[t]
-\caption{Effect of the filtering on the test labels (pairs whose records are not non-universities)
-and on all correspondences}\label{tab:rounds}
+\caption{First pass on all records (round 3) against the second pass on the cleaned data (round 8), on
+the test pairs whose two records remain after cleaning, and the final cut-off of
+Sect.~\ref{sec:cutoff}}\label{tab:rounds}
 \scriptsize
-\begin{tabularx}{\textwidth}{@{}Lrrrrrrr@{}}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}Lrrrrrrrr@{}}
 \toprule
-& \multicolumn{3}{c}{Wikidata--ROR} & \multicolumn{3}{c}{DEQAR--ROR} & Links to\\
-Round & P & R & F1 & P & R & F1 & non-univ.\\
+& \multicolumn{3}{c}{Wikidata--ROR} & \multicolumn{3}{c}{DEQAR--ROR} & \multicolumn{2}{c}{Correspondences}\\
+Round & P & R & F1 & P & R & F1 & W--R / D--R & to removed\\
 \midrule
-3: no filtering & .982 & .893 & .935 & .991 & .900 & .943 & 383\\
-4: non-universities removed before matching & .982 & .884 & .930 & .991 & .917 & .952 & 0 (+78 new)\\
-5: \ldots\ removed after matching & .982 & .893 & .935 & .991 & .900 & .943 & 0\\
-6: round 5 + duplicates removed & .982 & .893 & .935 & .991 & .908 & .948 & 0\\
+3: all records & .986 & .916 & .950 & .986 & .912 & .948 & 14,824 / 4,714 & 1,353 / 275\\
+8: cleaned before matching & .986 & .923 & .953 & .987 & .931 & .958 & 13,673 / 4,477 & 0 / 0\\
+8 + final cut-off (0.7 / 0.55) & .993 & .865 & .924 & 1.000 & .906 & .950 & 12,266 / 4,026 & 0 / 0\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Final Cut-off: Wrong Matches against Duplicates}\label{sec:cutoff}
+Identity resolution can fail in two ways. A \emph{wrong match} fuses two different institutions into
+one entity, whose name, city or website then come from the wrong one (\emph{Tokyo University of
+Fisheries}, closed in 2003, was linked to \emph{Tokyo College of Welfare}: same city, no website or
+coordinates to tell them apart). A \emph{missed match} lists one university twice. For a dataset of
+universities the first is worse: a duplicate is still correct information, a wrong match is not. We
+therefore raise the cut-off after one-to-one matching from the validation-chosen 0.45 to 0.7
+(Wikidata--ROR) and from 0.35 to 0.55 (DEQAR--ROR).
+
+The labelled pairs show the cost of this choice but not its benefit: at the validation-chosen
+thresholds, validation and test pairs together contain only 2 and 4 wrong matches. We therefore
+check \emph{every} correspondence against the identifier links of the sources, which the pipeline
+never uses. They cover 12,201 of the 13,673 Wikidata--ROR and 3,261 of the 4,477 DEQAR--ROR
+correspondences; a correspondence counts as wrong if one of its records has an identifier link to
+another record (Table~\ref{tab:cutoff}). The stricter cut-off removes 150 of 359 wrong Wikidata--ROR
+correspondences (42\%) at the cost of 338 of 11,843 right ones (2.9\%), and 66 of 172 wrong
+DEQAR--ROR correspondences (38\%) at the cost of 62 of 3,087 right ones (2.0\%). For DEQAR--ROR
+this pays off even if both errors weigh the same; for Wikidata--ROR it pays off once a wrong match
+counts at least 2.3 times as much as a duplicate. Two limits remain: the identifier links are not free
+of errors themselves (Sect.~\ref{sec:labels}), and they cover mostly well-known institutions, while
+the correspondences without such a link are the harder ones.
+
+\begin{table}[t]
+\caption{Final cut-off. Identifier links: right and wrong correspondences among those the links
+cover (all correspondences, not a sample). Labels: wrong and missed matches on validation and test
+pairs together. Test: evaluation on the test pairs}\label{tab:cutoff}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}lLrrrrrrrrr@{}}
+\toprule
+& & & \multicolumn{3}{c}{Identifier links} & \multicolumn{2}{c}{Labels} & \multicolumn{3}{c}{Test}\\
+Pair & Cut-off & \# Corr & Right & Wrong & \% wrong & Wrong & Missed & P & R & F1\\
+\midrule
+W--R & 0.45 (validation) & 13,673 & 11,842 & 359 & 2.9 & 2 & 16 & .986 & .923 & .953\\
+W--R & \textbf{0.7 (final)} & 12,266 & 11,504 & 209 & 1.8 & 1 & 36 & .993 & .865 & .924\\
+D--R & 0.35 (validation) & 4,477 & 3,087 & 174 & 5.3 & 4 & 21 & .987 & .931 & .958\\
+D--R & \textbf{0.55 (final)} & 4,026 & 3,025 & 108 & 3.4 & 1 & 32 & 1.000 & .906 & .950\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Before and After}\label{sec:beforeafter}
+Measured by the test scores, the first pass looked as good as the final result, and the final cut-off
+looks worse: recall falls from 0.923 to 0.865 (Wikidata--ROR) and from 0.931 to 0.906 (DEQAR--ROR),
+F1 from 0.953 to 0.924 and from 0.958 to 0.950. Two further costs are real: the cleaning removes
+some real universities (1--2\% of the removed records), and the cut-off lists some universities twice
+(338 and 62 right correspondences cut). We accept these costs because the test pairs barely contain the
+cases that matter for the dataset, and on all correspondences the gain is large and measurable: the
+1,625 correspondences of the first pass that linked universities to schools, faculties, seminaries
+and research institutes are gone, and the identifier links show 42\% and 38\% fewer wrong
+correspondences. For a dataset that is meant to describe every university once and correctly, a
+missing university or a duplicate is the smaller error.
+
+\section{Phase III: Data Fusion}\label{sec:phase3}
+
+\paragraph{Groups and consistency.}
+The final correspondences of both dataset pairs are one-to-one and meet in the ROR record, so a group
+holds at most one record per source. PyDI's fusion engine forms the groups and keeps records found in
+only one source as they are: 35,996 universities, 22,354 from one source, 10,992 from two and 2,650
+from all three (\url{scripts/04_data_fusion/fusion.py}). Within a group the sources agree on the
+country in 99.5\% of the groups, on the founding year in 82\%, the city in 76\%, the name in 67\% (after
+removing case, accents and punctuation) and the website in only 36\%.
+
+\paragraph{Conflict resolution.}
+The list attributes (alternative names, acronyms, domains, memberships, history) are united, the
+coordinates take the median. For single-valued attributes we compare content-based and
+metadata-based functions of PyDI \citep{bleiholder2009fusion}: \emph{content-based} (the longest name
+and website, as short forms are often abbreviations; voting for country and city; the earliest
+founding year, as sources often give a re-founding), plain \emph{voting} (on a tie the first value) and
+\emph{trust}, the value of the most trusted source that has one. As provenance, ROR gets the highest
+trust score (institutions keep their own records up to date), then Wikidata (volunteers), then DEQAR
+(only what quality agencies report); for comparison also Wikidata first. Per attribute we chose the
+best function on the gold standard.
+
+\paragraph{Gold standard.}
+Fusion only decides something for universities in at least two sources. We drew 1,000 of them
+(\url{build_gold.py}): 500 whose sources disagree on at least one evaluated attribute and 500 at
+random, plus the 39 well-known universities of a first attempt. For each, we set the correct name,
+country, city, founding year and web domain, with accepted alternatives (another spelling, the
+founding of a predecessor) and a confidence (LLM-assisted, starting from the source values, which may
+favour the source followed most). Without the 75 with low confidence and 95 no longer linked after the
+final cut-off, 869 are evaluated, with PyDI's evaluator and our own evaluation functions that accept
+every alternative and compare names and cities after the cleaning used in matching.
+% TODO (team): spot-check fusion_gold_new.csv by hand before submission.
+
+\begin{table}[t]
+\caption{Fusion strategies on the gold standard: accuracy per attribute on the 869 evaluated
+universities, and the mean on the 384 with conflicting sources and the 446 drawn at random}\label{tab:fusion}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}Lrrrrrrrr@{}}
+\toprule
+Strategy & Name & Country & City & Founded & Domain & Mean & Conflict & Random\\
+\midrule
+Content-based & .917 & .977 & .891 & .972 & .999 & .951 & .936 & .962\\
+Voting (tie: first value) & .947 & .977 & .891 & .965 & .999 & .956 & .941 & .965\\
+Trust, Wikidata first & .938 & .976 & .867 & .963 & .999 & .949 & .933 & .961\\
+\textbf{Trust, ROR first} & \textbf{.977} & \textbf{.994} & \textbf{.988} & \textbf{.979} & .999 & \textbf{.987} & \textbf{.984} & \textbf{.990}\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \paragraph{Results.}
-On the test pairs, filtering after matching leaves precision and recall unchanged, and removing
-duplicates finds one more DEQAR--ROR match (Table~\ref{tab:rounds}): the test sets hold only 49 pairs
-with a non-university, most of them non-matches that round~3 already rejected. The effect lies in the
-full output: 383 correspondences to non-universities and 88 duplicate rows are gone without new
-errors. Duplicates with different names (\emph{Anna University} and \emph{Anna University, Chennai} in
-Wikidata) are not found by our candidate rules.
+Trust with ROR first is best on every attribute (Table~\ref{tab:fusion}), so it is also the best
+function per attribute, even for the founding year, where we had expected Wikidata to win. Voting
+gains nothing: most groups have two records, and two disagreeing values tie (city .891 against .988).
+Of the 54 wrong values left, 37 are conflicts resolved wrongly: another source has the right value,
+mostly where ROR gives the name in the local language, short or with the campus (17), or a nearby
+larger city (8). In 17 no source is right, mostly founding years (11). Fusion also fills gaps:
+of the 13,642 universities in at least two sources, the ROR record alone has a founding year for
+95.3\%, alternative names for 77.1\% and student numbers for none; after fusion the figures are
+99.0\%, 90.7\% and 23.1\%.
+
+\paragraph{Quality of the integrated dataset.}
+As the test pairs and the gold standard contain few hard cases, all 35,996 fused universities were
+judged (LLM-assisted): is it a university in our sense, do its records describe one institution, are
+its values right? 65\% are judged fully correct, 16.5\% have at least one clear error and 18\% were left unsure. 13\% are
+not universities in our sense, but almost only those known to one source (21\% of them, against 1.8\%
+of those in two and 0.2\% of those in three sources); 2.8\% of the multi-source groups merge two
+institutions (8.5\% before the final cut-off), and 3.2\% have a wrong value, most often the city. These figures are an estimate, not proof.
 
 \section{Conclusion}
 
-We collected three datasets from distinct sources with 61,807 records and translated them into one
-schema with 21 attributes, of which five besides the name are in all three datasets and seven are lists.
-Identity resolution links them into 42,269 entities, 16,384 of them in at least two datasets. The
-largest gains came from honest labels with corner cases, a multi-pass blocker and one-to-one
-matching; filtering non-universities after matching keeps the result to universities without new
-errors, while the test sets are too small to show its effect.
+We collected three datasets from distinct sources with 61,807 records, translated them into one schema
+with 21 attributes, of which five besides the name are in all three datasets and seven are lists, and
+linked and fused them into 35,996 universities, 13,642 of them described by at least two sources. The
+main lesson came from going back: our first pass scored well, but a simple selection of the sources
+had left thousands of schools, faculties, seminaries and research institutes in the data, and no
+change to the matcher could fix that. Cleaning each source with five fixed rules (52,288 records
+remain) and repeating schema mapping and identity resolution, followed by a strict final cut-off,
+cost some recall on the test pairs but removed all 1,625 links to non-universities and about 40\% of
+the wrong correspondences, which we showed on all correspondences with the identifier links. Within
+identity resolution the largest gains came from honest labels with corner cases, a multi-pass blocker
+and one-to-one matching; in fusion, preferring the curated source beats voting, which cannot decide
+between two values.
 
 \begin{table}[t]
 \caption{Project requirements (slide 12) and how the project meets them}\label{tab:requirements}
@@ -396,8 +607,8 @@ errors, while the test sets are too small to show its effect.
 & Requirement & Our project\\
 \midrule
 1. & 3 different data sets & 3: Wikidata, ROR, DEQAR\\
-2. & at least 2,500 entities in total (good: $>$\,10,000 but $<$\,100,000) & 61,807 records\\
-3. & at least 1,000 entities in at least two datasets & 13,020 Wikidata--ROR pairs linked by identifier\\
+2. & at least 2,500 entities in total (good: $>$\,10,000 but $<$\,100,000) & 61,807 records; 52,288 after cleaning; 35,996 universities after fusion\\
+3. & at least 1,000 entities in at least two datasets & 13,642 universities in at least two sources\\
 4. & at least 8 attributes; entities identifiable by at least two attributes & 21; name + country\\
 5. & at least 5 attributes in at least two datasets; some in three & 11; 5 other than the name in all three\\
 6. & ideally at least one list attribute & 7, e.g.\ alternative names, history\\
@@ -406,10 +617,11 @@ errors, while the test sets are too small to show its effect.
 \end{table}
 
 \paragraph{Limitations.}
-The filtering removes clear cases only: of 100 random ROR records it keeps, 8 are still not
-universities of their own (research institutes, regional campuses whose names do not say so). The
-translated data in \url{data/} keep all records; the filtered versions are in
-\url{scripts/additional_filtering/}.
+Several checks were LLM-assisted (Claude models) and not yet spot-checked by hand: the 200 added
+test pairs per dataset pair, the validation of the cleaning, the fusion gold standard and the check of
+the whole dataset. 8--15\% of the kept records are still not universities, as no source says whether
+an institution awards degrees. The final cut-off lists
+some universities twice (2--3\% of the right correspondences are cut).
 
 \bibliographystyle{plainnat}
 \bibliography{references}

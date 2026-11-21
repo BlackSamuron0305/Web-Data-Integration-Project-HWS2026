@@ -3,7 +3,7 @@ IDENTITY RESOLUTION - LAB JOURNAL (what we tried, why, how it went)
 Project: Web Data Integration HWS 2026 - Wikidata, ROR, DEQAR (universities)
 Branch:  identity-resolution-laith          Nothing here is committed.
 
-All numbers below come from real runs of the scripts in scripts/identity_resolution/. Each step has
+All numbers below come from real runs of the scripts in scripts/03_identity_resolution/. Each step has
 its own folder with the script, a results/ folder (one row per run, column "round") and a
 plots.ipynb with the charts.
 
@@ -34,7 +34,7 @@ match at least two dataset pairs, through a "connector" dataset, often the large
   two already point to it. (Wikidata-DEQAR follows through ROR.)
   Python 3.12 + PyDI 0.2.1 (uma-pydi), scikit-learn. Venv: .venv (not committed).
 
-  How to run everything again (each script from its own folder in scripts/identity_resolution/):
+  How to run everything again (each script from its own folder in scripts/03_identity_resolution/):
       01_labels/labels.py 1         round-1 labels
       01_labels/labels.py pool      candidates to check by hand  -> results/pool_*.csv
       01_labels/labels.py 2         checked labels (uses results/review_*.csv)
@@ -375,3 +375,74 @@ CAMPUSES AS A LIST (campuses.csv per source, for the fusion)
   universities, ROR 148 -> 61, DEQAR 36 -> 12; 299 in total. The fusion can give each university a
   list attribute "campuses". Not used in matching (would be a round 7: country/city compared against
   any location - risk: "Pacific University" US vs IN).
+
+====================================================================
+12. CLEANING BEFORE MATCHING (rounds 7 and 8, 2026-11-19)
+====================================================================
+WHY
+  The project is about universities, so removing non-universities belongs to the data preparation.
+  Final pipeline: collect -> clean each source (scripts/02_filtering/) -> schema mapping on the cleaned
+  data (MapForce output without the removed records) -> identity resolution (round 8). Cleaning is
+  done before matching even if the scores get a little worse; the rules are fixed conditions
+  (rules.md, scripts/02_filtering/README.md). The old scripts/additional_filtering/ (rounds 4-6, hand
+  check lists) was replaced; rounds 4-6 can no longer be re-run, their results stay.
+
+TEST SET ENLARGED
+  Slide 34 asks for more than 500 checked pairs. 01_labels/labels.py extra adds 200 test pairs per
+  source pair (same mix: 20% random matches, 50% corner cases, 30% random non-matches; only left
+  records of the test split; none from the old pool). Checked by AI agents (2 flips, 2 drops), NOT by
+  hand yet. Test now 510 pairs per pair; train and validation unchanged. Round 3 was re-scored on it.
+
+ROUND 7 - experiment "flag, match, remove, match again" (06_flag_filter/)
+  Run 1 = round 3; Wikidata flags carried over links with score >= 0.9 to ROR (587) and DEQAR (27);
+  run 2 on the rest. No gain over matching once and removing afterwards (differences of 2-3 test
+  pairs), so not used. The ID links are the answer key and are not used inside the pipeline.
+
+ROUND 8 - the final pipeline (all three sources cleaned before matching)
+  Cleaned: Wikidata 22,697 -> 19,605, ROR 30,131 -> 25,919, DEQAR 8,979 -> 6,764.
+  Matchers chosen on validation as before: W-R logistic regression t=0.45, D-R random forest t=0.35,
+  greedy one-to-one. Test labels: only pairs whose two records are still in the data.
+                        Wikidata-ROR (441 test pairs)   DEQAR-ROR (447 test pairs)    links
+                        P     R     F1                   P     R     F1                W-R / D-R
+  round 3 (all data)  .986  .916  .950                 .986  .912  .948              14,824 / 4,714
+  round 8 (cleaned)   .986  .923  .953                 .987  .931  .958              13,673 / 4,477
+  Round 3 had 1,353 + 275 links to records the cleaning removes; round 8 has none. Links confirmed by
+  the ID links: W-R 11,842 of 12,201 (round 3: 11,803), D-R 3,087 of 3,261 (3,090).
+
+AI CHECK OF THE FINAL LINKS (05_final/results/ai_check_links_r8.csv)
+  6,000 random links of round 8 judged by Claude Haiku agents: 88.6% correct, 10.0% wrong, 1.4%
+  unsure (round 3, 15,000 links: 88.5% correct). Links that are also ID links: 0.4% wrong; links
+  found only by the matcher: 53% wrong. By match score: <= 0.6: 66% wrong, 0.6-0.7: 32%,
+  0.7-0.8: 21%, 0.8-0.9: 9%, > 0.9: under 3%. Open: a higher final threshold (e.g. 0.7: 96% correct,
+  6% of the correct links lost) - not changed, the threshold is chosen on the validation labels.
+
+====================================================================
+13. FINAL CUT-OFF 0.7 / 0.55 (round 8, 2026-11-19)
+====================================================================
+WHY
+  A wrong match fuses two institutions into one entity with wrong values; a missed match only lists
+  one university twice. For us the first is worse (team decision). Typical wrong match: Tokyo
+  University of Fisheries (closed 2003, Wikidata record without website or coordinates) linked to
+  Tokyo College of Welfare (same city, score 0.69).
+CHANGE
+  05_final/final.py, round 8: after greedy one-to-one only links with score >= 0.7 (Wikidata-ROR) and
+  >= 0.55 (DEQAR-ROR) are kept (FINAL_CUTOFF). The links before the cut-off are saved as
+  correspondences_*_r8_before_cutoff.csv.
+EVIDENCE (05_final/cutoff_check.py -> results/cutoff_check.csv)
+  The labelled pairs hold only 2 (W-R) and 4 (D-R) wrong matches, so they show the cost, not the gain.
+  Every link is therefore checked against the ID links (answer key, never used in the pipeline);
+  they cover 12,201 of 13,673 W-R and 3,261 of 4,477 D-R links.
+                    ID key right  wrong (share)   labels wrong / missed   test P / R / F1
+  W-R 0.45            11,842      359 (2.9%)        2 / 16                .986 / .923 / .953
+  W-R 0.7             11,504      209 (1.8%)        1 / 36                .993 / .865 / .924
+  D-R 0.35             3,087      174 (5.3%)        4 / 21                .987 / .931 / .958
+  D-R 0.55             3,025      108 (3.4%)        1 / 32               1.000 / .906 / .950
+  W-R: 150 wrong links removed for 338 right ones -> worth it if a wrong match counts >= 2.3x a
+  duplicate. D-R: 66 wrong removed for 62 right -> worth it at any weighting. Higher cut-offs lose
+  right links much faster (W-R 0.8: 213 wrong vs 890 right removed).
+  Limits: the ID links have errors themselves and cover mostly well-known institutions.
+SUPPORTING (AI, not proof)
+  Haiku check of all fused universities (data_fusion/results/ai_check_fused*.csv): wrongly merged
+  groups 8.5% -> 2.8%, fully correct 64% -> 65%, universities 34,138 -> 35,996 (more duplicates).
+FUSION
+  Fusion gold standard (ROR first): 98.5% -> 98.6%.

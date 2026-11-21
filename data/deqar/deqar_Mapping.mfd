@@ -540,7 +540,7 @@
 								</entry>
 							</entry>
 						</root>
-						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="deqar_institutions.csv">
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="original/deqar_institutions.csv">
 							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
 								<names root="deqar_institutions" block="Rows">
 									<field0 name="deqar_id" type="string"/>
@@ -625,7 +625,7 @@
 								</entry>
 							</entry>
 						</root>
-						<document schema="../target.xsd" instanceroot="{}institutions" userdefinedschemalocation="../target.xsd" outputinstance="deqar_Mapping.xml"/>
+						<document schema="../target.xsd" instanceroot="{}institutions" userdefinedschemalocation="../../target.xsd" outputinstance="original/deqar_Mapping.xml"/>
 					</data>
 				</component>
 			</children>

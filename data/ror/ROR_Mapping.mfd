@@ -422,7 +422,7 @@
 								</entry>
 							</entry>
 						</root>
-						<document schema="../target.xsd" instanceroot="{}institutions" userdefinedschemalocation="../target.xsd" outputinstance="ROR_Mapping.xml"/>
+						<document schema="../target.xsd" instanceroot="{}institutions" userdefinedschemalocation="../../target.xsd" outputinstance="original/ROR_Mapping.xml"/>
 					</data>
 				</component>
 				<component name="logical-not" library="core" uid="131" kind="5">
@@ -507,7 +507,7 @@
 								</entry>
 							</entry>
 						</root>
-						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="ror_education.csv">
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="original/ror_education.csv">
 							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
 								<names root="ror_education" block="Rows">
 									<field0 name="ror_id" type="string"/>

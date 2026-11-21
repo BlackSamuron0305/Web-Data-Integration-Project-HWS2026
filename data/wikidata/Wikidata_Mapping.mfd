@@ -279,7 +279,7 @@
 								</entry>
 							</entry>
 						</root>
-						<document schema="../target.xsd" instanceroot="{}institutions" userdefinedschemalocation="../target.xsd" outputinstance="Wikidata_Mapping.xml"/>
+						<document schema="../target.xsd" instanceroot="{}institutions" userdefinedschemalocation="../../target.xsd" outputinstance="original/Wikidata_Mapping.xml"/>
 					</data>
 				</component>
 				<component name="constant" library="core" uid="126" kind="2">
@@ -352,7 +352,7 @@
 								</entry>
 							</entry>
 						</root>
-						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="wikidata_universities.csv">
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="original/wikidata_universities.csv">
 							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
 								<names root="wikidata_universities" block="Rows">
 									<field0 name="wikidata_id" type="string"/>

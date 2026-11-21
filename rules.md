@@ -68,16 +68,18 @@ and one record stays.
 - The same name with a different domain is two institutions (for example
   Wheaton College in Illinois and Wheaton College in Massachusetts).
 - A record without a website or without a country is never a duplicate.
-- The record with the most filled fields stays; on a tie, the older record
-  (lower id) stays.
+- The record with the most filled fields stays (links to other sources are not
+  counted); on a tie, the older record (lower id) stays.
 
 ## How the rules are applied
 
 - Every rule is a fixed condition: if it matches, the record goes, every time.
   There are no case-by-case decisions and no review lists.
 - The rules run in order 1 to 5; the first rule that matches decides.
-- Each source has one script in `scripts/filtering/<source>/` that writes one
-  cleaned dataset and one list of removed records with rule and reason.
+- Each source has one script in `scripts/02_filtering/<source>/` that writes the
+  cleaned dataset and one list of removed records with rule and reason to
+  `data/<source>/filtered/`.
+- The links between the sources (`ror_id`, `wikidata_id`) are never used.
 
 ## Open
 
