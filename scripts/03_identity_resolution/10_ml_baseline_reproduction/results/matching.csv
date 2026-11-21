@@ -1,0 +1,5 @@
+pair,matcher,configuration,split,threshold,precision,recall,f1,correspondences,training_seconds,scoring_seconds,matching_seconds
+wikidata-ror,logistic regression,original_threshold,validation,0.45,0.9925925925925926,0.9710144927536232,0.9816849816849818,14824,0.7,410.9,2.8
+wikidata-ror,logistic regression,retuned_threshold,validation,0.25,0.9925925925925926,0.9710144927536232,0.9816849816849818,16637,0.7,410.9,61.2
+deqar-ror,random forest,original_threshold,validation,0.35,0.9846153846153847,0.9078014184397163,0.9446494464944649,4714,0.6,143.9,0.7
+deqar-ror,random forest,retuned_threshold,validation,0.2,0.9847328244274809,0.9148936170212766,0.9485294117647058,5319,0.6,143.9,21.3

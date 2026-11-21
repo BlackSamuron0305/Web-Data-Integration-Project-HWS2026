@@ -1,0 +1,1001 @@
+anchor_id,name,name_alternatives,country_code,city,city_alternatives,founding_year,founding_year_alternatives,domain,domain_alternatives,confidence,note,selected_because
+ror_01jrs3715,"Eastern University, Sri Lanka",Batticaloa University College|EUSL|Eastern University Sri Lanka,LK,Batticaloa,,1986,1981,esn.ac.lk,,high,Began 1981 as university college; university 1986,conflict: city
+ror_036je1b38,Seinäjoki University of Applied Sciences,Seinäjoen ammattikorkeakoulu|SEAMK,FI,Seinäjoki,,1992,1995|1996,seamk.fi,,medium,"Trial operation 1992, permanent later",conflict: founding_year
+ror_00fkj2s96,Claretian University of Nigeria,"Claretian University|Claretian University of Nigeria, Nekede",NG,Owerri,Nekede,2021,,claretianuniversity.edu.ng,,high,,random
+ror_05gknzf69,Politeknik Negeri Balikpapan,Balikpapan State Polytechnic|State Polytechnic of Balikpapan|Poltekba,ID,Balikpapan,,2002,2011,poltekba.ac.id,,medium,,conflict: founding_year
+ror_02akg1305,AIPH University,Asian Institute of Public Health,IN,Bhubaneswar,Khordha,2008,,aiph.ac.in,,medium,Renamed from Asian Institute of Public Health,conflict: city
+ror_053jpjd80,Gerrit Rietveld Academie,Gerrit Rietveld Academy|Rietveld Academie|Rietveld School of Art & Design,NL,Amsterdam,,1924,1968,rietveldacademie.nl,gerritrietveldacademie.nl,medium,1968 is when it got its current name,conflict: founding_year
+ror_00xpsqk75,Iceland University of the Arts,Iceland Academy of the Arts|Listaháskóli Íslands,IS,Reykjavik,Reykjavík,1998,1999,lhi.is,,high,,conflict: founding_year
+ror_053jehz60,Vidyasirimedhi Institute of Science and Technology,VISTEC,TH,Rayong,Wang Chan,2015,,vistec.ac.th,,high,,random
+ror_03vndx142,Dijlah University College,Dijla University College|كلية دجلة الجامعة,IQ,Baghdad,,2004,,duc.edu.iq,en.duc.edu.iq,medium,,random
+ror_01m6ap410,University of Saint Joseph,Universidade de São José|Macau Inter-University Institute|聖若瑟大學|USJ,MO,Macao,Macau,1996,,usj.edu.mo,,high,Wikidata country CN is wrong; Macau is MO,conflict: country
+ror_02pkt3s45,University of St. Thomas,University of Saint Thomas|University of St. Thomas - Texas|UST Houston,US,Houston,,1947,,stthom.edu,,high,,random
+ror_01hmaf534,Northland College,North Wisconsin Academy,US,Ashland,,1892,,northland.edu,,high,College announced closure in 2025,random
+ror_059prtx18,LOGOS University College,Kolegji Universitar LOGOS,AL,Tirana,Tiranë,2008,2009,kulogos.edu.al,,medium,,conflict: founding_year
+ror_03sbhge02,Hallym University,한림대학교,KR,Chuncheon,,1982,,hallym.ac.kr,,high,,random
+ror_027de2r94,Raden Intan State Islamic University of Lampung,Universitas Islam Negeri Raden Intan Lampung|UIN Raden Intan Lampung|UIN Raden Intan|IAIN Raden Intan,ID,Bandar Lampung,,1968,2017,radenintan.ac.id,,high,"Became UIN in 2017, formerly IAIN",conflict: founding_year
+ror_049zrd669,Khawarizmi University Technical College,,JO,Amman,,,,khawarizmi.edu.jo,,low,Sources describe different institutions (Khawarizmi vs Luminus),conflict: domain
+ror_01w60n236,Sumy State University,Сумський державний університет|SumDU,UA,Sumy,,1948,1993,sumdu.edu.ua,,high,Started as branch of Kharkiv Polytechnic,random
+ror_02ar29j81,Viaa Christian University of Applied Sciences,,NL,Zwolle,,,,viaa.nl,,low,"DEQAR record is KPZ, a different institution",random
+ror_04668v621,,,FR,,,,,,,low,"ROR is PRES Grenoble, DEQAR is AgroSup Dijon",random
+ror_01gcwk603,Jinzhong College of Information,晋中信息学院,CN,Jinzhong,,2002,2022,jzci.edu.cn,,medium,,random
+ror_00wtq7t14,Governors State University,GSU,US,University Park,"University Park, Illinois",1969,,govst.edu,,high,"Wikidata city is a state, wrong",random
+ror_03spdpm68,Saint Petersburg State Marine Technical University,State Marine Technical University of St. Petersburg|Leningrad Shipbuilding Institute|Leningrad State Marine Technical University|Санкт-Петербургский государственный морской технический университет|SMTU,RU,Saint Petersburg,St Petersburg|St. Petersburg,1930,,smtu.ru,,high,,conflict: city
+ror_011wzff38,Banking Institute/College of Banking,BIVŠ|Bankovní institut vysoká škola|Banking Institute|College of Banking,CZ,Prague,Praha,1999,,bivs.cz,,medium,,random
+ror_05y32ys60,,,ID,,,,,,,low,"ROR is STT Injili Medan, Wikidata is PTKI Medan; different",random
+ror_05dpv4c71,AMET University,Academy of Maritime Education and Training|AMET,IN,Chennai,Kanathur,1992,2008,ametuniv.ac.in,,high,Deemed university status 2008,random
+ror_03grvy078,University of Minnesota,"University of Minnesota, Twin Cities|University of Minnesota Twin Cities|University of Minnesota System|UMN",US,Minneapolis,Saint Paul|St. Paul|Twin Cities,1851,1854|1869,umn.edu,twin-cities.umn.edu,medium,System vs Twin Cities campus ambiguity; chartered 1851,random
+ror_0326knt82,Adolfo Ibáñez University,Universidad Adolfo Ibáñez|UAI,CL,Santiago,Viña del Mar|Peñalolén,1953,1988,uai.cl,,high,"Business school 1953, university status 1988",conflict: founding_year
+ror_02xpf0x05,St. Paul University Philippines,Saint Paul University Philippines|SPUP,PH,Tuguegarao City,Tuguegarao,1907,,spup.edu.ph,,high,,random
+ror_059yx9a68,National University of Colombia,Universidad Nacional de Colombia|UNAL,CO,Bogotá,Bogota,1867,,unal.edu.co,,high,,conflict: name
+ror_047k2at48,Al-Azhar University – Gaza,Al-Azhar University Gaza|جامعة الأزهر في غزة,PS,Gaza,Gaza City,1991,,alazhar.edu.ps,,high,,conflict: city
+ror_00z847107,Escola Superior de Educação de Torres Novas,Higher School of Education of Torres Novas|ESETN,PT,Torres Novas,,1988,,esetn.pt,,medium,Founded 1988 by decree; ceased operating end 2016,conflict: founding_year
+ror_05081wb05,Yang-En University,仰恩大学,CN,Quanzhou,,1987,,yeu.edu.cn,,high,,random
+ror_003mte806,Instituto Superior de Administração e Línguas,Higher Institute of Administration and Languages|Instituto Superior de Administração e Línguas da Madeira|ISAL,PT,Funchal,Santa Luzia,1980,1984,isal.pt,,medium,,conflict: founding_year
+ror_05qbvwf88,Osaka University of Arts,Osaka University of the Arts|Osaka Geijutsu Daigaku|大阪芸術大学,JP,Kanan,Osaka|Minamikawachi,1945,1964,osaka-geidai.ac.jp,,medium,"Campus in Kanan, Osaka Prefecture",random
+ror_01z23y265,V.V. Dokuchaiev Kharkiv National Agrarian University,Kharkiv National Agrarian University named after V.V. Dokuchaiev|Kharkiv National Agrarian University named after V.V. Dokuchayev|Харківський національний аграрний університет імені В. В. Докучаєва,UA,Kharkiv,Kharkov,1816,,knau.kharkov.ua,,high,,conflict: name
+ror_00vhhbt37,Howard Payne University,HPU,US,Brownwood,,1889,,hputx.edu,,high,,random
+ror_04d8yqq70,Krirk University,มหาวิทยาลัยเกริก,TH,Bangkok,,1952,1951,krirk.ac.th,,medium,,random
+ror_00f5esq17,Hijiyama University,比治山大学,JP,Hiroshima,,1939,,hijiyama-u.ac.jp,,medium,"Founded as school 1939, university later",random
+ror_03ta25k06,Goiás State University,Universidade Estadual de Goiás|State University of Goiás|UEG,BR,Anápolis,,1999,1961,ueg.br,,medium,Predecessor UNIANA founded 1961,random
+ror_01tsxcr11,,,IN,Nagpur,,,,,,low,ROR forensic institute vs Wikidata law university; different,random
+ror_01nffqt88,Politecnico di Milano,Polytechnic University of Milan|Polytechnic of Milan|Polimi,IT,Milan,Milano,1863,,polimi.it,,high,,conflict: city
+ror_00f7hpc57,Friedrich-Alexander-Universität Erlangen-Nürnberg,Friedrich-Alexander University Erlangen-Nuremberg|University of Erlangen-Nuremberg|FAU,DE,Erlangen,,1743,1742|1961,fau.de,fau.eu,high,"Founded 1742 Bayreuth, moved 1743; merged with Nuremberg 1961",random
+ror_04ffw0491,Artevelde University of Applied Sciences,Artevelde University College Ghent|Arteveldehogeschool,BE,Ghent,Gent,1995,2000,arteveldehogeschool.be,,medium,Created by merger of Ghent colleges,conflict: founding_year
+ror_059sj0146,Viet Tri University of Industry,Trường Đại học Công nghiệp Việt Trì|VUI,VN,Việt Trì,Viet Tri,1956,1954|2011,vui.edu.vn,,medium,Predecessor school 1956; university status 2011,conflict: name
+ror_03s5jv345,Humanitas University,Humanitas University in Sosnowiec|Akademia Humanitas|Wyższa Szkoła Humanitas w Sosnowcu,PL,Sosnowiec,,1997,,humanitas.edu.pl,,high,,conflict: city
+ror_05h6gbr15,University of Mianwali,UMW,PK,Mianwali,,2019,,umw.edu.pk,,high,,random
+ror_02fpe5k66,,,GB,London,,,,,,low,"ROR is BITE, DEQAR is British Academy of Jewellery; different",random
+ror_04eka8j06,Ostwestfalen-Lippe University of Applied Sciences and Arts,Technische Hochschule Ostwestfalen-Lippe|Technische Hochschule OWL|TH OWL|OWL University of Applied Sciences|Hochschule Ostwestfalen-Lippe,DE,Lemgo,,1971,,th-owl.de,hs-owl.de,high,"Wikidata city is a state, wrong",random
+ror_0575ttm03,Mehran University of Engineering and Technology,Mehran University of Engineering & Technology|MUET|Sindh University Engineering College,PK,Jamshoro,,1963,,muet.edu.pk,,high,,random
+ror_03a5bb278,Kent State University at East Liverpool,"Kent State East Liverpool|Kent State University, East Liverpool",US,East Liverpool,,1965,,kent.edu,eliv.kent.edu,high,Regional campus of Kent State,conflict: domain
+ror_04qjkhc08,Mirpur University of Science and Technology,MUST|University College of Engineering & Technology Mirpur|UCET Mirpur,PK,Mirpur,New Mirpur City|Mirpur AJK,1980,,must.edu.pk,,high,Wikidata city Mirpur Khas is wrong,random
+ror_03p3aeb86,University of Murcia,Universidad de Murcia,ES,Murcia,,1272,1915,um.es,,high,,random
+ror_04c49cg83,Clarendon College,,US,Clarendon,,1898,,clarendoncollege.edu,cctx.edu,high,,random
+ror_04cdsn556,Nakhon Si Thammarat Rajabhat University,มหาวิทยาลัยราชภัฏนครศรีธรรมราช,TH,Nakhon Si Thammarat,,1957,,nstru.ac.th,,high,,random
+ror_01g09ef73,Angel Kanchev University of Ruse,University of Ruse|Русенски университет,BG,Ruse,Rousse,1945,1995,uni-ruse.bg,,high,1995 is when it became a university,random
+ror_01jdpyv68,Saarland University,Universität des Saarlandes|University of Saarland,DE,Saarbrücken,Saarbruecken,1948,,uni-saarland.de,,high,,random
+ror_05tkyf982,Ben-Gurion University of the Negev,אוניברסיטת בן-גוריון בנגב,IL,Beersheba,Be'er Sheva|Beer-Sheva,1969,,bgu.ac.il,in.bgu.ac.il,high,,conflict: domain
+ror_020wm8g88,University of Puerto Rico at Humacao,UPRH,PR,Humacao,,1962,,uprh.edu,,high,"Wikidata country US, Puerto Rico is PR",conflict: city
+ror_014napr78,Moscow State Mining University,Московский государственный горный университет|Moscow Mining Institute,RU,Moscow,,1918,,msmu.ru,misis.ru,high,Merged into MISiS in 2014,random
+ror_04fm2fn75,Kalasalingam Academy of Research and Education,Kalasalingam University,IN,Krishnankoil,Srivilliputhur,1984,2006,kalasalingam.ac.in,,high,2006 is deemed university status,random
+ror_01y7t5s25,Samarkand State University of Architecture and Construction,Samarkand State Architecture and Construction University|Samarkand State Architectural and Civil-Engineering Institute,UZ,Samarkand,,1966,,samdaqu.edu.uz,samgasi.uz|samdaqi.edu.uz,medium,Renamed university in 2022; domain changed,conflict: name
+ror_00g2cf802,,,IN,,,,,,,low,Sources describe different institutions,conflict: city
+ror_04vke2c09,Academy of Applied Studies Western Serbia,Western Serbia Academy of Applied Studies|Akademija strukovnih studija Zapadna Srbija,RS,Užice,Uzice,2019,2020,akademijazs.edu.rs,vpts.edu.rs,medium,,conflict: name
+ror_058arh533,Mazaya University College,كلية مزايا الجامعة,IQ,Nasiriyah,,2012,,mpu.edu.iq,,medium,Wikidata is a different Baghdad college,conflict: city
+ror_04abxn418,José do Rosário Vellano University,Universidade José do Rosário Vellano|UNIFENAS,BR,Alfenas,,1972,,unifenas.br,,high,"DEQAR is Unigranrio, a different university",conflict: domain
+ror_04tnq6g27,Institute of Problems on Education of the National Academy of Educational Sciences of Ukraine,Інститут проблем виховання НАПН України,UA,Kyiv,Kiev,1997,,ipv.org.ua,,medium,"Wikidata is National Academy of Arts, wrong",conflict: domain
+ror_059xffm27,Pontifical University Antonianum,Pontificia Università Antonianum,IT,Rome,Roma,1890,1933,antonianum.eu,,high,DEQAR country VA; Rome is Italy,conflict: country
+ror_045t90p09,Osaka Tokiwakai University,Tokiwakai Gakuen University|Osaka Tokiwakai Gakuen University|大阪常磐会大学,JP,Osaka,,1999,,osaka-tokiwakai.ac.jp,,high,,conflict: name
+ror_01y6rer16,"Dr. Yanga's Colleges, Inc.",DYCI|Francisco Balagtas Academy,PH,Bocaue,,1950,,dyci.edu.ph,,high,"Wikidata is PMI Colleges, wrong",conflict: founding_year
+ror_00y2z2s03,Amsterdam University of Applied Sciences,Hogeschool van Amsterdam|HvA,NL,Amsterdam,,1993,,hva.nl,,high,,random
+ror_00013q465,Pontifical Catholic University of Peru,Pontificia Universidad Católica del Perú|PUCP,PE,Lima,,1917,,pucp.edu.pe,,high,,random
+ror_05a3fka94,University College of Enterprise and Administration in Lublin,College of Enterprise and Administration in Lublin|Wyższa Szkoła Przedsiębiorczości i Administracji w Lublinie|WSPA,PL,Lublin,,1998,,wspa.pl,,high,,random
+ror_036gzhj81,University of Tuzla,Univerzitet u Tuzli,BA,Tuzla,,1976,,untz.ba,,high,,random
+ror_006ks2460,Juraj Dobrila University of Pula,University of Pula|Sveučilište Jurja Dobrile u Puli,HR,Pula,,2006,,unipu.hr,,high,,conflict: name
+ror_05ge25h32,National Circus School,École nationale de cirque,CA,Montreal,Montréal,1981,,ecolenationaledecirque.ca,,high,"Wikidata is École technique de Montréal, wrong",conflict: name
+ror_04647g470,Radford University,Radford College,US,Radford,,1910,,radford.edu,,high,Wikidata city Virginia is a state,random
+ror_04vkd2013,Teerthanker Mahaveer University,TMU,IN,Moradabad,Morādābād,2008,,tmu.ac.in,,high,,random
+ror_00p61b845,Prof. K.H. Saifuddin Zuhri State Islamic University Purwokerto,Universitas Islam Negeri Profesor Kiai Haji Saifuddin Zuhri Purwokerto|UIN SAIZU Purwokerto,ID,Purwokerto,,1964,2021,uinsaizu.ac.id,,high,2021 is university status; Wikidata city Lumbir wrong,conflict: founding_year
+ror_0560e8961,Hamburg School of Business Administration,HSBA,DE,Hamburg,,2004,,hsba.de,,high,Wikidata is a different school (ISS),conflict: founding_year
+ror_00zxz8845,National University of Pharmacy,Національний фармацевтичний університет,UA,Kharkiv,Kharkov,1805,,nuph.edu.ua,pharm.kharkiv.edu,high,,conflict: domain
+ror_035g9cv42,"Technological University, Pathein",Technological University Pathein,MM,Pathein,,1999,2007,patheintu.edu.mm,,high,2007 is university status,random
+ror_0520d0g72,Academy of Physiotherapy in Wrocław,Wyższa Szkoła Fizjoterapii we Wrocławiu,PL,Wrocław,Wroclaw,1999,,wsf.wroc.pl,,medium,"DEQAR is Copernicus, a different school",conflict: city
+ror_05d80kz58,Henan University of Science and Technology,HAUST|河南科技大学,CN,Luoyang,,1952,,haust.edu.cn,,high,,random
+ror_03q9tge24,Sai Nath University,,IN,Ranchi,,2012,,sainathuniversity.com,,high,,random
+ror_00kj4zk54,Tabriz Islamic Art University,Tabriz Islamic Arts University|Tabriz Art University,IR,Tabriz,,1997,,tabriziau.ac.ir,,high,,random
+ror_04vkxm058,Sekolah Tinggi Pembangunan Masyarakat Santa Ursula,STPM Santa Ursula,ID,Ende,,1972,2001,stpmsantaursula.ac.id,,medium,,conflict: city
+ror_04qcq6322,Yamagata Prefectural University of Health Sciences,山形県立保健医療大学,JP,Yamagata,,2000,1997,yachts.ac.jp,,medium,,conflict: founding_year
+ror_05pxcn248,Singapore Polytechnic,Politeknik Singapura|SP,SG,Singapore,,1954,,sp.edu.sg,,high,,conflict: city
+ror_05qkq7x38,Nirma University,Nirma University of Science and Technology,IN,Ahmedabad,,2003,1995,nirmauni.ac.in,,high,1995 is Nirma Institute of Technology,random
+ror_05rdf3493,Open and Distance University of Mexico,Universidad Abierta y a Distancia de México|UnADM,MX,Mexico City,Ciudad de México,2012,,unadmexico.mx,,high,,random
+ror_01t20sn94,University of the West Indies,UWI,JM,Kingston,Mona,1948,,uwi.edu,,high,Wikidata country missing,random
+ror_05byh2e17,EARTH University,Universidad EARTH|Escuela de Agricultura de la Región Tropical Húmeda,CR,Guácimo,Limón|Puerto Limón,1990,,earth.ac.cr,,high,"Campus is in Guácimo, Limón province",conflict: city
+ror_01k3cb610,American College Dublin,The American College,IE,Dublin,,1993,,amcd.ie,,high,,conflict: name
+ror_0157vkf66,Rajiv Gandhi University of Health Sciences,RGUHS,IN,Bengaluru,Bangalore,1996,1994,rguhs.ac.in,,high,,conflict: city
+ror_00560h931,Tio University of Applied Sciences,Hogeschool Tio|Tio Business School|Tio,NL,Utrecht,Hengelo,1969,,tio.nl,,medium,Founded in Hengelo; headquarters Utrecht,random
+ror_05rp1t554,Yulin University,榆林学院,CN,Yulin,Yulinshi,1958,,yulinu.edu.cn,english.yulinu.edu.cn,high,,conflict: city
+ror_02n9z0v62,Amity University,Amity University Uttar Pradesh|Amity University Noida,IN,Noida,,2005,,amity.edu,amityonline.com,high,Wikidata is Amity University Online,random
+ror_04sjvrk20,Maharaja Ganga Singh University,University of Bikaner|MGSU,IN,Bikaner,,2003,,mgsubikaner.ac.in,,high,,conflict: city
+ror_04d4d3c02,University of the Peloponnese,University of Peloponnese|Πανεπιστήμιο Πελοποννήσου,GR,Tripoli,,2000,2002,uop.gr,,medium,"Established 2000, began operating 2002",random
+ror_03bjmhn29,,,ID,,,,,,,low,Could not verify; Wikidata is the polytechnic,random
+ror_0316x1478,State University of Zanzibar,Chuo Kikuu cha Taifa cha Zanzibar|SUZA,TZ,Zanzibar City,Zanzibar|Zanzibar Town,1999,,suza.ac.tz,,high,,conflict: city
+ror_05khk0h97,Mudanya University,Mudanya Üniversitesi,TR,Mudanya,Bursa,2022,,mudanya.edu.tr,,high,,conflict: city
+ror_02bkvsd42,Moscow State Institute of Music named after A.G. Schnittke,Schnittke Moscow State Institute of Music|Московский государственный институт музыки имени А.Г. Шнитке,RU,Moscow,,1918,,schnittke-mgim.ru,,medium,Wikidata record is a different institution (military school).,random
+ror_05bqach95,National Taiwan University,NTU|國立臺灣大學,TW,Taipei,Da'an District,1928,1945,ntu.edu.tw,,high,Wikidata alt names include another university.,conflict: city
+ror_03kyeae64,Nile University of Uganda,Nile University,UG,Arua,,2003,,nileuniversity.ac.ug,,high,,conflict: name
+ror_0086rpr26,University of Sargodha,UoS,PK,Sargodha,,2002,1929,uos.edu.pk,,high,University status 2002; origin as college 1929.,random
+ror_02p6aa271,North-Eastern Federal University,M. K. Ammosov North-Eastern Federal University|Северо-Восточный федеральный университет|NEFU,RU,Yakutsk,,1956,1934|2010,s-vfu.ru,nefu.ru,medium,Yakutsk State University 1956; federal university 2010.,conflict: founding_year
+ror_03s2gs602,Kawasaki University of Medical Welfare,川崎医療福祉大学,JP,Kurashiki,,1991,,kawasaki-m.ac.jp,w.kawasaki-m.ac.jp,high,,conflict: domain
+ror_00zmg2m07,Georgian International University,GIU,GE,Tbilisi,,2008,,giu.edu.ge,,medium,DEQAR record is a different university (St King Tamar).,conflict: domain
+ror_04bpf7m84,Escola Superior de Saúde Ribeiro Sanches,Ribeiro Sanches Higher School of Health|ERISA,PT,Lisbon,Lisboa,2002,,erisa.pt,,high,,random
+ror_02pn9ep17,Pontifical Atheneum of St. Anselm,Pontificio Ateneo Sant'Anselmo|Pontifical Athenaeum of Sant'Anselmo,IT,Rome,Roma,1687,1887|1914,anselmianum.com,,medium,,conflict: founding_year
+ror_05f211872,LEC Tokyo Legal Mind University,LEC東京リーガルマインド大学院大学|LEC Graduate School,JP,Tokyo,,2004,1979,lec.ac.jp,,medium,Graduate university 2004; parent LEC founded 1979.,conflict: founding_year
+ror_036nfer12,University of Central Florida,UCF,US,Orlando,,1963,1968,ucf.edu,,high,,random
+ror_05rdrwb94,Government Graduate College Township Lahore,GC Township Lahore,PK,Lahore,,2003,,gctownship.edu.pk,,medium,Wikidata record is a different college.,random
+ror_01046sm89,Autonomous University of Baja California Sur,Universidad Autónoma de Baja California Sur|UABCS,MX,La Paz,,1976,,uabcs.mx,,high,,conflict: name
+ror_01dfpjy51,Gulf University,,BH,Sanad,,2001,,gulfuniversity.edu.bh,,high,ROR country code RS is wrong.,conflict: country
+ror_03y0qc033,INSA Centre Val de Loire,Institut national des sciences appliquées Centre Val de Loire|National Institute of Applied Sciences Centre Val de Loire,FR,Bourges,Blois,2014,2013,insa-cvl.fr,insa-centrevaldeloire.fr,medium,Campuses in Bourges and Blois.,conflict: city
+ror_03h7r5v07,Catholic University of the Sacred Heart,Università Cattolica del Sacro Cuore|Università Cattolica di Milano|UCSC,IT,Milan,Milano,1921,,unicatt.it,unicatt.eu,high,,random
+ror_009daqn45,Nile University,Nile University Sudan|جامعة النيل,SD,Khartoum,,2007,,nileuniversity.edu.sd,,medium,Wikidata record is a different institution.,conflict: founding_year
+ror_05fde5z47,Hampton University,Hampton Institute,US,Hampton,,1868,,hamptonu.edu,,high,,random
+ror_03athrm05,University of Security and Economics,Висше училище по сигурност и икономика|College of Economics and Administration in Plovdiv,BG,Plovdiv,,2003,,vusi.bg,cea.bg,medium,,random
+ror_02631q704,École Supérieure des Industries du Textile et de l'Habillement,ESITH|Higher School of Textile and Clothing Industries|School of Textile and Clothing industries,MA,Casablanca,,1996,,esith.ac.ma,,high,,random
+ror_0405thq08,St. Ambrose University,Saint Ambrose University,US,Davenport,,1882,,sau.edu,,high,,random
+ror_0301v5166,,,CN,,,,,,,low,"Mismatched sources, could not establish.",conflict: city
+ror_01w1er029,International University College of Technology Twintech,International University College Of Technology|Twintech|Kolej Universiti Teknologi Antarabangsa Twintech,MY,Kuala Lumpur,,1994,,iuctt.edu.my,twintech.edu.my,medium,,conflict: domain
+ror_04tc27d43,,,ES,Madrid,,,,,,low,All three sources are different institutions.,conflict: name
+ror_02mdbnd10,Van Hall Larenstein University of Applied Sciences,Hogeschool Van Hall Larenstein|HVHL,NL,Leeuwarden,Velp,2003,,hvhl.nl,vhluniversity.com,high,Seat Leeuwarden; also campuses in Velp and Wageningen.,random
+ror_031bsb921,University of Mannheim,Universität Mannheim|Uni Mannheim,DE,Mannheim,,1907,1763|1946|1967|1607,uni-mannheim.de,,medium,Several origin dates stated; 1907 Handelshochschule.,random
+ror_013gpqv08,University of N'Djamena,Université de N'Djamena|University of Chad,TD,N'Djamena,Ndjamena,1971,,universite-ndjamena.td,,medium,,random
+ror_04frvgs13,Ontario Veterinary College,University of Guelph Ontario Veterinary College|OVC,CA,Guelph,,1862,1964|1922,ovc.uoguelph.ca,uoguelph.ca,high,Founded in Toronto 1862; part of Guelph since 1964.,random
+ror_05bhks608,Universitas Banten Jaya,Banten Jaya University|UNBAJA,ID,Serang,,2011,,unbaja.ac.id,,medium,,random
+ror_05bpd1c44,University of Aysén,Universidad de Aysén|Aysén University,CL,Coyhaique,,2015,,uaysen.cl,,high,,random
+ror_00yxqn620,University of Puerto Rico at Cayey,UPR-Cayey|Universidad de Puerto Rico en Cayey,PR,Cayey,,1967,,cayey.upr.edu,,high,Wikidata says US; ISO code for Puerto Rico is PR.,conflict: country
+ror_02x1vjk79,Pontifical Catholic University of Paraná,Pontifícia Universidade Católica do Paraná|PUCPR,BR,Curitiba,,1959,1960|1973,pucpr.br,,high,,random
+ror_024nb2556,International Institute of Molecular Mechanisms and Machines Polish Academy of Sciences,IMol|Międzynarodowy Instytut Mechanizmów i Maszyn Molekularnych PAN,PL,Warsaw,Warszawa,2020,,imol.institute,,medium,DEQAR record is a different institution (Varsovia).,conflict: city
+ror_05ggc9x40,Paris-Est Créteil University,Université Paris-Est Créteil|Université Paris-Est Créteil Val-de-Marne|Paris 12 University|UPEC,FR,Créteil,,1970,1971,u-pec.fr,,high,Formerly Paris 12 Val-de-Marne.,conflict: name
+ror_030ncfx10,Universidad Metropolitana de Monterrey,Metropolitan University of Monterrey|UMM,MX,Monterrey,,1996,,umm.edu.mx,,high,,random
+ror_00xhj8c72,Loyola Marymount University,LMU,US,Los Angeles,,1911,1865|1917,lmu.edu,,high,Roots in St. Vincent's College 1865.,random
+ror_03jqhsn85,Seinan Gakuin University,西南学院大学,JP,Fukuoka,,1916,1949,seinan-gu.ac.jp,,medium,Seinan Gakuin 1916; university 1949.,conflict: founding_year
+ror_05ctdxz19,University of Messina,Università degli Studi di Messina|UniMe,IT,Messina,,1548,1838,unime.it,,high,,conflict: founding_year
+ror_01rf04680,Busan National University of Education,부산교육대학교|BNUE,KR,Busan,,1946,,bnue.ac.kr,eng.bnue.ac.kr,high,,random
+ror_05256tw11,Cologne University of Music and Dance,Hochschule für Musik und Tanz Köln|Cologne University of Music,DE,Cologne,Köln,1850,,hfmt-koeln.de,,high,,random
+ror_05se23v32,Protestant University of Rwanda,Protestant Institute of Arts and Social Sciences|PIASS|PUR,RW,Huye,Butare,2009,2010,piass.ac.rw,pur.ac.rw,medium,Wikidata record is a different university.,random
+ror_00a6ywr91,Vistula School of Hospitality,Szkoła Główna Turystyki i Hotelarstwa Vistula|Warsaw School of Tourism and Hospitality Management,PL,Warsaw,Warszawa,1995,1996,vistulahospitality.edu.pl,,medium,Wikidata and DEQAR records differ.,random
+ror_05gfjrx96,Indian Institute of Management Lucknow,IIM Lucknow|IIML,IN,Lucknow,,1984,,iiml.ac.in,,high,"Wikidata record is SGPGIMS, a different institution.",conflict: founding_year
+ror_03pfmgq50,Fooyin University,Fǔyīng Kējì Dàxué|FYU|輔英科技大學,TW,Kaohsiung,Daliao District,1958,,fy.edu.tw,web.fy.edu.tw,high,,conflict: city
+ror_04f0qj703,Robert Gordon University,The Robert Gordon University|RGU,GB,Aberdeen,,1750,1992|1881,rgu.ac.uk,,medium,1750 Robert Gordon's Hospital; university status 1992.,conflict: founding_year
+ror_05p706d77,HAS green academy,HAS Green Academy|HAS University of Applied Sciences|HAS Hogeschool,NL,'s-Hertogenbosch,Den Bosch|’s-Hertogenbosch,1947,,has.nl,,high,,random
+ror_036tn3p81,Tanah Laut State Polytechnic,Politeknik Negeri Tanah Laut|Politala,ID,Pelaihari,Tanah Laut Regency,2009,,politala.ac.id,,high,,conflict: name
+ror_020h0qv97,"Kremenchuk University of Economics, Information Technologies and Management",,UA,Kremenchuk,,1993,,kueitm.edu.ua,,low,Only aggregator source; wikidata record is different institution.,conflict: name
+ror_02vh8a032,Bilkent University,İhsan Doğramacı Bilkent University|İhsan Doğramacı Bilkent Üniversitesi|Bilkent Üniversitesi,TR,Ankara,,1984,,bilkent.edu.tr,w3.bilkent.edu.tr,high,,conflict: name
+ror_00xwjdy35,UNIE Universidad,Universidad Internacional de la Empresa|UNIE,ES,Madrid,,2022,1987,universidadunie.com,,medium,"DEQAR record is Villanueva, likely predecessor",conflict: founding_year
+ror_03hd23385,Sokhumi State University,სოხუმის სახელმწიფო უნივერსიტეტი,GE,Tbilisi,Sukhumi|Sokhumi,1932,2007,sou.edu.ge,,high,Operates in Tbilisi in exile,random
+ror_019chcf34,,,,,,,,,,low,Sources describe two different institutions,random
+ror_01w2xgk13,Puducherry Technological University,Pondicherry Engineering College,IN,Puducherry,Pondicherry,1984,,ptuniv.edu.in,,high,Renamed from Pondicherry Engineering College,conflict: city
+ror_036xsg644,Hung Vuong University,Trường Đại học Hùng Vương,VN,Việt Trì,Viet Tri,1976,2003,hvu.edu.vn,,medium,,random
+ror_05bqn7008,,,,,,,,,,low,ROR and DEQAR describe different institutions,conflict: domain
+ror_01w05wy86,"University of Professional Studies, Accra",University of Professional Studies|UPSA|Institute of Professional Studies,GH,Accra,Legon,1965,,upsa.edu.gh,,high,,random
+ror_012rrxx37,,,,,,,,,,low,ROR and DEQAR describe different institutions,conflict: founding_year
+ror_039fgyk85,Hanshin University,한신대학교,KR,Osan,,1940,1939,hs.ac.kr,,medium,,random
+ror_005x56091,Tezpur University,तेजपुर विश्वविद्यालय|তেজপুর বিশ্ববিদ্যালয়,IN,Tezpur,,1994,,tezu.ernet.in,tezu.ac.in,high,,random
+ror_01frp7483,Weifang University,潍坊学院,CN,Weifang,,1951,,wfu.edu.cn,,high,,random
+ror_03m6ee736,Vermont State University,,US,Randolph Center,Johnson|Castleton|Lyndon|Williston,2023,1787,vermontstate.edu,,medium,Merger of several state colleges in 2023,conflict: city
+ror_04pmz9934,Siberian State Automobile and Highway University,SibADI|Сибирский государственный автомобильно-дорожный университет|Siberian State Automobile and Highway Academy,RU,Omsk,,1930,,sibadi.org,,high,Renamed from Academy,random
+ror_00h0sty43,,,,,,,,,,low,Sources describe two different institutions,conflict: city
+ror_0166e9x11,University of the Americas,Universidad de Las Américas|UDLA,CL,Santiago,,1988,,udla.cl,,high,,conflict: domain
+ror_004axh929,RMIT University Vietnam,RMIT Vietnam|RMIT International University Vietnam|Đại học RMIT Việt Nam,VN,Ho Chi Minh City,Saigon,2000,2001,rmit.edu.vn,,high,,conflict: founding_year
+ror_028y9zc26,,,,,,,,,,low,Sources describe two different institutions,conflict: name
+ror_006ak0b38,Quanzhou Normal University,泉州师范学院|Quanzhou Normal College,CN,Quanzhou,,1958,,qztc.edu.cn,,high,,random
+ror_05eynd241,Auburn University at Montgomery,Auburn University Montgomery|Auburn Montgomery|AUM,US,Montgomery,,1967,,aum.edu,,high,,random
+ror_0459c9j81,Universitas OSO,OSO University|Universitas Oso,ID,Pontianak,,2020,,oso.ac.id,,medium,,random
+ror_012crs830,Al Salam University,El-Salam University|جامعة السلام,EG,Tanta,Gharbia,2018,,sue.edu.eg,,medium,,conflict: city
+ror_00g11es29,SMK University of Applied Social Sciences,SMK Higher Education Institution|Socialinių mokslų kolegija,LT,Klaipėda,Klaipeda,1994,2001,smk.lt,,high,,conflict: founding_year
+ror_00f330z90,,,,,,,,,,low,Sources describe two different institutions,conflict: domain
+ror_02488qf25,,,,,,,,,,low,Sources describe two different institutions,conflict: founding_year
+ror_03bcjfh39,"National Pirogov Memorial Medical University, Vinnytsya",Vinnytsia National Pirogov Memorial Medical University|Vinnytsia National Medical University named after M. I. Pirogov|VNMU|Вінницький національний медичний університет ім. М. І. Пирогова,UA,Vinnytsia,Vinnytsya|Vinnitsa,1921,,vnmu.edu.ua,vnmu.vn.ua,high,,random
+ror_05fyr1y23,Lyceum of the Philippines University Laguna,Lyceum of the Philippines University-Laguna|LPU Laguna,PH,Calamba,City of Calamba|Calamba City,2000,,lpulaguna.edu.ph,,medium,,random
+ror_03cjmb844,Fukuoka Jo Gakuin University,福岡女学院大学,JP,Fukuoka,,1885,1964,fukujo.ac.jp,,high,,random
+ror_050k1mp73,Khurasan University,دانشگاه خراسان,AF,Jalalabad,,2006,,khurasan.org,,medium,,random
+ror_05mx0wr29,Zhejiang University of Science and Technology,浙江科技学院|Zhejiang University of Science & Technology,CN,Hangzhou,,1980,,zust.edu.cn,,high,,random
+ror_02zrz7n38,Universitas Dian Nusantara,Dian Nusantara University|UNDIRA,ID,Jakarta,Grogol Petamburan|West Jakarta,2008,,undira.ac.id,,high,,conflict: city
+ror_05r8dqr10,University of Rijeka,Sveučilište u Rijeci,HR,Rijeka,,1973,,uniri.hr,,high,,random
+ror_024wgn240,Centro Universitário de Desenvolvimento do Centro Oeste,UNIDESC,BR,Luziânia,,1990,,unidesc.edu.br,,medium,,random
+ror_03az81r49,Technological University of Santiago,Universidad Tecnológica de Santiago|UTESA,DO,Santiago de los Caballeros,Santiago,1974,,utesa.edu,,high,,random
+ror_01hzn6e71,,,,,,,,,,low,Sources describe two different institutions,conflict: founding_year
+ror_047908t24,Federal University of Pernambuco,Universidade Federal de Pernambuco|UFPE,BR,Recife,,1946,,ufpe.br,,high,,conflict: name
+ror_03d9mz263,University of Zabol,Zabol University|دانشگاه زابل|UOZ,IR,Zabol,,1979,1999,uoz.ac.ir,,medium,,conflict: founding_year
+ror_01mhgwt57,Eastern Connecticut State University,Eastern Connecticut State|ECSU,US,Willimantic,,1889,,easternct.edu,,high,,random
+ror_02zwhz281,"Shaheed Benazir Bhutto University, Shaheed Benazirabad",Shaheed Benazir Bhutto University|Shaheed Benazir Bhutto University Nawabshah|SBBU Nawabshah,PK,Shaheed Benazirabad,Nawabshah,2012,,sbbusba.edu.pk,,high,ROR city Karachi is wrong,conflict: city
+ror_05wtrdx73,The Jerzy Kukuczka Academy of Physical Education in Katowice,Akademia Wychowania Fizycznego im. Jerzego Kukuczki w Katowicach|AWF Katowice,PL,Katowice,,1970,1946,awf.katowice.pl,en.awf.katowice.pl,medium,Wikidata record is a different institution,conflict: name
+ror_03kfqmz83,University of Technology and Management,UTM Shillong,IN,Shillong,,2010,2011,utm.ac.in,,medium,Wikidata website belongs to MIT University Meghalaya,conflict: founding_year
+ror_05ms04m92,SUNY Buffalo State University,Buffalo State University|Buffalo State College|State University College at Buffalo|Buffalo State,US,Buffalo,,1871,1867,buffalostate.edu,suny.buffalostate.edu,high,,conflict: founding_year
+ror_03ay59x86,University of French Polynesia,Université de la Polynésie française|French Pacific University,PF,Punaauia,Faa'a,1987,1999,upf.pf,,high,Wikidata and DEQAR country FR is wrong,conflict: country
+ror_04pbb0381,University of Commerce and Services in Poznań,WSHIU Akademia Nauk Stosowanych|WSHIU University|Wyższa Szkoła Handlu i Usług w Poznaniu,PL,Poznań,Poznan,1997,,wshiu.pl,,high,,random
+ror_05dxzqa20,Avinashilingam Institute for Home Science and Higher Education for Women,Avinashilingam University|அவிநாசிலிங்கம் பல்கலைக்கழகம்,IN,Coimbatore,,1957,1988,avinuty.ac.in,,high,Deemed university since 1988,conflict: founding_year
+ror_033003e23,Tampere University,Tampereen yliopisto|TUNI,FI,Tampere,,2019,1925|1966,tuni.fi,,high,Merger of University of Tampere and TUT,random
+ror_053ez2v94,ADA University,Azerbaijan Diplomatic Academy|Azərbaycan Diplomatiya Akademiyası,AZ,Baku,,2006,,ada.edu.az,,high,Renamed from Azerbaijan Diplomatic Academy,conflict: name
+ror_033byn085,Royal Agricultural University,Royal Agricultural College|RAU,GB,Cirencester,,1845,1842|1846,rau.ac.uk,,high,,conflict: founding_year
+ror_015h0qg34,Maria Curie-Skłodowska University,Uniwersytet Marii Curie-Skłodowskiej|Maria Curie-Skłodowska University in Lublin|UMCS,PL,Lublin,,1944,,umcs.pl,,high,,conflict: name
+ror_000t0f062,The Education University of Hong Kong,Hong Kong Institute of Education|EdUHK|香港教育大學,HK,Tai Po,Hong Kong|Tai Po District,1994,2016,eduhk.hk,,high,Wikidata country CN is wrong; former HKIEd,conflict: country
+ror_002rg4w44,Institute for Research on Race and Public Policy,UIC Institute for Research on Race and Public Policy|IRRPP,US,Chicago,,1994,,irrpp.uic.edu,uic.edu,medium,Wikidata record is a different institute (Petit Institute),conflict: founding_year
+ror_05hq64n33,Odesa State University of Internal Affairs,Odessa State University of Internal Affairs|Одеський державний університет внутрішніх справ,UA,Odesa,Odessa,1922,,oduvs.edu.ua,,high,DEQAR record is a different institution (MAUP institute),conflict: domain
+ror_05dj90a57,Liberia Institute of Public Administration,Liberian Institute of Public Administration|LIPA,LR,Monrovia,,1969,,lipaliberia.com,,medium,Wikidata record is a different college,conflict: name
+ror_057ewhh68,Augsburg University,Augsburg College,US,Minneapolis,,1869,,augsburg.edu,,high,,random
+ror_00v4yb702,Rochester Institute of Technology,RIT|Rochester Athenaeum and Mechanics Institute,US,Rochester,Henrietta,1829,,rit.edu,,high,,random
+ror_02pg2aq98,Private University in the Principality of Liechtenstein,Private Universität im Fürstentum Liechtenstein|UFL,LI,Triesen,,2000,,ufl.li,,high,,random
+ror_01crwkz66,Fatoni University,Yala Islamic University|มหาวิทยาลัยฟาฏอนี,TH,Pattani,Yarang,1998,,ftu.ac.th,,high,Formerly Yala Islamic College,random
+ror_013fs2498,Woodbury University,Woodbury College,US,Burbank,Los Angeles|Sun Valley,1884,,woodbury.edu,,high,,random
+ror_05sv6pg41,University of Wisconsin–Stevens Point,University of Wisconsin-Stevens Point|UW–Stevens Point|UWSP,US,Stevens Point,,1894,,uwsp.edu,,high,,random
+ror_000vj2f52,University of Montemorelos,Universidad de Montemorelos|UM,MX,Montemorelos,Montemorelos Municipality,1942,1941,um.edu.mx,,medium,,conflict: founding_year
+ror_02gpy8g87,Western Philippines University,WPU,PH,Aborlan,,1910,1904,wpu.edu.ph,,medium,,random
+ror_05tmhg912,Artha Wacana Christian University,Universitas Kristen Artha Wacana|UKAW,ID,Kupang,,1985,,ukaw.ac.id,ukaw.net,high,,random
+ror_03ggvqk67,Al-Amal College for Specialized Medical Sciences,كلية الأمل للعلوم الطبية التخصصية,IQ,Karbala,,2021,,alamal.edu.iq,,medium,Wikidata record is a different college (Al-Taff),conflict: founding_year
+ror_04r0rbk24,Tarumanagara University,Universitas Tarumanagara|UNTAR,ID,Jakarta,West Jakarta|Kembangan|Grogol,1959,,untar.ac.id,,high,,conflict: city
+ror_025xjs150,El Shorouk Academy,Shorouk Academy,EG,Cairo,Shorouk City|Cairo Governorate,1995,,sha.edu.eg,,medium,,random
+ror_04vs2n780,University of Puerto Rico at Ponce,Universidad de Puerto Rico en Ponce|UPR-Ponce,PR,Ponce,,1970,,uprp.edu,,high,"Country is Puerto Rico, not US",conflict: country
+ror_02pc6pc55,Okayama University,岡山大学|Okayama Daigaku,JP,Okayama,,1870,1949,okayama-u.ac.jp,,high,1949 is new-system university status,conflict: founding_year
+ror_01rb75107,National University of Advanced Legal Studies,NUALS,IN,Kochi,Ernakulam|Kalamassery|Cochin,2005,2002,nuals.ac.in,,high,,conflict: city
+ror_05w6fhk97,CBS International Business School,CBS University of Applied Sciences|Cologne Business School|CBS Hochschule,DE,Cologne,Köln,1993,,cbs.de,cbs-edu.de,high,Renamed several times,conflict: domain
+ror_0255jh689,King Danylo University,Університет Короля Данила|King Daniel of Galicia Ivano-Frankivsk University of Law,UA,Ivano-Frankivsk,,1997,,ukd.edu.ua,iful.at.ua,high,,conflict: name
+ror_051rrf637,California Maritime Academy,Cal Maritime|California State University Maritime Academy|Cal Poly Maritime Academy,US,Vallejo,,1929,,csum.edu,maritime.calpoly.edu,medium,Now part of Cal Poly; renamed,conflict: domain
+ror_00s4s8963,Mohan Babu University,"Mohan Babu University, Tirupati",IN,Tirupati,Tirupati district,2022,1992,mbu.asia,,medium,University status 2022; predecessor college 1992,random
+ror_029me2p54,Instituto Universitário Militar,Military University Institute|IUM,PT,Lisbon,Lisboa,2015,2014|2017|2005,ium.pt,,medium,ROR domain um.pt is wrong,conflict: domain
+ror_01z014940,"University of Mining and Geology ""St. Ivan Rilski""",St. Ivan Rilski University of Mining and Geology|Минно-геоложки университет „Св. Иван Рилски“|MGU,BG,Sofia,,1953,,mgu.bg,,high,,random
+ror_052nhnq73,University for Development Studies,University of Development Studies|UDS,GH,Tamale,,1992,,uds.edu.gh,,high,,conflict: name
+ror_00q4vv597,The Hong Kong University of Science and Technology,Hong Kong University of Science and Technology|HKUST|香港科技大學,HK,Hong Kong,Clear Water Bay|Kowloon,1991,,ust.hk,hkust.edu.hk,high,Wikidata country CN is wrong,conflict: country
+ror_05eyymj94,École Supérieure de Biotechnologie de Strasbourg,"Ecole supérieure de biotechnologie de Strasbourg|ESBS|European School of Biotechnology, Strasbourg",FR,Illkirch-Graffenstaden,Strasbourg,1982,,esbs.unistra.fr,,high,,random
+ror_00d5dd272,Barcelona Graduate School of Mathematics,BGSMath,ES,Barcelona,Bellaterra|Cerdanyola del Vallès,2014,2013|2015,bgsmath.cat,,medium,Wikidata and DEQAR records are different institutions,random
+ror_01n0ym997,Kaichi International University,開智国際大学|Nihonbashi Gakkan University,JP,Kashiwa,,1904,2000|2001,kaichi.ac.jp,,medium,Renamed from Nihonbashi Gakkan University; 1904 is lineage,random
+ror_0330gwd78,Kenya Assemblies of God East University,KAG EAST University|KAG East University|East Africa School of Theology|EAST University,KE,Nairobi,,1979,1989|2016|1968,east.ac.ke,east.university,medium,Chartered 2016; name changed from EAST,conflict: founding_year
+ror_05q5nyc68,Politeknik Negeri Padang,Padang State Polytechnic|State Polytechnic of Padang|PNP,ID,Padang,Limau Manis,1987,1985,pnp.ac.id,,medium,,conflict: founding_year
+ror_00ch7yk27,South Dakota School of Mines and Technology,South Dakota Mines|SDSM&T|Dakota School of Mines,US,Rapid City,,1885,,sdsmt.edu,,high,,random
+ror_04ykhhw18,West Virginia State University,West Virginia State College|WVSU,US,Institute,Dunbar|Charleston,1891,,wvstateu.edu,,medium,"Campus is in Institute, WV",random
+ror_01zzmf129,Xi'an University,Xi’an University|Xi'an University of Arts and Science|西安文理学院,CN,Xi'an,,2003,,xawl.edu.cn,xawl.org|english.xawl.org,medium,Domain from memory; source domains differ,conflict: domain
+ror_00nmq1179,Ndejje University,,UG,Ndejje,Kampala|Luweero,1992,,ndejjeuniversity.ac.ug,,medium,,random
+ror_04m2z2476,Aga Khan University (International) in the United Kingdom,Aga Khan University in the United Kingdom|AKU-ISMC,GB,London,,,,aku.edu,,medium,Founding year unclear,conflict: name
+ror_0138jhg57,University of Economics and Law,Ho Chi Minh City University of Economics and Law|Trường Đại học Kinh tế - Luật|UEL,VN,Ho Chi Minh City,,2010,,uel.edu.vn,,high,,conflict: name
+ror_00rwbdy95,Hunan Aviation Industry Workers Engineering College,湖南航空工业职工工学院,CN,Zhuzhou,,1956,,,,low,Could not establish; Wikidata record is different,conflict: name
+ror_02hcbm145,Politeknik Kesehatan Kementerian Kesehatan Pontianak,Poltekkes Kemenkes Pontianak|Ministry of Health Polytechnic Pontianak,ID,Pontianak,,2001,,poltekkes-pontianak.ac.id,,medium,,random
+ror_03bsm7751,STIKES Katolik St. Vincentius a Paulo Surabaya,Sekolah Tinggi Ilmu Kesehatan Katolik St. Vincentius a Paulo Surabaya|STIKVINC,ID,Surabaya,,1987,,stikvinc.ac.id,stikvinc.com,medium,,conflict: domain
+ror_00s582s04,Universidad Alas Peruanas,Alas Peruanas University|UAP|Peruvian Wings University,PE,Lima,,1996,,uap.edu.pe,,high,,random
+ror_02n7f7n49,Diplomatic Academy of Vietnam,Học viện Ngoại giao|Học viện Ngoại giao Việt Nam|DAV,VN,Hanoi,,1959,,dav.edu.vn,,high,Wikidata record is a different academy (dance),random
+ror_05192rv21,Assam Science and Technology University,ASTU,IN,Guwahati,Kamrup Metropolitan,2010,2009,astu.ac.in,,high,,random
+ror_00jkkm943,Instituto Superior Manuel Teixeira Gomes,Manuel Teixeira Gomes Higher Education Institute|ISMAT,PT,Portimão,,2004,,ismat.pt,,medium,,random
+ror_03natay60,Istanbul Arel University,İstanbul Arel Üniversitesi|Arel University,TR,Istanbul,İstanbul|Büyükçekmece,2007,,arel.edu.tr,istanbularel.edu.tr,high,,conflict: domain
+ror_032t2sn55,Universitas Wisnuwardhana Malang,Wisnuwardhana University|Unidha,ID,Malang,,1981,,wisnuwardhana.ac.id,,medium,,random
+ror_00dc7yt09,Universidad Tecnológica del Sur del Estado de México,Technological University of the South of the State of Mexico|UTSEM,MX,Tejupilco,Tejupilco de Hidalgo,1997,,utsem.edomex.gob.mx,utsem.edu.mx,high,Wikidata record is a different university,random
+ror_057a6gk14,University of Gibraltar,UniGib,GI,Gibraltar,,2015,,unigib.edu.gi,,high,"Country is Gibraltar, not GB",conflict: country
+ror_02zkjb195,Universidad José María Vargas,La Vargas|UJMV,VE,Caracas,,1983,,ujmv.edu,,high,,random
+ror_04mz5ra38,University of Duisburg-Essen,Universität Duisburg-Essen|UDE,DE,Essen,Duisburg,2003,1972|1654,uni-due.de,,high,Merger of Duisburg and Essen universities in 2003,conflict: founding_year
+ror_05pmsvm27,ZHAW Zurich University of Applied Sciences,Zürcher Hochschule für Angewandte Wissenschaften|ZHAW,CH,Winterthur,,2007,1998|1986,zhaw.ch,,high,,conflict: founding_year
+ror_04zv0pf29,Private University of Science and Arts,PUSA|جامعة العلوم والفنون,SY,Aleppo,Halab,2003,,pusa-sy.org,,medium,,random
+ror_002z77y34,Copperstone University,,ZM,Kitwe,,2004,,copperstone.ac.zm,,high,,random
+ror_03pgfye82,New England College of Business,New England College of Business and Finance|New England College of Finance|NECB,US,Boston,,1909,,necb.edu,,high,Renamed from New England College of Finance,conflict: name
+ror_04td37d32,National Institute of Scientific Research,Institut national de la recherche scientifique|INRS,CA,Quebec City,Québec|Quebec,1969,,inrs.ca,,high,,conflict: city
+ror_02dnkgs07,Studio in a School,,US,New York,,,,studioinaschool.org,,low,Not a university; wikidata entity is a different one,conflict: name
+ror_03bnt5240,College of Menominee Nation,CMN,US,Keshena,,1993,,menominee.edu,,high,,random
+ror_04v5nzb91,Central University of Himachal Pradesh,CUHP,IN,Dharamshala,Dharamsala|Dharmshala|Shahpur,2009,,cuhimachal.ac.in,,high,,conflict: city
+ror_00t2prd39,Thaksin University,มหาวิทยาลัยทักษิณ,TH,Songkhla,,1968,1996,tsu.ac.th,,high,,random
+ror_05a1qpv97,Bangladesh University of Engineering and Technology,BUET|বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়|Bangladesh University of Engineering & Technology,BD,Dhaka,,1876,1962|1971,buet.ac.bd,,high,Origin Dhaka Survey School 1876; BUET name 1971,conflict: founding_year
+ror_04yhdgp90,Guizhou University of Commerce,贵州商学院|贵州商业高等专科学校,CN,Guiyang,,1947,,gzcc.edu.cn,,medium,,random
+ror_04gsp2c11,James Cook University,JCU,AU,Townsville,,1970,1961,jcu.edu.au,,high,"Wikidata city Queensland is a state, not a city",conflict: founding_year
+ror_04gyj6s21,ISAE-SUPAERO,Institut Supérieur de l'Aéronautique et de l'Espace|Institut supérieur de l'aéronautique et de l'espace|Institut Supérieur de l'Aéronautique et de l'Espace (ISAE-SUPAERO)|Higher Institute for Aeronautics and Space|SUPAERO,FR,Toulouse,,2007,1909,isae-supaero.fr,,high,Merger of SUPAERO and ENSICA 2007,conflict: name
+ror_04jp2hx10,University of Northampton,The University of Northampton,GB,Northampton,,2005,1999|1975|1924|1261,northampton.ac.uk,nene.ac.uk,high,University status 2005; predecessors earlier,random
+ror_03zmnt269,Universidad Nacional del Santa,UNS|National University of Santa,PE,Chimbote,Nuevo Chimbote,1984,,uns.edu.pe,,high,,random
+ror_043fhe951,Federal University of Maranhão,Universidade Federal do Maranhão|UFMA,BR,São Luís,Sao Luis,1966,1958,ufma.br,portalpadrao.ufma.br,high,,random
+ror_001gedw60,Instituto Tecnológico Superior de Huichapan,ITESHU|ITS Huichapan|TecNM Campus Huichapan|Tecnológico Nacional de México Campus Huichapan,MX,Huichapan,Huichapan Municipality,2000,,iteshu.edu.mx,,medium,,conflict: city
+ror_00t89vb53,University of Zadar,Sveučilište u Zadru|Universitas Studiorum Iadertina,HR,Zadar,,1396,2002,unizd.hr,,high,"Studium generale 1396, refounded 2002",conflict: founding_year
+ror_00fpvte21,Arts University Plymouth,Plymouth College of Art,GB,Plymouth,City of Plymouth,1856,,aup.ac.uk,plymouthart.ac.uk,high,Renamed from Plymouth College of Art,conflict: founding_year
+ror_01cdy6h50,"Central University ""Marta Abreu"" of Las Villas","Universidad Central ""Marta Abreu"" de Las Villas|Universidad Central Marta Abreu de las Villas|UCLV|Central University of Las Villas|University Marta Abreu of Las Villas",CU,Santa Clara,,1952,,uclv.edu.cu,,high,,conflict: name
+ror_014cnmj57,Baden-Württemberg Cooperative State University Ravensburg,DHBW Ravensburg|Duale Hochschule Baden-Württemberg Ravensburg|Ravensburg University of Cooperative Education|Berufsakademie Ravensburg,DE,Ravensburg,,1978,2009,dhbw-ravensburg.de,ravensburg.dhbw.de,high,"Berufsakademie 1978, DHBW since 2009",random
+ror_04rzfsa93,Universitas Jakarta Internasional,University of Jakarta International|UNIJI,ID,Jakarta,,,,uniji.ac.id,,low,"Wikidata entity is Telkom Institute Jakarta, different institution",conflict: founding_year
+ror_004af2v94,ORT Braude College of Engineering,Braude College of Engineering Karmiel|Braude College of Engineering|ORT Braude College|המכללה האקדמית להנדסה אורט בראודה,IL,Karmiel,Carmiel,1992,1996,braude.ac.il,,high,,random
+ror_00t3r8h32,University of Lübeck,Universität zu Lübeck|Universität Lübeck|University of Luebeck|Lübeck University,DE,Lübeck,Luebeck,1964,1973,uni-luebeck.de,uni-lübeck.de,high,"Medical academy 1964, university 1973",conflict: domain
+ror_01nc8zs04,National Institute of Technology Hamirpur,"NIT Hamirpur|NITH|National Institute of Technology, Hamirpur|राष्ट्रीय प्रौद्योगिकी संस्थान, हमीरपुर",IN,Hamirpur,Hāmirpur|Hamirpur (Himachal Pradesh),1986,2002,nith.ac.in,,high,ROR country BD wrong; Wikidata city Mandi wrong,conflict: city
+ror_03f099r71,Instituts Universitaires de Technologie,,FR,Paris,,,,iut.fr,,low,"Generic institution type, wikidata matches University of Vincennes",conflict: city
+ror_033n2z030,Niccolò Paganini Conservatory of Music,Conservatorio di Musica Niccolò Paganini|Conservatorio di Genova Niccolò Paganini|Music Conservatory of Genova Nicolò Paganini,IT,Genoa,Genova,1829,1974,conservatoriopaganini.org,,medium,"Wikidata entity is a Brindisi naval college, wrong",random
+ror_02azxx136,University of Health Sciences,Lao University of Health Sciences|University of Health Sciences Vientiane|ມະຫາວິທະຍາໄລ ວິທະຍາສາດ ສຸຂະພາບ,LA,Vientiane,,2007,2001,uhs.edu.la,,medium,,random
+ror_05nm40v04,Army Military Transportation University,Military Transportation University|Academy of Military Transportation|PLAGF Military Transportation University|军事交通学院,CN,Tianjin,,1973,,jjxy.cn,,medium,,conflict: name
+ror_008kz9r66,Slavonic University of Moldova,,MD,Chisinau,Chișinău,,,,,low,Sources describe three different institutions,conflict: domain
+ror_0049gd358,"University of Science, Arts and Technology","University of Science, Art and Technology|USAT",MS,Olveston,Plymouth|Montserrat,2003,,usat.edu,,medium,Montserrat is MS; wikidata GB wrong,conflict: country
+ror_03qtxpc80,Centro Universitário Plínio Leite,UNIPLI,BR,Niterói,Niteroi,1999,,unipli.com.br,plinioleite.com.br,medium,,conflict: domain
+ror_05rqjcx81,National Institute for Economic Research,Institutul Național de Cercetări Economice|INCE,MD,Chisinau,Chișinău,,,ince.md,,low,DEQAR entity IMI-NOVA is a different institution,conflict: name
+ror_05k9wtr55,Berklee College of Music,Schillinger House|Berklee School of Music|Schillinger House Berklee School of Music,US,Boston,,1945,,berklee.edu,college.berklee.edu,high,,random
+ror_03yme6x53,International Business School,"IBS Nemzetközi Üzleti Főiskola|Nemzetközi Üzleti Főiskola|International Business School, Budapest",HU,Budapest,,1991,,ibs-b.hu,,high,Wikidata entity (Franciscan college) is wrong,random
+ror_05arjae42,Guilin University of Electronic Technology,GUET|GIET|Guilin Institute of Electronic Technology|桂林电子科技大学|Guilin Dianzi Keji Daxue,CN,Guilin,,1960,,guet.edu.cn,gliet.edu.cn,high,,random
+ror_040f6ar92,Tafresh University,دانشگاه تفرش,IR,Tafresh,,1987,,tafreshu.ac.ir,,medium,,random
+ror_00za68765,Centro Universitário Estácio de Santa Catarina,,BR,São José,Sao Jose,,,portal.estacio.br,,low,"DEQAR entity is Estácio Ceará, different institution",random
+ror_012wtwr40,Centro Universitário Newton Paiva,Newton Paiva|Newton Paiva University Centre,BR,Belo Horizonte,,1972,,newtonpaiva.br,,high,,random
+ror_05v62cm79,University of Reading,"The University of Reading|University College, Reading",GB,Reading,,1926,1892|1860,reading.ac.uk,rdg.ac.uk,high,Royal charter 1926; University College 1892,conflict: domain
+ror_03d9xwp94,Cambridge Regional College,,GB,Cambridge,,,,camre.ac.uk,,low,Wikidata entity (CISL) is a different institution,conflict: domain
+ror_03e29r284,National Taipei University,NTPU|國立臺北大學,TW,New Taipei,Taipei|Sanxia|Sanxia District|New Taipei City,1949,,ntpu.edu.tw,english.ntpu.edu.tw,high,Main campus Sanxia; also Taipei campus,conflict: domain
+ror_035yj9j43,Universitas Gresik,UNIGRES,ID,Gresik,,1981,,unigres.ac.id,,medium,,random
+ror_05cqge031,Universidad Católica del Táchira,Catholic University of Tachira|UCAT,VE,San Cristóbal,,1962,,ucat.edu.ve,,high,,random
+ror_05h2tq494,Universitas PGRI Banyuwangi,UNIBA|UNIBABWI,ID,Banyuwangi,,1976,1975|1985,unibabwi.ac.id,uniba-bwi.ac.id,medium,Founding year disputed across sources,random
+ror_00ajd9b21,Western Galilee College,The Western Galilee College|המכללה האקדמית גליל מערבי,IL,Acre,Akko|Acco,1994,2009,wgalil.ac.il,,medium,,conflict: name
+ror_05djcr692,Upper Silesian Pedagogical University of Cardinal August Hlond in Mysłowice,Górnośląska Wyższa Szkoła Pedagogiczna imienia Kardynała Augusta Hlonda w Mysłowicach|Silesian Academy of Pedagogy in Mysłowice|Górnośląska Wyższa Szkoła Pedagogiczna im. Kardynała Augusta Hlonda w Mysłowicach,PL,Mysłowice,Myslowice,1995,,wsew.edu.pl,,medium,,conflict: name
+ror_02d1qvx24,The Kaavery Pharmacy College,,IN,Salem,,,,kavery.org.in,,low,Wikidata entity M.M.U. College of Pharmacy is different,random
+ror_02wxx3e24,Brandenburg University of Technology Cottbus-Senftenberg,BTU Cottbus-Senftenberg|B-TU|Brandenburgische Technische Universität Cottbus-Senftenberg|Brandenburg University of Technology Cottbus|TU Cottbus,DE,Cottbus,Senftenberg,1991,2013,b-tu.de,,high,Merged with Hochschule Lausitz in 2013,conflict: city
+ror_00w641b14,George Fox University,George Fox College|Pacific College|Friends Pacific Academy|GFU,US,Newberg,,1885,,georgefox.edu,,high,,random
+ror_03ec8vy26,Autonomous University of Aguascalientes,Universidad Autónoma de Aguascalientes|UAA,MX,Aguascalientes,Aguascalientes City,1973,,uaa.mx,,high,,conflict: city
+ror_04bmtez11,DOBA Business School,DOBA Fakulteta|DOBA Fakulteta za uporabne poslovne in družbene študije Maribor,SI,Maribor,,2003,,dobabusiness-school.eu,doba.si,high,,random
+ror_04k1wen02,Universitas Muslim Buton,UMU Buton|Muslim University of Buton,ID,Bau-Bau,Baubau|Bau Bau,2019,,umubuton.ac.id,,medium,,random
+ror_031t0qj16,Częstochowa University of Management,Wyższa Szkoła Zarządzania w Częstochowie,PL,Częstochowa,,1995,1996,wsz.edu.pl,,medium,,random
+ror_05032vj36,Poltekkes Kemenkes Maluku,Politeknik Kesehatan Kementerian Kesehatan Maluku|Politeknik Kesehatan Kemenkes Maluku,ID,Ambon,Ambon City,2001,,poltekkes-maluku.ac.id,poltekkes-maluku.co.id,medium,,random
+ror_03frdh605,Huaqiao University,Huáqiáo Dàxué|华侨大学,CN,Quanzhou,Xiamen,1960,,hqu.edu.cn,,high,Campuses in both Quanzhou and Xiamen,conflict: city
+ror_047zrsx48,Moscow State Industrial University,Московский государственный индустриальный университет|MGIU|MSIU,RU,Moscow,,1960,,msiu.ru,,medium,"Wikidata item is Second Moscow State University, a different entity",conflict: founding_year
+ror_03vh2mm87,Presidio Graduate School,Pinchot University|Bainbridge Graduate Institute,US,San Francisco,Seattle,2003,2002,presidio.edu,,low,Sources mix Pinchot University and Presidio Graduate School,conflict: name
+ror_011at3t25,European University of Rome,Università Europea di Roma|Università degli Studi Europea di Roma|Touro University Rome,IT,Rome,Roma,2005,2006,unier.it,universitaeuropeadiroma.it,high,Touro Rome was an earlier affiliated college,random
+ror_009egtp97,Zamboanga Peninsula Polytechnic State University,ZPPSU|ZCSPC|Zamboanga City State Polytechnic College,PH,Zamboanga City,Zamboanga,1905,,zppsu.edu.ph,,high,,conflict: name
+ror_00ykfqt39,European Nuclear Safety Training and Tutoring Institute,ENSTTI,FR,Fontenay-aux-Roses,,2010,,enstti.eu,,medium,"DEQAR record is ANSES, a different entity",conflict: city
+ror_039aamd19,Nihon Pharmaceutical University,日本薬科大学,JP,Ina,Saitama|Kitaadachi,2004,,nichiyaku.ac.jp,nihonyakka.jp,high,,conflict: city
+ror_0551p1m58,Politeknik Piksi Ganesha,Piksi Ganesha Polytechnic|Poltek Piksi Ganesha|Politeknik Piksi Ganesha Bandung,ID,Bandung,,2004,,piksi.ac.id,,medium,,random
+ror_04yrqp957,University of Angers,Université d'Angers,FR,Angers,,1337,1356|1971,univ-angers.fr,,high,Founded 1337; 1971 is modern university reorganisation,conflict: name
+ror_05b4za178,Veteran National Development University of Jakarta,Universitas Pembangunan Nasional Veteran Jakarta|UPN Veteran Jakarta|UPNVJ|National Development University Veteran Jakarta,ID,Jakarta,South Jakarta|Cilandak,1963,1967|1977|1993,upnvj.ac.id,,medium,Statute gives 1963; sources disagree,conflict: founding_year
+ror_03z44m407,Caleb University,CUI|Caleb University Imota,NG,Imota,Lagos|Ikorodu,2007,2008|1995,calebuniversity.edu.ng,,medium,,conflict: founding_year
+ror_00jywn468,People's Police University,Trường Đại học Cảnh sát nhân dân|Đại học Cảnh sát nhân dân,VN,Ho Chi Minh City,Thu Duc,1976,,dhcsnd.edu.vn,,medium,,conflict: name
+ror_052bk0b97,Oriental University,Oriental Universiteti|Oriental universiteti,UZ,Tashkent,,2021,,orientaluniversity.uz,,medium,"Wikidata record is Uzbekistan journalism university, a different entity",random
+ror_02re25503,"Westerdals Oslo School of Arts, Communication and Technology",Westerdals Oslo ACT|Westerdals,NO,Oslo,,2014,1983|1987,westerdals.no,kristiania.no,medium,Merged into Kristiania University College in 2020,random
+ror_02frnkp15,Institute of International Relations of Moldova,Institutul de Relații Internaționale din Moldova|IRIM,MD,Chișinău,Chisinau,2003,,irim.md,,medium,"Wikidata record is Imi-Nova, a different entity",conflict: founding_year
+ror_00fqsk919,Urban and Community Studies Institute,Urban & Community Studies Institute|UCSI,CA,Saint John,,,,unb.ca,,low,"Wikidata record is UBC Asian Studies, wrong entity",conflict: name
+ror_03gpapx10,Rio Branco Institute,Instituto Rio Branco|IRBr,BR,Brasília,Brasilia,1945,,gov.br,itamaraty.gov.br,medium,"Wikidata record is Escola Superior de Defesa, wrong entity",conflict: founding_year
+ror_03x013e72,Cristal e-College,Cristal Computer Institute,PH,Panglao,Tagbilaran,2002,,cec.edu.ph,,medium,,random
+ror_05maz1p71,London Interdisciplinary School,The London Interdisciplinary School|LIS,GB,London,Whitechapel,2017,2019|2020|2021,lis.ac.uk,,medium,"DEQAR record is The Place, a different entity",conflict: city
+ror_02w403504,South Eastern Kenya University,SEKU|South Eastern University College,KE,Kitui,,1976,2008|2017,seku.ac.ke,,high,Origin Ukamba Agricultural Institute; chartered university 2017,random
+ror_01qtp1053,Paris School of Economics,École d'économie de Paris|PSE,FR,Paris,,2006,,parisschoolofeconomics.eu,pse.ens.fr|psemail.eu,high,,random
+ror_02zcvj403,"Girolamo Frescobaldi Conservatory of Music, Ferrara",Conservatorio di Musica Girolamo Frescobaldi|Conservatorio di Ferrara Girolamo Frescobaldi|Music Conservatory of Ferrara Girolamo Frescobaldi,IT,Ferrara,,1870,,conservatorioferrara.it,,medium,,random
+ror_0432yv872,National Pedagogical University,Université Pédagogique Nationale|UPN|National Pedagogy University|Institut Pédagogique National,CD,Kinshasa,,1961,1971,upn-kin.cd,,medium,Began as Institut Pédagogique National 1961,random
+ror_01cb0p019,Higher Institute for Artistic Industries Florence,ISIA Firenze|ISIA Florence|Istituto Superiore per le Industrie Artistiche di Firenze|Higher Institute for Artistic Industries Firenze,IT,Florence,Firenze,1975,,isiadesign.fi.it,,high,,conflict: city
+ror_0171wr661,Playa Ancha University,Universidad de Playa Ancha|Universidad de Playa Ancha de Ciencias de la Educación|Playa Ancha University of Educational Sciences|UPLA,CL,Valparaíso,Valparaiso,1948,,upla.cl,,high,,random
+ror_03cxys317,Yamaguchi University,山口大学|Yamaguchi Daigaku,JP,Yamaguchi,,1949,1894|1815,yamaguchi-u.ac.jp,,high,University founded 1949; predecessors older,random
+ror_011w3dy65,Bhupendra Narayan Mandal University,B. N. Mandal University|BNMU|भूपेंद्र नारायण मंडल विश्वविद्यालय,IN,Madhepura,,1992,,bnmu.ac.in,,high,,random
+ror_05mq03431,New York University Paris,NYU Paris,FR,Paris,,1969,,nyu.edu,,high,,conflict: name
+ror_01xfzxq83,Mohammed Bin Rashid University of Medicine and Health Sciences,MBRU|Dubai Medical University,AE,Dubai,,2014,2003|2013,mbru.ac.ae,,high,Wikidata record is predecessor Dubai School of Dental Medicine,conflict: founding_year
+ror_019k1pd13,Mid Sweden University,Mittuniversitetet|Mid-Sweden University|Mitthögskolan,SE,Sundsvall,Östersund,1993,2005,miun.se,,high,Campuses in Sundsvall and Östersund,conflict: city
+ror_05y06tg49,October 6 University,6th October University|O6U|جامعة السادس من أكتوبر,EG,6th of October City,Giza|Sixth of October City,1996,,o6u.edu.eg,,high,,conflict: city
+ror_050384c29,Kyungwoon University,경운대학교|Kyungwoon Univ.,KR,Gumi,,1997,1996,ikw.ac.kr,,medium,,random
+ror_054r9x893,Kazakh University of Technology and Business,Kazakh Technology and Business University named after K. Kulazhanov|Akmola University of Technology and Business|Қазақ технология және бизнес университеті,KZ,Astana,,2003,2004,kaztbu.edu.kz,kazutb.kz,high,Official site gives 12 June 2003,random
+ror_05gwcqj56,Umaru Musa Yar'adua University,Katsina State University|UMYU,NG,Katsina,,2006,,umyu.edu.ng,,high,,random
+ror_04amnxx84,University of Technology Khartoum,"University of Technology|University of Technology, Khartoum|University of Technology, Sudan|Khartoum Technical College|الجامعة التكنولوجية",SD,Khartoum,,1991,,ut.edu.sd,ut.sd,medium,,conflict: domain
+ror_03qvtpc38,Dong-A University,동아대학교|Donga University,KR,Busan,,1946,,donga.ac.kr,dau.ac.kr|english.donga.ac.kr,high,,random
+ror_03pmgn266,School of Advanced Social Studies in Nova Gorica,Faculty of Applied Social Studies in Nova Gorica|Fakulteta za uporabne družbene študije v Novi Gorici|FUDS,SI,Nova Gorica,,2006,2007,fuds.si,,medium,,random
+ror_005zjex51,Saint Petersburg State University of Industrial Technologies and Design,Saint Petersburg State University of Technology and Design|Saint-Petersburg State University of Technology and Design|Санкт-Петербургский государственный университет промышленных технологий и дизайна|SPbGUPTD,RU,Saint Petersburg,St Petersburg|Saint-Petersburg,1828,1930,sutd.ru,,high,,random
+ror_05sfcd303,Istituto Euro Mediterraneo di Scienza e Tecnologia,IEMEST|Euro-Mediterranean Institute of Science and Technology,IT,Palermo,,2009,,iemest.eu,,medium,"DEQAR record is ISIA Pescara, a different entity",random
+ror_04qtcz169,Instituto Universitario Francisco de Asís,UNIFA|Francisco de Asís University Institute,UY,Maldonado,,1988,2001,unifa.edu.uy,,medium,"Wikidata record is Centro Universitario de Rocha, wrong entity",conflict: city
+ror_0510mg863,Reiwa Health Sciences University,令和健康科学大学,JP,Fukuoka,Higashi-ku,2020,,rhs-u.ac.jp,,medium,,random
+ror_00xcgnn15,Inter American University of Puerto Rico,Universidad Interamericana de Puerto Rico|InterAmerican University of Puerto Rico|Interamerican University of Puerto Rico,PR,San Germán,San Juan,1912,,inter.edu,,high,,random
+ror_0444jhh32,Bandung Raya University,Universitas Bandung Raya|University of Bandung Raya|UNBAR,ID,Bandung,,1984,,unbar.ac.id,,medium,Wikidata year 2023 looks wrong,conflict: founding_year
+ror_02d6dp638,Sekolah Tinggi Ilmu Kesehatan Bhakti Husada Cikarang,STIKes Bhakti Husada Cikarang|STIKes BHC|Bhakti Husada Cikarang College of Health Sciences,ID,Cikarang,Bekasi,,,stikesbhc.ac.id,,low,"Wikidata record is Politeknik Bhakti Semesta, wrong entity",random
+ror_038avdt50,Xi'an University of Technology,西安理工大学|XAUT,CN,Xi'an,,1949,,xaut.edu.cn,,high,,random
+ror_03187xr32,Politeknik Negeri Sambas,Sambas State Polytechnic|State Polytechnic of Sambas|POLTESA,ID,Sambas,,2013,2008,poltesa.ac.id,,high,Became state polytechnic 2013; private predecessor 2008,conflict: name
+ror_0232hzs82,Asia Metropolitan University,Universiti Metropolitan Asia,MY,Johor Bahru,Masai,2004,,amu.edu.my,,high,,random
+ror_02yqqv993,Sechenov University,Sechenov First Moscow State Medical University|I.M. Sechenov First Moscow State Medical University|First Moscow State Medical University,RU,Moscow,,1758,,sechenov.ru,,high,,random
+ror_05y9zc593,,,CL,,,,,,,low,Could not establish institution,random
+ror_02erqft81,Marshall University,,US,Huntington,,1837,,marshall.edu,,high,,random
+ror_05ch0aw77,Texas Southern University,,US,Houston,,1927,1947,tsu.edu,,high,,conflict: founding_year
+ror_044b0xj37,Indonesia University of Education,Universitas Pendidikan Indonesia|UPI,ID,Bandung,,1954,,upi.edu,,high,,conflict: name
+ror_01zw9zg68,African Methodist Episcopal University,AME University,LR,Monrovia,,1995,,ame.edu.lr,,medium,,random
+ror_01jz1cr68,Cyprus Aydin University,Cyprus Aydın University|Kıbrıs Aydın Üniversitesi|British University of Nicosia,CY,Kyrenia,Girne,2013,2014,cau.edu.tr,bun.edu.tr,medium,Formerly British University of Nicosia; renamed,random
+ror_00njmse54,St. Petersburg University of the Humanities and Social Sciences,Saint Petersburg Humanitarian University of Trade Unions|Санкт-Петербургский гуманитарный университет профсоюзов,RU,Saint Petersburg,St Petersburg|St. Petersburg,1991,1926,gup.ru,,medium,1926 is founding of predecessor school,conflict: name
+ror_03ng7p751,Accra Metropolitan University,Laweh Open University College|Laweh University College,GH,Accra,,2014,,accramet.edu.gh,,medium,Renamed from Laweh Open University College,random
+ror_00pt67k84,University of Nouakchott Al Aasriya,University of Nouakchott|Université de Nouakchott|Université de Nouakchott Al Aasriya|جامعة نواكشوط,MR,Nouakchott,,1981,,una.mr,univ-nkc.mr,medium,,conflict: domain
+ror_05b7rex33,Ōtani University,Otani University|Shinshū University|大谷大学,JP,Kyoto,,1665,1901|1922,otani.ac.jp,,medium,Origin 1665 school; university status 1901/1922,conflict: founding_year
+ror_00062wa96,Politeknik Siber dan Sandi Negara,State Cyber and Crypto Polytechnic|Poltek SSN,ID,Bogor Regency,Bogor|Nanggung,2019,,poltekssn.ac.id,,high,,conflict: city
+ror_02z191186,Universidad Tecnológica Americana,UTECA,MX,Mexico City,Ciudad de México|Colonia Roma,1971,,uteca.edu.mx,,medium,,conflict: city
+ror_03vhr8v79,Escuela Superior de Administración Pública,ESAP|Higher School of Public Administration,CO,Bogotá,,1958,,esap.edu.co,,high,,random
+ror_02avtbn34,Bowen University,,NG,Iwo,Osun State,2001,,bowen.edu.ng,,high,,conflict: city
+ror_01304n587,Bani Walid University,Bani-Waleed University|Bani Waleed University|BWU,LY,Bani Walid,,2015,2016,bwu.edu.ly,,medium,,conflict: name
+ror_014g1a453,Taif University,جامعة الطائف,SA,Taif,Ta'if,2003,2004,tu.edu.sa,web.tu.edu.sa,medium,,conflict: domain
+ror_005nxh826,Glorious Vision University,Samuel Adegboyega University,NG,Ogwa,Edo State,2011,,gvu.edu.ng,sau.edu.ng,medium,Renamed from Samuel Adegboyega University,conflict: domain
+ror_04wx3x242,Marist University,Marist College,US,Poughkeepsie,Town of Poughkeepsie,1929,,marist.edu,,high,Renamed from Marist College,random
+ror_05d6z1532,Hochschule für Finanzen Rheinland-Pfalz,Fachhochschule für Finanzen Edenkoben,DE,Edenkoben,,1981,,landesfinanzschule-edenkoben.fin-rlp.de,fachhochschule-edenkoben.de,medium,,conflict: domain
+ror_00yhnba62,Qatar University,University of Qatar|جامعة قطر,QA,Doha,,1973,,qu.edu.qa,,high,DEQAR record is College of Law only,conflict: name
+ror_05v0eqq44,Universitas Harapan Bangsa,Harapan Bangsa University|UHB,ID,Purwokerto,Kembaran,2018,2002,uhb.ac.id,,medium,University status 2018; earlier college 2002,conflict: city
+ror_047426m28,University of Illinois Urbana-Champaign,University of Illinois at Urbana-Champaign|UIUC,US,Urbana,Champaign|Urbana-Champaign,1867,,illinois.edu,uiuc.edu,high,,random
+ror_00ww2r127,,,PT,,,,,,,low,Sources describe different institutions,random
+ror_047n0b268,Aichi Prefectural University,愛知県立大学|Aichi kenritsu daigaku,JP,Nagakute,Nagoya,1947,1966,aichi-pu.ac.jp,,medium,,conflict: city
+ror_0126bwd54,General Tadeusz Kościuszko Military University of Land Forces,Akademia Wojsk Lądowych imienia generała Tadeusza Kościuszki|The General Tadeusz Kosciuszko Military Academy,PL,Wrocław,Wroclaw,2002,1967,awl.edu.pl,,medium,Formed 2002; traces to 1967 officer school,conflict: city
+ror_0265f5c42,,,IL,,,,,,,low,ROR and DEQAR describe different schools,conflict: country
+ror_04skj5a85,,,ES,,,,,,,low,Three sources describe different institutions,conflict: founding_year
+ror_05rdf8595,University of Vigo,Universidade de Vigo|Universidad de Vigo|UVigo,ES,Vigo,,1990,1989,uvigo.gal,uvigo.es,high,,conflict: domain
+ror_01k8vtd75,Mansoura University,جامعة المنصورة,EG,Mansoura,Al Mansurah|El Mansoura,1972,1962,mans.edu.eg,,high,Branch of Cairo University from 1962,conflict: city
+ror_02v2sn747,IFTM University,Institute of Foreign Trade and Management,IN,Moradabad,Morādābād,2010,1996|2013,iftmuniversity.ac.in,,medium,1996 is founding of the institute,conflict: founding_year
+ror_023pskh72,Maseno University,,KE,Maseno,Kisumu,1991,1990|2001,maseno.ac.ke,,medium,,random
+ror_02hrree94,Gomel State Medical University,Homiel State Medical University|Гомельский государственный медицинский университет,BY,Gomel,Homyel|Homiel,1990,,gsmu.by,,high,,conflict: city
+ror_04ymc4274,European Humanities University,Europos humanitarinis universitetas|Европейский гуманитарный университет,LT,Vilnius,,1992,2006,ehu.lt,en.ehu.lt,high,Wikidata country BY wrong; in exile in Vilnius,conflict: founding_year
+ror_055k3dh55,University of Petroșani,Universitatea din Petroșani|University of Petrosani,RO,Petroșani,Petrosani,1948,1991,upet.ro,,high,,random
+ror_019cy2194,Kyiv International University,Київський міжнародний університет,UA,Kyiv,Kiev,1994,,kymu.edu.ua,,high,,random
+ror_02v51f717,Peking University,北京大学|Beijing University|PKU,CN,Beijing,,1898,,pku.edu.cn,english.pku.edu.cn,high,,random
+ror_005mpbw70,Universidade Nove de Julho,UNINOVE|Nove de Julho University,BR,São Paulo,,1972,1954|1959,uninove.br,,medium,Higher education began 1972; school earlier,random
+ror_01xf7jb19,Zanjan University of Medical Sciences,ZUMS|دانشگاه علوم پزشکی زنجان,IR,Zanjan,,1987,,zums.ac.ir,,high,,random
+ror_02z9t1k38,Universidad Anáhuac,Anahuac University|Universidad Anáhuac México,MX,Huixquilucan,Huixquilucan de Degollado,1964,,anahuac.mx,,high,,random
+ror_03068df82,Jumonji University,十文字学園女子大学|Juumonji Gakuen Joshi Daigaku,JP,Niiza,Saitama,1922,1996,jumonji-u.ac.jp,,medium,1922 school founding; university 1996,conflict: founding_year
+ror_00rvc0a23,El Colegio de Jalisco,College of Jalisco|ColJal,MX,Zapopan,,1982,,coljal.mx,elcolegiodejalisco.edu.mx,high,,random
+ror_01przfp05,University of Narowal,,PK,Narowal,,2018,,uon.edu.pk,,medium,,random
+ror_04anrxg79,Northern Vermont University,,US,Johnson,Lyndonville,2018,,northernvermont.edu,,high,Merged into Vermont State University 2023,random
+ror_03andr831,Christian Brothers University,CBU,US,Memphis,,1871,,cbu.edu,,high,,random
+ror_035qaq447,Yong In University,Yongin University|용인대학교,KR,Yongin,,1953,,yongin.ac.kr,,high,ROR city Seoul wrong,random
+ror_01gnd8r41,University of Akureyri,Háskólinn á Akureyri,IS,Akureyri,,1987,,unak.is,english.unak.is,high,,random
+ror_0151bmh98,University of Hyogo,Hyogo Prefectural University|兵庫県立大学,JP,Kobe,,2004,,u-hyogo.ac.jp,,high,,random
+ror_036h2t531,Université Privée d'Enseignement Supérieur El Amel,,TN,Ben Arous,,,,,,low,details not established,random
+ror_00jcrsy58,Sugino Fashion College,Sugino Gakuen Women's Junior College|杉野服飾大学,JP,Tokyo,Shinagawa,1926,,sugino-fc.ac.jp,,high,,random
+ror_03e47dk66,John F. Kennedy Argentine University,Universidad Argentina John F. Kennedy|Universidad Kennedy,AR,Buenos Aires,,1964,,kennedy.edu.ar,,high,,random
+ror_053x9s498,Artois University,Université d'Artois|University of Artois,FR,Arras,,1992,,univ-artois.fr,,high,,random
+ror_030290415,Gifu College of Nursing,岐阜県立看護大学,JP,Hashima,,2000,,gifu-cn.ac.jp,,high,ROR country IN is wrong,conflict: country
+ror_03964fn67,Manipur University,मणिपुर विश्वविद्यालय,IN,Imphal,Canchipur|Imphal West,1980,,manipuruniv.ac.in,,high,,conflict: city
+ror_01ddq0t66,Romanian-German University of Sibiu,Universitatea Româno-Germană din Sibiu,RO,Sibiu,,1998,,roger-univ.ro,,medium,"DEQAR is Alma Mater Sibiu, different; Wikidata 1989 wrong",conflict: founding_year
+ror_05tpdng73,University of the French West Indies,University of the French Antilles|Université des Antilles|University of the Antilles,FR,Pointe-à-Pitre,,1982,1970|1972|2015,univ-antilles.fr,,medium,ROR record is the Guadeloupe pole,conflict: country
+ror_05n2gzs35,Djilali Bounaama University of Khemis Miliana,Université Djilali Bounaama Khemis Miliana|Khemis Miliana University,DZ,Khemis Miliana,Aïn Defla,2001,1991|2012,univ-dbkm.dz,,medium,,random
+ror_018f17m70,Vitez University,Univerzitet Vitez|Sveučilište Vitez,BA,Travnik,,2008,,unvi.edu.ba,,medium,,random
+ror_05q8wsh46,PEF Private University of Management Vienna,PEF Privatuniversität für Management,AT,Vienna,Wien,2002,,pef.at,,medium,"Wikidata is TCM Privatuniversität, different institution",conflict: name
+ror_02jmfj006,"Vietnam National University, Hanoi",VNU|Hanoi National University|Đại học Quốc gia Hà Nội,VN,Hanoi,Hà Nội,1993,1906|1945|1956,vnu.edu.vn,,high,,random
+ror_04gqx4x78,Campus Bio-Medico University of Rome,Università Campus Bio-Medico di Roma|Campus Bio-Medico University,IT,Rome,Roma,1991,,unicampus.it,,high,,random
+ror_05ect4e57,Louisiana State University,LSU|Louisiana State University and Agricultural and Mechanical College,US,Baton Rouge,,1860,1853,lsu.edu,,high,,random
+ror_01nky7652,North China University of Technology,北方工业大学|NCUT,CN,Beijing,Shijingshan,1946,,ncut.edu.cn,,high,,conflict: city
+ror_02wbgfm85,WIT Academy,Akademia WIT w Warszawie|WIT University|Warsaw School of Information Technology,PL,Warsaw,Warszawa,1996,,wit.edu.pl,,high,,conflict: city
+ror_04h36ea57,Alexander Technological Educational Institute of Thessaloniki,Αλεξάνδρειο Τεχνολογικό Εκπαιδευτικό Ίδρυμα Θεσσαλονίκης|ATEI Thessaloniki,GR,Thessaloniki,Sindos,1970,1983,teithe.gr,,medium,Merged into International Hellenic University 2019,conflict: city
+ror_043jfav91,North Eastern Mindanao State University,Surigao del Sur State University,PH,Tandag,,1982,,nemsu.edu.ph,sdssu.edu.ph,high,Renamed from Surigao del Sur State University,random
+ror_02haktn42,"Swedish University of Agricultural Sciences, Alnarp",SLU Alnarp|Sveriges lantbruksuniversitet Alnarp,SE,Alnarp,,1977,1862,slu.se,,medium,"Campus of SLU; Wikidata is Air Force academy, wrong",random
+ror_02jx3x895,University College London,"UCL|University College, London",GB,London,,1826,,ucl.ac.uk,,high,"Wikidata record is UCL East, wrong",conflict: founding_year
+ror_03ws6sq43,University of Kalemie,Université de Kalemie|UNIKAL,CD,Kalemie,,2004,,unikal.ac.cd,,medium,,conflict: name
+ror_04jfz0g97,Tung Wah College,東華學院,HK,Hong Kong,,2010,2012,twc.edu.hk,,medium,"Wikidata country CN, ISO code is HK",conflict: country
+ror_04badap48,Poltava Military Institute of Communications,Military Institute of Telecommunications and Informatization,UA,Poltava,Kyiv,1968,,viti.edu.ua,,low,seat and current status unclear,conflict: name
+ror_04y34yk39,Ryazan State Radio Engineering University,Ryazan State Radiotechnical University|Рязанский государственный радиотехнический университет,RU,Ryazan,,1951,,rsreu.ru,,high,,random
+ror_04peych45,Nigerian Maritime University,Nigeria Maritime University|NMU,NG,Okerenkoko,Delta State,2018,2017|2014,nmu.edu.ng,,medium,Sources disagree on founding year,conflict: founding_year
+ror_056wyhh33,National Institute of Technology Patna,NIT Patna|Bihar College of Engineering|राष्ट्रीय प्रौद्योगिकी संस्थान पटना,IN,Patna,,1886,1978|2004,nitp.ac.in,,high,,random
+ror_04f6sbc78,Centro Universitário Fluminense,University Center Fluminense|UNIFLU,BR,Campos dos Goytacazes,Rio de Janeiro,1965,,uniflu.edu.br,,medium,"Located in Campos dos Goytacazes, Rio de Janeiro state",random
+ror_029nmgq20,Dublin Institute of Technology,DIT|Institiúid Teicneolaíochta Bhaile Átha Cliath,IE,Dublin,,1992,1887|1978,dit.ie,tudublin.ie,medium,Merged into TU Dublin 2019,conflict: founding_year
+ror_05sttyy11,Jaypee Institute of Information Technology,JIIT,IN,Noida,,2001,,jiit.ac.in,,high,"Wikidata is Maharishi University, wrong",conflict: city
+ror_02h5t6n73,Istanbul Provincial Directorate of National Education,,TR,Istanbul,,,,istanbul.meb.gov.tr,,low,not a university; Wikidata match wrong,random
+ror_038faz260,Warsaw Medical Academy,Warszawska Akademia Medyczna Nauk Stosowanych|Warsaw Medical Academy of Applied Sciences|Mazowiecka Uczelnia Medyczna|Wyższa Szkoła Mazowiecka w Warszawie,PL,Warsaw,Warszawa,2004,,wam.edu.pl,,high,,conflict: city
+ror_05tn39y33,Akademie der Polizei Hamburg,Hochschule der Polizei Hamburg|Hamburg Police Academy,DE,Hamburg,,2013,,akademie-der-polizei.hamburg.de,,high,,random
+ror_0518nb352,Nelson University,Southwestern Assemblies of God University|SAGU,US,Waxahachie,,1927,,nelson.edu,sagu.edu,high,Renamed from Southwestern Assemblies of God University,conflict: domain
+ror_03efmyj29,Jiangxi University of Finance and Economics,江西财经大学,CN,Nanchang,,1923,,jxufe.edu.cn,,high,,random
+ror_00g0p9k78,Onomichi City University,尾道市立大学,JP,Onomichi,Hiroshima,1946,2001,onomichi-u.ac.jp,,high,Source city Hiroshima is the prefecture,conflict: founding_year
+ror_02hge4e11,Warsaw College of Engineering and Health,Warszawska Akademia Medyczno-Techniczna Nauk Stosowanych|Wyższa Szkoła Inżynierii i Zdrowia w Warszawie,PL,Warsaw,Warszawa,2003,,wamt.edu.pl,wsiiz.pl,medium,"DEQAR record is WSAS, different institution",conflict: city
+ror_05fnn5020,SNDT Women's University,Shreemati Nathibai Damodar Thackersey Women's University|SNDT University,IN,Mumbai,,1916,,sndt.ac.in,,high,,random
+ror_04bpyvy69,Mekelle University,MU|መቐለ ዩኒቨርሲቲ,ET,Mekelle,Mek'ele|Mekele,1991,1993,mu.edu.et,,medium,,random
+ror_03bavdz78,Freiburg University of Music,Hochschule für Musik Freiburg|University of Music Freiburg|Staatliche Hochschule für Musik Freiburg,DE,Freiburg im Breisgau,Freiburg,1946,,mh-freiburg.de,,high,,conflict: name
+ror_044r8r947,Ghana Institute of Languages,GIL,GH,Accra,,1961,,gil.edu.gh,,high,"Wikidata is GIMPA, different institution",conflict: domain
+ror_03qvqb743,Chuo University,Chūō Daigaku|中央大学,JP,Hachiōji,Hachiōji-shi|Tokyo,1885,,chuo-u.ac.jp,,high,,conflict: city
+ror_01zz4w697,Higher Institute of Engineering Technologies Tripoli,,LY,Tripoli,,,,hiett.edu.ly,,low,details not established,conflict: name
+ror_04w23p232,Protestant University of Applied Sciences Hessen,Evangelische Hochschule Hessen|Evangelische Hochschule Darmstadt|Protestant University of Applied Sciences Darmstadt,DE,Darmstadt,,1971,,eh-hessen.de,eh-darmstadt.de,medium,Renamed from Evangelische Hochschule Darmstadt,conflict: domain
+ror_03pfsnq21,University of Rzeszów,Uniwersytet Rzeszowski|Rzeszów University|University of Rzeszow,PL,Rzeszów,Rzeszow,2001,1965,ur.edu.pl,,high,1965 is the predecessor teacher college,random
+ror_03zkf1968,Santa Rita College of Pampanga,,PH,Santa Rita,,,,,,low,details not established; Wikidata match wrong,conflict: city
+ror_030d17f36,Hainan Open University,海南开放大学|海南广播电视大学,CN,Haikou,,,,hainou.cn,,low,"Wikidata is Hainan University, different institution",conflict: name
+ror_00pbfkr44,"Konstfack University of Arts, Crafts and Design","Konstfack|University College of Arts, Crafts and Design",SE,Stockholm,Stockholm Municipality,1844,1978,konstfack.se,,high,,random
+ror_017vp5k51,Saratov State Academy of Law,Saratov State Law Academy|Саратовская государственная юридическая академия,RU,Saratov,,1931,,ssla.ru,,medium,"Wikidata is a military school, wrong",conflict: founding_year
+ror_048c8ew36,Universitas Mercu Buana Yogyakarta,Mercu Buana University of Yogyakarta|UMBY,ID,Yogyakarta,,1986,1985|1984,mercubuana-yogya.ac.id,mercubuana-yogya.id,medium,Earlier names Universitas Wangsa Manggala,conflict: founding_year
+ror_01j3nb043,Berufsakademie Nord,BA Nord|University of Cooperative Education Hamburg,DE,Hamburg,,2017,2021,ba-nord.de,,medium,,conflict: founding_year
+ror_05kdv3094,British Royal University,الجامعة الملكية البريطانية,IQ,Erbil,,2009,,broyalu.net,,medium,Only two sources; hard to verify,random
+ror_00ta7wy41,University of Business Engineering and Management,University PIM|Univerzitet PIM|Univerzitet za poslovni inženjering i menadžment|University of Business Engineering and Management Banja Luka,BA,Banja Luka,,2003,,univerzitetpim.edu.ba,univerzitetpim.com,high,,random
+ror_03x3axr33,"""Vasile Alecsandri"" University of Bacău","University of Bacău|Vasile Alecsandri University|Universitatea ""Vasile Alecsandri"" din Bacău",RO,Bacău,Bacau,1990,1961,ub.ro,,high,,random
+ror_0058xhs49,Constantin Brâncuși University of Târgu Jiu,"Universitatea ""Constantin Brâncuși"" din Târgu Jiu|Constantin Brancusi University of Targu Jiu",RO,Târgu Jiu,Targu Jiu|Târgu-Jiu,1992,1990,utgjiu.ro,,high,,conflict: founding_year
+ror_02kqnpp86,University of Campania Luigi Vanvitelli,Università degli Studi della Campania Luigi Vanvitelli|Second University of Naples|Seconda Università degli Studi di Napoli|UNICAMPANIA,IT,Caserta,,1991,,unicampania.it,unina2.it,high,Renamed from Second University of Naples,random
+ror_05bp24h68,Mediterranean Institute of Management,Μεσογειακό Ινστιτούτο Διεύθυνσης|MIM,CY,Nicosia,,1976,,mim.ac.cy,kepa.gov.cy,medium,,conflict: domain
+ror_04hrnch96,Indiana Wesleyan University,IWU|Marion College,US,Marion,,1920,,indwes.edu,,high,,random
+ror_017e2a614,"""Edukacja"" Higher School of Management in Wrocław","Wyższa Szkoła Zarządzania ""Edukacja""|WSZ Edukacja|College of Management ""Edukacja""",PL,Wrocław,Wroclaw,1997,,wszedukacja.pl,,medium,,conflict: city
+ror_043bemg15,Lakeview College of Nursing,,US,Danville,,1894,1987,lakeviewcol.edu,lcn.edu,medium,1894 school origin; college status later,random
+ror_05qej6276,Hellenic Police Academy,Police Academy|Αστυνομική Ακαδημία,GR,Acharnes,Acharnai|Athens,1986,1994,astynomia.gr,,medium,,conflict: founding_year
+ror_01aabhj03,Universitas Logistik dan Bisnis Internasional,ULBI|Universitas Logistik & Bisnis Internasional|Politeknik Pos Indonesia|Pos Indonesia Polytechnic|University of Logistics and International Business,ID,Bandung,,2022,,ulbi.ac.id,,medium,Successor of Politeknik Pos Indonesia,random
+ror_05qze6v15,Odesa National Maritime University,Odessa National Maritime University|Одеський національний морський університет,UA,Odesa,Odessa,1930,,onmu.org.ua,onmu.odessa.ua|osmu.odessa.ua,medium,Sources list different domains,conflict: domain
+ror_03r3n3715,National School of Geographical Sciences,Ecole Nationale des Sciences Géographiques|École nationale des sciences géographiques|ENSG|ENSG-Géomatique,FR,Champs-sur-Marne,Marne-la-Vallée,1941,,ensg.eu,,high,,random
+ror_02mtr7g38,Bandırma Onyedi Eylül University,Bandırma Onyedi Eylül Üniversitesi|Bandirma Onyedi Eylul University,TR,Bandırma,Balıkesir|Bandirma,2015,,bandirma.edu.tr,studyin.bandirma.edu.tr,high,,random
+ror_05qrzcp08,Vietnam People's Security University,Trường Đại học An ninh nhân dân|People's Security University,VN,Ho Chi Minh City,Thủ Đức|Saigon,1963,,dhannd.bocongan.gov.vn,,medium,,random
+ror_0128w6917,University of Management and Technology,"UNIMTECH|University of Management & Technology, Sierra Leone|University of Management and Technology, Freetown",SL,Freetown,,1991,,unimtech.edu.sl,,medium,,random
+ror_04k1add31,Thai Nguyen University of Technology,Trường Đại học Kỹ thuật Công nghiệp Thái Nguyên|TNUT,VN,Thái Nguyên,Thai Nguyen,1965,,tnut.edu.vn,en.tnut.edu.vn,high,,conflict: domain
+ror_00yze4d93,Bahçeşehir University,Bahçeşehir Üniversitesi|BAU|Bahcesehir University,TR,Istanbul,İstanbul,1998,,bau.edu.tr,bahcesehir.edu.tr,high,,random
+ror_04ms51788,Zwickau University of Applied Sciences,Westsächsische Hochschule Zwickau|West Saxon University of Applied Sciences of Zwickau|University of Applied Sciences Zwickau|WHZ,DE,Zwickau,,1897,1992,fh-zwickau.de,,high,,random
+ror_04hn3c767,Universidad Humanitas,Humanitas University,MX,Mexico City,,,,,,low,Could not establish city or domain,random
+ror_01cpkfm87,Valenzuela City Technological College,Valenzuela City Polytechnic College|ValTech|Valpoly,PH,Valenzuela,,1996,,valpoly.edu.ph,,medium,Renamed 2023; Wikidata entry is a different school,random
+ror_02zhqgq86,The University of Hong Kong,University of Hong Kong|HKU|Hong Kong University|香港大學,HK,Hong Kong,Pok Fu Lam,1911,,hku.hk,,high,Wikidata country CN is questionable,conflict: country
+ror_00fqyhf62,Harris–Stowe State University,Harris-Stowe State University|Harris-Stowe|Harris-Stowe State College,US,St. Louis,St Louis,1857,,hssu.edu,,high,,random
+ror_02drdmm93,Chinese Academy of Medical Sciences and Peking Union Medical College,Peking Union Medical College|Chinese Academy of Medical Sciences|中国医学科学院北京协和医学院|北京协和医学院|中国医学科学院,CN,Beijing,Donghuamen Subdistrict|Dongcheng,1917,1956,pumc.edu.cn,cams.ac.cn,medium,PUMC 1917; CAMS 1956; combined institution,random
+ror_03hrwak15,Francisco Marroquín University,Universidad Francisco Marroquín|UFM,GT,Guatemala City,,1971,,ufm.edu,ufm.edu.gt,high,,random
+ror_03z3mg085,Paracelsus Medical University,Paracelsus Medizinische Privatuniversität|PMU,AT,Salzburg,,2003,2002,pmu.ac.at,,high,,conflict: founding_year
+ror_04ddfwm68,Shenyang University,沈阳大学|Shěnyáng Dàxué,CN,Shenyang,,1906,,syu.edu.cn,,high,,random
+ror_041rsh762,INSA Hauts-de-France,Institut national des sciences appliquées Hauts-de-France,FR,Valenciennes,Aulnoy-lez-Valenciennes|Famars,2019,2020,insa-hautsdefrance.fr,,high,,conflict: founding_year
+ror_02m8qhj08,Anton de Kom University of Suriname,Anton de Kom Universiteit van Suriname|AdeKUS,SR,Paramaribo,,1968,1983,uvs.edu,adekus.uvs.edu,high,,random
+ror_05awwc719,Higher Institute of Information and Communication,Institut Supérieur de l'Information et de la Communication|ISIC,MA,Rabat,,1996,,isic.ac.ma,,medium,Wikidata and DEQAR are different institutions,conflict: country
+ror_054t10v53,Divine Word University,DWU,PG,Madang,,1980,1996,dwu.ac.pg,,high,,random
+ror_00vtwt580,Centro Universitário Adventista de São Paulo,UNASP|University Adventist Center of São Paulo|Adventist University of São Paulo,BR,São Paulo,Engenheiro Coelho,1915,1897|1999,unasp.br,,medium,Campus seat uncertain; founding year varies,random
+ror_04d4fp218,"St. Xavier's College, Jaipur","St. Xavier's College Jaipur|St Xaviers College, Jaipur",IN,Jaipur,,2010,,sxcjpr.edu.in,stxaviersjaipur.org,high,,random
+ror_00rhgqg04,Almaty Management University,AlmaU|Алматы менеджмент университеті|Almaty School of Management|International Academy of Business,KZ,Almaty,,1988,,almau.edu.kz,,high,,random
+ror_00fcxqx79,Budapest Metropolitan University,Budapesti Metropolitan Egyetem|METU|BKF University of Applied Sciences|University of Applied Science Budapest|Budapest College of Communication and Business,HU,Budapest,,2001,2000,metropolitan.hu,metubudapest.hu,medium,"DEQAR record is Budapest Business School, wrong",conflict: name
+ror_04g8bba17,Paramadina University,Universitas Paramadina|UPM,ID,Jakarta,Jagakarsa|South Jakarta,1998,,paramadina.ac.id,,high,,conflict: name
+ror_059he5v92,Universidad Centro Médico Bautista,UCMB,PY,Asunción,,1974,,ucmb.edu.py,,medium,,random
+ror_03ctjbj91,Liverpool Hope University,,GB,Liverpool,,1844,1980,hope.ac.uk,,high,,conflict: founding_year
+ror_00wek6x04,University of Puerto Rico at Mayagüez,"University of Puerto Rico, Mayagüez|UPRM|Recinto Universitario de Mayagüez|University of Puerto Rico-Mayaguez",PR,Mayagüez,Mayaguez,1911,,uprm.edu,,high,Wikidata country US differs from ISO PR,conflict: country
+ror_01cttyr45,Sekolah Tinggi Ilmu Hukum Manokwari,STIH Manokwari|Manokwari College of Law|Manokwari School of Law,ID,Manokwari,Sanggeng,1975,,stih-manokwari.ac.id,,medium,,conflict: city
+ror_04kg9mk22,Bohol Northern Star Colleges,Bohol Northeastern Colleges|Bohol Northern Star College,PH,Ubay,,1996,2007,boholnorthernstar.net,,medium,Renamed; 2007 possibly name change,conflict: founding_year
+ror_02n2ava60,University of New England,UNE,US,Biddeford,Portland,1831,1939,une.edu,,high,"Maine, USA; Westbrook Seminary roots 1831",conflict: founding_year
+ror_0145fw131,Hong Kong Baptist University,HKBU|Hong Kong Baptist College|香港浸會大學,HK,Hong Kong,Kowloon Tong,1956,,hkbu.edu.hk,,high,Wikidata country CN is questionable,random
+ror_00z0kq074,Universidad Michoacana de San Nicolás de Hidalgo,Michoacan University of Saint Nicholas of Hidalgo|UMICH|Universidad Michoacana de San Nicolas de Hidalgo,MX,Morelia,,1540,1917,umich.mx,,high,,random
+ror_01nbps758,International University of Cooperative Education,Internationale Berufsakademie|Internationale Berufsakademie Darmstadt|IBA,DE,Darmstadt,,2006,,ibadual.com,iba-darmstadt.com,medium,,conflict: name
+ror_01mgsce20,Shanghai Youth Management Cadre College,上海青年管理干部学院|上海市团校,CN,Shanghai,,,,shstx.cn,,low,"Wikidata is St. John's University, wrong",random
+ror_02f0vsw63,Indian Institute of Technology Jammu,IIT Jammu,IN,Jammu,,2016,2014,iitjammu.ac.in,,high,,random
+ror_04pmn0e78,University of Alcalá,Universidad de Alcalá|UAH,ES,Alcalá de Henares,,1499,1293|1977,uah.es,,high,Wikidata entry is a historic building,conflict: founding_year
+ror_00w53b262,Entre Douro e Vouga Higher Institute,Instituto Superior de Entre Douro e Vouga|ISVOUGA,PT,Santa Maria da Feira,Feira,1990,,isvouga.pt,,high,,conflict: name
+ror_0338jc112,St. Petersburg State Institute of Technology,Saint Petersburg State Institute of Technology (Technical University)|Санкт-Петербургский государственный технологический институт|Saint Petersburg State Technical University,RU,Saint Petersburg,St Petersburg,1828,,spbti.ru,,medium,Wikidata and DEQAR are different institutions,random
+ror_05bsz8631,Da Nang University of Medical Technology and Pharmacy,Danang University of Medicine and Pharmacy Technology|Trường Đại học Kỹ thuật Y - Dược Đà Nẵng,VN,Da Nang,Đà Nẵng,2013,,ydn.edu.vn,dhktyduocdn.edu.vn,high,,random
+ror_03gfs5c49,Nordic School of Public Health,Nordiska Högskolan för Folkhälsovetenskap|NHV,SE,Gothenburg,Göteborg,1953,,nhv.se,norden.org,medium,"Wikidata match is Nordic Summer University, wrong; school closed 2014",conflict: founding_year
+ror_0077sy889,Bratislava University of Economics and Management,School of Economics and Management of Public Administration in Bratislava|Vysoká škola ekonómie a manažmentu v Bratislave|Vysoká škola ekonómie a manažmentu verejnej správy v Bratislave,SK,Bratislava,,2003,2004,vsemba.sk,vsemvs.sk,medium,Renamed from School of Economics and Management of Public Administration,conflict: founding_year
+ror_00crnyv53,Community University of Chapecó Region,Unochapecó|Universidade Comunitária da Região de Chapecó|Universidade Comunitária Regional de Chapecó,BR,Chapecó,,1970,1971,unochapeco.edu.br,,medium,,random
+ror_049jtt335,Université du Québec à Rimouski,UQAR|University of Quebec at Rimouski,CA,Rimouski,,1969,,uqar.ca,,high,,random
+ror_01emts431,Academy of Applied Studies Šabac,Akademija strukovnih studija Šabac|Academy of Vocational Studies Šabac|Академија струковних студија Шабац,RS,Šabac,,2019,2020,akademijasabac.edu.rs,,high,,conflict: founding_year
+ror_01wacaj92,Nation University,Yonok University|มหาวิทยาลัยเนชั่น,TH,Lampang,,1988,,nation.ac.th,nation-u.com,high,Formerly Yonok University,conflict: domain
+ror_05x7s6790,South Mediterranean University,SMU|MedTech|Mediterranean Institute of Technology,TN,Tunis,Tunis Governorate|Ben Arous,2002,2014,smu.tn,,medium,"DEQAR record is MedTech, a constituent school",conflict: city
+ror_03pjs2912,,,,,,,,,,low,ROR (WUT Business School) and DEQAR (Warsaw Medical University) are different institutions,random
+ror_029eaeb35,Albright College,,US,Reading,,1856,,albright.edu,,high,,random
+ror_02dayf324,Pokhara University,,NP,Pokhara,Lekhnath,1996,,pu.edu.np,,high,,random
+ror_016yc1h10,Doon University,,IN,Dehradun,,2005,2009,doonuniversity.ac.in,,high,,random
+ror_02eepyw03,Kisan Post Graduate College,Kisan P.G. College Bahraich|Kisan PG College,IN,Bahraich,,1960,,kisanpgcollege.ac.in,,medium,"Wikidata match is a medical college, wrong",random
+ror_04kx2sy84,Fujian Agriculture and Forestry University,FAFU|福建农林大学,CN,Fuzhou,,1936,2000,fafu.edu.cn,english.fafu.edu.cn,high,Fujian Agricultural College 1936; merged into FAFU 2000,random
+ror_04b9js332,Universidad de San Miguel,San Miguel University|USM,MX,Culiacán,Culiacán Rosales,1990,,usm.edu.mx,,medium,Wikidata and DEQAR matches are other institutions,conflict: country
+ror_003hyqr30,École nationale supérieure Louis-Lumière,ENS Louis-Lumière|Louis-Lumière National School,FR,Saint-Denis,Noisy-le-Grand,1926,,ens-louis-lumiere.fr,,high,ROR country code RE is wrong,conflict: country
+ror_001vtka31,Instituto de Estudos Superiores Militares,Portuguese Joint Command and Staff College|IESM,PT,Lisbon,Lisboa,2005,2015,iesm.pt,ium.pt,medium,Succeeded by Instituto Universitário Militar (ium.pt) in 2015,conflict: name
+ror_05f0cs849,Aichi Sangyo University,愛知産業大学|ASU,JP,Okazaki,,1948,1992,asu.ac.jp,,medium,Predecessor 1948; chartered as university 1992,random
+ror_024mh1n48,Universidad de Ciencias Médicas de Pinar del Río,University of Medical Sciences of Pinar del Río|Universidad de Ciencias Médicas de Pinar del Río Dr. Ernesto Che Guevara de la Serna,CU,Pinar del Río,,1968,,,,medium,"Wikidata match is Manuel Fajardo university, wrong; domain not found",random
+ror_01zp49f50,Government Sadiq College Women University,GSCWU|Government Sadiq College Women University Bahawalpur,PK,Bahawalpur,,1944,2013,gscwu.edu.pk,,high,College 1944; university status 2013,conflict: founding_year
+ror_05rwjed13,Universitas dr. Soebandi,Dr. Soebandi University|University of Dr. Soebandi|UDS,ID,Jember,Kencong,2013,2021,uds.ac.id,,medium,University status 2021,conflict: city
+ror_036sak533,Southern Arkansas University,SAU|Magnolia A&M|Southern State College,US,Magnolia,,1909,,saumag.edu,web.saumag.edu,high,,random
+ror_03tcq6k11,Bundeswehr Command and Staff College,Führungsakademie der Bundeswehr|German Armed Forces Command and Staff College,DE,Hamburg,,1957,,bundeswehr.de,,high,"Wikidata match is a submarine training centre, wrong",random
+ror_00vab0213,University of Tripoli Lebanon,University of Tripoli - Lebanon|جامعة طرابلس لبنان,LB,Tripoli,,1982,,ut.edu.lb,new.ut.edu.lb,high,,random
+ror_00409ce90,Ethiopian Civil Service University,ECSU|የኢትዮጵያ ሲቪል ሰርቪስ ዩኒቨርሲቲ,ET,Addis Ababa,,1995,1993|2009,ecsu.edu.et,ecsc.edu.et,medium,Civil Service College 1995; university status 2009,conflict: domain
+ror_03f077y84,Latvia University of Life Sciences and Technologies,Latvijas Biozinātņu un tehnoloģiju universitāte|Latvia University of Agriculture|LBTU,LV,Jelgava,,1863,1938|1939,lbtu.lv,llu.lv,medium,Traces roots to 1863; independent academy 1939,conflict: founding_year
+ror_00xqtxw43,Hanze University of Applied Sciences,Hanzehogeschool Groningen,NL,Groningen,,1986,,hanze.nl,,high,,random
+ror_03q8zdw85,Silvio d'Amico National Academy of Dramatic Arts,Accademia Nazionale d'Arte Drammatica Silvio D'Amico|National Academy of Drama Silvio D'Amico,IT,Rome,Roma,1936,,accademiasilviodamico.it,silviodamico.it,high,,random
+ror_05tg57g61,Azrieli College of Engineering Jerusalem,Azrieli – College of Engineering Jerusalem|Jerusalem College of Engineering|JCE,IL,Jerusalem,,1999,1996|2003,jce.ac.il,english.jce.ac.il,high,Renamed from Jerusalem College of Engineering in 2013,conflict: domain
+ror_04d38yh91,,,,,,,,,,low,Wikidata match is University of Tokyo; school identity unclear,conflict: name
+ror_01d100w34,Semyung University,세명대학교,KR,Jecheon,,1991,1987,semyung.ac.kr,,medium,1987 foundation established; university opened 1991,conflict: founding_year
+ror_02phn5242,University of Colombo,Colombo University,LK,Colombo,,1921,1942,cmb.ac.lk,,high,University College 1921; University of Ceylon 1942,random
+ror_03jbbze48,University of San Diego,USD,US,San Diego,,1949,,sandiego.edu,,high,,random
+ror_040kpmb93,Autonomous University of Entre Ríos,Universidad Autónoma de Entre Ríos|UADER,AR,Paraná,,2000,,uader.edu.ar,,high,,conflict: name
+ror_016v2t089,ADEN University,ADEN University Panamá|Aden University,PA,Panama City,Panamá,,,adenuniversity.edu.pa,,medium,Founding year not found,random
+ror_019fnr381,Trisakti University,Universitas Trisakti|Usakti,ID,Jakarta,West Jakarta,1965,,trisakti.ac.id,,high,,conflict: city
+ror_01h2m4f20,Osaka Sangyo University,大阪産業大学,JP,Daito,Daitō|Daitō-shi|Osaka,1928,,osaka-sandai.ac.jp,,high,"Campus is in Daito, Osaka Prefecture",conflict: city
+ror_041w2qd15,Sri Rajiv Gandhi College of Dental Sciences and Hospital,,IN,Bengaluru,Bangalore,1991,,srgcds.ac.in,,medium,"Wikidata match is a PU college, wrong",conflict: name
+ror_00rb2cm82,,,,,,,,,,low,ROR (Philippines) and DEQAR (Kosovo) are different institutions,conflict: domain
+ror_00j0kqj60,CMKL University,มหาวิทยาลัยซีเอ็มเคแอล|CMKL,TH,Bangkok,,2017,,cmkl.ac.th,,high,,random
+ror_056m85r28,,,,,,,,,,low,ROR (STIE St. Pignatelli) and Wikidata (ATMI Polytechnic) are different,conflict: founding_year
+ror_00xddhq60,Al-Ahliyya Amman University,Amman Private University|جامعة عمان الأهلية,JO,Amman,,1990,1989,ammanu.edu.jo,amman.edu,medium,,conflict: founding_year
+ror_00efy1453,Chief Dull Knife College,Dull Knife Memorial College|CDKC,US,Lame Deer,,1975,,cdkc.edu,,high,,random
+ror_05rhe8003,Faculdade de Ciências da Saúde de Barretos Dr. Paulo Prata,Barretos School of Health Sciences Dr. Paulo Prata|FACISB,BR,Barretos,,2012,,facisb.edu.br,,medium,"Wikidata match is Guarulhos college, wrong",conflict: city
+ror_04qxzae03,University of Business in Wrocław,Wyższa Szkoła Handlowa we Wrocławiu|WSH Wrocław,PL,Wrocław,Wroclaw,1997,,handlowa.eu,,medium,"DEQAR record is DSW, a different university",conflict: domain
+ror_012mmaq80,FAE University Center,Centro Universitário Franciscano do Paraná|FAE Centro Universitário,BR,Curitiba,,1957,,fae.edu,,medium,,random
+ror_04q2sd920,North East Surrey College of Technology,Nescot|Ewell Technical College,GB,Epsom,Ewell,1950,,nescot.ac.uk,,medium,"Wikidata match is University of Paisley, wrong",conflict: name
+ror_029w6ym70,"Mahatma Gandhi University, West Bengal",Mahatma Gandhi University,IN,Mahishadal,Mahīshādal|Purba Medinipur,2017,,mguwb.org.in,,high,,conflict: city
+ror_0229k3q35,Maharshi Dayanand Saraswati University,University of Ajmer|Maharishi Dayanand Saraswati University|MDSU,IN,Ajmer,,1987,,mdsuajmer.ac.in,,high,,conflict: city
+ror_04wk7dr33,Tolo-e-Saadat University,Tolo Saadat University|پوهنتون طلوع سعادت,AF,Sheberghan,Shibirghān,2018,,tsu.edu.af,,medium,,conflict: founding_year
+ror_01jq1mc68,"Faculty of Management, Herceg Novi",Fakultet za menadžment Herceg Novi,ME,Herceg Novi,Meljine,2009,,fm-hn.com,,medium,DEQAR city Meljine is a district,random
+ror_01z110311,Universidad Especializada de las Américas,UDELAS|Specialized University of the Americas,PA,Panama City,Panamá,1997,,udelas.ac.pa,,high,,random
+ror_0566btb10,Central University of Andhra Pradesh,,IN,Anantapur,Anantapuramu,2018,,cuap.ac.in,,high,ROR domain cuap.edu is wrong,conflict: city
+ror_009gmrj52,EM Lyon Business School,emlyon business school|École de management de Lyon,FR,Écully,Lyon,1872,,em-lyon.com,,high,,conflict: city
+ror_05fzc8c45,Derzhavin Tambov State University,Tambov State University|Тамбовский государственный университет имени Г.Р. Державина,RU,Tambov,,1917,1918,tsutmb.ru,,high,,conflict: name
+ror_012a91z28,University of Zaragoza,Universidad de Zaragoza,ES,Zaragoza,,1542,1474,unizar.es,,high,,conflict: founding_year
+ror_01rvmqa17,Universitas Islam Tribakti Lirboyo Kediri,UIT Lirboyo|Institut Agama Islam Tribakti Kediri,ID,Kediri,,1966,2022,uit-lirboyo.ac.id,,medium,Predecessor institute 1966; university status later,conflict: founding_year
+ror_02skfsw40,Osaka City University,大阪市立大学,JP,Osaka,,1880,1928|1949,osaka-cu.ac.jp,,medium,Merged into Osaka Metropolitan University in 2022,conflict: founding_year
+ror_0190ak572,New York University,NYU,US,New York,New York City,1831,,nyu.edu,,high,,conflict: city
+ror_014209x62,Tarlac Agricultural University,Tarlac College of Agriculture,PH,Camiling,,1944,1945,tau.edu.ph,tca.edu.ph,medium,Began 1944 as high school; agriculture courses 1945,conflict: founding_year
+ror_057qpr032,University of Bordeaux,Université de Bordeaux,FR,Bordeaux,,2014,1441|1896,u-bordeaux.fr,,medium,Current entity formed by 2014 merger,random
+ror_04j5z3x06,University of the State of Amazonas,Amazonas State University|Universidade do Estado do Amazonas|UEA,BR,Manaus,,2001,,uea.edu.br,,high,,conflict: name
+ror_049h8sz96,Higher School of Humanities and Natural Sciences Studium Generale Sandomiriense in Sandomierz,Wyższa Szkoła Humanistyczno-Przyrodnicza Studium Generale Sandomiriense w Sandomierzu|Wyższa Szkoła Humanistyczno-Przyrodnicza w Sandomierzu,PL,Sandomierz,,1995,,wshp.eu,wshp-sandomierz.eu,medium,,random
+ror_020s1wt84,Conservatory of Music Arrigo Pedrollo of Vicenza,Conservatorio di Musica Arrigo Pedrollo di Vicenza|Conservatory of Vicenza,IT,Vicenza,,1867,1979,consvi.it,,medium,Sources disagree on 1867 vs 1979,conflict: name
+ror_00s2qq515,"Dr. D.Y. Patil Vidyapeeth, Pune",Dr. D. Y. Patil Vidyapeeth|DPU Pune,IN,Pune,Pimpri-Chinchwad|Pimpri,2003,,dpu.edu.in,,medium,Deemed university since 2003; 1956 is UGC Act year,random
+ror_00jcw6451,Universidad Madero,Universidad Madero de Puebla|UMAD,MX,Puebla,Puebla City|Heroica Puebla de Zaragoza|Puebla de Zaragoza,1982,,umad.edu.mx,,high,,random
+ror_045p37n96,"National University, Bangladesh",National University Bangladesh|Bangladesh National University|জাতীয় বিশ্ববিদ্যালয়,BD,Gazipur,Dhaka,1992,,nu.ac.bd,,high,,conflict: city
+ror_01b9eka53,Vale do Rio Doce University,Universidade Vale do Rio Doce|UNIVALE,BR,Governador Valadares,,1967,,univale.br,,high,,conflict: name
+ror_02ewzwr87,University of Al-Qadisiyah,University of Al-Qadisiya|جامعة القادسية,IQ,Al Diwaniyah,Diwaniya|Al-Diwaniyah,1987,,qu.edu.iq,qadissuni.edu.iq,high,,random
+ror_05tatgn15,Samarinda State Agricultural Polytechnic,Politeknik Pertanian Negeri Samarinda|Politani Samarinda,ID,Samarinda,,1989,1997,politanisamarinda.ac.id,poltanesa.ac.id,medium,,random
+ror_00nqqvk19,COMSATS University Islamabad,COMSATS Institute of Information Technology,PK,Islamabad,,1998,,comsats.edu.pk,,high,Renamed from COMSATS Institute of IT,random
+ror_00yfma824,André Salifou University of Zinder,Université André Salifou|University of Zinder,NE,Zinder,,2010,,uas.edu.ne,,high,,conflict: name
+ror_0489ggv38,Canterbury Christ Church University,Canterbury Christ Church College,GB,Canterbury,,1962,2005,canterbury.ac.uk,,high,Got university status 2005,random
+ror_03xygw105,Universidad de Oriente,University of the East|UDO,VE,Cumaná,,1958,,udo.edu.ve,udo.education,high,"Wikidata row is a single nucleus, wrong",random
+ror_05nmhtv58,Khalel Dosmukhamedov Atyrau University,Atyrau University|Atyrau State University|Атырау университеті,KZ,Atyrau,,1940,1950,atyrau.edu.kz,,medium,,random
+ror_04jrwm652,San Sebastián University,Universidad San Sebastián|USS,CL,Santiago,Concepción|Santiago de Chile,1989,,uss.cl,,medium,Founded in Concepción; HQ Santiago,random
+ror_004zrqc30,Gangdong University,Kukdong Information University|Far East University|강동대학교,KR,Eumseong,Eumseong-gun,1994,,gangdong.ac.kr,eng.gangdong.ac.kr,medium,Wikidata matched wrong university; ROR city likely wrong,conflict: name
+ror_00gq58w69,Brazilian Naval School,Escola Naval|Brazilian Naval Academy,BR,Rio de Janeiro,,1808,,marinha.mil.br,mar.mil.br,medium,,random
+ror_05sd29c29,Pontifical Lateran University,Pontificia Università Lateranense|Pontifical University of the Lateran,VA,Vatican City,Rome,1773,1959,pul.va,pul.it,medium,Wikidata matched wrong entity; extraterritorial seat in Rome,conflict: founding_year
+ror_0322dgg87,American University of Culture and Education,AUCE|الجامعة الأمريكية للثقافة والتعليم,LB,Beirut,,1983,,auce.edu.lb,,medium,,random
+ror_00xp9wg62,Nanjing University of Science and Technology,NJUST|南京理工大学,CN,Nanjing,,1953,,njust.edu.cn,,high,,random
+ror_009p4eg54,Tilka Manjhi Bhagalpur University,Bhagalpur University|TMBU,IN,Bhagalpur,,1960,,tmbuniv.ac.in,,high,ROR city Bānka is wrong,conflict: city
+ror_01xy1dh32,Kobe International University,神戸国際大学,JP,Kobe,,1963,,kobe-kiu.ac.jp,,medium,,random
+ror_022ktzz27,Uman National University of Horticulture,Уманський національний університет садівництва|Uman National University,UA,Uman,,1844,,udau.edu.ua,,high,,random
+ror_02kqed404,College of Environmental Protection,Environmental Protection College|Visoka šola za varstvo okolja,SI,Velenje,,2007,,vsvo.si,,medium,,random
+ror_014ft4k69,"Aviation and Aerospace University, Bangladesh",Bangabandhu Sheikh Mujibur Rahman Aviation and Aerospace University,BD,Lalmonirhat,,2019,,aaub.edu.bd,bsmraau.gov.bd,high,,conflict: domain
+ror_035jc1316,Hessische Hochschule für Finanzen und Rechtspflege,Verwaltungsfachhochschule Rotenburg an der Fulda|Hessian University of Finance and Legal Affairs,DE,Rotenburg an der Fulda,Rotenburg a. d. Fulda,1980,,studienzentrum-rotenburg.hessen.de,studienzentrum-rotenburg.de,medium,ROR city Rotenburg (Wümme) is wrong,random
+ror_008g9ns82,Mutah University,جامعة مؤتة|Mu'tah University,JO,Karak,Al-Karak|Mu'tah,1981,,mutah.edu.jo,,high,,random
+ror_0145w8333,Altınbaş University,Altinbas University|Altınbaş Üniversitesi|Istanbul Kemerburgaz University,TR,Istanbul,İstanbul,2008,,altinbas.edu.tr,,high,,random
+ror_05hf6wn13,Health Polytechnic of the Ministry of Health Pangkalpinang,Poltekkes Kemenkes Pangkalpinang|Politeknik Kesehatan Kementerian Kesehatan Pangkalpinang,ID,Pangkalpinang,Pangkal Baru,2011,,poltekkespangkalpinang.ac.id,,medium,,conflict: city
+ror_057pbd488,Universidad Mesoamericana de San Agustín,UMSA,MX,Mérida,,1987,1995,umsa.edu.mx,,medium,,conflict: founding_year
+ror_01r27v904,Sardar Vallabhbhai Patel University of Agriculture and Technology,SVPUAT|Sardar Vallabh Bhai Patel University of Agriculture & Technology,IN,Meerut,,2000,2002,svpuat.edu.in,svbpmeerut.ac.in,medium,,conflict: founding_year
+ror_03zg8ak49,CEU Fernando III University,Universidad CEU Fernando III|UF3 CEU,ES,Bormujos,Seville|Sevilla,2023,,uf3ceu.es,,medium,Recognised as university in 2023,random
+ror_00xhcz327,Westmont College,,US,Santa Barbara,Montecito,1937,,westmont.edu,,high,,random
+ror_058hnhf91,Oral Roberts University,ORU,US,Tulsa,,1963,1965,oru.edu,,high,"Chartered 1963, opened 1965",conflict: founding_year
+ror_02c45x008,Xinjiang Institute of Technology,新疆理工学院,CN,Aksu,,2002,,xjit.edu.cn,,medium,Wikidata city Ürümqi likely wrong,random
+ror_00ae33288,London Metropolitan University,London Met,GB,London,City of London,2002,,londonmet.ac.uk,,high,,random
+ror_02pxsrh16,Singhania University,सिंघानिया विश्वविद्यालय,IN,Jhunjhunu,Pacheri Bari|Jhunjhunun,2007,,singhaniauniversity.co.in,singhaniauniversity.ac.in,medium,,conflict: domain
+ror_017ycwt89,KMCT Group of Educational Institutions,,IN,Kozhikode,,,,kmct.edu.in,,low,Wikidata MKM Educational Trust likely different entity,random
+ror_00ppfcz28,National University of Water and Environmental Engineering,National University of Water Management and Nature Resources Use|Національний університет водного господарства та природокористування,UA,Rivne,,1915,,nuwm.edu.ua,,high,,conflict: name
+ror_000917t60,Autonomous University of San Luis Potosí,Universidad Autónoma de San Luis Potosí|UASLP,MX,San Luis Potosí,San Luis Potosí City|San Luis Potosi,1923,1859,uaslp.mx,,high,,conflict: city
+ror_026gk3798,Baku Slavic University,Bakı Slavyan Universiteti,AZ,Baku,,1946,,bsu-uni.edu.az,,high,,random
+ror_05yc77b46,University of Córdoba,Universidad de Córdoba|University of Cordoba,ES,Córdoba,Cordoba,1972,,uco.es,,high,,random
+ror_00fs9wb06,University of Raparin,جامعة رابرين,IQ,Ranya,Ṟaniye|Rania|Raniya,2010,,uor.edu.krd,raparinuni.org,high,,conflict: domain
+ror_01f9db456,Nitobe Bunka College,Nitobe Bunka Junior College|Tokyo Bunka Junior College|新渡戸文化短期大学,JP,Tokyo,Nerima,1927,,nitobebunka.jp,,medium,Wikidata entry is a different institution (Tokyo Bunrika),conflict: founding_year
+ror_00x19rt58,Jiyu Gakuen,Jiyu Gakuen Girls School|自由学園,JP,Tokyo,Higashikurume|Toshima,1921,,jiyu.jp,,medium,Wikidata entry (Bunka Gakuen University) is a different institution,conflict: founding_year
+ror_01wjz9118,Nizam's Institute of Medical Sciences,NIMS,IN,Hyderabad,,1961,1989,nims.edu.in,,high,University status 1989,conflict: founding_year
+ror_028v8q442,STKIP Widya Yuwana,Sekolah Tinggi Keguruan dan Ilmu Pendidikan Widya Yuwana,ID,Madiun,,1986,,widyayuwana.ac.id,,medium,Wikidata entry is a different Madiun institution,random
+ror_04hnrs676,University of Mogi das Cruzes,Universidade de Mogi das Cruzes|UMC,BR,Mogi das Cruzes,,1962,,umc.br,,high,,random
+ror_05609xa16,Wenzhou-Kean University,温州肯恩大学|WKU,CN,Wenzhou,,2011,2014|2006,wku.edu.cn,,medium,"Approved 2011 for preparation, formally 2014",random
+ror_00syn5v21,"National Technical University of Ukraine ""Igor Sikorsky Kyiv Polytechnic Institute""",Igor Sikorsky Kyiv Polytechnic Institute|Kyiv Polytechnic Institute|KPI|Національний технічний університет України «Київський політехнічний інститут імені Ігоря Сікорського»,UA,Kyiv,Kiev,1898,,kpi.ua,,high,,conflict: name
+ror_04r5fv176,Universitas Putera Batam,Putera Batam University|UPB,ID,Batam,,2008,1992,upbatam.ac.id,,medium,"University status 2008, predecessor institute 1992",conflict: founding_year
+ror_01rk9d029,International University of Struga,Меѓународен Универзитет Струга|Universiteti Ndërkombëtar i Strugës|IUST,MK,Struga,,2005,2007,iust.edu.mk,,medium,,random
+ror_04mtcj695,University of Southern Mindanao,Mindanao Institute of Technology|Unibersidad ng Katimugang Mindanao|USM,PH,Kabacan,,1952,,usm.edu.ph,,high,,random
+ror_02nrkxp47,Acapulco Institute of Technology,Instituto Tecnológico de Acapulco|ITACAP,MX,Acapulco,Acapulco de Juárez,1975,,acapulco.tecnm.mx,it-acapulco.edu.mx,medium,,random
+ror_033rh4q91,East Asia Institute of Management,EASB East Asia Institute of Management|EAIM,SG,Singapore,,1984,,eaim.edu.sg,,medium,,conflict: name
+ror_016hp9x85,Gunma Prefectural Women's University,群馬県立女子大学,JP,Tamamura,Gunma,1980,,gpwu.ac.jp,,high,Maebashi High School in ROR alt names is wrong,random
+ror_011gakh74,National University of the Center of the Province of Buenos Aires,Universidad Nacional del Centro de la Provincia de Buenos Aires|National University of Central Buenos Aires|UNICEN,AR,Tandil,,1974,1964,unicen.edu.ar,,high,,conflict: name
+ror_036smcz74,Vinzenz Pallotti University,Philosophisch-Theologische Hochschule Vallendar|PTHV,DE,Vallendar,,1896,,vp-uni.de,pthv.de,high,Renamed from PTH Vallendar,conflict: domain
+ror_00k2x0z20,Malawi College of Forestry and Wildlife,,MW,Dedza,Dedza District,1958,,sites.google.com,,medium,DEQAR entry is a different institution (Greek),conflict: city
+ror_00q1dg558,Instituto Educativo Dolores del Río Extensión Santiago Papasquiaro,IEDR Santiago Papasquiaro|Instituto Dolores del Rio,MX,Santiago Papasquiaro,,2013,,,,low,Wikidata entry is a different institution; unverified,conflict: founding_year
+ror_05gbn2817,China University of Petroleum (East China),"中国石油大学(华东)|China University of Petroleum, East China",CN,Qingdao,,1953,,upc.edu.cn,,high,"Wikidata entry points to Beijing campus, wrong",random
+ror_014kyp779,M.Kh. Dulaty Taraz Regional University,Taraz State University|M. Kh Dulati Taraz State University|Dulaty University|М.Х. Дулати атындағы Тараз өңірлік университеті,KZ,Taraz,,1998,2020,tarsu.kz,,medium,Renamed regional university 2020,random
+ror_05cmvgr54,Burman University,Canadian University College,CA,Lacombe,,1907,,burmanu.ca,cauc.ca,high,Formerly Canadian University College,random
+ror_01fdvj254,National School of Engineers of Tarbes,École nationale d'ingénieurs de Tarbes|ENIT|ENI de Tarbes,FR,Tarbes,,1963,,enit.fr,,high,,random
+ror_023p80x55,Lhokseumawe State Polytechnic,Politeknik Negeri Lhokseumawe|State Polytechnic of Lhokseumawe|PNL,ID,Lhokseumawe,,1987,1985,pnl.ac.id,,medium,,conflict: name
+ror_04zkdpw71,Raharja University,Universitas Raharja|University of Raharja,ID,Tangerang,Tangerang City,2000,2019,raharja.ac.id,,medium,University status 2019,conflict: founding_year
+ror_04qmmjx98,Osnabrück University,Universität Osnabrück|University of Osnabrück,DE,Osnabrück,Osnabrueck,1974,,uni-osnabrueck.de,,high,,random
+ror_059ryjv25,Chung Shan Medical University,CSMU,TW,Taichung,,1960,,csmu.edu.tw,,high,,random
+ror_05wwfbb42,National School of Public Administration,École nationale d'administration publique|ENAP,CA,Québec,Quebec City|Quebec,1969,,enap.ca,,high,,random
+ror_05xydav19,Southampton Solent University,Solent University|Southampton Institute of Higher Education,GB,Southampton,,1856,1855|1984|2005,solent.ac.uk,,medium,"Renamed Solent University 2018, reverted 2024; university status 2005",conflict: name
+ror_00c55ce88,Minth University of Science and Technology,Ta Hwa University of Science and Technology|敏實科技大學|大華科技大學,TW,Qionglin,Qionglin Township|Hsinchu County|Hsinchu,1967,,mitust.edu.tw,tust.edu.tw,medium,Renamed from Ta Hwa; ROR uses old name,conflict: city
+ror_04tstaj46,Nexford University,,US,"Washington, D.C.",Washington|Washington DC,2018,2019|2017,nexford.edu,,medium,,conflict: city
+ror_02smd3j38,Universidad del Turabo,University of Turabo,PR,Gurabo,,1972,,ut.suagm.edu,uagm.edu,medium,Puerto Rico; Wikidata country US and year 1949 doubtful,conflict: founding_year
+ror_04whwem28,Japan College of Social Work,日本社会事業大学,JP,Kiyose,Tokyo,1946,1958,jcsw.ac.jp,,medium,University status 1958,random
+ror_056q8mn20,Taishan College of Science and Technology,泰山科技学院|山东科技大学泰山科技学院|Taishan College of Science & Technology,CN,Tai'an,Taian|Tai’an,2004,,tskjxy.edu.cn,,medium,,random
+ror_04axt3e70,Autonomous Indigenous University of Mexico,Universidad Autónoma Indígena de México|Autonomous Intercultural University of Sinaloa|Universidad Autónoma Intercultural de Sinaloa,MX,Mochicahui,El Fuerte,2001,,uaim.edu.mx,,medium,Also called Universidad Autónoma Intercultural de Sinaloa,random
+ror_00d167n54,Novosibirsk State Medical University,Новосибирский государственный медицинский университет|Novosibirsk Medical Institute,RU,Novosibirsk,,1935,,ngmu.ru,en.ngmu.ru,high,DEQAR entry is a different institution (Conservatory),conflict: name
+ror_01c06s784,"ICFAI University, Tripura",IUT|ICFAI University Tripura,IN,Agartala,Mohanpur|Kamalghat,2004,,iutripura.edu.in,,high,,conflict: city
+ror_01x7teq58,City Vision University,City Vision College,US,Kansas City,,1998,2008,cityvision.edu,,medium,,conflict: founding_year
+ror_05az93f25,ArtEZ University of the Arts,ArtEZ Institute of the Arts|ArtEZ hogeschool voor de kunsten|ArtEZ,NL,Arnhem,,2002,2001,artez.nl,,high,,conflict: name
+ror_04mgxhr44,Mugda Medical College,মুগদা মেডিকেল কলেজ|Mugda Medical College & Hospital,BD,Dhaka,,2015,2013,mumc.gov.bd,,medium,Wikidata entry (Munshiganj Medical College) is a different institution,random
+ror_02kg81z20,University of La Verne,Lordsburg College|Universidad de La Verne,US,La Verne,,1891,,laverne.edu,,high,,random
+ror_03w44ry84,The Mico University,Mico University College,JM,Kingston,,1835,,themico.edu.jm,,medium,Renamed from Mico University College,random
+ror_004cakc07,Norwegian Academy of Technological Sciences,Norges Tekniske Vitenskapsakademi|NTVA,NO,Trondheim,,1955,,ntva.no,,high,Wikidata entry (Air Force Academy) is a different institution,conflict: founding_year
+ror_038bgqv50,Universidad Laica Vicente Rocafuerte de Guayaquil,Universidad Laica Vicente Rocafuerte|Vicente Rocafuerte Lay University of Guayaquil,EC,Guayaquil,,1966,,ulvr.edu.ec,,high,,random
+ror_02kqwft97,Mandaue City College,,PH,Mandaue City,Mandaue,2005,,mandauecitycollege.edu.ph,,medium,Wikidata entry (Mendero College) is a different institution,conflict: name
+ror_017d8gk22,Morgan State University,Morgan State College|Morgan College|Centenary Biblical Institute,US,Baltimore,,1867,,morgan.edu,,high,,random
+ror_01044vd48,Tama Art University,多摩美術大学|Tamabi,JP,Tokyo,Hachioji|Setagaya,1935,,tamabi.ac.jp,,high,,random
+ror_03va9g668,University of Chinese Academy of Social Sciences,中国社会科学院大学|UCASS,CN,Beijing,,1978,2017,ucass.edu.cn,,medium,Founded as CASS Graduate School 1978; university 2017,random
+ror_02e2nnq08,Shandong University of Finance and Economics,山东财经大学,CN,Jinan,,1952,,sdufe.edu.cn,,high,,random
+ror_050ra0n32,University of Corsica Pascal Paoli,Université de Corse Pascal Paoli|Università di Corsica Pasquale Paoli|University of Corsica Pasquale Paoli,FR,Corte,,1981,1975|1765,universita.corsica,univ-corse.fr,high,Refounded 1981; Paoli's 1765 university,conflict: name
+ror_049s68q83,"GCS Medical College, Hospital and Research Centre",GCS Medical College,IN,Ahmedabad,,2009,2011,gcsmc.org,,medium,Wikidata entry is a different institution (GUTS),conflict: name
+ror_02smqg134,Higher Institute of Biotechnology of Sfax,Institut Supérieur de Biotechnologie de Sfax,TN,Sfax,,2002,,isbs.rnu.tn,isbs.usf.tn,medium,DEQAR entry is a different institution,conflict: domain
+ror_01yms7j39,Academy of Business and Health Sciences in Lodz,Wyższa Szkoła Biznesu i Nauk o Zdrowiu|Higher School of Business and Health Care in Łódź,PL,Łódź,Lodz,2006,2007,medyk.edu.pl,,medium,,conflict: founding_year
+ror_03a5vm896,All-Russia Thermal Engineering Institute,Всероссийский Теплотехнический Институт|VTI,RU,Moscow,,1921,,vti.ru,,high,Wikidata entry is a different institution,random
+ror_03kytj789,Chung Chou University of Science and Technology,中州科技大學|Chung Chou Institute of Technology,TW,Yuanlin,Yuanlin City,1969,,ccut.edu.tw,en.ccut.edu.tw,high,,random
+ror_02g9gg448,National School of Management and Health Administration,École Nationale de Management et de l'Administration de la Santé|ENMAS,DZ,Algiers,Alger,1989,,enmas.dz,,medium,,random
+ror_023t8mt09,Hong Kong Shue Yan University,Hong Kong Shue Yan College|香港樹仁大學,HK,Hong Kong,North Point,1971,,hksyu.edu,,high,Wikidata country CN is wrong,conflict: country
+ror_03kb7hq55,Kurume Institute of Technology,久留米工業大学,JP,Kurume,Kurume City,1976,,kurume-it.ac.jp,,high,,random
+ror_0065qv150,AST National Academy of Theatre Arts in Krakow,Ludwik Solski Academy for the Dramatic Arts|Akademia Sztuk Teatralnych im. Stanisława Wyspiańskiego w Krakowie|Państwowa Wyższa Szkoła Teatralna im. Ludwika Solskiego w Krakowie,PL,Kraków,Krakow,1946,,ast.krakow.pl,pwst.krakow.pl,high,Renamed from Ludwik Solski Academy,random
+ror_0525x3k72,Zaporizhzhya State Engineering Academy,Zaporizhia State Engineering Academy|Запорізька державна інженерна академія,UA,Zaporizhzhia,Zaporizhzhya|Zaporizhia,1959,,zgia.zp.ua,,medium,,random
+ror_04n13w407,ESTA School of Business and Technology,ESTA Belfort|ESTA Ecole Supérieure des Technologies et des Affaires|École supérieure des technologies et des affaires de Belfort,FR,Belfort,,1986,,esta-groupe.fr,,high,,random
+ror_04ds6er14,Faculdade Evangélica Mackenzie do Paraná,Faculdade Evangélica do Paraná|FEPAR|FEMPAR,BR,Curitiba,,1969,,fepar.edu.br,mackenzie.br,medium,"Renamed FEPAR 2000, later FEMPAR; Wikidata different",random
+ror_005k7hp45,Medical University of Silesia,Medical University of Silesia in Katowice|Śląski Uniwersytet Medyczny w Katowicach|SUM,PL,Katowice,,1948,,sum.edu.pl,,high,,random
+ror_001c2sn75,London Business School,LBS|Ysgol Fusnes Llundain,GB,London,,1964,,london.edu,,high,Wikidata and DEQAR entries are other institutions,conflict: domain
+ror_02myg6142,Maryville University of St. Louis,Maryville University|Maryville University of Saint Louis,US,Town and Country,St. Louis|Saint Louis|Creve Coeur,1872,,maryville.edu,,high,,random
+ror_009avj582,Oregon Health & Science University,OHSU|Oregon Health and Science University,US,Portland,,1974,1887,ohsu.edu,,high,Formed 1974; medical school dates from 1887,random
+ror_05s8v7y18,Akademi Teknik Deli Serdang,,ID,Tanjung Morawa,,,,atds.ac.id,,low,Wikidata entry is a different institution; unverified,random
+ror_03deqdj72,University of San Martín de Porres,Universidad de San Martín de Porres|USMP,PE,Lima,,1962,,usmp.edu.pe,usmp.pe,high,,conflict: domain
+ror_04161kh40,Indiana University Kokomo,IU Kokomo|IUK,US,Kokomo,,1945,,iuk.edu,,high,,random
+ror_00854zy02,Technical and Vocational University,دانشگاه ملی مهارت|National University of Skills|TVU,IR,Tehran,,1966,1965,tvu.ac.ir,nus.ac.ir,medium,Wikidata entry (Damavand College) is different,conflict: founding_year
+ror_01s4gpq44,University of Talca,Universidad de Talca,CL,Talca,,1981,1980,utalca.cl,,high,,conflict: founding_year
+ror_0091hm651,Pattimura University,Universitas Pattimura|University of Pattimura|Unpatti,ID,Ambon,Ambon City,1963,1962,unpatti.ac.id,,high,,conflict: name
+ror_01rv4p989,Middlesex University,Middlesex University London,GB,London,Hendon,1973,1992,mdx.ac.uk,,high,Polytechnic 1973; university status 1992,random
+ror_040tqqd15,University of Cundinamarca,Universidad de Cundinamarca|UDEC,CO,Fusagasugá,Fusagasuga,1969,,ucundinamarca.edu.co,unicundi.edu.co,high,,random
+ror_02sgpe757,State University of New York at Cobleskill,SUNY Cobleskill|State University of New York College of Agriculture and Technology at Cobleskill,US,Cobleskill,,1911,,cobleskill.edu,,high,Wikidata city New York is wrong,random
+ror_016j6rk60,Accra Technical University,Accra Polytechnic|ATU,GH,Accra,West Ridge,1949,,atu.edu.gh,,high,,conflict: city
+ror_05cnhrr87,Al-Ryada University for Science and Technology,Alryada University for Science and Technology|Al-Riyadah University for Science and Technology|جامعة الريادة للعلوم والتكنولوجيا,EG,Sadat City,Madinat as Sadat,2021,,rst.edu.eg,,medium,,conflict: name
+ror_000ymgt65,University of Music and Performing Arts Vienna,Universität für Musik und darstellende Kunst Wien|mdw,AT,Vienna,Wien,1817,,mdw.ac.at,,high,,random
+ror_00tncsy16,Universidad EAN,EAN University|Escuela de Administración de Negocios,CO,Bogotá,Bogota,1967,,universidadean.edu.co,,high,,random
+ror_03f6h9044,Camilo José Cela University,Universidad Camilo José Cela|UCJC,ES,Villanueva de la Cañada,Madrid|Villafranca del Castillo,2000,,ucjc.edu,,high,,conflict: name
+ror_05hag2y10,Federal University of Acre,Universidade Federal do Acre|UFAC,BR,Rio Branco,,1964,1974,ufac.br,,high,,random
+ror_0185jey51,Hautes Études d'Ingénieur,HEI|Junia HEI|École des Hautes Études d'Ingénieur,FR,Lille,,1885,,hei.fr,junia.com,high,Now part of Junia,random
+ror_02n5evf44,Sigma Clermont,SIGMA Clermont|École d'ingénieurs SIGMA Clermont,FR,Clermont-Ferrand,Aubière,2015,2016,sigma-clermont.fr,,medium,Wikidata entry (Clermont Auvergne University) is different,random
+ror_05wm6p530,Portucalense University,Universidade Portucalense|Universidade Portucalense Infante D. Henrique|UPT|Oporto Global University,PT,Porto,,1986,,upt.pt,,high,,random
+ror_00ngcqn55,Fundación Universitaria Navarra,Uninavarra|UNINAVARRA|Navarra University Foundation,CO,Neiva,,2010,2011,uninavarra.edu.co,,medium,"Constituted 2010, legal status 2011",conflict: city
+ror_01jn0j059,Bohdan Khmelnytskyi National Academy of the State Border Guard Service of Ukraine,National Academy of the State Border Guard Service of Ukraine|Національна академія Державної прикордонної служби України імені Богдана Хмельницького,UA,Khmelnytskyi,,1992,1995,nadpsu.edu.ua,,medium,,conflict: name
+ror_025fy2n80,Univates,University of Taquari Valley|Universidade do Vale do Taquari|Centro Universitário Univates,BR,Lajeado,,1969,,univates.br,,high,,conflict: name
+ror_03dqzan26,Salem University,Salem International University|Salem College,US,Salem,,1888,,salemu.edu,,high,"Salem, West Virginia",random
+ror_00b15e322,Dharanidhar University,"Dharanidhar University, Keonjhar",IN,Keonjhar,Kendujhar,2023,1962,dduniversity.ac.in,,medium,"College from 1962, university status 2023",random
+ror_05fwspe16,Bayamón Central University,Universidad Central de Bayamón|UCB,PR,Bayamón,Bayamon,1961,,ucb.edu.pr,,high,Wikidata country US differs from PR,conflict: country
+ror_04jdsqj08,Prince Mieszko I Poznan Medical University of Applied Sciences,Poznańska Akademia Medyczna Nauk Stosowanych im. Księcia Mieszka I|Akademia Nauk Stosowanych im. Księcia Mieszka I w Poznaniu|Mieszko I College of Education and Administration in Poznan,PL,Poznań,Poznan,2004,,pam.poznan.pl,ansm.pl,medium,Wikidata entry is a different institution,conflict: founding_year
+ror_02k9vew78,University of Nice Sophia Antipolis,Université Nice Sophia Antipolis|Université de Nice Sophia Antipolis|UNS,FR,Nice,,1965,1971,unice.fr,,high,Merged into Université Côte d'Azur in 2020,random
+ror_00g2fk805,Washington State University Vancouver,WSU Vancouver,US,Vancouver,,1989,,vancouver.wsu.edu,,high,"Vancouver, Washington",random
+ror_040eqhp13,Islamic University of Lebanon,Université islamique du Liban|الجامعة الإسلامية في لبنان|IUL,LB,Khaldeh,Khalde|Beirut,1994,1996,iul.edu.lb,,medium,,random
+ror_01fsqt491,Da Vinci Institute for Technology Management,Da Vinci Institute,ZA,Modderfontein,Johannesburg,2004,2002,davinci.ac.za,,medium,DEQAR entry is a different institution (Italy),conflict: country
+ror_03n3nx504,Yerevan State Academy of Fine Arts,State Academy of Fine Arts of Armenia|Հայաստանի գեղարվեստի պետական ակադեմիա,AM,Yerevan,,1945,,fineart.ac.am,,medium,Wikidata entry is a different institution,random
+ror_03kaab451,Maharshi Dayanand University,MDU Rohtak|महर्षि दयानन्द विश्वविद्यालय,IN,Rohtak,,1976,,mdu.ac.in,mdurohtak.ac.in,high,,random
+ror_006teas31,Shanghai University,上海大学|Shànghǎi Dàxué,CN,Shanghai,,1922,1994,shu.edu.cn,,high,1994 merger of several universities,random
+ror_00xdvw685,Hochschule 21,"Hochschule 21, Buxtehude|college 21",DE,Buxtehude,,2004,,hs21.de,,high,,random
+ror_02std5y37,Shukutoku University,淑徳大学,JP,Chiba,Daiganji|Chiba City,1965,,shukutoku.ac.jp,,high,,random
+ror_02sf5td35,Macao Polytechnic University,Instituto Politécnico de Macau|Universidade Politécnica de Macau|Macau Polytechnic Institute|澳門理工大學,MO,Macao,Macau,1991,2022,mpu.edu.mo,,high,Wikidata country CN is wrong; became university 2022,conflict: city
+ror_02wn5qz54,University of St Andrews,The University of St Andrews|St Andrews University,GB,St Andrews,,1413,1410|1411,st-andrews.ac.uk,,high,Founding 1410-1413 depending on papal bull,conflict: founding_year
+ror_03mnvhz29,Universidad Nacional Experimental Politécnica Antonio José de Sucre,UNEXPO|Antonio José de Sucre National Experimental Polytechnic University,VE,Barquisimeto,,1979,,unexpo.edu.ve,poz.unexpo.edu.ve,medium,"Spanish official name, no standard English name",random
+ror_03mc8zn46,Yeonsung University,연성대학교,KR,Anyang,Anyang-si,1977,,yeonsung.ac.kr,,high,,random
+ror_03tth1e03,Poznań University of Life Sciences,University of Life Sciences in Poznań|Uniwersytet Przyrodniczy w Poznaniu,PL,Poznań,Poznan,1951,1870,up.poznan.pl,puls.edu.pl,medium,1870 is origin of agricultural school predecessor,conflict: founding_year
+ror_048svt763,Politeknik Pertanian Negeri Kupang,Kupang State Agricultural Polytechnic|State Agricultural Polytechnic of Kupang|Politani Kupang,ID,Kupang,,1984,1987,politanikoe.ac.id,,medium,,random
+ror_05a66nm37,Unicaf University,Unicaf University Zambia|Unicaf University in Zambia,ZM,Lusaka,Larnaca,2016,,unicafuniversity.com,unicafuniversity.ac.zm,low,Sources describe different national entities (Zambia vs Cyprus),conflict: country
+ror_013z3yn41,Adana Alparslan Türkeş Science and Technology University,Adana Science and Technology University|Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi|ATU,TR,Adana,,2011,,atu.edu.tr,,high,Renamed from Adana Science and Technology University,conflict: name
+ror_027t90e82,Vitebsk State Academy of Veterinary Medicine,Віцебская дзяржаўная акадэмія ветэрынарнай медыцыны|Витебский ветеринарный институт,BY,Vitebsk,,1924,,vsavm.by,,high,,random
+ror_030m18266,Tatung University,大同大學,TW,Taipei,Zhongshan District,1956,,ttu.edu.tw,en.ttu.edu.tw,high,,conflict: domain
+ror_05xwcq167,Autonomous University of Baja California,Universidad Autónoma de Baja California|UABC|University of Baja California,MX,Mexicali,,1957,,uabc.mx,uabc.edu.mx,high,,conflict: domain
+ror_01za8kp04,National University of Catamarca,Universidad Nacional de Catamarca|UNCA,AR,San Fernando del Valle de Catamarca,Catamarca,1972,,unca.edu.ar,,high,,random
+ror_04r69jb93,Kokushikan University,国士舘大学|Kokushikan Daigaku,JP,Tokyo,Setagaya,1917,,kokushikan.ac.jp,,high,"ROR domain is a translation proxy, wrong",conflict: domain
+ror_02sqt9870,University of Louisiana System,UL System,US,Baton Rouge,,1974,,ulsystem.edu,,low,Wikidata entry is a different entity (LSU building),conflict: domain
+ror_049v2fv58,Muban Chombueng Rajabhat University,Rajabhat Muban Chom Bueng University|มหาวิทยาลัยราชภัฏหมู่บ้านจอมบึง,TH,Chom Bueng,Ratchaburi,1954,,mcru.ac.th,,high,,random
+ror_02w5pxz31,Assiut University Hospitals,,EG,Asyut,Assiut,1987,,aun.edu.eg,,low,Sources describe different entities (hospitals vs Assiut National University),conflict: name
+ror_01qaf6z41,Bhupal Nobles University,Bhupal Nobles' University|भूपाल नोबल्स विश्वविद्यालय,IN,Udaipur,Udaipur district,2017,2015|2016,bnuniversity.ac.in,,medium,,conflict: city
+ror_00fycgp36,Ural State Medical University,Ural State Medical Academy|Уральский государственный медицинский университет|Sverdlovsk State Medical Institute,RU,Yekaterinburg,Ekaterinburg,1930,,usma.ru,,high,,random
+ror_04gs3ey40,Abhilashi University,,IN,Mandi,Mandi district|Chailchowk,2014,,abhilashiuniversity.ac.in,,high,,random
+ror_045hg4108,Portuguese Air Force Academy,Academia da Força Aérea|Air Force Academy,PT,Sintra,,1978,,academiafa.edu.pt,,high,,random
+ror_031ck0t15,Kirov State Medical University,Kirov State Medical Academy|Кировский государственный медицинский университет,RU,Kirov,,1987,,kirovgma.ru,eng.kirovgma.ru,medium,"Former Academy, now University",conflict: name
+ror_043071f54,University of Roehampton,Roehampton University,GB,London,Wandsworth|Roehampton,1841,1975|2004,roehampton.ac.uk,,medium,1841 Southlands origin; 1975 federal institute; 2004 university,conflict: founding_year
+ror_01tkb3y54,Gisma University of Applied Sciences,GISMA Business School|Gisma,DE,Potsdam,Hannover|Hanover,1999,,gisma.com,,medium,"Renamed from GISMA Business School; seat Potsdam, campus Hannover",random
+ror_007jk3x13,Military Institute of Science and Technology,MIST,BD,Dhaka,Dhaka District,1998,,mist.ac.bd,,high,,conflict: city
+ror_002q7jf46,Jagannath University Jaipur,"Jagan Nath University, Jaipur|Jagan Nath University",IN,Jaipur,Chaksu|Rajasthan,2008,,jagannathuniversity.org,,high,,random
+ror_029brtt94,Claude Bernard University Lyon 1,Université Claude Bernard Lyon 1|Lyon 1 University|Université Lyon 1|UCBL,FR,Villeurbanne,Lyon,1971,1970,univ-lyon1.fr,,high,,conflict: name
+ror_054e86395,Airline Training Program Flight School,,US,Ponte Vedra Beach,,1984,,atpflightschool.com,,low,Wikidata entry is a different entity (Capstone program),conflict: founding_year
+ror_03gjktv92,R.M.D. Engineering College,,IN,Chennai,Kavaraipettai,2001,,rmd.ac.in,,low,Wikidata entry is a different college in Ghaziabad,random
+ror_053fh2363,Benedictine University,Illinois Benedictine College|St. Procopius College,US,Lisle,,1887,,ben.edu,,high,,random
+ror_04g11bp59,Osaka University of Economics,大阪経済大学|Naniwa Higher Commercial School,JP,Osaka,Higashiyodogawa-ku,1932,1949,osaka-ue.ac.jp,,high,1949 is university status,conflict: city
+ror_01yecy831,Siberian State Medical University,Tomsk Medical Institute|Сибирский государственный медицинский университет,RU,Tomsk,,1888,1878,ssmu.ru,sibmed.ru,medium,1878 is Tomsk University; medical faculty opened 1888,random
+ror_04gm4rn33,Sekolah Tinggi Teologi Injili Indonesia Bali,STT Injili Indonesia Bali|STTII Bali,ID,Denpasar,,,,sttii-bali.ac.id,,low,Wikidata entry is a different institution (Universitas Bali Dwipa),random
+ror_04s60rj63,Universidad Surcolombiana,South Colombian University|USCO|La Surcolombiana,CO,Neiva,,1970,,usco.edu.co,,high,Wikidata city La Plata is a branch,conflict: city
+ror_04y99m182,Belarusian State Agricultural Academy,Belarusian State Academy of Agriculture|Беларуская дзяржаўная сельскагаспадарчая акадэмія,BY,Horki,Gorki,1840,,baa.by,,high,,random
+ror_05kc6dc21,Tianshui Normal University,天水师范学院,CN,Tianshui,,1959,,tsnu.edu.cn,,medium,,random
+ror_05qh38f12,Takushoku University,拓殖大学|Takudai,JP,Tokyo,,1900,,takushoku-u.ac.jp,,high,,random
+ror_058w2q710,Universitas Wiraswasta Indonesia,UWIN|Wiraswasta University of Indonesia,ID,Jakarta,Pasar Rebo|East Jakarta,1982,,uwi.ac.id,uwin.ac.id,medium,,conflict: city
+ror_00rghrr56,Kochi University of Technology,高知工科大学,JP,Kami,Kochi,1997,,kochi-tech.ac.jp,,high,,random
+ror_04dd86x86,Rajarata University of Sri Lanka,රජරට විශ්වවිද්යාලය|ரஜரட்ட பல்கலைக்கழகம்,LK,Anuradhapura,Mihintale,1995,,rjt.ac.lk,,high,,random
+ror_00bad4666,Andijan State University,Andijan State University named after Zahiriddin Muhammad Bobur|Andijon davlat universiteti,UZ,Andijan,Andijon,1939,,adu.uz,,high,,random
+ror_03hnckv05,Mokpo Catholic University,목포가톨릭대학교,KR,Mokpo,,1967,1960|1966,mcu.ac.kr,,medium,Founding year sources disagree,random
+ror_00wtg0r80,Badr University in Assiut,"Badr University, Assiut|جامعة بدر باسيوط|BUA",EG,Asyut,Assiut,2021,2020,bua.edu.eg,,medium,,random
+ror_05as1qb59,Texas Higher Education Coordinating Board,THECB,US,Austin,,2000,,thecb.state.tx.us,,low,Wikidata entry is a different entity (Jackson School),conflict: founding_year
+ror_055sgt471,Universidad Isabel I,Isabel I University|Universidad Isabel I de Castilla|International University Isabel I de Castilla,ES,Burgos,,2008,2011,ui1.es,,high,"Created by law 2008, teaching started 2011",conflict: name
+ror_033y0hd11,Shanxi Politics and Law Institute for Administrators,山西省政法管理干部学院,CN,Taiyuan,,1954,,,,low,Wikidata entry is a different entity (Shanxi TCM college),random
+ror_0096z2k33,Luxembourg School of Business,LSB,LU,Luxembourg,,2014,,luxsb.lu,,medium,Wikidata entry is a different institution,random
+ror_05n0gsn30,Military University Nueva Granada,Universidad Militar Nueva Granada|UMNG|Nueva Granada Military University,CO,Bogotá,,1982,1962,umng.edu.co,unimilitar.edu.co,high,"1962 origin, 1982 university status",random
+ror_0044e2g62,Minzu University of China,Central University for Nationalities|中央民族大学|MUC,CN,Beijing,,1941,1951,muc.edu.cn,,high,1951 is formal founding as Central Institute for Nationalities,conflict: founding_year
+ror_05xjevr11,North Minzu University,Northern University for Nationalities|Beifang University of Nationalities|北方民族大学,CN,Yinchuan,,1984,,nmu.edu.cn,en.nmu.edu.cn,high,,random
+ror_02qr05d85,Mount Mary University,Mount Mary College,US,Milwaukee,,1913,,mtmary.edu,,high,,random
+ror_04fnrxr62,Haverford College,,US,Haverford,Haverford Township,1833,,haverford.edu,,high,,random
+ror_01w0v6m22,Tamil Nadu Physical Education and Sports University,TNPESU|தமிழ்நாடு உடற்கல்வியியல் மற்றும் விளையாட்டுப் பல்கலைக்கழகம்,IN,Chennai,,2005,2004,tnpesu.org,,high,,random
+ror_055fene14,Shanghai Dianji University,上海电机学院|上海電機學院,CN,Shanghai,,1953,,sdju.edu.cn,,high,"Wikidata record is Shanghai Finance University, wrong",conflict: founding_year
+ror_040a2r459,Belarusian National Technical University,BNTU|Беларускі нацыянальны тэхнічны ўніверсітэт|Белорусский национальный технический университет,BY,Minsk,,1920,,bntu.by,,high,,random
+ror_04mj8af82,Swedish Defence University,Försvarshögskolan|Swedish National Defence College,SE,Stockholm,,1997,2008,fhs.se,,high,,conflict: founding_year
+ror_03angcq70,University of Birmingham,Birmingham University|Prifysgol Birmingham,GB,Birmingham,,1900,,birmingham.ac.uk,bham.ac.uk,high,,conflict: domain
+ror_018ryqx18,,,,,,,,,,low,ROR primary school vs Wikidata Jesuit college; not a university,conflict: name
+ror_02gk0fv06,Al Zaytona University of Science and Technology,Alzaytona University of Science & Technology|جامعة الزيتونة للعلوم والتكنولوجيا,PS,Salfit,Salfīt|Muntazah Salfit,2020,,zust.edu.ps,,medium,,conflict: name
+ror_05xg5y175,Universidad Politécnica de Aguascalientes,Polytechnic University of Aguascalientes|UPA,MX,Aguascalientes,Aguascalientes City,2002,,upa.edu.mx,,high,,random
+ror_02552gk22,Islamic University of Applied Sciences Rotterdam,Islamic University of Rotterdam|Islamitische Universiteit Rotterdam|IUASR,NL,Rotterdam,,1997,,iuasr.nl,iur.nl,high,Renamed from Islamic University of Rotterdam,random
+ror_03wdfwr71,,,,,,,,,,low,ROR testing institute vs Wikidata Central Academy for Ethnic Cadres; mismatch,conflict: name
+ror_00y4zzh67,George Washington University,The George Washington University|GWU|GW,US,Washington,"Washington, D.C.|Washington DC",1821,,gwu.edu,,high,,random
+ror_04wj0w424,Nilton Lins University,Universidade Nilton Lins,BR,Manaus,,1986,1988,universidadeniltonlins.com.br,niltonlins.br|uniniltonlins.edu.br,medium,,conflict: domain
+ror_04d951341,International College of Cosmetology,International Cosmetology College|Starptautiskā Kosmetoloģijas koledža,LV,Riga,Rīga,2004,2003,skk.lv,,medium,,random
+ror_05by9mg64,Xiangnan University,湘南学院,CN,Chenzhou,Chenzhouzhai,1912,2003,xnu.edu.cn,,medium,2003 is university status,random
+ror_043nf8v57,,,,,,,,,,low,Three different entities across sources; cannot resolve,conflict: city
+ror_02ax13658,Barkatullah University,Bhopal University|Barkatullah Vishwavidyalaya,IN,Bhopal,,1970,,bubhopal.ac.in,,high,Renamed from Bhopal University in 1988,conflict: city
+ror_02ggt9460,Mato Grosso do Sul State University,Universidade Estadual de Mato Grosso do Sul|UEMS,BR,Dourados,,1993,,uems.br,,high,,conflict: name
+ror_01gcnxt20,Gwangju University,광주대학교,KR,Gwangju,,1981,,gwangju.ac.kr,,high,,random
+ror_032bg8m67,University Center of the City of Rio de Janeiro,Centro Universitário da Cidade|Univercidade,BR,Rio de Janeiro,,1969,,univercidade.br,univercidade.edu,medium,Defunct institution,random
+ror_0161hbt42,University of Gonabad,Gonabad University|دانشگاه گناباد,IR,Gonabad,Gonābād,,,gonabad.ac.ir,,medium,Founding year not established,random
+ror_03562fh87,Nursing School of Porto,Escola Superior de Enfermagem do Porto|ESEP,PT,Porto,,2007,,esenf.pt,,high,Created 2007 by merging nursing schools,random
+ror_04ps1r162,Lincoln University,Te Whare Wānaka o Aoraki|Lincoln University New Zealand,NZ,Lincoln,Selwyn District,1878,,lincoln.ac.nz,,high,,random
+ror_02dwrdh81,University of Kufa,جامعة الكوفة,IQ,Najaf,Kufa,1987,,uokufa.edu.iq,kuiraq.com,high,,conflict: domain
+ror_00hbxzh33,Kanyashree University,কন্যাশ্রী বিশ্ববিদ্যালয়,IN,Krishnanagar,Nadia district,2020,2019|2018,kanyashreeuniversity.ac.in,,high,,random
+ror_04rjn2z79,Sanjo City University,三条市立大学,JP,Sanjo,Niigata Prefecture,2021,,sanjo-u.ac.jp,,high,ROR city Nagaoka is wrong,conflict: city
+ror_05s2ecw65,BGC Trust University Bangladesh,BGC Trust University|BGCTUB|Begum Gul Chemonara Trust University Bangladesh,BD,Chittagong,Chattogram|Chandanaish,2001,,bgctub.ac.bd,,medium,,random
+ror_00f54p054,Stanford University,Leland Stanford Junior University,US,Stanford,,1885,1891,stanford.edu,,high,"Founded 1885, opened 1891",random
+ror_00jzwgz36,Koç University,Koç Üniversitesi,TR,Istanbul,İstanbul,1993,,ku.edu.tr,,high,,conflict: domain
+ror_01x8j4206,Webster University,,US,St. Louis,St Louis,1915,,webster.edu,,high,DEQAR record is Webster Georgia campus,conflict: country
+ror_03vsh1a40,,,,,,,,,,low,ROR research centre vs Wikidata University of Leiria and Oeste; mismatch,conflict: name
+ror_02rx3b187,Grenoble Alpes University,Université Grenoble Alpes|UGA,FR,Saint-Martin-d'Hères,Grenoble,2016,2020,univ-grenoble-alpes.fr,,high,2020 is EPE status,conflict: founding_year
+ror_03tasdg80,ISTEC Business School,"ISTEC Paris|Istec Business School Paris|Institut supérieur des sciences, techniques et économie commerciales",FR,Paris,,1961,,istec.fr,,medium,"Wikidata record is Paris Observatory, wrong",conflict: name
+ror_007t3j908,Aleksandras Stulginskis University,Aleksandro Stulginskio universitetas|Vytautas Magnus University Agriculture Academy|Lithuanian University of Agriculture,LT,Kaunas,Akademija|Kaunas District Municipality,1924,,asu.lt,,high,Merged into Vytautas Magnus University 2019,random
+ror_02m77cm13,Nan Jeon University of Science and Technology,南榮科技大學,TW,Tainan,Yanshui District|Yanshuei District,1967,1966,nju.edu.tw,,medium,Closed 2020,conflict: founding_year
+ror_05hzn5427,Ho Chi Minh City University of Technology and Education,HCMUTE|Ho Chi Minh City University of Technology and Engineering|Trường Đại học Sư phạm Kỹ thuật Thành phố Hồ Chí Minh,VN,Ho Chi Minh City,,1962,,hcmute.edu.vn,,high,,random
+ror_024596r45,Euclid University,EUCLID,GM,Banjul,,2008,2013,euclid.int,,medium,,random
+ror_007n0ss86,Desh Bhagat University,ਦੇਸ਼ ਭਗਤ ਯੂਨੀਵਰਸਿਟੀ,IN,Mandi Gobindgarh,Amloh|Fatehgarh Sahib District,2012,2013|1996,deshbhagatuniversity.in,,medium,"Established by 2012 Punjab Act; sources show 1972, 1996",random
+ror_0376wwg26,HKBP Nommensen University,Universitas HKBP Nommensen|University of HKBP Nommensen|Nommensen HKBP University,ID,Medan,Pematangsiantar,1954,,uhn.ac.id,,high,,conflict: city
+ror_04yrkc140,University of Nebraska Omaha,University of Nebraska at Omaha|UNO|Omaha University,US,Omaha,,1908,,unomaha.edu,,high,,random
+ror_00r54sf44,Universidad de Morón,University of Morón,AR,Morón,Moron,1960,,unimoron.edu.ar,,high,,random
+ror_05jhv1f87,Nîmes Université,Université de Nîmes|Nimes University,FR,Nîmes,Nimes,2007,2025,unimes.fr,,medium,"DEQAR record is Nîmes art school, wrong; renamed 2025",conflict: founding_year
+ror_04nk1k821,Taiwan Steel University of Science and Technology,Kao Yuan University|高苑科技大學|台鋼科技大學,TW,Kaohsiung,Luzhu District,1986,1989,tsust.edu.tw,,medium,Renamed from Kao Yuan University 2024,random
+ror_01y4gex25,,,,,,,,,,low,ROR STIM Sukma vs Wikidata Universitas Al Washliyah; mismatch,random
+ror_02xm2e940,Academy of Applied Sciences Mazovia,Akademia Nauk Stosowanych Mazovia|Collegium Mazovia Innowacyjna Szkoła Wyższa|Collegium Mazovia Innovative University,PL,Siedlce,,1999,,mazovia.edu.pl,,high,Renamed from Collegium Mazovia,random
+ror_05p0tzt32,East West University,EWU|ইস্টওয়েস্ট বিশ্ববিদ্যালয়,BD,Dhaka,Dhaka District,1996,,ewubd.edu,,high,,conflict: city
+ror_02a39yh68,Panca Bhakti University,Universitas Panca Bhakti|UPB,ID,Pontianak,,1979,,upb.ac.id,,high,,random
+ror_01d5zhz86,Cordoba University,,US,Ashburn,Virginia,,,cordobauniversity.org,,medium,Defunct Islamic university; founding year not established,conflict: city
+ror_0080y7t67,Max Planck Institute for Political and Social Science,,DE,Göttingen,,1947,,ips.mpg.de,,low,sources describe different institutions,random
+ror_03866db80,Kushiro Public University of Economics,釧路公立大学,JP,Kushiro,,1988,,kushiro-pu.ac.jp,,high,,random
+ror_00wws3648,International Culture University,,BD,Dhaka,,,,icu-edu.org,,low,sources describe different institutions,conflict: city
+ror_0367m1n91,Hochschule Weserbergland,Weserbergland University of Applied Sciences,DE,Hameln,Hamelin,2010,,hsw-hameln.de,,high,,random
+ror_05qr2eq49,Sibelius Academy,Sibelius-Akatemia|Sibelius-Akademin,FI,Helsinki,Taka-Töölö,1882,,uniarts.fi,,high,part of University of the Arts Helsinki,random
+ror_03ph49z03,Islamic University in Uganda,IUIU,UG,Mbale,Mbale City,1988,,iuiu.ac.ug,,high,,conflict: city
+ror_01jsr8a33,Altai State Agricultural University,Altai State Agrarian University|Алтайский государственный аграрный университет,RU,Barnaul,,1943,,asau.ru,,high,,conflict: name
+ror_035hc0m07,Szkoła Główna Mikołaja Kopernika,,PL,Warsaw,Warszawa,2023,,sgmk.edu.pl,,low,ROR and DEQAR are different institutions,conflict: domain
+ror_05bc5bx80,Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology,Vel Tech University|Vel Tech Dr. RR & Dr. SR Technical University,IN,Chennai,,1997,,veltech.edu.in,veltechuniv.edu.in,high,,random
+ror_04m0bzb15,Rogers State University,Rogers State College|RSU,US,Claremore,,1909,,rsu.edu,,high,,random
+ror_05304ct39,Politeknik Seruyan,Seruyan Polytechnic|POLTES,ID,Kuala Pembuang,Seruyan Hilir|Seruyan,2020,2019,poltes.ac.id,,medium,,conflict: founding_year
+ror_01173vs27,University of Chittagong,Chittagong University|CU,BD,Chittagong,Chattogram,1966,,cu.ac.bd,,high,,random
+ror_002tx1f22,Cleveland State University,CSU,US,Cleveland,,1964,1923,csuohio.edu,,high,1923 is Fenn College predecessor,random
+ror_00n7m6g17,Politécnico Grancolombiano,Institución Universitaria Politécnico Grancolombiano|Poli,CO,Bogotá,Bogotá D.C.,1980,,poli.edu.co,,high,,random
+ror_00ftznz18,Shanghai College of Science and Technology,Shanghai Vocational College of Science and Technology|上海科学技术职业学院,CN,Shanghai,,1959,,scst.edu.cn,,medium,"Wikidata is Shanghai University, wrong",conflict: domain
+ror_01wv5mm14,Anhui Institute of International Business,安徽国际商务职业学院,CN,Hefei,,2004,,ahiib.edu.cn,,medium,"Wikidata is DUFE-Surrey, wrong",conflict: founding_year
+ror_01fdxwh83,University of Borås,Högskolan i Borås|Borås University College,SE,Borås,,1977,,hb.se,,high,,random
+ror_049ezvq17,NEWTON University,Vysoká škola NEWTON,CZ,Prague,,2004,,newton.university,,low,DEQAR Palestra is a different institution,conflict: domain
+ror_01a233t53,Stroganov Moscow State Academy of Arts and Industry,Moscow State Stroganov Academy of Industrial and Applied Arts|Stroganov University,RU,Moscow,,1825,,rghpu.ru,mghpu.ru,medium,renamed; two domains,random
+ror_020jkns84,Foundation University Medical College,FUMC,PK,Rawalpindi,,2000,,fui.edu.pk,,medium,"Wikidata is Riphah medical college, wrong",random
+ror_02w2mvp24,Białystok Institute of Cosmetology and Healthcare,Wyższa Szkoła Kosmetologii i Ochrony Zdrowia w Białymstoku|The School of Medical Science of Bialystok|Wyższa Szkoła Medyczna w Białymstoku,PL,Białystok,Bialystok,2003,,wsmed.edu.pl,,medium,renamed to Wyższa Szkoła Medyczna,conflict: name
+ror_03ztsbk67,Universidade do Estado de Santa Catarina,Santa Catarina State University|UDESC,BR,Florianópolis,,1965,,udesc.br,,high,"DEQAR record is UFSC, wrong",conflict: domain
+ror_05qj15q72,Southwestern Christian University,SCU,US,Bethany,Oklahoma City,1946,,swcu.edu,,high,,conflict: city
+ror_002k8gm39,Vikram University,Vikram Viśvavidyālaya|विक्रम विश्वविद्यालय,IN,Ujjain,,1957,1956,vikramuniv.ac.in,vikramuniv.net,high,,random
+ror_05v3rbc62,Mapúa Malayan Colleges Mindanao,Malayan Colleges Mindanao,PH,Davao City,Davao,2015,,mcm.edu.ph,,high,,random
+ror_02zjzr085,Universitas Bina Insan,Bina Insan University,ID,Lubuklinggau,Lubuk Linggau,2019,,univbinainsan.ac.id,,medium,,random
+ror_003tks917,School of Plastic Arts of Puerto Rico,Escuela de Artes Plásticas y Diseño de Puerto Rico|School of Visual Arts and Design of Puerto Rico|EAP,PR,San Juan,,1966,,eap.edu,,high,"Puerto Rico code PR, not US",conflict: country
+ror_03hgxtg28,Beijing Institute of Fashion Technology,北京服装学院|BIFT,CN,Beijing,,1959,,bift.edu.cn,,high,,random
+ror_02a54nf13,École Nationale Supérieure de Statistique et d'Économie Appliquée,ENSEA|National School of Statistics and Applied Economics,CI,Abidjan,,1961,,ensea.ed.ci,,medium,,random
+ror_01xmrwb67,Lagos State University of Science and Technology,LASUSTECH|Lagos State Polytechnic|LASPOTECH,NG,Ikorodu,,1977,,lasustech.edu.ng,,high,polytechnic upgraded to university,random
+ror_028a67802,Alma Mater Europaea,Alma Mater Europaea - European Centre Maribor,SI,Maribor,,2010,2009,almamater.si,almamater.at|en.almamater.si,medium,,conflict: domain
+ror_0581b6d66,Fleming College,Sir Sandford Fleming College,CA,Peterborough,,1967,,flemingcollege.ca,flemingc.on.ca,high,,conflict: domain
+ror_05v56p320,Universitas Muhammadiyah Tapanuli Selatan,UMTS,ID,Padangsidimpuan,Padangsidempuan,1983,,um-tapsel.ac.id,,medium,,random
+ror_02nfjwv95,Saint Paul University Dumaguete,St. Paul University Dumaguete|SPUD,PH,Dumaguete,,1904,,spud.edu.ph,,high,,random
+ror_056vyez31,PLA Naval University of Engineering,Naval University of Engineering|中国人民解放军海军工程大学,CN,Wuhan,,1949,,hjgcdx.cn,,medium,,random
+ror_03zjsxj44,Vinnytsia Mykhailo Kotsiubynskyi State Pedagogical University,Вінницький державний педагогічний університет імені Михайла Коцюбинського|Vinnytsia State Pedagogical University,UA,Vinnytsia,,1912,,vspu.edu.ua,,high,,random
+ror_02mqsna37,Wuchang University of Technology,武昌理工学院,CN,Wuhan,,1997,1999,wut.edu.cn,,medium,Wikidata Chunghua Univ. 1912 is unrelated,conflict: founding_year
+ror_03hja9k84,Fuji Women's University,藤女子大学,JP,Sapporo,,1925,,fujijoshi.ac.jp,,high,,random
+ror_03pwaa786,Šolski Center Ptuj,,SI,Ptuj,,2008,,scptuj.si,,low,DEQAR College of Ptuj is a different unit,conflict: domain
+ror_008dewj11,Estonian Military Academy,Estonian National Defence College|Kaitseväe Akadeemia,EE,Tartu,,1919,1998,kvak.ee,ksk.edu.ee,high,renamed several times,conflict: domain
+ror_00yzszn60,Wakayama Professional University of Rehabilitation,和歌山リハビリテーション専門職大学,JP,Wakayama,Wakayama Shi,2021,,wakayama.kyowa.ac.jp,,high,,conflict: city
+ror_04es4w891,Universitas Yapis Papua,UNIYAP,ID,Jayapura,,1963,,uniyap.ac.id,,medium,,random
+ror_00gnxy932,Tohoku Bunkyo University,Tohoku Bunkyo College|東北文教大学,JP,Yamagata,,1926,,t-bunkyo.jp,,medium,,random
+ror_01pc4rp54,The Art Institute of Houston,Art Institute of Houston,US,Houston,,1978,1965,artinstitutes.edu,,medium,founding year sources disagree,conflict: founding_year
+ror_0390mzx53,London Institute for Mathematical Sciences,,GB,London,,2009,,lims.ac.uk,,low,three different institutions,conflict: domain
+ror_0276e3d41,Vietnam National Academy of Music,Hanoi Conservatory of Music|Học viện Âm nhạc Quốc gia Việt Nam,VN,Hanoi,Ha Noi,1956,,vnam.edu.vn,,high,,conflict: name
+ror_02qpgtq92,Gambia College,"The Gambia College|University of Education, Brikama",GM,Brikama,,1949,1978,gc.edu.gm,,medium,Wikidata record is a different name/year,conflict: founding_year
+ror_00pcrz470,Chengdu University of Traditional Chinese Medicine,Chengdu University of TCM|成都中医药大学,CN,Chengdu,,1956,,cdutcm.edu.cn,,high,,conflict: name
+ror_05myv7q56,Hochschule Geisenheim University,Geisenheim University,DE,Geisenheim,,1872,2013,hs-geisenheim.de,,high,"2013 is university status, not founding",conflict: name
+ror_03gnr7b55,Nantes Université,Nantes University|Université de Nantes|University of Nantes,FR,Nantes,,1460,1961,univ-nantes.fr,english.univ-nantes.fr,high,1961 is re-founding,conflict: founding_year
+ror_047yk3s18,The Catholic University of America,Catholic University of America|CUA,US,Washington,"Washington, D.C.",1887,,catholic.edu,cua.edu,high,Main site catholic.edu; cua.edu is old domain,conflict: domain
+ror_00rs45z86,HOGENT University of Applied Sciences and Arts,University College Ghent|Hogeschool Gent|Haute École de Gand,BE,Ghent,Gent,1995,,hogent.be,,high,Wikidata entry is wrong (Ghent University rector's office),conflict: city
+ror_029gnnp81,International University of La Rioja,Universidad Internacional de La Rioja|UNIR,ES,Logroño,,2009,2008,unir.net,,high,,conflict: city
+ror_02kw5st29,Deggendorf Institute of Technology,Technische Hochschule Deggendorf|THD,DE,Deggendorf,,1994,,th-deg.de,,high,,random
+ror_014weej12,Middle East Technical University,Orta Doğu Teknik Üniversitesi|METU,TR,Ankara,,1956,,metu.edu.tr,,high,,random
+ror_035vjkd03,Heritage Christian University,Heritage Christian College|Heritage Bible Institute,GH,Accra,Greater Accra Region|Amasaman,1982,1971|2001,hcu.edu.gh,hcuc.edu.gh,medium,Founding year unclear; predecessor bodies differ,conflict: founding_year
+ror_01khf5d59,Qiqihar University,齐齐哈尔大学|Qíqíhāěr Dàxué,CN,Qiqihar,,1952,1953,qqhru.edu.cn,,medium,,conflict: founding_year
+ror_03f3afg04,Uttarakhand Ayurved University,,IN,Dehradun,Dehradun district,2009,,uau.ac.in,,high,,conflict: city
+ror_02qapk571,Pontifical Oriental Institute,Pontificio Istituto Orientale,IT,Rome,,1917,,orientale.it,unipio.org,medium,Wikidata entry is wrong (Armenian college); DEQAR country VA,conflict: country
+ror_02adpzw22,,,,,,,,,,low,ROR (Kohima) and DEQAR (Lucerne) are different institutions,conflict: country
+ror_01etzjr60,Conservatorio di Musica Luigi Canepa,Music Conservatory of Sassari Luigi Canepa,IT,Sassari,,1962,1949|1862,conservatorio.sassari.it,,low,Founding year not established,conflict: name
+ror_00m04y575,South East European University,Universiteti i Evropës Juglindore|Универзитет на Југоисточна Европа|SEEU,MK,Tetovo,,2001,,seeu.edu.mk,,high,,conflict: name
+ror_00ktqrd38,Kyoto Prefectural University,京都府立大学,JP,Kyoto,,1895,1949,kpu.ac.jp,,high,1949 is university status,random
+ror_00jstgs54,Université de Saint-Boniface,University of Saint-Boniface,CA,Winnipeg,,1818,2011,ustboniface.ca,,high,2011 is university status,conflict: founding_year
+ror_01kxpxf76,Yashwantrao Chavan Maharashtra Open University,YCMOU|यशवंतराव चव्हाण महाराष्ट्र मुक्त विद्यापीठ,IN,Nashik,,1989,,ycmou.ac.in,ycmou.digitaluniversity.ac,high,Wikidata entry is wrong (Satara science college),random
+ror_03a6cpb51,University of Goma,Université de Goma|UNIGOM,CD,Goma,,1993,,unigom.ac.cd,unigom.org,medium,,random
+ror_02558xx03,Universitas Dhyana Pura,Dhyana Pura University|UNDHIRA,ID,Badung,Badung Regency|North Kuta|Kuta Utara|Dalung,2011,,undhirabali.ac.id,,medium,,conflict: city
+ror_00zyznv55,Shizuoka Graduate University of Public Health,静岡社会健康医学大学院大学,JP,Shizuoka,Shizuoka-shi,2021,,s-sph.ac.jp,,high,,random
+ror_00g6dr962,Klaipėda Business Higher School,Klaipėdos verslo aukštoji mokykla|Klaipeda Business School,LT,Klaipėda,Klaipeda,1997,2001,kvam.lt,,medium,,conflict: founding_year
+ror_00zxty319,Nara Gakuen University,Naragakuen University|Nara Sangyo University|奈良学園大学,JP,Sangō,Sango|Nara,1984,1886,naragakuen-u.jp,,medium,Renamed from Nara Sangyo University,random
+ror_050dyg448,Azerbaijan University of Languages,Azərbaycan Dillər Universiteti|AUL,AZ,Baku,,1937,1973,adu.edu.az,,high,,conflict: founding_year
+ror_04x5ap794,,,,,,,,,,low,ROR dental college and Wikidata university are different entities,random
+ror_01r9z8p25,University of La Laguna,Universidad de La Laguna|University of San Fernando de La Laguna,ES,San Cristóbal de La Laguna,La Laguna,1701,1927|1792|1744,ull.es,ull.edu.es,medium,Founding year depends on which milestone counts,conflict: founding_year
+ror_04frgh028,North American University,North American College,US,Houston,Stafford,2007,,na.edu,,medium,,random
+ror_05w2mtm47,Drăgan European University of Lugoj,Universitatea Europeană Drăgan din Lugoj|Universitatea Europeană Drăgan,RO,Lugoj,,1992,2003,universitateaeuropeanadragan.ro,,medium,,conflict: founding_year
+ror_00xctjm44,"Sri P.V. Narasimha Rao Telangana State University for Veterinary, Animal and Fishery Sciences",P.V. Narsimha Rao Telangana Veterinary University|PVNRTVU,IN,Hyderabad,,2014,,pvnrtvu.ac.in,tsvu.nic.in,medium,Renamed; older name PV Narsimha Rao Telangana Veterinary University,conflict: name
+ror_01wf1es90,Zarqa University,جامعة الزرقاء,JO,Zarqa,,1994,,zu.edu.jo,,high,,random
+ror_020vmqv16,Roosevelt University,,US,Chicago,,1945,,roosevelt.edu,,high,,conflict: city
+ror_03kpps236,,,,,,,,,,low,BIST and Ebro Observatory institute are different entities,conflict: name
+ror_03czk8k96,Macromedia University of Applied Sciences,Hochschule Macromedia|Macromedia University,DE,Munich,Stuttgart,2006,,macromedia.de,macromedia-fachhochschule.de|macromedia-university.com,medium,Founded in Stuttgart; headquarters Munich,conflict: domain
+ror_0122mh736,,,,,,,,,,low,IMAR institute and SNSB school are different entities,conflict: founding_year
+ror_05w0ems17,Southeast Asia Interdisciplinary Development Institute,SAIDI,PH,Antipolo,Antipolo City,1965,,saidi.edu.ph,,medium,,conflict: name
+ror_02jv3k292,Sofia University St. Kliment Ohridski,Sofia University|University of Sofia|Софийски университет „Св. Климент Охридски“,BG,Sofia,,1888,,uni-sofia.bg,,high,,random
+ror_05n7t1e46,Wako University,和光大学,JP,Machida,Tokyo,1966,1933,wako.ac.jp,,high,,conflict: city
+ror_04a8t1e98,Osaka Gakuin University,大阪学院大学,JP,Suita,,1940,1963,ogu.ac.jp,osaka-gu.ac.jp,high,,conflict: domain
+ror_05srvzs48,Warsaw University of Life Sciences,Szkoła Główna Gospodarstwa Wiejskiego|SGGW,PL,Warsaw,Warszawa,1816,,sggw.edu.pl,sggw.pl,high,Wikidata entry is wrong (University of Warsaw),conflict: domain
+ror_035cgyb19,Tashkent State Medical University,Toshkent davlat tibbiyot universiteti,UZ,Tashkent,,1920,1919|1931,tashmeduni.uz,,medium,Wikidata entry is wrong; founding year uncertain,random
+ror_01hz4v948,National Institute of Technology Karnataka,NITK|Karnataka Regional Engineering College,IN,Surathkal,Mangaluru|Mangalore,1960,,nitk.ac.in,nitk.edu.in,high,,conflict: city
+ror_057d6z539,Chitkara University,"Chitkara University, Punjab",IN,Rajpura,Chandigarh|Patiala,2010,2002|2008,chitkara.edu.in,,medium,,conflict: founding_year
+ror_03ysk5e42,University of Suwon,수원대학교,KR,Hwaseong,Hwaseong-si,1977,,suwon.ac.kr,,high,,random
+ror_000xsnr85,University of the Basque Country,Euskal Herriko Unibertsitatea|Universidad del País Vasco|UPV/EHU,ES,Leioa,Lejona,1980,,ehu.eus,ehu.es,high,,random
+ror_004y7f915,Universiti Teknologi Brunei,University of Technology Brunei|UTB|Institut Teknologi Brunei,BN,Bandar Seri Begawan,,1986,1982,utb.edu.bn,itb.edu.bn,high,Formerly Institut Teknologi Brunei,conflict: domain
+ror_00m007a06,Shitennoji University,International Buddhist University|四天王寺大学,JP,Habikino,Osaka,1922,1967,shitennoji.ac.jp,,medium,"Campus in Habikino, Osaka",conflict: city
+ror_0483s5p06,Longyan University,龙岩学院,CN,Longyan,,1958,,lyun.edu.cn,,high,,random
+ror_05k9vmz93,Hochschule für Telekommunikation Leipzig,Leipzig University of Telecommunications|HfTL,DE,Leipzig,,1991,1953|1954,hft-leipzig.de,,medium,Traces origins to 1953/54 predecessor,conflict: name
+ror_005zfy155,Kayseri University,Kayseri Üniversitesi,TR,Kayseri,,2018,,kayseri.edu.tr,,high,,conflict: name
+ror_01pxkj057,TH Bingen University of Applied Sciences,Technische Hochschule Bingen|Bingen University of Applied Sciences,DE,Bingen am Rhein,Büdesheim|Bingen,1897,,th-bingen.de,,high,,conflict: name
+ror_05y5g2a51,Northern Lithuania College,Šiaurės Lietuvos kolegija,LT,Šiauliai,Siauliai,2001,,slk.lt,,high,,random
+ror_04yh52k23,KLE Technological University,KLE Tech|B.V. Bhoomaraddi College of Engineering and Technology|BVBCET,IN,Hubballi,Hubli|Dharwad,1947,2015,kletech.ac.in,,high,1947 is BVB College origin; 2015 university status,conflict: founding_year
+ror_00sew4x53,Odlar Yurdu University,Odlar Yurdu Universiteti,AZ,Baku,,1995,,oyu.edu.az,,high,,random
+ror_03jkshc47,Medical University of Varna,"Varna Medical University ""Prof. Dr. Paraskev Stoyanov""|Медицински университет „Проф. д-р Параскев Стоянов“ – Варна|MU-Varna",BG,Varna,,1961,,mu-varna.bg,,high,,random
+ror_02gv1gw80,Midlands State University,MSU,ZW,Gweru,,1999,2000|1993,msu.ac.zw,ww5.msu.ac.zw,medium,"Opened 1999, Act of 2000",conflict: founding_year
+ror_007y6q934,Université TÉLUQ,TÉLUQ University|TELUQ University|Télé-université,CA,Quebec City,Québec|Quebec,1972,,teluq.ca,,high,,random
+ror_00cdwva22,All Nations University,All Nations University College|ANU,GH,Koforidua,,1996,2002|2005,anu.edu.gh,anuc.edu.gh|allnationsuniversity.org,medium,First students 2002; university status 2020,random
+ror_04cbvzp68,National Institute of Technology Nagaland,NIT Nagaland,IN,Dimapur,Chümoukedima|Chumukedima|Dimāpur,2010,,nitnagaland.ac.in,,medium,"Wikidata record is ICFAI University Nagaland, wrong match",conflict: city
+ror_00g0t4m04,Japanese Red Cross College of Nursing,日本赤十字看護大学,JP,Tokyo,Shibuya,1890,1864,redcross.ac.jp,,medium,Predecessor school 1890; ROR 1864 is Red Cross origin,conflict: founding_year
+ror_03spqk736,Haute École de Commerce et de Management,HECM|HECM Bénin,BJ,Cotonou,,1999,2000,hecm-afrique.net,,medium,"Wikidata record is Institut International de Management, likely different",conflict: name
+ror_00376bg92,University of Guam,Unibetsedåt Guåhan|UOG|Territorial College of Guam,GU,Mangilao,Mangilao Village,1952,,uog.edu,,high,Country GU (Guam); Wikidata says US,conflict: country
+ror_050pq4m56,Universiti Tunku Abdul Rahman,Tunku Abdul Rahman University|UTAR,MY,Kampar,Kajang|Sungai Long|Petaling Jaya,2002,,utar.edu.my,,medium,Campuses in Kampar and Sungai Long (Kajang),conflict: city
+ror_04yy24g58,EPLEFPA Le Valentin – Valence,EPLEFPA Le Valentin|Lycée Le Valentin,FR,Bourg-lès-Valence,Valence|Bourg-les-Valence,,,levalentin.education,,medium,"Wikidata record is the historic University of Valence, wrong match",conflict: name
+ror_0343j7r38,The NorthCap University,"NCU|ITM University, Gurgaon|ITM University Gurgaon",IN,Gurugram,Gurgaon,1996,2009,ncuindia.edu,,high,Formerly ITM University; renamed 2014,random
+ror_05nts8k62,Akademi Keperawatan Karya Bhakti Nusantara,AKPER Karya Bhakti Nusantara|Akper KBN|Akademi Keperawatan Karya Bhakti Nusantara Magelang,ID,Magelang,,1994,,akperkbn.ac.id,,medium,"Wikidata record is Politeknik Muhammadiyah Magelang, wrong match",conflict: founding_year
+ror_05m8qn763,WSB Merito University in Wrocław,WSB Merito University Wroclaw|Uniwersytet WSB Merito we Wrocławiu|Wyższa Szkoła Bankowa we Wrocławiu,PL,Wrocław,Wroclaw,1998,,merito.pl,wsb.pl,high,Rebranded from WSB to WSB Merito,random
+ror_001w4ps18,Tula State Pedagogical University named after L.N. Tolstoy,Tula State Pedagogical University|Тульский государственный педагогический университет имени Л. Н. Толстого,RU,Tula,,1938,,tsput.ru,,high,,random
+ror_0225xqg83,Sarala Birla University,Sarla Birla University,IN,Ranchi,,2017,,sbu.ac.in,,high,,random
+ror_04p2bt406,Maharaja Chhatrasal Bundelkhand University,महाराजा छत्रसाल बुंदेलखंड विश्वविद्यालय|MCBU,IN,Chhatarpur,Chhatarpur district,2015,2014,mcbu.ac.in,mchhatrasaluniversity.com,medium,,conflict: founding_year
+ror_03rfycd69,Aliah University,Mohammedan College of Calcutta|Calcutta Madrasa|আলিয়া বিশ্ববিদ্যালয়,IN,Kolkata,Calcutta|New Town,1780,1781|2008,aliah.ac.in,,high,Origin in Calcutta Madrasa 1780; university status 2008,conflict: city
+ror_02saqjz85,Chukyo Gakuin University,中京学院大学,JP,Nakatsugawa,,1966,1993|1986|1962,chukyogakuin-u.ac.jp,,medium,"Founding year disputed; junior college 1966, university later",random
+ror_01jc4j574,Chaudhary Devi Lal University,Ch. Devi Lal University|CDLU|चौधरी देवी लाल युनिवर्सिटी,IN,Sirsa,,2003,,cdlu.ac.in,,high,,random
+ror_0358d0w14,Antioch University Santa Barbara,AUSB,US,Santa Barbara,,1977,,antioch.edu,antiochsb.edu,medium,Now part of Antioch University system,random
+ror_02w4tny03,Shanghai University of Electric Power,上海电力学院|上海电力大学|SHIEP,CN,Shanghai,Yangpu,1951,,shiep.edu.cn,,high,Renamed 2021 from College to University,random
+ror_03cb6na95,University of International Golden Indonesia,International Golden Institute|STIE IGI|Universitas International Golden Indonesia,ID,Jakarta,,1983,,stie-igi.ac.id,stie-igi.info,medium,Renamed from International Golden Institute,random
+ror_04mk5mk38,Cyprus International University,Uluslararası Kıbrıs Üniversitesi|CIU,CY,Nicosia,Lefkoşa|Haspolat,1997,,ciu.edu.tr,,high,Located in Northern Cyprus,random
+ror_024z2rq82,Heinrich Heine University Düsseldorf,Heinrich-Heine-Universität Düsseldorf|University of Düsseldorf|HHU,DE,Düsseldorf,Dusseldorf,1965,1907,hhu.de,uni-duesseldorf.de,high,Medical Academy 1907 predecessor,random
+ror_03hv1ad10,Akita University,秋田大学|Akita Daigaku,JP,Akita,,1949,,akita-u.ac.jp,,high,,random
+ror_01xvjzz02,Organization for Educational Research and Planning,OERP|سازمان پژوهش و برنامه ریزی آموزشی,IR,Tehran,,1980,,oerp.ir,,medium,"Wikidata record is Institute for Humanities and Cultural Studies, wrong match",conflict: domain
+ror_035t7rn63,Lorestan University of Medical Sciences,LUMS|دانشگاه علوم پزشکی و خدمات بهداشتی درمانی لرستان,IR,Khorramabad,,1986,,lums.ac.ir,,medium,,random
+ror_04gfeaw48,Southern Utah University,SUU|Southern Utah State College,US,Cedar City,,1897,,suu.edu,,high,,random
+ror_00965ax52,Kyoto Institute of Technology,京都工芸繊維大学|Kyōto Kōgei Sen'i Daigaku|KIT,JP,Kyoto,,1949,1899|1902,kit.ac.jp,,high,Predecessor schools 1899 and 1902,random
+ror_01ma17032,Saint Petersburg Mining University,Empress Catherine II Saint Petersburg Mining University|St. Petersburg Mining University|Санкт-Петербургский горный университет,RU,Saint Petersburg,St Petersburg|St. Petersburg,1773,,spmi.ru,,high,,random
+ror_00wb8n271,Private University College of Education of the Diocese of Linz,Private Pädagogische Hochschule der Diözese Linz|PH Linz|PHDL,AT,Linz,,1968,2007,phdl.at,,medium,Predecessor academy 1968; university college status 2007,conflict: founding_year
+ror_012abpm49,Universitas Teknologi Akba Makassar,UNITAMA,ID,Makassar,,2022,,unitama.ac.id,,medium,"Wikidata record is Universitas Dipa Makassar, wrong match",conflict: founding_year
+ror_03psjxz30,Hanoi University of Pharmacy,Trường Đại học Dược Hà Nội|Ha Noi University of Pharmacy|HUP,VN,Hanoi,Ha Noi,1902,1961,hup.edu.vn,,high,Origin 1902 Indochina Medicine School; independent 1961,conflict: founding_year
+ror_01j99nc54,Irkutsk State University,Иркутский государственный университет|ISU,RU,Irkutsk,,1918,,isu.ru,,high,,random
+ror_03wzjfj77,Universiti Geomatika Malaysia,Geomatika University College|UGM,MY,Kuala Lumpur,,2000,2014,geomatika.edu.my,,medium,Started 2000; university status 2014,conflict: founding_year
+ror_01skt4w74,Beijing Institute of Technology,北京理工大学|BIT,CN,Beijing,,1940,,bit.edu.cn,,high,,random
+ror_02qqpde61,Universitas Jenderal Achmad Yani Yogyakarta,University of General Achmad Yani Yogyakarta|UNJAYA,ID,Yogyakarta,Sleman|Gamping,2018,,unjaya.ac.id,,medium,,conflict: name
+ror_03n6nwv02,Technical University of Madrid,Polytechnic University of Madrid|Universidad Politécnica de Madrid|UPM,ES,Madrid,,1971,,upm.es,,high,,conflict: name
+ror_05ne3s142,Alferov Saint Petersburg National Research Academic University of the Russian Academy of Sciences,Saint Petersburg Academic University|Alferov University|Санкт-Петербургский академический университет,RU,Saint Petersburg,St Petersburg|Kalininsky District,1997,,spbau.ru,,medium,Renamed in honour of Zhores Alferov,random
+ror_045daqm47,Universitas Nurul Huda,Nurul Huda University|UNUHA|STKIP Nurul Huda,ID,Martapura,,1998,2021,unuha.ac.id,,medium,Predecessor college 1998; university status 2021,conflict: founding_year
+ror_04qf03327,Republic Polytechnic,共和理工學院|Politeknik Republik|RP,SG,Singapore,Woodlands,2002,,rp.edu.sg,,high,,conflict: city
+ror_0416mbc73,College of Physicians of Philadelphia,,US,Philadelphia,,1787,,collegeofphysicians.org,,medium,"Wikidata and DEQAR records are other institutions, wrong match",conflict: name
+ror_001ws2a36,National Institute of Technology Silchar,"NIT Silchar|National Institute of Technology, Silchar|Regional Engineering College Silchar",IN,Silchar,,1967,,nits.ac.in,,high,,random
+ror_0075gfd51,Loyola University Andalusia,Universidad Loyola Andalucía|Loyola University Andalucía,ES,Seville,Sevilla|Dos Hermanas,2010,2011,uloyola.es,,high,,conflict: city
+ror_04qkb5e79,"Manipal-Tata Medical College, Jamshedpur","Tata Medical College, Jamshedpur|MTMC Jamshedpur",IN,Jamshedpur,,2020,2021,manipal.edu,,medium,"Wikidata record is Jamshedpur Co-operative College, wrong match",conflict: name
+ror_049sfwc36,National Intelligence University,Joint Military Intelligence College|National Defense Intelligence College|NIU,US,Washington,"Washington, D.C.|Bethesda",1962,1961,ni-u.edu,,medium,Origin as Defense Intelligence School,conflict: city
+ror_01pqwjq49,Universitas Merdeka Surabaya,Merdeka University Surabaya|UNMERBAYA|Unmer Surabaya,ID,Surabaya,,2003,1984|1945,unmerbaya.ac.id,umer.ac.id,medium,Founding year disputed across sources,conflict: domain
+ror_03e2ja558,Togliatti State University,Тольяттинский государственный университет|TSU,RU,Tolyatti,Togliatti,1951,2001,tltsu.ru,,high,University status 2001; origin 1951,conflict: founding_year
+ror_02r0wp596,SUNY Ulster,Ulster County Community College,US,Stone Ridge,,1961,,sunyulster.edu,,high,"Wikidata record is Orange County Business College, wrong match",conflict: city
+ror_052egrr51,Universidad del Pedregal,University of Pedregal|UP,MX,Mexico City,Ciudad de México,1990,,upedregal.edu.mx,,medium,,random
+ror_044ysd349,Hunan Institute of Science and Technology,湖南理工学院|Hunan Polytechnic University,CN,Yueyang,,1903,2004,hnist.edu.cn,hnist.cn,medium,2004 is university status year,random
+ror_05phyf558,University of Puerto Rico at Carolina,Universidad de Puerto Rico en Carolina|UPR Carolina|UPR-Carolina|Colegio Regional de Carolina,PR,Carolina,,1974,,uprc.edu,,high,Wikidata country US is wrong; ISO code PR,conflict: country
+ror_00qz2zp29,College of Strategic Planning in Dąbrowa Górnicza,Wyższa Szkoła Planowania Strategicznego|Wyższa Szkoła Planowania Strategicznego w Dąbrowie Górniczej|High School of Strategic Planning in Dabrowa Górnicza,PL,Dąbrowa Górnicza,Dabrowa Gornicza,2004,,wsps.pl,,high,,conflict: name
+ror_01qq6yz91,Manila Central University,Manila Central Colleges|Manila College of Pharmacy,PH,Caloocan,Caloocan City|Caloc-an,1904,,mcu.edu.ph,,high,,random
+ror_04mbdq019,Benito Juárez Autonomous University of Oaxaca,Universidad Autónoma Benito Juárez de Oaxaca|UABJO,MX,Oaxaca de Juárez,Oaxaca City|Oaxaca,1827,1955,uabjo.mx,,high,1955 is university status year,conflict: city
+ror_036agwg70,Duta Wacana Christian University,Universitas Kristen Duta Wacana|UKDW,ID,Yogyakarta,,1962,,ukdw.ac.id,,high,,conflict: name
+ror_05ryaaw10,College of Healthcare Management,保健医療経営大学|Hoken iryou keiei daigaku,JP,Miyama,Fukuoka,2008,,healthcare-m.ac.jp,,high,"Located in Miyama, Fukuoka Prefecture",conflict: city
+ror_04zyhq975,Heilongjiang University,黑龙江大学|Hēilóngjiāng Dàxué,CN,Harbin,,1941,,hlju.edu.cn,,high,DEQAR website tsu.ru is wrong,random
+ror_05q87sg56,Saint Joseph's University,St. Joseph's University|SJU|St. Joe's,US,Philadelphia,Lower Merion Township,1851,,sju.edu,,high,,random
+ror_04x17yn39,Universidad Dominicana Organización & Métodos,O&M University|Dominican University Organization & Method|Universidad Dominicana O&M,DO,Santo Domingo,,1966,,udoym.edu.do,,high,,conflict: name
+ror_00tnby758,V. A. Graičiūnas School of Management,Graiciunas School of Management|V. A. Graičiūno aukštoji vadybos mokykla,LT,Kaunas,,1993,,avm.lt,,high,,conflict: name
+ror_01mwwwn80,Royal Conservatoire The Hague,Royal Conservatory The Hague|Royal Conservatory of The Hague|Koninklijk Conservatorium,NL,The Hague,Den Haag,1826,,koncon.nl,,high,,random
+ror_03d73xf49,Universidad Iberoamericana Torreón,Ibero-American University of Torreón|Ibero Torreón,MX,Torreón,,1982,,iberotorreon.mx,iberotorreon.edu.mx,high,Wikidata city Saltillo is wrong,conflict: domain
+ror_02nsv5p42,Pandit Deendayal Energy University,Pandit Deendayal Petroleum University|PDEU|PDPU,IN,Gandhinagar,,2007,,pdeu.ac.in,pdpu.ac.in,high,Renamed from Petroleum University,conflict: domain
+ror_02s5yma07,Himachal Pradesh University,HPU Shimla,IN,Shimla,Simla,1970,,hpuniv.ac.in,hpuniv.nic.in,medium,,conflict: founding_year
+ror_02cafbr77,Pontifical Catholic University of Valparaíso,Pontificia Universidad Católica de Valparaíso|PUCV|Universidad Católica de Valparaíso,CL,Valparaíso,,1928,1925,pucv.cl,ucv.cl,medium,,conflict: founding_year
+ror_0113v9j97,Hesse University of Applied Sciences for Public Management and Security,Hessische Hochschule für öffentliches Management und Sicherheit|HöMS,DE,Wiesbaden,,2022,1980,hoems.hessen.de,,medium,Merged 2022; Wikidata item is predecessor,conflict: city
+ror_00em04n91,Moscow State University of Civil Engineering,Московский государственный строительный университет|MGSU|National Research Moscow State University of Civil Engineering,RU,Moscow,,1921,,mgsu.ru,,high,,random
+ror_05dk0ce17,Washington State University,WSU,US,Pullman,,1890,,wsu.edu,,high,Wikidata year 1959 is wrong,conflict: founding_year
+ror_02d0tyt78,Silpakorn University,มหาวิทยาลัยศิลปากร|Mahawitthayalai Sinlapakon,TH,Bangkok,,1943,,su.ac.th,,high,,random
+ror_01bwbjs64,Santo Thomas Catholic University,Universitas Katolik Santo Thomas|Catholic University of St. Thomas|UKST,ID,Medan,,1984,,ust.ac.id,,medium,,random
+ror_0355d9b09,Munich University of Applied Languages,Hochschule für Angewandte Sprachen|Sprachen & Dolmetscher Institut München|SDI München,DE,Munich,München,1952,2006,sdi-muenchen.de,,high,2006 is university-of-applied-sciences status,conflict: name
+ror_02prqh017,Holon Institute of Technology,HIT|Center for Technological Education Holon|Holon Academic Institute of Technology,IL,Holon,,1969,2000,hit.ac.il,,high,2000 is academic institution recognition,conflict: founding_year
+ror_001nta019,National Institute of Applied Sciences of Strasbourg,INSA Strasbourg|Institut national des sciences appliquées de Strasbourg,FR,Strasbourg,,1875,,insa-strasbourg.fr,,high,Wikidata item is a different university,conflict: name
+ror_03jtrja12,Kütahya Dumlupınar University,Kütahya Dumlupınar Üniversitesi|Dumlupınar Üniversitesi,TR,Kütahya,,1992,1974,dpu.edu.tr,dumlupinar.edu.tr,high,1974 is predecessor faculty origin,random
+ror_05spgdz37,Universidad Autónoma de La Laguna,Autonomous University of La Laguna|UAL,MX,Torreón,,1988,,ual.mx,ual.com.mx,high,,conflict: domain
+ror_03d7sax13,South Central Minzu University,South Central University for Nationalities|中南民族大学,CN,Wuhan,,1951,,scuec.edu.cn,,high,,random
+ror_04kh7mx79,Polytechnic in Požega,Veleučilište u Požegi|Polytechnic of Požega,HR,Požega,,1998,,vup.hr,,high,,random
+ror_04z5xnd65,Ion Mincu University of Architecture and Urbanism,Universitatea de Arhitectură și Urbanism „Ion Mincu”|UAUIM|Ion Mincu University of Architecture and Urban Planning,RO,Bucharest,București,1892,1948|1952,uauim.ro,,high,,conflict: founding_year
+ror_00gz03w45,West Pomeranian Business School in Szczecin,Zachodniopomorska Szkoła Biznesu w Szczecinie|Zachodniopomorska Szkoła Biznesu - Akademia Nauk Stosowanych,PL,Szczecin,,1993,,zpsb.pl,,high,Wikidata item is a different school,random
+ror_01nrk6j30,MingDao University,Mingdao University|明道大學,TW,Pitou,Bitou|Pitou Township|Changhua,2001,1997,mdu.edu.tw,eng.mdu.edu.tw,medium,,random
+ror_04q0nep37,International Telematic University UNINETTUNO,Università Telematica Internazionale UNINETTUNO|UniNettuno|International Online University UNINETTUNO,IT,Rome,Roma,2005,,uninettunouniversity.net,,high,,random
+ror_03jqs2n27,Macau University of Science and Technology,MUST|Universidade de Ciência e Tecnologia de Macau,MO,Macau,Macao,2000,,must.edu.mo,,high,Wikidata country CN is wrong,conflict: country
+ror_037cv0p78,Sekolah Tinggi Ilmu Ekonomi YKP,STIE YKP Yogyakarta|STIE YKP,ID,Yogyakarta,Bantul|Kasihan,1972,1996,stieykp.ac.id,,medium,,conflict: founding_year
+ror_03q9sr818,Federal University of Pará,Universidade Federal do Pará|UFPA,BR,Belém,,1957,,ufpa.br,portal.ufpa.br,high,,random
+ror_0107nyd78,,,,,,,,,,low,Tübingen AI Center vs church music college: mismatched sources,conflict: domain
+ror_030t96b35,Lebanese French University,LFU|BMU Lebanese French University,IQ,Erbil,Hewlêr|Arbil,2007,,lfu.edu.krd,,high,,random
+ror_03kzgzp82,Giuseppe Tartini Conservatory of Music,Conservatorio di Musica Giuseppe Tartini|Conservatorio Giuseppe Tartini di Trieste,IT,Trieste,,1903,1932,conservatorio.trieste.it,,medium,,conflict: founding_year
+ror_04r72en83,University of International Relations,国际关系学院|UIR,CN,Beijing,,1949,,uir.edu.cn,uir.cn,high,Wikidata city is a subdistrict,random
+ror_01fva0642,"University of Frontier Technology, Bangladesh",Bangabandhu Sheikh Mujibur Rahman Digital University|Gazipur Digital University|UFTB,BD,Gazipur,Kaliakair,2016,2018,uftb.ac.bd,bdu.ac.bd,medium,Renamed from BSMR Digital University,random
+ror_05wgsx832,Kkottongnae University,Catholic Kkottongnae University|꽃동네대학교,KR,Cheongju,Cheongju-si,1997,1998,kkot.ac.kr,eng.kkot.ac.kr,medium,,conflict: domain
+ror_025wndx93,University of Parakou,Université de Parakou|UP,BJ,Parakou,,2001,,univ-parakou.bj,univ-parakou.com,high,,conflict: domain
+ror_0596wkf93,Centro Universitario de la Defensa en la Escuela Naval Militar,Defense University Center at the Spanish Naval Academy|CUD Vigo|CUD Marín,ES,Marín,Marín (Pontevedra),2010,,cud.uvigo.es,cud.uvigo.gal,medium,,random
+ror_05tt0as29,Tohto University,Tohto College of Health Sciences|東都大学|東都医療大学,JP,Fukaya,Fukayachō,2009,,tohto.ac.jp,,medium,Renamed from Tohto College of Health Sciences,random
+ror_035ghve61,Velika Gorica University of Applied Sciences,Veleučilište Velika Gorica|Polytechnic Velika Gorica|University of Applied Sciences Velika Gorica,HR,Velika Gorica,,2004,2003,vvg.hr,,medium,ROR city Donji grad is wrong,conflict: name
+ror_043mz5j54,"University of California, San Francisco",UCSF|UC San Francisco,US,San Francisco,,1864,1873,ucsf.edu,,high,1873 is affiliation with UC,conflict: founding_year
+ror_010acrp16,University of West Alabama,UWA|Livingston Female Academy,US,Livingston,,1835,,uwa.edu,,high,,random
+ror_05e9f5362,Shanxi Agricultural University,山西农业大学|SXAU,CN,Taigu,Jinzhong|Mingxing|Xiaodian,1907,,sxau.edu.cn,,medium,"Seat in Taigu, Jinzhong",random
+ror_026873d40,"Indian Institute of Information Technology, Sri City","IIIT Sri City|IIITS|Indian Institute of Information Technology Sri City, Chittoor",IN,Sri City,Chittoor|Tirupati,2013,,iiits.in,iiits.ac.in,high,,conflict: domain
+ror_059mp4e63,Donbas State Pedagogical University,Донбаський державний педагогічний університет|Sloviansk State Pedagogical University,UA,Sloviansk,Slovyansk,1939,1949,ddpu.edu.ua,,medium,,conflict: city

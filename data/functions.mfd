@@ -122,7 +122,7 @@
 								</entry>
 							</entry>
 						</root>
-						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="deqar_institutions.csv">
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="deqar/deqar_institutions.csv">
 							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
 								<names root="Text file" block="Rows">
 									<field0 name="deqar_id" type="string"/>

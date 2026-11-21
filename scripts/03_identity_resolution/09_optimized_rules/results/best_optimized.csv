@@ -1,0 +1,3 @@
+pair,configuration,global_matching,split,threshold,precision,recall,f1,correspondences,names_best_jaro_winkler,country,domain,city,year,geo,training_f1,seconds_total
+wikidata-ror,grid_084,greedy,validation,0.1,0.9921259842519685,0.9130434782608695,0.950943396226415,19872,0.0,0.2,0.4,0.2,0.0,0.2,0.9128919860627178,95.8
+deqar-ror,grid_085,greedy,validation,0.4,0.9923076923076923,0.9148936170212766,0.952029520295203,4786,0.0,0.2,0.4,0.2,0.2,0.0,0.9455782312925171,30.2

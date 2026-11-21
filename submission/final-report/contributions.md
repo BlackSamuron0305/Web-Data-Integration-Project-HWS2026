@@ -2,7 +2,7 @@
 
 | Team member | Phase I (data, schema, translation) | Phase II (identity resolution) | Phase III (fusion) | Report / presentation |
 |---|---|---|---|---|
-| Laith Sandouk | | | | |
+| Laith Philipp Sandouk | | | | |
 | Mohammad Hadad | | | | |
 | Sanjeevani Rajpurohit | | | | |
 | Chellapuram Keerthan Reddy | | | | |

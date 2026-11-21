@@ -1,0 +1,2 @@
+round,pair,matcher,threshold,F1,seconds
+7,deqar-ror,"rule: all attributes (+ year, position)",0.6,0.9070631970260222,30.5

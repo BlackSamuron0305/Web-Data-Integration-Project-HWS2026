@@ -1,0 +1,7 @@
+pair,version,P,R,F1,TP,FP,FN,test_pairs,links
+wikidata-ror,"run 1, all records",0.986,0.917,0.95,143,2,13,461,14824
+wikidata-ror,"run 1, removed records dropped after matching",0.986,0.917,0.95,143,2,13,461,13670
+wikidata-ror,"run 2, matched again without removed records",0.993,0.897,0.943,140,1,16,461,12995
+deqar-ror,"run 1, all records",0.987,0.91,0.947,152,2,15,502,4714
+deqar-ror,"run 1, removed records dropped after matching",0.987,0.91,0.947,152,2,15,502,4663
+deqar-ror,"run 2, matched again without removed records",0.987,0.922,0.954,154,2,13,502,4805
