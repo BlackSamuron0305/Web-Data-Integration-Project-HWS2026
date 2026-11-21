@@ -14,7 +14,7 @@ For every run: match with Rule1 (as in standard_blocking.py), choose the thresho
 train_data, report P/R/F1, #Corr and time (blocking + matching) on validation_data.
 
 Output: results/name_country_blocking_validation.csv, results/logs/name_country_blocking.log
-Run (after gold_standard.py): python scripts/name_country_blocking.py
+Run (after gold_standard.py): python scripts/snm_name_country_blocking.py
 """
 import logging
 

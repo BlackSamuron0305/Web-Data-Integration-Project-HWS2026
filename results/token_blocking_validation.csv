@@ -1,0 +1,22 @@
+pair,matcher,blocker,candidates,reduction_ratio,note,pair_completeness,threshold,train_f1,precision,recall,f1,tp,fp,fn,corr,block_s,match_s,time_s
+wikidata-ror,-,"Token: name, all words",236624622,0.653999,"not run: 236,624,622 pairs (estimate)",,,,,,,,,,,,,
+wikidata-ror,Rule1: names+country+domain,"Token: name, distinctive",353744,0.999483,,0.9318,0.7,0.9376,0.9891,0.9181,0.9523,2544.0,28.0,227.0,13144.0,0.5,22.5,22.9
+wikidata-ror,-,"Token: all names, all words",331789060,0.514846,"not run: 331,789,060 pairs (estimate)",,,,,,,,,,,,,
+wikidata-ror,Rule1: names+country+domain,"Token: all names, distinctive",519293,0.999241,,0.9765,0.7,0.9627,0.9823,0.9625,0.9723,2667.0,48.0,104.0,15713.0,0.5,35.0,35.5
+wikidata-ror,Rule1: names+country+domain,"Token: all names, country-scoped",543923,0.999205,,0.9845,0.7,0.9688,0.9839,0.9722,0.978,2694.0,44.0,77.0,15948.0,0.7,36.7,37.4
+wikidata-ror,Rule1: names+country+domain,"Token: city, distinctive",214977,0.999686,,0.7099,0.69,0.8114,0.9863,0.699,0.8182,1937.0,27.0,834.0,9712.0,0.2,13.8,13.9
+wikidata-ror,Rule1: names+country+domain,"Token: web domain, distinctive",124495,0.999818,,0.891,0.7,0.9188,0.9773,0.8863,0.9296,2456.0,57.0,315.0,13111.0,0.2,8.1,8.3
+deqar-ror,-,"Token: name, all words",90589662,0.66516,"not run: 90,589,662 pairs (estimate)",,,,,,,,,,,,,
+deqar-ror,Rule1: names+country+domain,"Token: name, distinctive",162686,0.999399,,0.8768,0.69,0.8958,0.9779,0.8348,0.9007,576.0,13.0,114.0,4127.0,0.2,10.1,10.3
+deqar-ror,-,"Token: all names, all words",122085252,0.548745,"not run: 122,085,252 pairs (estimate)",,,,,,,,,,,,,
+deqar-ror,Rule1: names+country+domain,"Token: all names, distinctive",241538,0.999107,,0.9739,0.69,0.9392,0.9725,0.9217,0.9464,636.0,18.0,54.0,4654.0,0.3,15.3,15.6
+deqar-ror,Rule1: names+country+domain,"Token: all names, country-scoped",181430,0.999329,,0.9841,0.7,0.9447,0.9787,0.9333,0.9555,644.0,14.0,46.0,4683.0,0.4,12.1,12.5
+deqar-ror,Rule1: names+country+domain,"Token: city, distinctive",66011,0.999756,,0.7406,0.67,0.8296,0.9702,0.7087,0.8191,489.0,15.0,201.0,3432.0,0.1,4.7,4.8
+deqar-ror,Rule1: names+country+domain,"Token: web domain, distinctive",57893,0.999786,,0.9203,0.7,0.908,0.9519,0.8899,0.9199,614.0,31.0,76.0,5036.0,0.2,3.9,4.2
+wikidata-deqar,-,"Token: name, all words",83839430,0.588612,"not run: 83,839,430 pairs (estimate)",,,,,,,,,,,,,
+wikidata-deqar,Rule1: names+country+domain,"Token: name, distinctive",137638,0.999325,,0.9488,0.68,0.9214,0.9856,0.9176,0.9504,412.0,6.0,37.0,3179.0,0.3,8.3,8.6
+wikidata-deqar,-,"Token: all names, all words",98256905,0.517867,"not run: 98,256,905 pairs (estimate)",,,,,,,,,,,,,
+wikidata-deqar,Rule1: names+country+domain,"Token: all names, distinctive",193137,0.999052,,0.98,0.7,0.9435,0.9861,0.9465,0.9659,425.0,6.0,24.0,3254.0,0.3,11.9,12.3
+wikidata-deqar,Rule1: names+country+domain,"Token: all names, country-scoped",117311,0.999424,,0.9755,0.7,0.9468,0.9907,0.9488,0.9693,426.0,4.0,23.0,3292.0,0.3,7.5,7.9
+wikidata-deqar,Rule1: names+country+domain,"Token: city, distinctive",43566,0.999786,,0.7372,0.68,0.8289,0.9938,0.7171,0.8331,322.0,2.0,127.0,2306.0,0.1,2.7,2.8
+wikidata-deqar,Rule1: names+country+domain,"Token: web domain, distinctive",57278,0.999719,,0.931,0.68,0.9344,0.9833,0.9176,0.9493,412.0,7.0,37.0,3661.0,0.2,3.5,3.7
