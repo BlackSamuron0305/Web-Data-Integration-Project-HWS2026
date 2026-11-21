@@ -7,12 +7,12 @@ they are not taken from one of the three sources. The anchor is the ROR record o
 university, the group of records that describe it in the three datasets comes from the
 correspondences of Phase II.
 
-Run (after phase2_final.py): python scripts/build_fusion_gold.py
+Run (after final_matching.py): python scripts/build_fusion_gold.py
 """
 import pandas as pd
 
 from common import DATA, load_target, norm_text
-from phase3_fusion import PAIRS, constrained_groups
+from data_fusion import PAIRS, constrained_groups
 
 # query name in ROR, country code, city, other accepted spellings of the city, founding year,
 # main domain, other accepted domains, other accepted names

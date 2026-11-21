@@ -1,11 +1,11 @@
 """Phase II, step 3: runs the best matcher of each dataset pair on all candidate pairs.
 
 Uses PyDI's MLBasedMatcher (or RuleBasedMatcher if a rule won) with the model chosen in
-phase2_matching.py, then compares PyDI's post-clustering algorithms that enforce a
+matching_experiments.py, then compares PyDI's post-clustering algorithms that enforce a
 one-to-one mapping. Writes the correspondences used for data fusion, the evaluation of
 the post-clustering and a sample of unlabelled correspondences for manual checking.
 
-Run (after phase2_matching.py): python scripts/phase2_final.py
+Run (after matching_experiments.py): python scripts/final_matching.py
 """
 import json
 import time
@@ -23,7 +23,7 @@ from PyDI.entitymatching import (
 from blocking import add_block_text
 from common import DATA, RESULTS, load_target
 from matching import feature_comparators, named
-from phase2_matching import CACHE, PAIRS, SEED, gold_features, models, prf
+from matching_experiments import CACHE, PAIRS, SEED, gold_features, models, prf
 
 OUT = DATA / "correspondences"
 OUT.mkdir(exist_ok=True)

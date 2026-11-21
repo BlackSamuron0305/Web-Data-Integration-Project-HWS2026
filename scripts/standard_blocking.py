@@ -11,7 +11,7 @@ For every dataset pair and every standard blocker (PyDI StandardBlocker, equalit
 "No blocking" is listed with its number of pairs only: comparing all pairs is infeasible.
 
 Output: results/standard_blocking_validation.csv
-Run (after gold_standard.py): python scripts/phase2_standard_blocking.py
+Run (after gold_standard.py): python scripts/standard_blocking.py
 """
 import logging
 import time

@@ -4,7 +4,7 @@ Measures pair completeness (share of the linked pairs that survive blocking), re
 ratio (share of all possible pairs that is not compared) and the number of candidate pairs.
 Saves the candidates of the chosen strategy for the next steps.
 
-Run: python scripts/phase2_blocking.py
+Run: python scripts/blocking_comparison.py
 """
 import time
 

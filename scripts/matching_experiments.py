@@ -10,7 +10,7 @@ standard and reported on the test part.
 Metrics follow PyDI's EntityMatchingEvaluator: a predicted pair is a false positive only if
 the gold standard labels it as a non-match; matches that blocking lost count as missed.
 
-Run (after phase2_blocking.py and gold_standard.py): python scripts/phase2_matching.py
+Run (after blocking_comparison.py and gold_standard.py): python scripts/matching_experiments.py
 """
 import json
 

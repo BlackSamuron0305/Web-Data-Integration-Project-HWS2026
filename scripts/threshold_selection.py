@@ -8,14 +8,14 @@ the precision and recall on the gold standard (test part, after greedy one-to-on
 and the share of correct pairs in the hand-checked sample, and then applies the chosen
 threshold to all correspondences.
 
-Run (after phase2_final.py): python scripts/phase2_threshold.py
+Run (after final_matching.py): python scripts/threshold_selection.py
 """
 import pandas as pd
 from PyDI.entitymatching import GreedyOneToOneMatchingAlgorithm
 
 from common import DATA, RESULTS
-from phase2_final import metrics
-from phase2_matching import CACHE, PAIRS
+from final_matching import metrics
+from matching_experiments import CACHE, PAIRS
 
 FINAL_THRESHOLD = 0.8
 GRID = [0.5, 0.6, 0.7, 0.8, 0.9, 0.95]

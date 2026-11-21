@@ -1,6 +1,6 @@
 """Phase II: which comparators matter and which gold-standard matches the final matcher misses.
 
-Run (after phase2_final.py): python scripts/analysis_errors.py
+Run (after final_matching.py): python scripts/analysis_errors.py
 """
 import json
 
@@ -8,7 +8,7 @@ import pandas as pd
 
 from common import DATA, RESULTS, load_target
 from matching import feature_comparators
-from phase2_matching import CACHE, PAIRS, models
+from matching_experiments import CACHE, PAIRS, models
 
 
 def main():

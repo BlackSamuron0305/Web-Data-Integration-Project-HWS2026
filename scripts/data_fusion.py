@@ -7,7 +7,7 @@
 3. Fuses everything with the best strategy per attribute and measures the quality and
    completeness of the fused dataset.
 
-Run (after phase2_final.py and build_fusion_gold.py): python scripts/phase3_fusion.py
+Run (after final_matching.py and build_fusion_gold.py): python scripts/data_fusion.py
 """
 import json
 

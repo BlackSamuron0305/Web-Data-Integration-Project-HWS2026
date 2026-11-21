@@ -25,7 +25,7 @@ non-matches are drawn inside each set. The sets are used as
 Output: data/gold_standard/{train,validation,test}_data_<a>_<b>.csv
         (columns id1, id2, label, kind, split) and results/gold_standard_summary.csv.
 
-Run (after phase2_blocking.py): python scripts/gold_standard.py
+Run (after blocking_comparison.py): python scripts/gold_standard.py
 """
 import re
 import zlib

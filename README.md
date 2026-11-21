@@ -12,14 +12,14 @@ Run the scripts from the repository root; each one prints what it writes.
 |---|---|---|
 | Phase I: collect | `scripts/fetch_wikidata.py`, `build_ror_education.py`, `fetch_deqar.py` | `data/*.csv` (already included) |
 | Phase I: translate | `scripts/translate_to_xml.py` | `data/*_Mapping.xml` and `data/target.xsd` |
-| Phase II: blocking | `scripts/phase2_blocking.py` | `results/blocking.csv`, candidate pairs in `results/cache/` |
+| Phase II: blocking | `scripts/blocking_comparison.py` | `results/blocking.csv`, candidate pairs in `results/cache/` |
 | Phase II: gold standard | `scripts/gold_standard.py` | `data/gold_standard/gold_*.csv` |
-| Phase II: matching experiments | `scripts/phase2_matching.py` | `results/matching_experiments.csv`, `matching_best.json` |
-| Phase II: final matching | `scripts/phase2_final.py` | `data/correspondences/all_*.csv` |
-| Phase II: threshold | `scripts/phase2_threshold.py` | `data/correspondences/corr_*.csv`, `results/threshold_analysis.csv` |
+| Phase II: matching experiments | `scripts/matching_experiments.py` | `results/matching_experiments.csv`, `matching_best.json` |
+| Phase II: final matching | `scripts/final_matching.py` | `data/correspondences/all_*.csv` |
+| Phase II: threshold | `scripts/threshold_selection.py` | `data/correspondences/corr_*.csv`, `results/threshold_analysis.csv` |
 | Phase II: analysis | `scripts/analysis_errors.py` | feature importance, missed matches |
 | Phase III: fusion gold standard | `scripts/build_fusion_gold.py` | `data/gold_standard/fusion_gold.csv` |
-| Phase III: fusion | `scripts/phase3_fusion.py` | `data/fused/universities_fused.csv`, `results/fusion_*.csv` |
+| Phase III: fusion | `scripts/data_fusion.py` | `data/fused/universities_fused.csv`, `results/fusion_*.csv` |
 | Report tables | `scripts/make_report_tables.py` | `submission/final-report/tables/*.tex` |
 
 `scripts/common.py` (loading, normalisation, links), `blocking.py`, `matching.py` and
