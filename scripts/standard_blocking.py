@@ -23,7 +23,7 @@ from PyDI.entitymatching.blocking import StandardBlocker
 from blocking import OUTPUT_DIR, add_block_text
 from common import RESULTS, load_target
 from matching import feature_comparators
-from validation import evaluate, load_labelled, pair_completeness, tune_threshold
+from validation import evaluate, load_labelled, pair_completeness, tune_threshold, write_log
 
 logging.basicConfig(level=logging.WARNING)
 
@@ -100,6 +100,7 @@ def main():
                                                   "corr", "time_s")})
     out = pd.DataFrame(rows)
     out.to_csv(RESULTS / "standard_blocking_validation.csv", index=False)
+    print("log:", write_log(out, "standard_blocking", "Standard blocking (PyDI StandardBlocker)"))
     show = out[out["blocker"] != "No blocking"][["pair", "matcher", "blocker", "precision", "recall", "f1",
                                                   "corr", "time_s"]]
     print("\nValidation results (P/R/F1 on validation_data, threshold chosen on train_data)\n")

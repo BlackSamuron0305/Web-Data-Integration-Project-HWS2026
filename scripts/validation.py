@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 from PyDI.entitymatching import EntityMatchingEvaluator
 
+from common import RESULTS
 from gold_standard import load_split
 
 THRESHOLDS = np.round(np.arange(0.30, 1.0001, 0.01), 2)
@@ -75,3 +76,49 @@ def pair_completeness(candidates, labelled):
     pos = labelled[labelled["label"] == 1]
     found = pos.merge(candidates[["id1", "id2"]].drop_duplicates(), on=["id1", "id2"])
     return len(found) / len(pos) if len(pos) else None
+
+
+# ------------------------------------------------------------------------ result logs
+LOGS = RESULTS / "logs"
+LOG_COLUMNS = [("pair", "Pair"), ("matcher", "Matcher"), ("blocker", "Blocker"), ("candidates", "Candidates"),
+               ("precision", "P"), ("recall", "R"), ("f1", "F1"), ("corr", "#Corr"), ("time_s", "Time (s)")]
+
+
+def _cell(col, v):
+    if pd.isna(v):
+        return "-"
+    if col in ("candidates", "corr"):
+        return f"{int(v):,}"
+    if col in ("precision", "recall", "f1"):
+        return f"{v:.3f}"
+    if col == "time_s":
+        return f"{v:.1f}"
+    return str(v)
+
+
+def write_log(results, name, title):
+    """Writes results/logs/<name>.log: one line per method (pair, matcher, blocker, candidates,
+    P, R, F1, #Corr, time), grouped by dataset pair. Returns the path."""
+    LOGS.mkdir(parents=True, exist_ok=True)
+    cells = [[_cell(c, r[c]) if c in r else "-" for c, _ in LOG_COLUMNS] for r in results.to_dict("records")]
+    heads = [h for _, h in LOG_COLUMNS]
+    width = [max([len(h)] + [len(row[i]) for row in cells]) for i, h in enumerate(heads)]
+    left = {"Pair", "Matcher", "Blocker"}
+
+    def line(vals):
+        return "  ".join(v.ljust(w) if h in left else v.rjust(w) for v, w, h in zip(vals, width, heads))
+
+    rule = "-" * len(line(heads))
+    out = [f"{title}", f"written {pd.Timestamp.now():%Y-%m-%d %H:%M}",
+           "P/R/F1 on validation_data (threshold chosen on train_data); #Corr = correspondences with "
+           "score >= threshold on all records, no post-clustering; Time = blocking + matching.", "",
+           line(heads), rule]
+    last = None
+    for row in cells:
+        if last is not None and row[0] != last:
+            out.append("")
+        out.append(line(row))
+        last = row[0]
+    path = LOGS / f"{name}.log"
+    path.write_text("\n".join(out) + "\n", encoding="utf-8")
+    return path
