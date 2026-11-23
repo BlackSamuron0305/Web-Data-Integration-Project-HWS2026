@@ -45,8 +45,12 @@ non-universities is part of the data preparation, even if the matching scores ge
   universities), picks the best function per attribute and fuses everything with it; results in
   `results/` (`universities_fused.csv`, `strategies.csv`, `consistency.csv`, `density.csv`,
   `group_sizes.csv`, `fusion_errors.jsonl` = the wrong values left, for the error analysis).
-- `approaches/`: every approach we tried and dropped, with its code (archived) and an overview in
-  `approaches/README.md`.
+- `scripts/05_checks/report_numbers.py`: recomputes the report numbers that no pipeline script writes
+  (re-linked records, Sect. 4.1, and LLM verdicts by number of sources, Sect. 5); run it from the
+  repo root.
+- `scripts/05_checks/report_figures.py`: rebuilds the data figures of the report (group sizes,
+  cleaning, cut-off, density and consistency) from the result files into
+  `submission/final-report/figures/`; run it from the repo root.
 - `IDENTITY_RESOLUTION_REASONING.txt`: the journal of Phase II (what we tried, why, results).
 - `scripts/03_identity_resolution/06_...` to `11_...` and `IDENTITY_RESOLUTION_EXTENSIONS.md`: extra
   matchers tried on round 3, one folder each (06 candidates rebuilt without a GPU, 07 TF-IDF,
@@ -79,8 +83,7 @@ three sources cleaned by `scripts/02_filtering/` before matching, and a stricter
 Wikidata-ROR, 0.55 DEQAR-ROR) because a wrong match is worse for us than a duplicate; the trade-off
 is checked against the ID links by `05_final/cutoff_check.py`**. In round 8 the labelled pairs that
 touch a removed record are left out of the evaluation (those records are out of scope). Rounds 4-7
-were experiments that we dropped; their code is in `approaches/`, their results stay in the results
-folders.
+were experiments that we dropped.
 
 The ID links between the sources (`ror_id`, `wikidata_id` in the CSV files) are the answer key: they
 are used to build and check labels, never inside the pipeline.
@@ -95,7 +98,7 @@ are used to build and check labels, never inside the pipeline.
   AI agents, not by hand yet.**
 - `scripts/02_filtering/<source>/validation/ai_checks.csv`: records checked by AI agents (Claude
   subagents) to validate the cleaning. **Not checked by a person yet.**
-- `scripts/04_data_fusion/fusion_gold.csv` (39 universities, from the earlier attempt on branch `legacy`)
+- `scripts/04_data_fusion/fusion_gold.csv` (39 universities, from the earlier attempt, commit `6679e95`)
   and `fusion_gold_new.csv` (1,000 universities, column `confidence`; rows with `low` are not used):
   the expected values for the fusion evaluation. **Filled in by AI agents (Claude), not checked by hand
   yet.** The agents saw the source values as hints, so a check by hand matters.

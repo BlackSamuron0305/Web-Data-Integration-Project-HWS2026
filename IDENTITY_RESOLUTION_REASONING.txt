@@ -282,8 +282,8 @@ WHAT WE LEARNED
     - character 3-gram blocking: 2.1 billion candidate pairs, not runnable.
 
 
-9. EARLIER ATTEMPT (branch "legacy") AND WHY THE NUMBERS DIFFER
----------------------------------------------------------------
+9. EARLIER ATTEMPT (commit 6679e95) AND WHY THE NUMBERS DIFFER
+--------------------------------------------------------------
   The first version took ~50,000 labelled pairs straight from the ID links, unchecked, with
   dev/test only. It reported F1 96-99%. With checked labels that include corner cases the same
   kind of pipeline reaches 93-94% on test. The data did not get harder - the evaluation set got
@@ -343,8 +343,8 @@ ROUND 4 - non-universities removed BEFORE matching (rejected)
   removed in one source leaves its counterpart in another without partner, and the matcher gives it a
   wrong one: ROR removed the branch "Islamic Azad University of Nishapur", Wikidata kept its own record
   of it, which then linked to "Neyshabur University of Medical Sciences"; DEQAR removed ESADE (a
-  centre attached to a university), ROR's "Esade" then linked to "ESDAPC". 78 such new links
-  (55 / 23), most of the examples wrong.
+  centre attached to a university), ROR's "Esade" then linked to "ESDAPC". 76 such new links
+  for 78 records (55 / 23), most of the examples wrong.
 
 ROUND 5 - non-universities removed AFTER matching (kept)
   The matching of round 3, then every link that touches a record marked n is dropped (final.py).
@@ -395,8 +395,8 @@ TEST SET ENLARGED
 
 ROUND 7 - experiment "flag, match, remove, match again" (06_flag_filter/)
   Run 1 = round 3; Wikidata flags carried over links with score >= 0.9 to ROR (587) and DEQAR (27);
-  run 2 on the rest. No gain over matching once and removing afterwards (differences of 2-3 test
-  pairs), so not used. The ID links are the answer key and are not used inside the pipeline.
+  run 2 on the rest. No gain over matching once and removing afterwards (test F1 -0.007 /
+  +0.007), so not used. The ID links are the answer key and are not used inside the pipeline.
 
 ROUND 8 - the final pipeline (all three sources cleaned before matching)
   Cleaned: Wikidata 22,697 -> 19,605, ROR 30,131 -> 25,919, DEQAR 8,979 -> 6,764.

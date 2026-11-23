@@ -1,12 +1,9 @@
 """Recompute report numbers that no pipeline script writes, from the repository's own files.
-Run from the repo root: python scripts/05_checks/report_numbers.py  (needs pandas, numpy, PyDI, git)."""
-import io
+Run from the repo root: python scripts/05_checks/report_numbers.py  (needs pandas and PyDI)."""
 import re
-import subprocess
 import sys
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -15,26 +12,6 @@ from common import links  # noqa: E402  one-to-one identifier links (Sect. 3)
 
 DATA, FUSED = ROOT / "data", ROOT / "scripts" / "04_data_fusion" / "results"
 FINAL = ROOT / "scripts" / "03_identity_resolution" / "05_final" / "results"
-
-
-def dbpedia_coordinates():
-    """Sect. 2: DBpedia is too close to Wikidata (linked pairs with coordinates that agree to ten metres).
-    The DBpedia download was dropped from the tree; it is read from git history."""
-    old = subprocess.run(["git", "show", "13fbd74^:old_data/dbpedia_universities.csv"], cwd=ROOT,
-                         capture_output=True, check=True).stdout
-    d = pd.read_csv(io.BytesIO(old), dtype=str, keep_default_na=False)
-    w = pd.read_csv(DATA / "wikidata" / "original" / "wikidata_universities.csv", dtype=str, keep_default_na=False)
-    d = d[d["wikidata_id"] != ""].assign(wikidata_id=d["wikidata_id"].str.split(r"\s*\|\s*")).explode("wikidata_id")
-    m = d.merge(w, on="wikidata_id", suffixes=("_d", "_w"))
-    cols = ["latitude_d", "latitude_w", "longitude_d", "longitude_w"]
-    for c in cols:
-        m[c] = pd.to_numeric(m[c], errors="coerce")
-    m = m.dropna(subset=cols)
-    la1, la2, lo1, lo2 = (np.radians(m[c]) for c in cols)
-    a = np.sin((la2 - la1) / 2) ** 2 + np.cos(la1) * np.cos(la2) * np.sin((lo2 - lo1) / 2) ** 2
-    dist = 2 * 6371000 * np.arcsin(np.sqrt(a))
-    print(f"Sect. 2  DBpedia-Wikidata pairs with coordinates: {len(m):,}; within 10 m: {(dist <= 10).mean():.1%}"
-          "  (report: 67%)")
 
 
 def relinked_records():
@@ -81,6 +58,5 @@ def fused_checks():
 
 
 if __name__ == "__main__":
-    dbpedia_coordinates()
     relinked_records()
     fused_checks()
