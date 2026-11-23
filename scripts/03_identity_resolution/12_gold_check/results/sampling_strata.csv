@@ -1,0 +1,11 @@
+pair,design_group,sample,MATCH,NON_MATCH,UNCERTAIN,in_r8_before_cutoff,in_r3,same_country,shared_name_word,approx_block_key,linked_elsewhere_r8,both_unlinked_r8,population,sampling_fraction,score_q25_sample,score_median_sample,score_q25_population,score_median_population,population_note,in_population,missed_in_r8_before_cutoff
+Wikidata-ROR,final link: ID link,55,55,0,0,55,55,54,54,54,0,0,11599.0,0.004741788085179757,0.9547914016003044,0.982354578464716,0.9514736101282834,0.983153883760164,,,
+Wikidata-ROR,final link: ID conflict,56,12,40,4,56,51,55,52,55,0,0,221.0,0.25339366515837103,0.7842905432592863,0.8716217026033997,0.7883229213768067,0.8444091180260315,,,
+Wikidata-ROR,final link: no ID info,44,20,24,0,44,41,44,44,44,0,0,446.0,0.09865470852017937,0.7281884375038226,0.8032143225584263,0.7408865120643419,0.8143467087414451,,,
+Wikidata-ROR,not linked: ID link,45,41,3,1,21,21,41,43,40,13,32,872.0,0.051605504587155966,,,,,ID links (both records kept by the cleaning) not in the final links,45.0,341.0
+Wikidata-ROR,not linked: no ID link,50,0,50,0,0,0,48,49,47,0,50,,,,,,,"no defined population (hard non-links, see README)",,
+DEQAR-ROR,final link: ID link,55,55,0,0,55,55,55,55,55,0,0,3056.0,0.01799738219895288,0.9169542453169002,0.9827501031328028,0.8886883992869762,0.9682433880158268,,,
+DEQAR-ROR,final link: ID conflict,56,21,30,5,56,42,55,54,56,0,0,113.0,0.49557522123893805,0.6373251777042437,0.8549642070313521,0.6511138586857433,0.8790496397556363,,,
+DEQAR-ROR,final link: no ID info,44,41,2,1,44,44,44,44,44,0,0,857.0,0.051341890315052506,0.6969391761059638,0.8001963981278948,0.6917841603493778,0.8414641253214563,,,
+DEQAR-ROR,not linked: ID link,45,34,9,2,12,15,43,43,42,21,24,276.0,0.16304347826086957,,,,,ID links (both records kept by the cleaning) not in the final links,45.0,62.0
+DEQAR-ROR,not linked: no ID link,50,19,30,1,13,11,45,45,47,0,50,,,,,,,"no defined population (hard non-links, see README)",,

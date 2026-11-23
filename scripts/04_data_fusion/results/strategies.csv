@@ -1,21 +1,25 @@
-strategy,gold subset,universities,name,country_code,city,founding_year,domains,mean
-content-based,all,869,0.917,0.977,0.891,0.972,0.999,0.951
-content-based,conflict,384,0.893,0.951,0.872,0.966,0.997,0.936
-content-based,random,446,0.939,0.998,0.897,0.975,1.0,0.962
-content-based,first,39,0.897,1.0,1.0,1.0,1.0,0.979
-voting,all,869,0.947,0.977,0.891,0.965,0.999,0.956
-voting,conflict,384,0.927,0.951,0.872,0.958,0.997,0.941
-voting,random,446,0.96,0.998,0.897,0.971,1.0,0.965
-voting,first,39,1.0,1.0,1.0,0.974,1.0,0.995
-trust: ROR first,all,869,0.977,0.994,0.988,0.979,0.999,0.987
-trust: ROR first,conflict,384,0.977,0.987,0.979,0.982,0.997,0.984
-trust: ROR first,random,446,0.975,1.0,0.996,0.98,1.0,0.99
-trust: ROR first,first,39,1.0,1.0,1.0,0.949,1.0,0.99
-trust: Wikidata first,all,869,0.938,0.976,0.867,0.963,0.999,0.949
-trust: Wikidata first,conflict,384,0.917,0.948,0.849,0.953,0.997,0.933
-trust: Wikidata first,random,446,0.953,0.998,0.881,0.971,1.0,0.961
-trust: Wikidata first,first,39,0.974,1.0,0.872,0.974,1.0,0.964
-best per attribute,all,869,0.977,0.994,0.988,0.979,0.999,0.987
-best per attribute,conflict,384,0.977,0.987,0.979,0.982,0.997,0.984
-best per attribute,random,446,0.975,1.0,0.996,0.98,1.0,0.99
-best per attribute,first,39,1.0,1.0,1.0,0.949,1.0,0.99
+strategy,gold subset,universities,name,country_code,city,founding_year,domains,mean,mean single-valued
+content-based,all,869,0.917,0.977,0.891,0.972,0.999,0.951,0.939
+content-based,conflict,384,0.893,0.951,0.872,0.966,0.997,0.936,0.921
+content-based,random,446,0.939,0.998,0.897,0.975,1.0,0.962,0.952
+content-based,first,39,0.897,1.0,1.0,1.0,1.0,0.979,0.974
+voting,all,869,0.947,0.977,0.891,0.965,0.999,0.956,0.945
+voting,conflict,384,0.927,0.951,0.872,0.958,0.997,0.941,0.927
+voting,random,446,0.96,0.998,0.897,0.971,1.0,0.965,0.956
+voting,first,39,1.0,1.0,1.0,0.974,1.0,0.995,0.994
+trust: ROR first,all,869,0.977,0.994,0.988,0.979,0.999,0.988,0.985
+trust: ROR first,conflict,384,0.977,0.987,0.979,0.982,0.997,0.984,0.981
+trust: ROR first,random,446,0.975,1.0,0.996,0.98,1.0,0.99,0.988
+trust: ROR first,first,39,1.0,1.0,1.0,0.949,1.0,0.99,0.987
+trust: Wikidata first,all,869,0.938,0.976,0.867,0.963,0.999,0.948,0.936
+trust: Wikidata first,conflict,384,0.917,0.948,0.849,0.953,0.997,0.933,0.917
+trust: Wikidata first,random,446,0.953,0.998,0.881,0.971,1.0,0.961,0.951
+trust: Wikidata first,first,39,0.974,1.0,0.872,0.974,1.0,0.964,0.955
+voting: ties by trust,all,869,0.978,0.997,0.988,0.979,0.999,0.988,0.986
+voting: ties by trust,conflict,384,0.979,0.992,0.979,0.982,0.997,0.986,0.983
+voting: ties by trust,random,446,0.975,1.0,0.996,0.98,1.0,0.99,0.988
+voting: ties by trust,first,39,1.0,1.0,1.0,0.949,1.0,0.99,0.987
+best per attribute,all,869,0.978,0.997,0.988,0.979,0.999,0.988,0.986
+best per attribute,conflict,384,0.979,0.992,0.979,0.982,0.997,0.986,0.983
+best per attribute,random,446,0.975,1.0,0.996,0.98,1.0,0.99,0.988
+best per attribute,first,39,1.0,1.0,1.0,0.949,1.0,0.99,0.987

@@ -15,15 +15,15 @@ The journal `IDENTITY_RESOLUTION_REASONING.txt` (repo root) has the full numbers
 | 5 | Matchers: one name measure, rules, learned (LR, RF, GB) | learned matchers best (F1 0.95-0.97 on validation) | **learned kept** | `03_rule_based`, `04_ml_based` |
 | 6 | Global matching: none, greedy one-to-one, stable, maximum bipartite | "none" looked best on 300 pairs but built groups of 4,509 records | **greedy kept** | `05_final` |
 | 7 | Round 3: translate common words, "part word" feature (campus, faculty) | F1 change below 0.007 | kept in the features, no effect | `scripts/03_identity_resolution/common.py` |
-| 8 | Rounds 4-6: hand-check lists of non-universities, removed before (4) or after (5) matching, duplicates before (6) | before: 78 new wrong links (orphans); after: no new errors, but the matcher still works on campuses and schools | dropped for the final pipeline | `rounds_4-6_filter_before_or_after_matching/` |
+| 8 | Rounds 4-6: hand-check lists of non-universities, removed before (4) or after (5) matching, duplicates before (6) | before: 78 new links of records whose partner was removed (orphans), most of the checked ones wrong; after: 383 links gone, no new errors, but the records stay in the data | dropped for the final pipeline | `rounds_4-6_filter_before_or_after_matching/` |
 | 9 | Round 7: flag, match, remove flagged records, match again | no gain over matching once (2-3 test pairs difference) | dropped | `round_7_flag_match_remove_rematch/` |
 | 10 | Cleaning ROR through the Wikidata ID links (a ROR record goes if its Wikidata partner was removed) | worked, but uses the ID links, which are our answer key | dropped (not allowed) | `ror_cleaning_via_id_links/` |
 | 11 | Wikidata parent links (P361 / P749) to find parts of universities | no better than a name rule; would need a new download | dropped | none kept |
 | 12 | DEQAR ETER identifier as a sign of a real university | ETER ids also on alliances, nursing schools, academy institutes | dropped | none kept |
-| 13 | Round 8: clean every source with five fixed rules before schema mapping and matching | 1-2% of removed records are real universities, 8-15% of kept ones still are not; test scores do not drop; 1,625 links to non-universities gone | **kept** | `scripts/02_filtering`, `rules.md` |
+| 13 | Round 8: clean every source with five fixed rules before schema mapping and matching | 1-2% of removed records are real universities, 8-15% of kept ones still are not; test scores do not drop; 1,628 links to non-universities gone | **kept** | `scripts/02_filtering`, `rules.md` |
 | 14 | Stricter final cut-off (0.45 / 0.35 up to 0.9) | 0.7 / 0.55: 42% / 38% fewer wrong links (ID links), 2-3% of right links lost | **0.7 / 0.55 kept** | `scripts/03_identity_resolution/05_final/cutoff_check.py` |
-| 15 | More name rules on the junk that is left (e.g. "only in ROR and no higher-education word") | best rule removes 823 junk but also 466 real universities | dropped: name rules are at their limit | none kept |
-| 16 | Fusion: voting, mixed, ROR first, Wikidata first | ROR first best on every attribute (98.6%) | **ROR first kept** | `scripts/04_data_fusion/fusion.py` |
+| 15 | More name rules on the junk that is left (e.g. "only in ROR and no higher-education word") | e.g. dropping the ROR-only entries without a higher-education word would remove 1,461 non-universities but also 2,729 universities (LLM check of all fused entries) | dropped: name rules are at their limit | none kept |
+| 16 | Fusion: content-based, voting, trust (ROR or Wikidata first), voting with ties by trust (ours) | ROR first 98.5%; voting with ties by trust 98.6% (fixes 1 name and 2 country codes, breaks none) | **ties by trust for name and country code, ROR first otherwise** | `scripts/04_data_fusion/fusion.py` |
 
 Not tried: an LLM matcher (needs a paid API) and character 3-gram blocking (2.1 billion candidate pairs).
 

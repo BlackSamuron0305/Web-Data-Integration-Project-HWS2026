@@ -1,0 +1,191 @@
+pair_id,pair,kind,category,note
+WR-0028,Wikidata-ROR,wrong link,part linked to its whole,military academy linked to the defence university college it belongs to
+WR-0031,Wikidata-ROR,wrong link,part linked to its whole,Anáhuac México Sur linked to the Anáhuac university network
+WR-0072,Wikidata-ROR,wrong link,part linked to its whole,college of the PLA National Defence University linked to the university
+WR-0079,Wikidata-ROR,wrong link,part linked to its whole,research unit of Université Grenoble Alpes linked to the university
+WR-0083,Wikidata-ROR,wrong link,part linked to its whole,Guadeloupe campus linked to the Université des Antilles
+WR-0102,Wikidata-ROR,wrong link,part linked to its whole,college of medicine linked to SUNY Downstate Health Sciences University
+WR-0150,Wikidata-ROR,wrong link,part linked to its whole,college of law linked to its university (PLM)
+WR-0154,Wikidata-ROR,wrong link,part linked to its whole,research centre linked to Hellenic Mediterranean University
+WR-0168,Wikidata-ROR,wrong link,part linked to its whole,online unit linked to Amity University
+WR-0195,Wikidata-ROR,wrong link,part linked to its whole,medical institute linked to Siksha O Anusandhan University
+WR-0236,Wikidata-ROR,wrong link,part linked to its whole,research centre linked to Universiti Malaya
+WR-0237,Wikidata-ROR,wrong link,part linked to its whole,New Brunswick campus linked to Rutgers University
+WR-0238,Wikidata-ROR,wrong link,part linked to its whole,Muscat campus linked to the University of Technology and Applied Sciences
+WR-0001,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Makassar; only the city name in common
+WR-0020,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Buenos Aires; ROR record is an institute of the University of Buenos Aires
+WR-0021,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Qiqihar
+WR-0022,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Bujumbura
+WR-0029,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Manila
+WR-0040,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Riyadh
+WR-0043,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Bujumbura
+WR-0044,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Changsha; ROR record is a college of Hunan Agricultural University
+WR-0047,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Ashgabat; both websites on the directory host science.gov.tm
+WR-0048,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Taiyuan
+WR-0069,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Madrid
+WR-0074,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Oldenburg
+WR-0076,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Kyiv
+WR-0084,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Luanda
+WR-0086,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Lahore
+WR-0092,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Beijing
+WR-0110,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Dalian
+WR-0114,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Baghdad
+WR-0119,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Surabaya
+WR-0120,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Tokyo
+WR-0125,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Qingdao
+WR-0126,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Querétaro
+WR-0138,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Barcelona
+WR-0143,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Warsaw; sister schools of the Vistula group
+WR-0146,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Bogotá
+WR-0155,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Shenyang
+WR-0161,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Shenyang
+WR-0165,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Riga
+WR-0166,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Dublin
+WR-0173,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Samarinda
+WR-0179,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Lahore
+WR-0185,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Warsaw
+WR-0189,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Moscow
+WR-0197,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Ho Chi Minh City; Wikidata lists the other university's website
+WR-0204,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Moscow
+WR-0210,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Córdoba
+WR-0213,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Guangzhou
+WR-0222,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Metz
+WR-0225,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Tunis
+WR-0226,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Lima
+WR-0243,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Berlin
+WR-0245,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Bengaluru
+WR-0247,Wikidata-ROR,wrong link,"different institution, similar name, same place",both in Kanazawa
+WR-0129,Wikidata-ROR,wrong link,"predecessor, successor or merged",merged into Volgograd State Technical University (Wikidata alternative name: its institute of architecture and construction)
+WR-0004,Wikidata-ROR,wrong link,other,different institution with a similar name in another city (Niort vs Nantes)
+WR-0046,Wikidata-ROR,wrong link,other,different institution with a similar name in another city (Kowloon vs Shenzhen); took the link of the true match WR-0170
+WR-0062,Wikidata-ROR,wrong link,other,different institution in another city (Lanzhou vs Xi'an); both list the directory site at0086.com as website
+WR-0068,Wikidata-ROR,wrong link,other,different institution with a similar name in another city (Mexico City vs Jiutepec)
+WR-0162,Wikidata-ROR,wrong link,other,different institution with a similar name in another city (Shizuoka vs Kōriyama)
+WR-0207,Wikidata-ROR,wrong link,other,"Wikidata record is the university's historic building complex, not an institution"
+WR-0223,Wikidata-ROR,wrong link,other,different institution with a similar name in another city (Bilaspur vs Latur)
+DR-0034,DEQAR-ROR,wrong link,part linked to its whole,faculty linked to the university centre Novo mesto
+DR-0075,DEQAR-ROR,wrong link,part linked to its whole,research unit linked to the University of Reims
+DR-0133,DEQAR-ROR,wrong link,part linked to its whole,Guadeloupe campus linked to the Université des Antilles
+DR-0220,DEQAR-ROR,wrong link,part linked to its whole,research unit linked to Université Grenoble Alpes
+DR-0031,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Prague
+DR-0037,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Istanbul
+DR-0053,DEQAR-ROR,wrong link,"different institution, similar name, same place","neighbouring towns in Malta (San Gwann, St Julian's)"
+DR-0056,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Warsaw
+DR-0065,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in São Paulo
+DR-0068,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Istanbul
+DR-0069,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Prishtina
+DR-0071,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in London
+DR-0088,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Reggio Calabria
+DR-0099,DEQAR-ROR,wrong link,"different institution, similar name, same place",sister institutes of the CESPU group in Paredes/Gandra
+DR-0146,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Toulouse
+DR-0163,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Madrid
+DR-0206,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Berlin
+DR-0215,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Wrocław
+DR-0225,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Paris (Paris 1 vs Paris IV)
+DR-0226,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Rennes
+DR-0230,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Belgrade
+DR-0245,DEQAR-ROR,wrong link,"different institution, similar name, same place",both in Warsaw
+DR-0009,DEQAR-ROR,wrong link,"predecessor, successor or merged",merged into the linked college (annotator)
+DR-0045,DEQAR-ROR,wrong link,"predecessor, successor or merged",absorbed in 2007 by the linked Hochschule Ludwigshafen
+DR-0154,DEQAR-ROR,wrong link,"predecessor, successor or merged",succeeded in 2020 by the linked academy
+DR-0175,DEQAR-ROR,wrong link,"predecessor, successor or merged",succeeded in 2013 by the linked Kedge Business School
+DR-0017,DEQAR-ROR,wrong link,other,different institution with a similar name in another place (Stord/Haugesund vs Kongsberg)
+DR-0119,DEQAR-ROR,wrong link,other,different institution with a similar name in another city (Hjørring vs Hillerød)
+DR-0169,DEQAR-ROR,wrong link,other,different institution with a similar name in another city (Lille vs Nice)
+DR-0180,DEQAR-ROR,wrong link,other,sister university of the same group in another city (Madrid vs Canary Islands)
+DR-0199,DEQAR-ROR,wrong link,other,different institution in another city (Brest vs Bussy-Saint-Georges); only country and founding year agree
+DR-0234,DEQAR-ROR,wrong link,other,different institution with a similar name in another city (Târgu Mureș vs Timișoara)
+WR-0013,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0056,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0066,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via embedding blocker only; score < 0.45
+WR-0113,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0127,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via embedding blocker only; score < 0.45
+WR-0160,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0172,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0181,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0183,Wikidata-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.45
+WR-0203,Wikidata-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.45
+WR-0016,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.891; ROR record already linked to كلية المصطفى الجامعة (wikidata_Q25450392, 0.909)"
+WR-0053,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.691; Wikidata record already linked to Institut Supérieur Pédagogique Technique (ror_03mxhve08, 0.821); ROR record already linked to Université Chrétienne de Kinshasa (wikidata_Q100989272, 0.797)"
+WR-0054,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.670; Wikidata record already linked to Shanxi Politics and Law Institute for Administrators (ror_033y0hd11, 0.761)"
+WR-0063,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.533; Wikidata record already linked to Sekolah Tinggi Ilmu Kesehatan Abdurahman Palembang (ror_01h8k8b37, 0.810)"
+WR-0096,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.700; ROR record already linked to Ho Chi Minh City University of Fine Art (wikidata_Q101000113, 0.765)"
+WR-0112,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.890; Wikidata record already linked to Imam Alkadhim University College (ror_01avfeb97, 0.893)"
+WR-0118,Wikidata-ROR,missed match,lost in one-to-one matching,"different names; score 0.945; Wikidata record already linked to Centro de Inovação em Tecnologias e Cuidados de Saúde (ror_03vsh1a40, 0.964)"
+WR-0170,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.464; Wikidata record already linked to City University of Hong Kong, Shenzhen Research Institute (ror_00xc0ma20, 0.702)"
+WR-0219,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.582; Wikidata record already linked to Federal Institute of São Paulo (ror_005pn5z34, 0.586)"
+WR-0231,Wikidata-ROR,missed match,lost in one-to-one matching,"same name; score 0.561; ROR record already linked to Université Yembila-Abdoulaye Toguyeni (wikidata_Q140923774, 0.700)"
+WR-0017,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.561 < cut-off 0.7
+WR-0038,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.600 < cut-off 0.7
+WR-0041,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.636 < cut-off 0.7
+WR-0051,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.523 < cut-off 0.7
+WR-0067,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.668 < cut-off 0.7
+WR-0070,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.684 < cut-off 0.7
+WR-0081,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.561 < cut-off 0.7
+WR-0082,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.516 < cut-off 0.7
+WR-0089,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.551 < cut-off 0.7
+WR-0105,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.647 < cut-off 0.7
+WR-0107,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.527 < cut-off 0.7
+WR-0132,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.566 < cut-off 0.7
+WR-0140,Wikidata-ROR,missed match,removed by the final cut-off,different names; score 0.616 < cut-off 0.7
+WR-0145,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.670 < cut-off 0.7
+WR-0178,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.673 < cut-off 0.7
+WR-0188,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.463 < cut-off 0.7
+WR-0201,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.580 < cut-off 0.7
+WR-0208,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.656 < cut-off 0.7
+WR-0209,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.561 < cut-off 0.7
+WR-0217,Wikidata-ROR,missed match,removed by the final cut-off,same name; score 0.649 < cut-off 0.7
+WR-0242,Wikidata-ROR,missed match,removed by the final cut-off,different names; score 0.687 < cut-off 0.7
+DR-0023,DEQAR-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.35
+DR-0035,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0057,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0060,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0063,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0093,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0114,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0128,DEQAR-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.35
+DR-0150,DEQAR-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.35
+DR-0162,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0193,DEQAR-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.35
+DR-0195,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0210,DEQAR-ROR,missed match,scored below the matcher threshold,same name; candidate via token blockers; score < 0.35
+DR-0216,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0243,DEQAR-ROR,missed match,scored below the matcher threshold,different names; candidate via token blockers; score < 0.35
+DR-0003,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.900; ROR record already linked to Weißensee Academy of Art Berlin (deqar_DEQARINST0454, 0.912)"
+DR-0010,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.662; ROR record already linked to AKAD University of Applied Sciences Stuttgart (deqar_DEQARINST0511, 0.963)"
+DR-0011,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.806; ROR record already linked to European School of Law and Governance (deqar_DEQARINST6910, 0.848)"
+DR-0020,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.395; DEQAR record already linked to Escola Profissional Profitecla (ror_04dh20q25, 0.507)"
+DR-0026,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.880; ROR record already linked to Vilnius Co-operative College (deqar_DEQARINST1635, 0.941)"
+DR-0070,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.421; DEQAR record already linked to Sigmund Freud Privatuniversität - Standort Linz (ror_02frbs640, 0.498)"
+DR-0092,DEQAR-ROR,missed match,lost in one-to-one matching,"different names, no shared word; score 0.428; DEQAR record already linked to Escola de Negócios e Administração (ror_03drbv102, 0.457)"
+DR-0095,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.391; ROR record already linked to ""George Baritiu"" University of Brasov (deqar_DEQARINST2248, 0.520)"
+DR-0102,DEQAR-ROR,missed match,lost in one-to-one matching,"different names; score 0.809; ROR record already linked to Wyższa Szkoła Nauk Społecznych z siedzibą w Lublinie (deqar_DEQARINST5739, 0.922)"
+DR-0111,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.941; ROR record already linked to Wszechnica Polska University In Warsaw (deqar_DEQARINST1993, 0.977)"
+DR-0122,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.517; ROR record already linked to Escola Fundació Universitat Autònoma de Barcelona-Formació (deqar_DEQARINST4985, 0.542)"
+DR-0126,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.830; ROR record already linked to Antalya Belek University (deqar_DEQARINST7767, 0.868)"
+DR-0164,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.437; ROR record already linked to Higher Ecclesiastical Academy Of Heraklion, Crete (deqar_DEQARINST1259, 0.570)"
+DR-0187,DEQAR-ROR,missed match,lost in one-to-one matching,"different names; score 0.846; DEQAR record already linked to Singidunum University (ror_017v7rz39, 0.901)"
+DR-0198,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.883; ROR record already linked to University College Copenhagen (deqar_DEQARINST0725, 0.916)"
+DR-0201,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.520; ROR record already linked to Pomorska Szkoła Wyższa w Starogardzie Gdańskim (deqar_DEQARINST5703, 0.662)"
+DR-0241,DEQAR-ROR,missed match,lost in one-to-one matching,"same name; score 0.887; DEQAR record already linked to Academy of Cosmetics and Health Care in Warsaw (ror_01ewgyc27, 0.930)"
+DR-0004,DEQAR-ROR,missed match,removed by the final cut-off,different names; score 0.529 < cut-off 0.55
+DR-0006,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.366 < cut-off 0.55
+DR-0013,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.366 < cut-off 0.55
+DR-0024,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.366 < cut-off 0.55
+DR-0046,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.364 < cut-off 0.55
+DR-0072,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.497 < cut-off 0.55
+DR-0094,DEQAR-ROR,missed match,removed by the final cut-off,different names; score 0.372 < cut-off 0.55
+DR-0096,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.366 < cut-off 0.55
+DR-0117,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.540 < cut-off 0.55
+DR-0120,DEQAR-ROR,missed match,removed by the final cut-off,different names; score 0.484 < cut-off 0.55
+DR-0121,DEQAR-ROR,missed match,removed by the final cut-off,"different names, no shared word; score 0.406 < cut-off 0.55"
+DR-0124,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.535 < cut-off 0.55
+DR-0141,DEQAR-ROR,missed match,removed by the final cut-off,different names; score 0.366 < cut-off 0.55
+DR-0176,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.521 < cut-off 0.55
+DR-0177,DEQAR-ROR,missed match,removed by the final cut-off,different names; score 0.540 < cut-off 0.55
+DR-0179,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.419 < cut-off 0.55
+DR-0183,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.483 < cut-off 0.55
+DR-0197,DEQAR-ROR,missed match,removed by the final cut-off,different names; score 0.546 < cut-off 0.55
+DR-0214,DEQAR-ROR,missed match,removed by the final cut-off,"different names, no shared word (Bartın vs Bartin: the dotless ı is not normalised); score 0.460 < cut-off 0.55"
+DR-0244,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.398 < cut-off 0.55
+DR-0249,DEQAR-ROR,missed match,removed by the final cut-off,same name; score 0.366 < cut-off 0.55

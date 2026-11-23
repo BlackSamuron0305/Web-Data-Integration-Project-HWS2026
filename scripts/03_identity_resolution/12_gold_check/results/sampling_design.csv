@@ -1,0 +1,23 @@
+pair,in_r8,in_r8_before_cutoff,in_r3,id_link,id_conflict,in_r8_candidates,pairs,MATCH,NON_MATCH,UNCERTAIN
+Wikidata-ROR,True,True,True,True,False,n/a (no file),55,55,0,0
+Wikidata-ROR,True,True,False,False,True,n/a (no file),5,1,4,0
+Wikidata-ROR,True,True,True,False,True,n/a (no file),51,11,36,4
+Wikidata-ROR,True,True,False,False,False,n/a (no file),3,0,3,0
+Wikidata-ROR,True,True,True,False,False,n/a (no file),41,20,21,0
+Wikidata-ROR,False,False,False,True,False,n/a (no file),23,19,3,1
+Wikidata-ROR,False,False,True,True,False,n/a (no file),1,1,0,0
+Wikidata-ROR,False,True,False,True,False,n/a (no file),1,1,0,0
+Wikidata-ROR,False,True,True,True,False,n/a (no file),20,20,0,0
+Wikidata-ROR,False,False,False,False,True,n/a (no file),1,0,1,0
+Wikidata-ROR,False,False,False,False,False,n/a (no file),49,0,49,0
+DEQAR-ROR,True,True,True,True,False,n/a (no file),55,55,0,0
+DEQAR-ROR,True,True,False,False,True,n/a (no file),14,3,10,1
+DEQAR-ROR,True,True,True,False,True,n/a (no file),42,18,20,4
+DEQAR-ROR,True,True,True,False,False,n/a (no file),44,41,2,1
+DEQAR-ROR,False,False,False,True,False,n/a (no file),30,19,9,2
+DEQAR-ROR,False,False,True,True,False,n/a (no file),3,3,0,0
+DEQAR-ROR,False,True,True,True,False,n/a (no file),12,12,0,0
+DEQAR-ROR,False,False,False,False,False,n/a (no file),36,9,26,1
+DEQAR-ROR,False,False,True,False,False,n/a (no file),1,1,0,0
+DEQAR-ROR,False,True,False,False,False,n/a (no file),3,2,1,0
+DEQAR-ROR,False,True,True,False,False,n/a (no file),10,7,3,0

@@ -1,0 +1,32 @@
+set,orig_id,blind_id,dataset_pair,id1,id2,name_A,name_B,both_decided,original_label,original_confidence,original_evidence,ai_label,ai_confidence,ai_reason
+theirs,DR-0121,P732,DEQAR-ROR,deqar_DEQARINST7394,ror_048n5xe95,,,True,MATCH,MEDIUM,Same website,NON_MATCH,MEDIUM,"DEQAR Institut Roger Guilbert appears to be an institute within CERIA, not CERIA itself."
+theirs,DR-0127,P133,DEQAR-ROR,deqar_DEQARINST4138,ror_02wxx3e24,,,True,MATCH,HIGH,Same website,NON_MATCH,MEDIUM,A is predecessor closed 2013 and succeeded by the merged Cottbus-Senftenberg record B
+theirs,DR-0154,P289,DEQAR-ROR,deqar_DEQARINST6857,ror_012295r09,,,True,NON_MATCH,MEDIUM,Merged into the other,MATCH,MEDIUM,"Same Belgrade school founded 1956, renamed as BAPUSS; same city"
+theirs,DR-0204,P375,DEQAR-ROR,deqar_DEQARINST2254,ror_01a27na53,,,True,MATCH,MEDIUM,Renamed,NON_MATCH,MEDIUM,Closed Romanian-German university vs separate Alma Mater Sibiu; different websites and names
+theirs,DR-0221,P633,DEQAR-ROR,deqar_DEQARINST4876,ror_01xszvp42,,,True,NON_MATCH,MEDIUM,Different institution,MATCH,MEDIUM,Szczecin applied arts school likely renamed into Szczecin Academy of Arts; closure year conflicts
+theirs,WR-0066,P302,Wikidata-ROR,wikidata_Q134037439,ror_05rsfvf53,,,True,MATCH,MEDIUM,Same name,NON_MATCH,HIGH,France vs Portugal (Lisbon); different countries
+theirs,WR-0102,P304,Wikidata-ROR,wikidata_Q19881987,ror_0041qmd21,,,True,NON_MATCH,MEDIUM,College of the other,MATCH,HIGH,"Same downstate.edu domain, Brooklyn, 1860; renamed to Health Sciences University"
+theirs,WR-0221,P480,Wikidata-ROR,wikidata_Q7227044,ror_058mtn947,,,True,MATCH,HIGH,Same website,NON_MATCH,HIGH,PUP Binan is a campus of Polytechnic University of the Philippines per ROR parent link.
+ours,wikidata_ror:123,P441,Wikidata-ROR,wikidata_Q16734102,ror_023bes347,,,True,MATCH,,,NON_MATCH,MEDIUM,"Wikidata record is the Accra learning centre of Sikkim Manipal University, a branch of parent"
+ours,wikidata_ror:480,P556,Wikidata-ROR,wikidata_Q707265,ror_00hfj7g70,,,True,NON_MATCH,,,MATCH,MEDIUM,"Kaohsiung science university renamed NKUST; same lineage, nkfust/nkust domains, 2018 change"
+theirs,DR-0009,P424,DEQAR-ROR,deqar_DEQARINST1635,ror_004gnah66,,,False,NON_MATCH,MEDIUM,Merged into the other,UNCERTAIN,LOW,"VKK closed 2020; possible merger into VIKO, but no history field confirms it"
+theirs,DR-0019,P502,DEQAR-ROR,deqar_DEQARINST7996,ror_03grvy078,,,False,UNCERTAIN,LOW,"System vs campus, not clear",NON_MATCH,MEDIUM,Twin Cities campus vs University of Minnesota system (parent); shared domain.
+theirs,DR-0031,P429,DEQAR-ROR,deqar_DEQARINST0289,ror_016emmf09,,,False,NON_MATCH,HIGH,Different university,UNCERTAIN,MEDIUM,"Same Prague city and 2001 founding, but different domains and conflicting alternate names"
+theirs,DR-0046,P310,DEQAR-ROR,deqar_DEQARINST0691,ror_04m4shs41,,,False,MATCH,MEDIUM,Same name and city,UNCERTAIN,MEDIUM,"Same name and city, but DEQAR says absorbed by SRH 2020; founding years conflict"
+theirs,DR-0081,P449,DEQAR-ROR,deqar_DEQARINST3365,ror_01g48s022,,,False,UNCERTAIN,LOW,Not clear,NON_MATCH,HIGH,"Lviv Institute of Management vs IT Step University (2016, different domain); separate institutions"
+theirs,DR-0090,P666,DEQAR-ROR,deqar_DEQARINST1763,ror_02ar29j81,,,False,MATCH,MEDIUM,Renamed,UNCERTAIN,MEDIUM,"Same Zwolle city and 1987 founding; KPZ to Viaa could be rename or merger, data does not decide."
+theirs,DR-0092,P388,DEQAR-ROR,deqar_DEQARINST2175,ror_00h974d79,,,False,MATCH,MEDIUM,"Same website, renamed",UNCERTAIN,LOW,Shared abs.pt domain but different names and cities (Gaia vs Porto)
+theirs,DR-0102,P074,DEQAR-ROR,deqar_DEQARINST2054,ror_05gjxaj47,,,False,MATCH,MEDIUM,Renamed,UNCERTAIN,LOW,"Both Lublin 2001, but different names, domains and profiles; can't decide."
+theirs,DR-0106,P287,DEQAR-ROR,deqar_DEQARINST7105,ror_04zbzhb67,,,False,UNCERTAIN,LOW,Not clear,MATCH,MEDIUM,Same national music academy name; ROR alt names include Syddansk Musikkonservatorium
+theirs,DR-0142,P396,DEQAR-ROR,deqar_DEQARINST8596,ror_01kdhhd16,,,False,MATCH,HIGH,Same website,UNCERTAIN,LOW,"Same ichec.be domain, but DEQAR entity closed 2019 in a merger"
+theirs,DR-0167,P494,DEQAR-ROR,deqar_DEQARINST0299,ror_049ezvq17,,,False,UNCERTAIN,LOW,Not clear,NON_MATCH,MEDIUM,"Palestra sports college and NEWTON University have different names and domains, though both Prague 2004."
+theirs,DR-0175,P516,DEQAR-ROR,deqar_DEQARINST6660,ror_00wk3s644,,,False,NON_MATCH,MEDIUM,Merged into the other,UNCERTAIN,LOW,"Same Talence site; closed 2013 'succeeded by Kedge' suggests merger, but name origin suggests renaming."
+theirs,DR-0207,P372,DEQAR-ROR,deqar_DEQARINST4488,ror_0235ynq74,,,False,UNCERTAIN,LOW,Not clear,NON_MATCH,MEDIUM,A closed 2012 and split into successors; B is the Lucerne successor
+theirs,DR-0216,P041,DEQAR-ROR,deqar_DEQARINST9212,ror_0248pfh71,,,False,MATCH,MEDIUM,"Same name, older form",UNCERTAIN,MEDIUM,"Similar French names, same country; A lacks city or domain"
+theirs,DR-0222,P125,DEQAR-ROR,deqar_DEQARINST7254,ror_04cchyf16,,,False,UNCERTAIN,LOW,Not clear,MATCH,MEDIUM,Same 1886 founding and Thessaloniki; ROR alt name American College; ACT operates Anatolia College
+theirs,WR-0110,P733,Wikidata-ROR,wikidata_Q647594,ror_033nb1r22,,,False,NON_MATCH,HIGH,Different institution,UNCERTAIN,LOW,"Same city and 1958 year, but names differ; no domain or history confirms rename."
+theirs,WR-0128,P391,Wikidata-ROR,wikidata_Q3551856,ror_00z2xnx25,,,False,NON_MATCH,MEDIUM,Different website and year,UNCERTAIN,LOW,"Same Niimi name; 2010 university vs 1980 junior college, different domains and years"
+theirs,WR-0131,P114,Wikidata-ROR,wikidata_Q1667281,ror_02018ec10,,,False,UNCERTAIN,LOW,Not clear,NON_MATCH,HIGH,IU Erfurt parent vs its Nuremberg campus record (iu.de/campus/nuernberg)
+theirs,WR-0202,P631,Wikidata-ROR,wikidata_Q1630703,ror_05t3p2g92,,,False,UNCERTAIN,LOW,Not clear,MATCH,HIGH,"Same Pristina university, same 1969 founding; Wikidata name is period-limited variant"
+theirs,WR-0239,P470,Wikidata-ROR,wikidata_Q108837435,ror_05sjrb944,,,False,UNCERTAIN,LOW,Not clear,MATCH,HIGH,"Same menofia.edu.eg domain, Monufia Egypt; likely renamed Menoufia University"
+ours,wikidata_ror:61,P120,Wikidata-ROR,wikidata_Q6778564,ror_009pxn909,,,False,MATCH,,,UNCERTAIN,LOW,"Same name but A lacks city; Darbhanga record plausible, other Marwari Colleges exist"

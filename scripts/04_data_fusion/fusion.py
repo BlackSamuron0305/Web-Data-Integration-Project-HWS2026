@@ -5,6 +5,7 @@ import logging
 import re
 import sys
 import unicodedata
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -25,7 +26,7 @@ CLEANED = {
 }
 CORRESPONDENCES = ROOT / "scripts/03_identity_resolution/05_final/results"
 
-# ROR is kept up to date by the institutions themselves, Wikidata by volunteers,
+# ROR is curated by its own team, Wikidata by volunteers,
 # DEQAR only has what the quality agencies report
 TRUST = {"ror": 3, "wikidata": 2, "deqar": 1}
 TRUST_WIKIDATA = {"wikidata": 3, "ror": 2, "deqar": 1}
@@ -45,6 +46,7 @@ LISTS = ["alt_names", "acronyms", "domains", "types", "memberships", "parents", 
 SCALARS = ["name", "country", "country_code", "region", "city", "website", "founding_year",
            "closure_year", "students", "status", "qa_reports", "qa_last_report"]
 EVALUATED = ["name", "country_code", "city", "founding_year", "domains"]
+SINGLE = ["name", "country_code", "city", "founding_year"]
 
 
 def norm(text):
@@ -53,6 +55,11 @@ def norm(text):
     text = "".join(c for c in text if not unicodedata.combining(c)).lower().replace("&", " and ")
     text = re.sub(r"[\W_]+", " ", text).strip()
     return re.sub(r"^the ", "", text)
+
+
+def year(value):
+    # years as whole numbers, so "1386" and "1386.0" are the same year
+    return str(int(float(value)))
 
 
 def accepted(main, alternatives):
@@ -83,7 +90,7 @@ def same_text(fused, accepted):
 
 
 def same_year(fused, accepted):
-    return str(int(float(fused))) in {str(int(float(x))) for x in accepted}
+    return year(fused) in {year(x) for x in accepted}
 
 
 def same_domain(fused, accepted):
@@ -92,6 +99,35 @@ def same_domain(fused, accepted):
 
 def same_code(fused, expected):
     return str(fused) == expected
+
+
+# our own conflict resolution function: voting cannot choose between two sources that disagree,
+# trust ignores two sources that agree against the most trusted one
+
+def voting_ties_by_trust(values, sources, source_datasets, trust_map, key=norm, **kwargs):
+    """The value most sources agree on (compared with key, as in the evaluation), as the most trusted of
+    them writes it; on a tie the value of the most trusted source. PyDI passes the same arguments as to
+    prefer_higher_trust."""
+    votes = Counter(key(v) for v in values)
+    trust = [trust_map.get(source_datasets.get(s), 0) for s in sources]
+    best = max(range(len(values)), key=lambda i: (votes[key(values[i])], trust[i]))
+    winner = votes[key(values[best])]
+    return values[best], winner / len(values), {"rule": "voting_ties_by_trust", "winner_votes": winner,
+                                                "selected_dataset": source_datasets.get(sources[best])}
+
+
+CODES = {}   # record id -> country code, filled in main()
+
+
+def country_of_code(values, sources, source_datasets, trust_map, **kwargs):
+    """The country name of the record whose country code wins voting_ties_by_trust, so that the fused
+    country and country code always belong together."""
+    codes = [str(CODES.get(s)) for s in sources]
+    votes = Counter(codes)
+    trust = [trust_map.get(source_datasets.get(s), 0) for s in sources]
+    best = max(range(len(values)), key=lambda i: (votes[codes[i]], trust[i]))
+    return values[best], votes[codes[best]] / len(values), {"rule": "country_of_code",
+                                                             "selected_dataset": source_datasets.get(sources[best])}
 
 
 def make_strategy(name, rules):
@@ -119,6 +155,10 @@ STRATEGIES = {
     "voting": {"other": (voting, {})},
     "trust: ROR first": {"other": (prefer_higher_trust, {})},
     "trust: Wikidata first": {"other": (prefer_higher_trust, {"trust_map": TRUST_WIKIDATA})},
+    # ours: the content decides (votes), the metadata (trust) only on a tie
+    "voting: ties by trust": {"other": (voting_ties_by_trust, {}),
+                              "country_code": (voting_ties_by_trust, {"key": str}),
+                              "founding_year": (voting_ties_by_trust, {"key": year})},
 }
 
 
@@ -161,27 +201,31 @@ def evaluate(strategy, fused, expected, debug_file=None):
     row = {"universities": len(expected)}
     for attribute in EVALUATED:
         row[attribute] = round(metrics[f"{attribute}_accuracy"], 3)
-    row["mean"] = round(sum(row[a] for a in EVALUATED) / len(EVALUATED), 3)
+    # mean of the unrounded accuracies (averaging the rounded ones can be off by 0.001)
+    row["mean"] = round(sum(metrics[f"{a}_accuracy"] for a in EVALUATED) / len(EVALUATED), 3)
+    # domains are united in every strategy, so only the single-valued attributes tell them apart
+    row["mean single-valued"] = round(sum(metrics[f"{a}_accuracy"] for a in SINGLE) / len(SINGLE), 3)
     return row
 
 
 def consistency(data, corr):
-    """Share of groups (2+ records) where all sources give the same value."""
+    """Share of groups where all sources give the same value, counted over the groups in which at
+    least two records have a value (a single value cannot disagree with anything)."""
     groups = build_record_groups_from_correspondences(data, corr, id_column="id")
     same, total = {}, {}
     for group in groups:
         if len(group.records) < 2:
             continue
         for attribute in ["name", "country_code", "city", "website", "founding_year"]:
-            values = set()
+            values = []
             for record in group.records:
                 value = record.get(attribute)
                 if not isinstance(value, list) and pd.notna(value) and str(value).strip():
-                    values.add(str(int(float(value))) if attribute == "founding_year" else norm(value))
-            if len(values) == 0:
+                    values.append(str(int(float(value))) if attribute == "founding_year" else norm(value))
+            if len(values) < 2:
                 continue
             total[attribute] = total.get(attribute, 0) + 1
-            if len(values) == 1:
+            if len(set(values)) == 1:
                 same[attribute] = same.get(attribute, 0) + 1
     return {a: round(same.get(a, 0) / total[a], 3) for a in total}
 
@@ -189,6 +233,7 @@ def consistency(data, corr):
 def main():
     RESULTS.mkdir(exist_ok=True)
     data = [load(s) for s in CLEANED]
+    CODES.update({i: c for d in data for i, c in zip(d["id"], d["country_code"])})
     corr = pd.concat([pd.read_csv(CORRESPONDENCES / f"correspondences_{a}_ror_r8.csv")
                       for a in ["wikidata", "deqar"]], ignore_index=True)
     expected = load_gold()
@@ -212,11 +257,14 @@ def main():
     table = pd.DataFrame(rows)
     overall = table[table["gold subset"] == "all"]
     final = {"other": STRATEGIES["trust: ROR first"]["other"]}
-    for attribute in ["name", "country_code", "city", "founding_year"]:
+    for attribute in SINGLE:
         best = overall.sort_values(attribute, ascending=False, kind="stable").iloc[0]["strategy"]
         rules = STRATEGIES[best]
         final[attribute] = rules.get(attribute, rules["other"])
         print(f"  best for {attribute}: {best}")
+    # the country name is not evaluated; it follows the record that gave the country code
+    if final["country_code"][0] is voting_ties_by_trust:
+        final["country"] = (country_of_code, {})
     strategy = make_strategy("best per attribute", final)
     fused = DataFusionEngine(strategy).run(data, corr, id_column="id")
     for subset in ["all", "conflict", "random", "first"]:
