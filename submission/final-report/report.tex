@@ -71,8 +71,8 @@ records can inflate university counts.
 No single open source offers such a database. The Research Organization Registry (ROR) gives
 persistent identifiers, locations and websites, but for research organisations of every kind. Wikidata
 adds institution types, student numbers and memberships. The Database of External Quality Assurance
-Results (\mbox{DEQAR}) lists which institutions a registered quality assurance agency has reviewed,
-mostly in Europe. They name the same institution differently (\emph{Universit\"at Ulm} in ROR,
+Results (\mbox{DEQAR}) lists higher education institutions, mostly in Europe, and the reviews of
+registered quality assurance agencies. They name the same institution differently (\emph{Universit\"at Ulm} in ROR,
 \emph{Ulm University} in Wikidata and DEQAR) and disagree on values: where DEQAR and ROR link the same
 institution, their founding years agree in only 73\% of cases. We integrate them in three steps: a
 common schema (Sect.~\ref{sec:phase1}), identity resolution (Sects.~\ref{sec:phase2}
@@ -122,8 +122,8 @@ source of institution types, student numbers and memberships. We took the 22,697
 our only source of regions and statuses. We kept the 30,131 of 141,528 records whose types include
 \emph{education} and that are not withdrawn.
 
-\paragraph{DEQAR.} Quality assurance agencies fill this higher-education database of the European
-register EQAR \citep{eqar2026deqar}, our only source of their reports, closure years and histories.
+\paragraph{DEQAR.} This higher-education database \citep{eqar2026deqar} is our only source of
+quality assurance reports (for 57\% of its institutions), closure years and histories.
 Merging rows that repeat an institution per location left 8,979 records. For now, parts of institutions, schools and seminaries
 stayed in (Sect.~\ref{sec:cleaning}).
 
@@ -369,7 +369,7 @@ Institute of Art}, listed under a university it is only a member of. An LLM deep
 the removed records and a sample of the kept ones confirmed the picture: few removed records are
 universities, but some non-universities remain among the kept ones, such as US community colleges
 called \emph{X College} and campuses with plain names. Sect.~\ref{sec:conclusion} takes these up.
-% TODO (team): fill in hand_verdict in data/<source>/filtered/hand_check_removed.csv before submission;
+% TODO (team): fill in hand_verdict in scripts/02_filtering/validation/<source>/hand_check_removed.csv before submission;
 % 1 / 3 / 5 are the pre-check values. If they change, update: the counts in this paragraph,
 % '1 ..., 3 ... and 5' and the examples in this paragraph, 'up to 10\%' in the Limitations, and deck
 % slide 10 (table row and notes).
@@ -444,7 +444,7 @@ can hold conflicts.
 \paragraph{Provenance.} Every record keeps its source in its identifier (\emph{ror\_05njb9z20}), and
 every fused university lists its records and sources. We used PyDI's internal record of which source supplied each value to trace every error. Conflict resolution uses trust scores:
 ROR~3, Wikidata~2, DEQAR~1. This order is our assumption: a curation team maintains ROR, volunteers
-edit Wikidata, and DEQAR relies on reports from quality assurance agencies.
+edit Wikidata, and DEQAR keeps general facts only alongside its review reports.
 
 \paragraph{Density.} The density of an attribute is the share of records with a value
 (Fig.~\ref{fig:density}, left). Fusion adds what ROR, the largest source, lacks: student numbers and

@@ -1,4 +1,4 @@
-"""Summary of the hand check of removed records (data/<source>/filtered/hand_check_removed.csv).
+"""Summary of the hand check of removed records (<source>/hand_check_removed.csv in this folder).
 
 50 removed records per source, drawn at random (random_state 2026) from
 data/<source>/filtered/removed.csv. Each row has a pre-check (precheck: removal_correct,
@@ -12,8 +12,8 @@ from pathlib import Path
 
 import pandas as pd
 
-DATA = Path(__file__).resolve().parents[3] / "data"
-df = pd.concat([pd.read_csv(DATA / s / "filtered" / "hand_check_removed.csv", dtype=str)
+HERE = Path(__file__).resolve().parent
+df = pd.concat([pd.read_csv(HERE / s / "hand_check_removed.csv", dtype=str)
                 for s in ("wikidata", "ror", "deqar")]).fillna("")
 df["verdict"] = df["hand_verdict"].where(df["hand_verdict"] != "", df["precheck"])
 rows = []

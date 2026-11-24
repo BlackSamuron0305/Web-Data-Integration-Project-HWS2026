@@ -120,7 +120,7 @@ left is mostly what a name cannot show: US community colleges called "X College"
 institutes with a plain name, diploma-level schools.
 
 A hand check of 50 random removed records per source is prepared in
-`data/<source>/filtered/hand_check_removed.csv` (column `hand_verdict`); **it is not filled in yet**.
+`validation/<source>/hand_check_removed.csv` (column `hand_verdict`); **ROR is checked (Lakpa), Wikidata and DEQAR not yet**.
 `validation/hand_check_summary.py` counts the result once it is.
 
 ## How we found the rules, and what did not work
