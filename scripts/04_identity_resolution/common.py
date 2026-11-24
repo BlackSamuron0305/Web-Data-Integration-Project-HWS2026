@@ -20,13 +20,8 @@ logging.disable(logging.WARNING)
 IR = Path(__file__).resolve().parent
 DATA = IR.parents[1] / "data"
 SCHEMA_MAPPING = IR.parent / "03_schema_mapping"   # MapForce XML output
-LABELS = IR / "01_labels" / "results"
-GOLD = DATA / "golden_set"   # the labelled pairs (round 2) and the other gold sets
-
-
-def label_folder(round_):
-    # round 1 labels stay with the script; round 2 (used from round 2 on) is the golden set
-    return LABELS / "round1" if round_ == 1 else GOLD / "labelled_pairs"
+GOLD = DATA / "golden_set"
+LABELS = GOLD / "labelled_pairs"   # the 1,800 labelled pairs, split by 01_labels/split_labelled_pairs.py
 CANDIDATES = IR / "02_blocking" / "results" / "candidates"
 
 MAPPING = {"wikidata": "Wikidata_Mapping.xml", "ror": "ROR_Mapping.xml", "deqar": "deqar_Mapping.xml"}
@@ -247,8 +242,8 @@ def removed_ids():
 
 
 def labels(a, b, split, round_):
-    # rounds 3 and 8 use the round 2 labels; round 8 drops pairs with a removed record (out of scope)
-    df = pd.read_csv(label_folder(round_) / f"{a}_{b}_{split}.csv")
+    # every round uses the same labelled pairs; round 8 drops pairs with a removed record (out of scope)
+    df = pd.read_csv(LABELS / f"{a}_{b}_{split}.csv")
     df["label"] = df["label"].astype(str).str.lower().isin(["true", "1"])
     if round_ == 8:
         gone = removed_ids()

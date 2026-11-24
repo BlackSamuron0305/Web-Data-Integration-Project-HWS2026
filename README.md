@@ -40,7 +40,7 @@ identity resolution, otherwise ties between equal scores can come out differentl
 | Collect | `01_data_collection/fetch_wikidata.py`, `fetch_ror.py`, `fetch_deqar.py` | `data/<source>/original/` (already included) |
 | Clean | `02_filtering/<source>/filter.py`, then `02_filtering/validation/validate.ipynb` | `data/<source>/filtered/` |
 | Schema mapping | `03_schema_mapping/build_lookup_tables.py`, then in MapForce `<source>/filtered/*_Mapping_filtered.mfd` | `03_schema_mapping/<source>/filtered/*_Mapping.xml` |
-| Labelled pairs | `04_identity_resolution/01_labels/labels.py 2` (not `pool` or `extra`: they overwrite the hand-checked files) | `data/golden_set/labelled_pairs/` |
+| Labelled pairs | `04_identity_resolution/01_labels/split_labelled_pairs.py` | `data/golden_set/labelled_pairs/<pair>_<split>.csv` |
 | Blocking | `04_identity_resolution/02_blocking/blocking.py 8` | `candidates/` |
 | Matching | `03_rule_based/rule_based.py 8`, `04_ml_based/ml_based.py 8` | `matching.csv` |
 | Final links | `05_final/final.py 8`, then `05_final/cutoff_check.py` | `correspondences_*`, `cutoff_check.csv` |
@@ -55,21 +55,25 @@ round-8 matchers. Each step folder has a README on what we did, why, and what wo
 
 ## Gold standards
 
-- `data/golden_set/labelled_pairs/`: labelled pairs for training, validation and testing.
-- `data/golden_set/hand_labelled_pairs/`: 500 pairs labelled by hand.
-- `data/golden_set/fusion/`: expected values for the fusion evaluation.
+- `data/golden_set/labelled_pairs/labelled_pairs.csv`: the 1,800 labelled pairs for identity resolution,
+  300 per set (Wikidata-ROR and DEQAR-ROR, each train / validation / test), both records side by side.
+  486 were labelled by hand (Chellapuram Keerthan Reddy), the others by two independent passes of AI
+  agents (Claude), disagreements settled with web research. Columns `hand_check`, `checked_by` and
+  `hand_note` are for the team's check of every label. `split_labelled_pairs.py` writes the six set files.
+- `data/golden_set/fusion/fusion_gold.csv`: the fusion gold standard, 50 universities in two or more
+  sources (40 with conflicting values, 10 random). Name, country code, city, founding year and domain were
+  looked up on the web (sources in `sources`) by AI agents; `checked_by` / `hand_note` for the team's check.
 
 ## Checked by AI, not yet by a person
 
 These files were filled in or judged by AI agents (Claude) and still need a check by hand:
 
 - `scripts/02_filtering/validation/<source>/ai_checks.csv`: records checked to validate the cleaning.
-- `scripts/04_identity_resolution/01_labels/results/pool_extra_*.csv`, `review_extra_*.csv`: 200 extra
-  test pairs per source pair.
-- `data/golden_set/fusion/fusion_gold.csv`, `fusion_gold_new.csv`: the fusion gold standard.
+- `data/golden_set/labelled_pairs/labelled_pairs.csv`: the 1,314 labels with `labelled_by` = AI agents.
+- `data/golden_set/fusion/fusion_gold.csv`: the looked-up values of the fusion gold standard.
 - `scripts/04_identity_resolution/05_final/results/ai_check_links_r8.csv`: 6,000 round-8 links.
 - `scripts/05_data_fusion/results/ai_check_fused*.csv`: every fused university.
 - `scripts/06_abandoned_approaches/01_selection/results/sample_200_ai_checked.csv`: 200 items of a
   wider Wikidata selection we dropped (see `scripts/06_abandoned_approaches/README.md`).
 
-The hand check of the round-2 labels is in `01_labels/results/review_*.csv`.
+The hand check of 150 records removed by the cleaning is in `scripts/02_filtering/validation/<source>/hand_check_removed.csv`.

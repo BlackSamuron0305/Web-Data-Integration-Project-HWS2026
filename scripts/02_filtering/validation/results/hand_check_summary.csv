@@ -1,4 +1,4 @@
 source,checked,checked_by_hand,real_university,unsure,removal_correct,hand_disagrees_with_precheck,share_real
-wikidata,50,0,1,1,48,0,0.02
+wikidata,50,50,1,0,49,1,0.02
 ror,50,50,4,0,46,1,0.08
-deqar,50,0,5,6,39,0,0.1
+deqar,50,50,8,0,42,7,0.16

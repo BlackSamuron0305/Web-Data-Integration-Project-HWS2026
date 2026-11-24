@@ -171,11 +171,9 @@ def load(source):
 
 
 def load_gold():
-    old = pd.read_csv(GOLD / "fusion_gold.csv", dtype=str).assign(subset="first")
-    new = pd.read_csv(GOLD / "fusion_gold_new.csv", dtype=str)
-    new = new[new["confidence"].str.lower() != "low"]
-    new["subset"] = new["selected_because"].map(lambda x: "random" if x == "random" else "conflict")
-    gold = pd.concat([old, new], ignore_index=True)
+    # 50 universities (40 with conflicting sources, 10 random), values looked up in external sources
+    gold = pd.read_csv(GOLD / "fusion_gold.csv", dtype=str, keep_default_na=False)
+    gold["subset"] = gold["selected_because"].map(lambda x: "random" if x == "random" else "conflict")
 
     expected = pd.DataFrame({"eval_id": gold["anchor_id"], "subset": gold["subset"],
                              "country_code": gold["country_code"]})
@@ -248,10 +246,10 @@ def main():
     for name, rules in STRATEGIES.items():
         strategy = make_strategy(name, rules)
         fused = DataFusionEngine(strategy).run(data, corr, id_column="id")
-        for subset in ["all", "conflict", "random", "first"]:
+        for subset in ["all", "conflict", "random"]:
             part = expected if subset == "all" else expected[expected["subset"] == subset]
             rows.append({"strategy": name, "gold subset": subset, **evaluate(strategy, fused, part)})
-        print(f"  {name}: mean accuracy {rows[-4]['mean']} on {rows[-4]['universities']} universities", flush=True)
+        print(f"  {name}: mean accuracy {rows[-3]['mean']} on {rows[-3]['universities']} universities", flush=True)
 
     # final strategy: for every evaluated attribute the function that was best on the gold standard
     # (on a tie the one listed first)
@@ -268,7 +266,7 @@ def main():
         final["country"] = (country_of_code, {})
     strategy = make_strategy("best per attribute", final)
     fused = DataFusionEngine(strategy).run(data, corr, id_column="id")
-    for subset in ["all", "conflict", "random", "first"]:
+    for subset in ["all", "conflict", "random"]:
         part = expected if subset == "all" else expected[expected["subset"] == subset]
         debug = RESULTS / "fusion_errors.jsonl" if subset == "all" else None
         rows.append({"strategy": "best per attribute", "gold subset": subset,

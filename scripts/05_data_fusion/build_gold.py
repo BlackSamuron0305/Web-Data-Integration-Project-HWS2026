@@ -1,5 +1,8 @@
-"""Picks 1,000 universities that are in two or more sources for the fusion gold standard
-(500 where the sources disagree, 500 random) and writes gold_candidates.csv.  Usage: python build_gold.py"""
+"""Picks 50 universities that are in two or more sources for the fusion gold standard
+(40 where the sources disagree, 10 random) and writes gold_candidates.csv.  Usage: python build_gold.py
+
+The correct values of these 50 are then looked up in external sources and checked by hand:
+data/golden_set/fusion/fusion_gold.csv."""
 import random
 import re
 import unicodedata
@@ -43,12 +46,8 @@ def main():
         for x, y in zip(c["id1"], c["id2"]):
             partner.setdefault(y, {})[a] = x
 
-    # leave out the 39 universities of the first gold standard
-    old = set(pd.read_csv(ROOT / "data" / "golden_set" / "fusion" / "fusion_gold.csv", dtype=str)["anchor_id"])
     rows = []
     for ror_id, others in partner.items():
-        if ror_id in old:
-            continue
         row = {"anchor_id": ror_id, "sources": "ror | " + " | ".join(sorted(others))}
         ids = {"ror": ror_id, **others}
         for s, rid in ids.items():
@@ -76,17 +75,17 @@ def main():
     }
     rng = random.Random(SEED)
     chosen, why = [], {}
-    share = {"founding_year": 150, "city": 120, "name": 120, "domain": 80, "country": 30}
+    share = {"founding_year": 12, "city": 10, "name": 10, "domain": 5, "country": 3}
     for attribute, n in share.items():
         pool = [i for i in df.index[conflicts[attribute]] if i not in why]
         for i in rng.sample(pool, min(n, len(pool))):
             why[i] = f"conflict: {attribute}"
-    short = 500 - len(why)
+    short = 40 - len(why)
     pool = [i for i in df.index if i not in why and any(c[i] for c in conflicts.values())]
     for i in rng.sample(pool, min(short, len(pool))):
         why[i] = "conflict: several"
     pool = [i for i in df.index if i not in why]
-    for i in rng.sample(pool, 500):
+    for i in rng.sample(pool, 10):
         why[i] = "random"
     out = df.loc[list(why)].assign(selected_because=[why[i] for i in why])
     out = out.sample(frac=1, random_state=SEED)
