@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<institutions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../target.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<institutions xsi:noNamespaceSchemaLocation="../../target.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<institution>
 		<id>deqar_DEQARINST0001</id>
 		<name>University of Vienna</name>
@@ -86818,7 +86818,7 @@
 		<web>
 			<website>/</website>
 			<domains>
-				<domain />
+				<domain></domain>
 			</domains>
 		</web>
 		<lifecycle>
@@ -86842,7 +86842,7 @@
 		<web>
 			<website>/</website>
 			<domains>
-				<domain />
+				<domain></domain>
 			</domains>
 		</web>
 		<lifecycle>
