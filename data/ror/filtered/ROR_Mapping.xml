@@ -14868,6 +14868,7 @@
 		</acronyms>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<region>Khomas Region</region>
 			<city>Windhoek</city>
 			<latitude>-22.55941</latitude>
@@ -117556,6 +117557,7 @@
 		</acronyms>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<region>Khomas Region</region>
 			<city>Windhoek</city>
 			<latitude>-22.55941</latitude>
@@ -137531,6 +137533,7 @@
 		</acronyms>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<region>Khomas Region</region>
 			<city>Windhoek</city>
 			<latitude>-22.55941</latitude>
@@ -401016,6 +401019,7 @@
 		</acronyms>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<region>Khomas Region</region>
 			<city>Windhoek</city>
 			<latitude>-22.55941</latitude>
@@ -622508,6 +622512,9 @@
 	<institution>
 		<id>ror_05d3xvm78</id>
 		<name>Newark Academy</name>
+		<acronyms>
+			<acronym>NA</acronym>
+		</acronyms>
 		<location>
 			<country>United States</country>
 			<countryCode>US</countryCode>
@@ -681598,6 +681605,7 @@
 		</acronyms>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<region>Khomas Region</region>
 			<city>Windhoek</city>
 			<latitude>-22.55941</latitude>

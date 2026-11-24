@@ -157,7 +157,8 @@ def duplicates(df, id_col, number):
 
 
 def read_original(source, csv_name):
-    return pd.read_csv(DATA / source / "original" / csv_name, dtype=str)
+    # keep_default_na=False: "NA" is Namibia (country code) or an acronym, not a missing value
+    return pd.read_csv(DATA / source / "original" / csv_name, dtype=str, keep_default_na=False, na_values=[""])
 
 
 def finish(df, source, csv_name, xml_name, id_col, number, removed_columns):

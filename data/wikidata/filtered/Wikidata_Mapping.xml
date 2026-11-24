@@ -14213,6 +14213,7 @@
 		</alternativeNames>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<city>Windhoek</city>
 			<latitude>-22.61111111</latitude>
 			<longitude>17.0575</longitude>
@@ -27806,6 +27807,7 @@
 		</alternativeNames>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<city>Windhoek</city>
 			<latitude>-22.56527778</latitude>
 			<longitude>17.07694444</longitude>
@@ -100713,6 +100715,7 @@
 		</alternativeNames>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<city>Windhoek</city>
 		</location>
 		<web>
@@ -195030,6 +195033,7 @@
 		</alternativeNames>
 		<location>
 			<country>Namibia</country>
+			<countryCode>NA</countryCode>
 			<city>Windhoek</city>
 			<latitude>-22.569</latitude>
 			<longitude>17.083</longitude>
