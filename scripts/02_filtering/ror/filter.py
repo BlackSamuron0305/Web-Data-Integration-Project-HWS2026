@@ -44,7 +44,7 @@ def main():
         reasons.append(reason)
     df["rule"] = rules
     df["reason"] = reasons
-    finish(df, "ror", "ror_education.csv", "ROR_Mapping.xml", "ror_id", lambda x: x,
+    finish(df, "ror", "ror_education.csv", "ror_id", lambda x: x,
            ["ror_id", "name", "country", "types", "parent_ror_id"])
 
 

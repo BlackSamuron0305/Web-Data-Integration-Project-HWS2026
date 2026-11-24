@@ -178,7 +178,8 @@ whole groups with founding years and websites. The domain function removed \emph
 \paragraph{Mapping validation.} Compared value by value with the script's output, the files
 differ only in the domains of 14 institutions with messy website fields. They pass schema validation,
 with no stray spaces or unsplit lists. A field with several cities or countries stays one text value, as the schema allows one of each (587 city and 102 country fields in Wikidata, 23 DEQAR records). A valid
-file is not necessarily a correct one (Sect.~\ref{sec:conclusion}).
+file is not necessarily a correct one (Sect.~\ref{sec:conclusion}). Namibia even lost its country
+code in the cleaned files, as pandas reads \emph{NA} as a missing value.
 
 \section{Phase II: Identity Resolution}\label{sec:phase2}
 
@@ -347,8 +348,10 @@ for units that could not qualify as universities in their own right, such as
 faculties and vocational centres, and Wikidata's subclasses of \emph{university} include seminaries
 and Japanese junior colleges. Only 132 of the 1,020 test pairs contain a record that cleaning removes, so the test set gave us
 little insight into the scope of the problem. A deep dive with an LLM into random samples of each source
-showed that a large share of the ROR and DEQAR records are not universities in our sense. We therefore
-turned our definition of a university into fixed cleaning rules.
+showed that a large share of the ROR and DEQAR records are not universities in our sense. We dropped
+two simpler fixes: LLM agents judging each record were often unsure, so errors stayed, and hit our
+usage limits early; keeping only names with \emph{univers} removed 38--60\% of each source, including
+1,149 checked universities. We therefore turned our definition of a university into fixed rules.
 
 \paragraph{Rules.}
 A record stays only if it passes five rules, in this order: it awards degrees at bachelor's level or
@@ -366,7 +369,7 @@ Institute of Art}, listed under a university it is only a member of. An LLM deep
 the removed records and a sample of the kept ones confirmed the picture: few removed records are
 universities, but some non-universities remain among the kept ones, such as US community colleges
 called \emph{X College} and campuses with plain names. Sect.~\ref{sec:conclusion} takes these up.
-% TODO (team): fill in hand_verdict in scripts/02_filtering/hand_check_removed.csv before submission;
+% TODO (team): fill in hand_verdict in data/<source>/filtered/hand_check_removed.csv before submission;
 % 1 / 3 / 5 are the pre-check values. If they change, update: the counts in this paragraph,
 % '1 ..., 3 ... and 5' and the examples in this paragraph, 'up to 10\%' in the Limitations, and deck
 % slide 10 (table row and notes).
@@ -471,7 +474,7 @@ we sampled 384 universities with conflicting source values and 446 at random. An
 may inflate the accuracy estimates. Names
 and cities are compared after the cleaning used in matching, years as numbers and country codes
 exactly. A domain list is right if it holds an accepted value.
-% TODO (team): spot-check fusion_gold_new.csv by hand before submission.
+% TODO (team): spot-check data/golden_set/fusion/fusion_gold_new.csv by hand before submission.
 
 \paragraph{Conflict resolution and accuracy.} All strategies unite lists and take the median of the
 coordinates. For single-valued attributes we compared four strategies built from PyDI's functions
@@ -535,11 +538,9 @@ steps (Sect.~\ref{sec:conclusion}) therefore target them.
 The fused dataset contains 35,996 entries, 13,642 of them from at least two sources. It
 adds 10,077 universities to ROR, 39\% more, all from Wikidata or DEQAR alone. For universities that
 ROR also describes, fusion raises the mean density from ROR's 0.581 to 0.638, mostly with attributes
-ROR lacks. The added ones have fewer values, so over all universities it stays slightly below ROR, at
-0.561. On the fusion gold standard, drawn from the 38\% of universities in at least two sources,
+ROR lacks. On the fusion gold standard, drawn from the 38\% of universities in at least two sources,
 98.6\% of names, countries, cities and founding years are correct. By the hand-labelled pairs, about
-97\% of links are correct. An LLM deep dive shows that most remaining errors are
-non-universities in single-source entries.
+97\% of links are correct.
 
 \paragraph{What changed the outcome.}
 Reviewing errors after the first pass showed that high matching scores can coexist with poor source
@@ -554,8 +555,10 @@ We inspected test scores during development, extended the test sets and excluded
 records after cleaning. The resulting scores depend on which pairs were tested. An LLM (Claude)
 reviewed or produced several evaluation labels, including the fusion reference values, and assessed
 the full dataset. Manual review covered narrower samples. The cleaning rules also remove some
-eligible universities, up to 10\% of the removed records in our manual review. Without run logs, the long
-second-pass embedding run stays unexplained.
+eligible universities, up to 10\% of the removed records in our manual review. Selecting Wikidata by
+class \emph{university} misses 8,089 items linked from cleaned ROR records. All higher education
+institutions would add 79,364 items, but an LLM judged only one in eight that pass our cleaning to be
+universities (sample of 200). Without run logs, the long second-pass embedding run stays unexplained.
 
 \paragraph{What we would change.}
 We would define the entity and sample each source before matching. During development, we would

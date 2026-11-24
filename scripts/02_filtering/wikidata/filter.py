@@ -194,7 +194,7 @@ def main():
         reasons.append(reason)
     df["rule"] = rules
     df["reason"] = reasons
-    finish(df, "wikidata", "wikidata_universities.csv", "Wikidata_Mapping.xml", "wikidata_id",
+    finish(df, "wikidata", "wikidata_universities.csv", "wikidata_id",
            lambda q: int(q[1:]), ["wikidata_id", "name", "country", "types"])
 
 

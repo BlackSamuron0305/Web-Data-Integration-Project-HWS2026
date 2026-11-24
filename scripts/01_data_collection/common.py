@@ -1,4 +1,4 @@
-"""Helpers used by fetch_wikidata.py, build_ror_education.py and fetch_deqar.py."""
+"""Helpers used by fetch_wikidata.py, fetch_ror.py and fetch_deqar.py."""
 import csv
 import re
 from pathlib import Path

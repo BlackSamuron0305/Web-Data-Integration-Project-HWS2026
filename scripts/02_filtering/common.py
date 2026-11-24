@@ -1,9 +1,8 @@
 """Code shared by the three filters (<source>/filter.py): the name rules, Rule 5 and writing the outputs.
 
-The rules themselves are described in rules.md in the repo root.
+The rules themselves are described in rules.md in this folder.
 """
 import re
-import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import pandas as pd
@@ -161,8 +160,11 @@ def read_original(source, csv_name):
     return pd.read_csv(DATA / source / "original" / csv_name, dtype=str, keep_default_na=False, na_values=[""])
 
 
-def finish(df, source, csv_name, xml_name, id_col, number, removed_columns):
-    """Applies Rule 5 to the records left after Rules 1-4 and writes the outputs."""
+def finish(df, source, csv_name, id_col, number, removed_columns):
+    """Applies Rule 5 to the records left after Rules 1-4 and writes the outputs.
+
+    Only CSV files: the cleaned XML comes from MapForce (scripts/03_schema_mapping/<source>/filtered/*_Mapping_filtered.mfd).
+    """
     stays = df["rule"] == ""
     dup = duplicates(df[stays].drop(columns=["rule", "reason"]), id_col, number)
     df.loc[dup.index, "rule"] = "5"
@@ -174,21 +176,6 @@ def finish(df, source, csv_name, xml_name, id_col, number, removed_columns):
     kept.to_csv(out / csv_name, index=False)
     removed = removed[removed_columns + ["rule", "reason"]].sort_values(["rule", "reason", "name"])
     removed.to_csv(out / "removed.csv", index=False)
-    write_mapping_without(DATA / source / "original" / xml_name,
-                          set(f"{source}_" + removed[id_col]), out / xml_name)
 
     print(f"records in: {len(df)}\nremoved:    {len(removed)}\nkept:       {len(kept)}")
     print("\nremoved per rule:\n" + removed["rule"].value_counts().sort_index().to_string())
-
-
-def write_mapping_without(source_xml, gone, out):
-    # the mapping turns one csv row into one <institution>, so we just drop the removed ones from the xml
-    ET.register_namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance")
-    tree = ET.parse(source_xml)
-    root = tree.getroot()
-    for inst in list(root):
-        if inst.findtext("id") in gone:
-            root.remove(inst)
-    # binary mode so the line ends are "\n" on windows too
-    with open(out, "wb") as f:
-        tree.write(f, encoding="UTF-8", xml_declaration=True)

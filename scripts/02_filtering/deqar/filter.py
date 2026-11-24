@@ -56,7 +56,7 @@ def main():
         reasons.append(reason)
     df["rule"] = rules
     df["reason"] = reasons
-    finish(df, "deqar", "deqar_institutions.csv", "deqar_Mapping.xml", "deqar_id",
+    finish(df, "deqar", "deqar_institutions.csv", "deqar_id",
            lambda x: int(x.removeprefix("DEQARINST")), ["deqar_id", "name", "country", "parent_institutions"])
 
 

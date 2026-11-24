@@ -1,10 +1,13 @@
+# Python 3.12. Versions are the ones the results were produced with.
 uma-pydi==0.2.1
-pandas
-numpy
-requests
-scikit-learn
-rapidfuzz
-lxml
+pandas==2.3.3
+numpy==2.1.3
+requests==2.34.2
+scikit-learn==1.9.1
+rapidfuzz==3.14.6
+lxml==5.4.0
 openpyxl
-matplotlib
-ipykernel
+matplotlib==3.10.0
+ipykernel==7.4.0
+sentence-transformers==5.7.0
+torch==2.15.0
