@@ -1,0 +1,1602 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<institutions>
+	<institution>
+		<id>ror_01ry38620</id>
+		<name>Yashima Gakuen University</name>
+		<alternativeNames>
+			<alternativeName>八洲学園大学</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>JP</countryCode>
+			<city>Yokohama</city>
+		</location>
+		<web>
+			<domains>
+				<domain>yashima.ac.jp</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2004</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_000t0f062</id>
+		<name>The Education University of Hong Kong</name>
+		<alternativeNames>
+			<alternativeName>Education University of Hong Kong</alternativeName>
+			<alternativeName>香港教育大學</alternativeName>
+			<alternativeName>The Hong Kong Institute of Education</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>HK</countryCode>
+			<city>Tai Po</city>
+		</location>
+		<web>
+			<domains>
+				<domain>eduhk.hk</domain>
+				<domain>ied.edu.hk</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1994</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_05d9x2e07</id>
+		<name>Wyższa Szkoła Hotelarstwa i Gastronomii w Poznaniu</name>
+		<alternativeNames>
+			<alternativeName>Academy of Hotel Management and Catering Industry</alternativeName>
+			<alternativeName>Academy of Hotel Management and Catering in Poznan</alternativeName>
+			<alternativeName>Higher School of Hotel Industry and Gastronomy in Poznań</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>PL</countryCode>
+			<city>Poznań</city>
+		</location>
+		<web>
+			<domains>
+				<domain>wshig.pl</domain>
+				<domain>wshig.poznan.pl</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1993</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_0077sy889</id>
+		<name>Bratislava University of Economics and Management</name>
+		<alternativeNames>
+			<alternativeName>Vysoká škola ekonómie a manažmentu v Bratislave</alternativeName>
+			<alternativeName>Vysoká škola ekonómie a manažmentu verejnej správy v Bratislave</alternativeName>
+			<alternativeName>School of Economics and Management of Public Administration in Bratislava</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>SK</countryCode>
+			<city>Bratislava</city>
+		</location>
+		<web>
+			<domains>
+				<domain>vsemba.sk</domain>
+				<domain>vsemvs.sk</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2004</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_0059h1f24</id>
+		<name>Prefectural University of Hiroshima</name>
+		<alternativeNames>
+			<alternativeName>県立広島大学</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>JP</countryCode>
+			<city>Hiroshima</city>
+		</location>
+		<web>
+			<domains>
+				<domain>pu-hiroshima.ac.jp</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2005</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01wmj1g45</id>
+		<name>Atlanta University Center Consortium</name>
+		<alternativeNames>
+			<alternativeName>Atlanta University Center</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>US</countryCode>
+			<city>Atlanta</city>
+		</location>
+		<web>
+			<domains>
+				<domain>aucenter.edu</domain>
+				<domain>aucconsortium.org</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1929</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03cyjf656</id>
+		<name>University Centre in Svalbard</name>
+		<alternativeNames>
+			<alternativeName>Universitetssenteret på Svalbard</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>NO</countryCode>
+			<city>Longyearbyen</city>
+		</location>
+		<web>
+			<domains>
+				<domain>unis.no</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1993</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02zpfcb35</id>
+		<name>Škoda Auto University</name>
+		<alternativeNames>
+			<alternativeName>Škoda Auto Vysoká škola</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>CZ</countryCode>
+			<city>Mladá Boleslav</city>
+		</location>
+		<web>
+			<domains>
+				<domain>savs.cz</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2000</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_05v0eqq44</id>
+		<name>Universitas Harapan Bangsa</name>
+		<alternativeNames>
+			<alternativeName>STIKes Harapan Bangsa Purwokerto</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Purwokerto</city>
+		</location>
+		<web>
+			<domains>
+				<domain>uhb.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2002</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01herdm14</id>
+		<name>Marian University</name>
+		<alternativeNames>
+			<alternativeName>Marian University (Wisconsin)</alternativeName>
+			<alternativeName>Marian College of Fond du Lac</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>US</countryCode>
+			<city>Fond du Lac</city>
+		</location>
+		<web>
+			<domains>
+				<domain>marianuniversity.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1936</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00xp3z794</id>
+		<name>Facultad Latinoamericana de Ciencias Sociales, Sede Argentina</name>
+		<alternativeNames>
+			<alternativeName>FLACSO Argentina</alternativeName>
+			<alternativeName>Latin American Faculty of Social Sciences, Argentina</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>AR</countryCode>
+			<city>Buenos Aires</city>
+		</location>
+		<web>
+			<domains>
+				<domain>flacso.org.ar</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1974</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04w893s72</id>
+		<name>David Tvildiani Medical University</name>
+		<alternativeNames>
+			<alternativeName>დავით ტვილდიანის სამედიცინო უნივერსიტეტი</alternativeName>
+			<alternativeName>Higher Medical School AIETI</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>GE</countryCode>
+			<city>Tbilisi</city>
+		</location>
+		<web>
+			<domains>
+				<domain>dtmu.ge</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1992</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02k11zt98</id>
+		<name>Dagestan State Pedagogical University</name>
+		<alternativeNames>
+			<alternativeName>Дагестанский государственный педагогический университет им. Р. Гамзатова</alternativeName>
+			<alternativeName>Дагестанский государственный педагогический университет</alternativeName>
+			<alternativeName>Dagestan State Pedagogical University named after R. Gamzatov</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>RU</countryCode>
+			<city>Makhachkala</city>
+		</location>
+		<web>
+			<domains>
+				<domain>dspu.su</domain>
+				<domain>dspu.ru</domain>
+				<domain>dgpu.net</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1917</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02zhqgq86</id>
+		<name>The University of Hong Kong</name>
+		<alternativeNames>
+			<alternativeName>University of Hong Kong</alternativeName>
+			<alternativeName>香港大學</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>HK</countryCode>
+			<city>Hong Kong</city>
+		</location>
+		<web>
+			<domains>
+				<domain>hku.hk</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1911</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_041awyd76</id>
+		<name>Hellenic Air Force Academy</name>
+		<alternativeNames>
+			<alternativeName>Σχολή Ικάρων</alternativeName>
+			<alternativeName>Icarus School</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>GR</countryCode>
+			<city>Dekeleia</city>
+		</location>
+		<web>
+			<domains>
+				<domain>hafa.haf.gr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1931</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04ztvfe59</id>
+		<name>Eugeniusz Geppert Academy of Art and Design in Wrocław</name>
+		<alternativeNames>
+			<alternativeName>Akademia Sztuk Pięknych im. Eugeniusza Gepperta we Wrocławiu</alternativeName>
+			<alternativeName>Eugeniusz Geppert Academy of Fine Arts in Wrocław</alternativeName>
+			<alternativeName>Academy of Fine Arts in Wrocław</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>PL</countryCode>
+			<city>Wrocław</city>
+		</location>
+		<web>
+			<domains>
+				<domain>asp.wroc.pl</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1946</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_0305nje64</id>
+		<name>Universidade Salgado de Oliveira</name>
+		<alternativeNames>
+			<alternativeName>Universidade UNIVERSO</alternativeName>
+			<alternativeName>Salgado de Oliveira University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>BR</countryCode>
+			<city>São Gonçalo</city>
+		</location>
+		<web>
+			<domains>
+				<domain>universo.edu.br</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1993</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04h36ea57</id>
+		<name>Alexander Technological Educational Institute of Thessaloniki</name>
+		<alternativeNames>
+			<alternativeName>Αλεξάνδρειο Τεχνολογικό Εκπαιδευτικό Ίδρυμα Θεσσαλονίκης</alternativeName>
+			<alternativeName>Alexander TEI of Thessaloniki</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>GR</countryCode>
+			<city>Thessaloniki</city>
+		</location>
+		<web>
+			<domains>
+				<domain>teithe.gr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1970</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04waqzz56</id>
+		<name>Isfahan University of Medical Sciences</name>
+		<alternativeNames>
+			<alternativeName>دانشگاه علوم پزشکی و خدمات بهداشتی درمانی اصفهان</alternativeName>
+			<alternativeName>Isfahan University of Medical Sciences and Health Services</alternativeName>
+			<alternativeName>Medical University of Isfahan</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>IR</countryCode>
+			<city>Isfahan</city>
+		</location>
+		<web>
+			<domains>
+				<domain>mui.ac.ir</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1946</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02en5vm52</id>
+		<name>Sorbonne University</name>
+		<alternativeNames>
+			<alternativeName>Sorbonne Université</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>FR</countryCode>
+			<city>Paris</city>
+		</location>
+		<web>
+			<domains>
+				<domain>sorbonne-universite.fr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2018</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_059zrbe49</id>
+		<name>Applied Science University</name>
+		<alternativeNames>
+			<alternativeName>جامعة العلوم التطبيقية</alternativeName>
+			<alternativeName>Applied Science University Bahrain</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>BH</countryCode>
+			<city>East Eker</city>
+		</location>
+		<web>
+			<domains>
+				<domain>asu.edu.bh</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2004</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03x95bs79</id>
+		<name>Mariupol State University</name>
+		<alternativeNames>
+			<alternativeName>Маріупольський державний університет</alternativeName>
+			<alternativeName>Mariupol University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>UA</countryCode>
+			<city>Mariupol</city>
+		</location>
+		<web>
+			<domains>
+				<domain>mu.edu.ua</domain>
+				<domain>mdu.in.ua</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1991</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_051q2m369</id>
+		<name>Hankuk University of Foreign Studies</name>
+		<alternativeNames>
+			<alternativeName>한국외국어대학교</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>KR</countryCode>
+			<city>Seoul</city>
+		</location>
+		<web>
+			<domains>
+				<domain>hufs.ac.kr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1954</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02ejkey04</id>
+		<name>HWZ University of Applied Sciences in Business Administration Zurich</name>
+		<alternativeNames>
+			<alternativeName>Zurich University of Applied Sciences in Business Administration</alternativeName>
+			<alternativeName>HWZ Hochschule für Wirtschaft Zürich</alternativeName>
+			<alternativeName>Hochschule für Wirtschaft Zürich</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>CH</countryCode>
+			<city>Zurich</city>
+		</location>
+		<web>
+			<domains>
+				<domain>fh-hwz.ch</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1986</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_0028v3876</id>
+		<name>National Chung Cheng University</name>
+		<alternativeNames>
+			<alternativeName>國立中正大學</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>TW</countryCode>
+			<city>Minxiong</city>
+		</location>
+		<web>
+			<domains>
+				<domain>ccu.edu.tw</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1989</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04rkgm763</id>
+		<name>Conservatorio Statale di Musica Ottorino Respighi</name>
+		<alternativeNames>
+			<alternativeName>Conservatorio di Musica Ottorino Respighi</alternativeName>
+			<alternativeName>Conservatorio Statale di Musica di Latina</alternativeName>
+			<alternativeName>Conservatorio di Latina</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>IT</countryCode>
+			<city>Latina</city>
+		</location>
+		<web>
+			<domains>
+				<domain>conslatina.it</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1979</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02qedp211</id>
+		<name>Kyungdong University</name>
+		<alternativeNames>
+			<alternativeName>경동대학교</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>KR</countryCode>
+			<city>Yangju</city>
+		</location>
+		<web>
+			<domains>
+				<domain>kduniv.ac.kr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1997</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04vew1z32</id>
+		<name>Kim Chaek University of Technology</name>
+		<alternativeNames>
+			<alternativeName>김책공업종합대학</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>KP</countryCode>
+			<city>Pyongyang</city>
+		</location>
+		<web>
+			<domains>
+				<domain>kut.edu.kp</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1948</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00tfmqe91</id>
+		<name>Mozarteum University Salzburg</name>
+		<alternativeNames>
+			<alternativeName>Universität Mozarteum Salzburg</alternativeName>
+			<alternativeName>Universität Mozarteum</alternativeName>
+			<alternativeName>Mozarteum University of Salzburg</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>AT</countryCode>
+			<city>Salzburg</city>
+		</location>
+		<web>
+			<domains>
+				<domain>moz.ac.at</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1841</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02kqy4228</id>
+		<name>Munich School of Philosophy</name>
+		<alternativeNames>
+			<alternativeName>Hochschule für Philosophie München</alternativeName>
+			<alternativeName>Hochschule für Philosophie München, Philosophische Fakultät SJ</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>DE</countryCode>
+			<city>Munich</city>
+		</location>
+		<web>
+			<domains>
+				<domain>hfph.de</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1925</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02dk7c653</id>
+		<name>Dún Laoghaire Institute of Art, Design and Technology</name>
+		<alternativeNames>
+			<alternativeName>Institute of Art, Design + Technology</alternativeName>
+			<alternativeName>Institiúid Ealaíona, Dearadh agus Teicneolaíochta Dhún Laoghaire</alternativeName>
+			<alternativeName>IADT Dún Laoghaire</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>IE</countryCode>
+			<city>Dún Laoghaire</city>
+		</location>
+		<web>
+			<domains>
+				<domain>iadt.ie</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1997</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04713ex73</id>
+		<name>Chengdu Technological University</name>
+		<alternativeNames>
+			<alternativeName>成都工业学院</alternativeName>
+			<alternativeName>Sichuan Provincial First Type-A Industrial School</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>CN</countryCode>
+			<city>Chengdu</city>
+		</location>
+		<web>
+			<domains>
+				<domain>cdtu.edu.cn</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1913</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01x18ax09</id>
+		<name>Yalova University</name>
+		<alternativeNames>
+			<alternativeName>Yalova Üniversitesi</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>TR</countryCode>
+			<city>Yalova</city>
+		</location>
+		<web>
+			<domains>
+				<domain>yalova.edu.tr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2008</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_05x1fgy66</id>
+		<name>Hope Africa University</name>
+		<alternativeNames>
+			<alternativeName>Université Espoir d'Afrique</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>BI</countryCode>
+			<city>Bujumbura</city>
+		</location>
+		<web>
+			<domains>
+				<domain>hau.bi</domain>
+				<domain>hopeafricauniversity.org</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2000</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01nrk6j30</id>
+		<name>MingDao University</name>
+		<alternativeNames>
+			<alternativeName>明道大學</alternativeName>
+			<alternativeName>MingDao School of Management</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>TW</countryCode>
+			<city>Pitou Township</city>
+		</location>
+		<web>
+			<domains>
+				<domain>mdu.edu.tw</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2001</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04qw24q55</id>
+		<name>Wageningen University &amp; Research</name>
+		<alternativeNames>
+			<alternativeName>Wageningen University</alternativeName>
+			<alternativeName>Wageningen University and Research</alternativeName>
+			<alternativeName>Wageningen University and Research Centre</alternativeName>
+			<alternativeName>Landbouwuniversiteit Wageningen</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>NL</countryCode>
+			<city>Wageningen</city>
+		</location>
+		<web>
+			<domains>
+				<domain>wur.nl</domain>
+				<domain>wageningenur.nl</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1918</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00gkm5b90</id>
+		<name>Wyższa Szkoła Turystyki i Ekologii w Suchej Beskidzkiej</name>
+		<alternativeNames>
+			<alternativeName>Wyższa Szkoła Turystyki i Ekologii</alternativeName>
+			<alternativeName>Higher School of Tourism and Ecology</alternativeName>
+			<alternativeName>University of Tourism and Ecology</alternativeName>
+			<alternativeName>College of Tourism and Ecology</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>PL</countryCode>
+			<city>Sucha Beskidzka</city>
+		</location>
+		<web>
+			<domains>
+				<domain>wste.edu.pl</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2001</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_006zjws59</id>
+		<name>University of Vic – Central University of Catalonia</name>
+		<alternativeNames>
+			<alternativeName>Universitat de Vic - Universitat Central de Catalunya</alternativeName>
+			<alternativeName>Universitat de Vic</alternativeName>
+			<alternativeName>University of Vic</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ES</countryCode>
+			<city>Vic</city>
+		</location>
+		<web>
+			<domains>
+				<domain>uvic.cat</domain>
+				<domain>uvic-ucc.cat</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1997</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00jffx511</id>
+		<name>Ponnaiyah Ramajayam Institute of Science and Technology</name>
+		<alternativeNames>
+			<alternativeName>PRIST University</alternativeName>
+			<alternativeName>PRIST Deemed University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>IN</countryCode>
+			<city>Thanjavur</city>
+		</location>
+		<web>
+			<domains>
+				<domain>prist.ac.in</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1985</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01rvmqa17</id>
+		<name>Universitas Islam Tribakti Lirboyo Kediri</name>
+		<alternativeNames>
+			<alternativeName>Tribakti Islamic University Lirboyo Kediri</alternativeName>
+			<alternativeName>Universitas Islam Tribakti</alternativeName>
+			<alternativeName>Institut Agama Islam Tribakti Kediri</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Kediri</city>
+		</location>
+		<web>
+			<domains>
+				<domain>uit-lirboyo.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1966</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02shmve39</id>
+		<name>Mongolian University of Science and Technology</name>
+		<alternativeNames>
+			<alternativeName>Шинжлэх Ухаан, Технологийн Их Сургууль</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>MN</countryCode>
+			<city>Ulaanbaatar</city>
+		</location>
+		<web>
+			<domains>
+				<domain>must.edu.mn</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1959</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02f49t952</id>
+		<name>Universitas Almuslim</name>
+		<alternativeNames>
+			<alternativeName>Almuslim University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Bireuen</city>
+		</location>
+		<web>
+			<domains>
+				<domain>umuslim.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2003</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01w423a47</id>
+		<name>Tomsk State University of Architecture and Building</name>
+		<alternativeNames>
+			<alternativeName>Томский государственный архитектурно-строительный университет</alternativeName>
+			<alternativeName>Tomsk State University of Architecture and Construction</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>RU</countryCode>
+			<city>Tomsk</city>
+		</location>
+		<web>
+			<domains>
+				<domain>tsuab.ru</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1952</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02kzqn938</id>
+		<name>University of Lille</name>
+		<alternativeNames>
+			<alternativeName>Université de Lille</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>FR</countryCode>
+			<city>Lille</city>
+		</location>
+		<web>
+			<domains>
+				<domain>univ-lille.fr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2018</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_015jy5011</id>
+		<name>Sekolah Tinggi Ilmu Ekonomi AMM Mataram</name>
+		<alternativeNames>
+			<alternativeName>Sekolah Tinggi Ilmu Ekonomi AMM</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Mataram</city>
+		</location>
+		<web>
+			<domains>
+				<domain>stieamm.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1983</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02tphfq59</id>
+		<name>Universidad Nacional de Rosario</name>
+		<alternativeNames>
+			<alternativeName>National University of Rosario</alternativeName>
+			<alternativeName>Rosario National University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>AR</countryCode>
+			<city>Rosario</city>
+		</location>
+		<web>
+			<domains>
+				<domain>unr.edu.ar</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1968</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01b4h2w02</id>
+		<name>Seoul Institute of the Arts</name>
+		<alternativeNames>
+			<alternativeName>서울예술대학교</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>KR</countryCode>
+			<city>Ansan</city>
+		</location>
+		<web>
+			<domains>
+				<domain>seoularts.ac.kr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1962</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04facnr46</id>
+		<name>EU Business School Geneva</name>
+		<alternativeNames>
+			<alternativeName>EU Business School</alternativeName>
+			<alternativeName>European University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>CH</countryCode>
+			<city>Geneva</city>
+		</location>
+		<web>
+			<domains>
+				<domain>euruni.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1987</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03azwf096</id>
+		<name>École supérieure des beaux-arts de Bordeaux</name>
+		<alternativeNames>
+			<alternativeName>École d'enseignement supérieur d'art de Bordeaux</alternativeName>
+			<alternativeName>École d'enseignement supérieur des Beaux-Arts de Bordeaux</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>FR</countryCode>
+			<city>Bordeaux</city>
+		</location>
+		<web>
+			<domains>
+				<domain>ebabx.fr</domain>
+			</domains>
+		</web>
+	</institution>
+	<institution>
+		<id>ror_04y7eh037</id>
+		<name>Vytautas Magnus University</name>
+		<alternativeNames>
+			<alternativeName>Vytauto Didžiojo universitetas</alternativeName>
+			<alternativeName>University of Lithuania</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>LT</countryCode>
+			<city>Kaunas</city>
+		</location>
+		<web>
+			<domains>
+				<domain>vdu.lt</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1922</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02n094r49</id>
+		<name>Universidad del Museo Social Argentino</name>
+		<alternativeNames>
+			<alternativeName>University of Argentine Social Museum</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>AR</countryCode>
+			<city>Buenos Aires</city>
+		</location>
+		<web>
+			<domains>
+				<domain>umsa.edu.ar</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1956</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02rxc7m23</id>
+		<name>University of Navarra</name>
+		<alternativeNames>
+			<alternativeName>Universidad de Navarra</alternativeName>
+			<alternativeName>Nafarroako Unibertsitatea</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ES</countryCode>
+			<city>Pamplona</city>
+		</location>
+		<web>
+			<domains>
+				<domain>unav.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1952</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03mcjjp59</id>
+		<name>École Supérieure des Communications de Tunis</name>
+		<alternativeNames>
+			<alternativeName>Higher School of Communication of Tunis</alternativeName>
+			<alternativeName>SUP'COM</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>TN</countryCode>
+			<city>Ariana</city>
+		</location>
+		<web>
+			<domains>
+				<domain>supcom.tn</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1998</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00376bg92</id>
+		<name>University of Guam</name>
+		<alternativeNames>
+			<alternativeName>Unibetsedåt Guåhan</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>GU</countryCode>
+			<city>Mangilao</city>
+		</location>
+		<web>
+			<domains>
+				<domain>uog.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1952</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03gzr6j88</id>
+		<name>Université d'Abomey-Calavi</name>
+		<alternativeNames>
+			<alternativeName>University of Abomey-Calavi</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>BJ</countryCode>
+			<city>Abomey-Calavi</city>
+		</location>
+		<web>
+			<domains>
+				<domain>uac.bj</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1970</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00wvqgd19</id>
+		<name>Mondragon University</name>
+		<alternativeNames>
+			<alternativeName>Mondragon Unibertsitatea</alternativeName>
+			<alternativeName>Universidad de Mondragón</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ES</countryCode>
+			<city>Mondragón</city>
+		</location>
+		<web>
+			<domains>
+				<domain>mondragon.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1997</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00hshrf16</id>
+		<name>Jaypee University of Information Technology</name>
+		<location>
+			<countryCode>IN</countryCode>
+			<city>Waknaghat</city>
+		</location>
+		<web>
+			<domains>
+				<domain>juit.ac.in</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2002</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01nsv4k44</id>
+		<name>Universitas Swadaya Gunung Jati</name>
+		<alternativeNames>
+			<alternativeName>Swadaya Gunung Jati University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Cirebon</city>
+		</location>
+		<web>
+			<domains>
+				<domain>ugj.ac.id</domain>
+				<domain>unswagati.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1961</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04apw5n28</id>
+		<name>Academy of Music, Theatre and Fine Arts</name>
+		<alternativeNames>
+			<alternativeName>Academia de Muzică, Teatru și Arte Plastice</alternativeName>
+			<alternativeName>Academy of Music, Theater and Fine Arts</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>MD</countryCode>
+			<city>Chisinau</city>
+		</location>
+		<web>
+			<domains>
+				<domain>amtap.md</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1940</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03gz5yh89</id>
+		<name>Universitas Hasyim Asy'ari</name>
+		<alternativeNames>
+			<alternativeName>Hasyim Asy'ari University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Jombang</city>
+		</location>
+		<web>
+			<domains>
+				<domain>unhasy.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1967</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_00zat6v61</id>
+		<name>Guangzhou Medical University</name>
+		<alternativeNames>
+			<alternativeName>广州医科大学</alternativeName>
+			<alternativeName>Guangzhou Medical College</alternativeName>
+			<alternativeName>广州医学院</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>CN</countryCode>
+			<city>Guangzhou</city>
+		</location>
+		<web>
+			<domains>
+				<domain>gzhmu.edu.cn</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1958</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03fkxys09</id>
+		<name>Taraz State Pedagogical University</name>
+		<alternativeNames>
+			<alternativeName>Таразский государственный педагогический университет</alternativeName>
+			<alternativeName>Тараз мемлекеттік педагогикалық университеті</alternativeName>
+			<alternativeName>Taraz State Pedagogical Institute</alternativeName>
+			<alternativeName>Таразский государственный педагогический институт</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>KZ</countryCode>
+			<city>Taraz</city>
+		</location>
+		<web>
+			<domains>
+				<domain>tarmpu.kz</domain>
+				<domain>tarmpi.kz</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1968</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_026kenw55</id>
+		<name>SRH Hochschule für Gesundheit</name>
+		<alternativeNames>
+			<alternativeName>SRH University of Applied Health Sciences</alternativeName>
+			<alternativeName>SRH Hochschule für Gesundheit Gera</alternativeName>
+			<alternativeName>SRH Fachhochschule für Gesundheit Gera</alternativeName>
+			<alternativeName>SRH University of Applied Sciences Gera</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>DE</countryCode>
+			<city>Gera</city>
+		</location>
+		<web>
+			<domains>
+				<domain>gesundheitshochschule.de</domain>
+				<domain>srh-gesundheitshochschule.de</domain>
+				<domain>srh-university.de</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2006</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03e1t0653</id>
+		<name>Sendai Seiyo Gakuin College</name>
+		<alternativeNames>
+			<alternativeName>仙台青葉学院短期大学</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>JP</countryCode>
+			<city>Sendai</city>
+		</location>
+		<web>
+			<domains>
+				<domain>seiyogakuin.ac.jp</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2009</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_05qcjpk30</id>
+		<name>Bashkir State Pedagogical University named after M. Akmulla</name>
+		<alternativeNames>
+			<alternativeName>Башкирский государственный педагогический университет им. М. Акмуллы</alternativeName>
+			<alternativeName>M. Akmullah Bashkir State Pedagogical University</alternativeName>
+			<alternativeName>Bashkir State Pedagogical University</alternativeName>
+			<alternativeName>Bashkir State Pedagogical Institute</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>RU</countryCode>
+			<city>Ufa</city>
+		</location>
+		<web>
+			<domains>
+				<domain>bspu.ru</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1967</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_0376wwg26</id>
+		<name>Universitas HKBP Nommensen</name>
+		<alternativeNames>
+			<alternativeName>Nommensen HKBP University</alternativeName>
+			<alternativeName>University of HKBP Nommensen</alternativeName>
+			<alternativeName>HKBP Nommensen University</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>ID</countryCode>
+			<city>Medan</city>
+		</location>
+		<web>
+			<domains>
+				<domain>uhn.ac.id</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1954</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02yz8wm13</id>
+		<name>Tokyo Future University</name>
+		<alternativeNames>
+			<alternativeName>東京未来大学</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>JP</countryCode>
+			<city>Tokyo</city>
+		</location>
+		<web>
+			<domains>
+				<domain>tokyomirai.ac.jp</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2007</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_056d84691</id>
+		<name>Karolinska Institutet</name>
+		<alternativeNames>
+			<alternativeName>Karolinska Institute</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>SE</countryCode>
+			<city>Solna</city>
+		</location>
+		<web>
+			<domains>
+				<domain>ki.se</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1810</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_052nzqz14</id>
+		<name>Iskenderun Technical University</name>
+		<alternativeNames>
+			<alternativeName>İskenderun Teknik Üniversitesi</alternativeName>
+			<alternativeName>Iskenderun Teknik Universitesi</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>TR</countryCode>
+			<city>İskenderun</city>
+		</location>
+		<web>
+			<domains>
+				<domain>iste.edu.tr</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2015</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_03b4za748</id>
+		<name>Seton Hill University</name>
+		<alternativeNames>
+			<alternativeName>Seton Hill College</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>US</countryCode>
+			<city>Greensburg</city>
+		</location>
+		<web>
+			<domains>
+				<domain>setonhill.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1885</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02ccba128</id>
+		<name>Adama Science and Technology University</name>
+		<location>
+			<countryCode>ET</countryCode>
+			<city>Adama</city>
+		</location>
+		<web>
+			<domains>
+				<domain>astu.edu.et</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1993</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_049emcs32</id>
+		<name>The University of Texas at Dallas</name>
+		<alternativeNames>
+			<alternativeName>University of Texas at Dallas</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>US</countryCode>
+			<city>Richardson</city>
+		</location>
+		<web>
+			<domains>
+				<domain>utdallas.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1969</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_04pjj9g71</id>
+		<name>Menedżerska Akademia Nauk Stosowanych w Warszawie</name>
+		<alternativeNames>
+			<alternativeName>Warsaw Management University</alternativeName>
+			<alternativeName>Wyższa Szkoła Menedżerska w Warszawie</alternativeName>
+			<alternativeName>Warsaw Management Academy</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>PL</countryCode>
+			<city>Warsaw</city>
+		</location>
+		<web>
+			<domains>
+				<domain>mans.org.pl</domain>
+				<domain>wsm.warszawa.pl</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1995</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_01n4q9493</id>
+		<name>Mabalacat City College</name>
+		<alternativeNames>
+			<alternativeName>Mabalacat College</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>PH</countryCode>
+			<city>Mabalacat</city>
+		</location>
+		<web>
+			<domains>
+				<domain>mcc.edu.ph</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2008</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02q2d2610</id>
+		<name>University of Brescia</name>
+		<alternativeNames>
+			<alternativeName>Università degli Studi di Brescia</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>IT</countryCode>
+			<city>Brescia</city>
+		</location>
+		<web>
+			<domains>
+				<domain>unibs.it</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1982</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_017n1k193</id>
+		<name>The French University in Egypt</name>
+		<alternativeNames>
+			<alternativeName>French University of Egypt</alternativeName>
+			<alternativeName>Université Française d'Égypte</alternativeName>
+			<alternativeName>الجامعة الفرنسية في مصر</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>EG</countryCode>
+			<city>El Shorouk</city>
+		</location>
+		<web>
+			<domains>
+				<domain>ufe.edu.eg</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2002</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_05xphj289</id>
+		<name>Pontifical John Paul II Institute for Studies on Marriage and Family at The Catholic University of America</name>
+		<alternativeNames>
+			<alternativeName>Pontifical John Paul II Institute for Studies on Marriage and Family</alternativeName>
+			<alternativeName>John Paul II Institute</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>US</countryCode>
+			<city>Washington</city>
+		</location>
+		<web>
+			<domains>
+				<domain>johnpaulii.edu</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1988</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_054r9x893</id>
+		<name>Kazakh University of Technology and Business named after K. Kulazhanov</name>
+		<alternativeNames>
+			<alternativeName>Kazakh University of Technology and Business</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>KZ</countryCode>
+			<city>Astana</city>
+		</location>
+		<web>
+			<domains>
+				<domain>kaztbu.edu.kz</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>2003</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_02w4gwv87</id>
+		<name>Université d'Antananarivo</name>
+		<alternativeNames>
+			<alternativeName>University of Antananarivo</alternativeName>
+			<alternativeName>Oniversiten' Antananarivo</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>MG</countryCode>
+			<city>Antananarivo</city>
+		</location>
+		<web>
+			<domains>
+				<domain>univ-antananarivo.mg</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1961</foundingYear>
+		</lifecycle>
+	</institution>
+	<institution>
+		<id>ror_05wwvg270</id>
+		<name>Казанский юридический институт Министерства внутренних дел Российской Федерации</name>
+		<alternativeNames>
+			<alternativeName>Казанский юридический институт МВД России</alternativeName>
+			<alternativeName>Kazan Law Institute of the Ministry of Internal Affairs of Russia</alternativeName>
+		</alternativeNames>
+		<location>
+			<countryCode>RU</countryCode>
+			<city>Kazan</city>
+		</location>
+		<web>
+			<domains>
+				<domain>kui.mvd.ru</domain>
+			</domains>
+		</web>
+		<lifecycle>
+			<foundingYear>1974</foundingYear>
+		</lifecycle>
+	</institution>
+</institutions>

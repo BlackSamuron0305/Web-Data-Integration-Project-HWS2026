@@ -1,0 +1,20 @@
+0 & Names only (J.-W.) & Union & .606 & .986 & .751 & 570,218 & 76\,s & .652 & .987 & .785 & 228,398 & 16\,s\\
+1 & String rule & Union & .842 & .937 & .887 & 36,106 & 118\,s & .929 & .862 & .894 & 4,711 & 29\,s\\
+2 & TF-IDF rule & Union & .887 & .880 & .883 & 23,298 & 46\,s & .893 & .882 & .887 & 5,794 & 14\,s\\
+3 & Embedding rule & Union & .958 & .810 & .878 & 12,190 & 42\,s & .813 & .914 & .861 & 17,788 & 13\,s\\
+4 & Searched weights & Union & .913 & .887 & .900 & 22,490 & 44\,s & .818 & .947 & .878 & 30,987 & 34\,s\\
+5 & LR, forest, boosting & Union & .925 & .958 & .941 & 20,136 & 230\,s & .938 & .901 & .919 & 5,242 & 74\,s\\
+6 & More measures & Union & .815 & .901 & .856 & 14,843 & 40\,s & .902 & .908 & .905 & 7,842 & 13\,s\\
+7 & More learners & Union & .931 & .951 & .941 & 24,482 & 272\,s & .849 & .961 & .901 & 11,974 & 89\,s\\
+8 & Fine-tuned LM & Union & .944 & .944 & \textbf{.944} & 15,582 & 5,130\,s & .965 & .914 & \textbf{.939} & 5,360 & 2,012\,s\\
+9 & Local LLM & Union & .949 & .915 & .932 & 13,808 & 6,442\,s & .952 & .914 & .933 & 4,690 & 1,656\,s\\
+\midrule
+\multicolumn{13}{@{}l}{\emph{Chosen matcher (8) + one-to-one matching, with fewer blockers}}\\
+8 & Fine-tuned LM & Union & .970 & .915 & .942 & 12,499 &  & .993 & .888 & .938 & 4,238 & \\
+8 & Fine-tuned LM & Word & .968 & .859 & .910 & 12,300 &  & .992 & .855 & .919 & 4,199 & \\
+8 & Fine-tuned LM & Domain & .972 & .732 & .835 & 10,391 &  & .982 & .704 & .820 & 3,533 & \\
+8 & Fine-tuned LM & Word+dom. & .970 & .908 & .938 & 12,448 &  & .993 & .882 & .934 & 4,233 & \\
+\midrule
+\multicolumn{13}{@{}l}{\emph{Test pairs (300 per dataset pair): best matcher of the run + one-to-one}}\\
+ & First pass & Union & .991 & .903 & .945 & 13,316 &  & .992 & .874 & .929 & 4,433 & \\
+ & Final run & Union & .991 & .903 & .945 & 12,499 &  & .992 & .881 & .933 & 4,238 & \\

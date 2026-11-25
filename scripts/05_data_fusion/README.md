@@ -6,10 +6,11 @@ a group disagree, fusion picks which value to keep. We use PyDI, built like the 
 
 ## What we did
 
-**Input:** the cleaned sources (step 3, `filtered/`) and the final round-8 links (step 4).
+**Input:** the cleaned sources (step 3, `filtered/`) and the links of the final run of step 4
+(`04_identity_resolution/global_matching_and_test/results/correspondences_*_final.csv`).
 
-**Output:** 35,996 universities in `results/universities_fused.csv`, 13,642 of them from at least two
-sources. Only these can hold conflicts.
+**Output:** 35,551 universities in `results/universities_fused.csv`, 13,981 of them from at least two
+sources (11,225 from two, 2,756 from all three). Only these can hold conflicts.
 
 **Provenance.** Every record keeps its source in its ID (`ror_05njb9z20`), and every fused university
 lists its records and sources. PyDI also records which source supplied each value, which let us trace
@@ -19,75 +20,142 @@ every error back.
 a curation team maintains ROR, volunteers edit Wikidata, and DEQAR relies on reports from quality
 assurance agencies.
 
-**Lists and coordinates.** All strategies unite lists (alternative names, domains, ...) and take the
-median of the coordinates.
+**Lists and coordinates.** The strategies below unite lists (alternative names, domains, ...) and take
+the median of the coordinates. For domains we also compare other list functions (see below).
 
-**Gold standard.** To measure which values fusion should pick, we built a gold standard of 869
-universities from at least two sources (`data/golden_set/fusion/`): 39 well-known universities, 384
-with conflicting source values and 446 at random (`build_gold.py` draws them). It holds one or more
-accepted values for name, country code, city, founding year and domains. **The accepted values were
-proposed by AI agents after looking at the source records and have not been checked by a person.**
-Rows marked `low` confidence are not used.
+**Gold standard** (`data/golden_set/fusion/fusion_gold.xml`): 80 universities from at least two
+sources, 64 whose sources disagree on a value and 16 at random (`build_gold.py` drew them and wrote
+`gold_candidates.csv`: first 50, then 30 more). Like the exercise's `gold.xml` it uses our target schema
+(`target.xsd`) and the ROR ID of each university. It holds name, country code, city, founding year and
+domains; other accepted names are in `alternativeNames` and also count as correct. The schema has one city
+and one founding year, so these have exactly one correct value. The values are kept and checked in
+`fusion_gold.csv`, and `gold_to_xml.py` writes the XML from it and validates it. **AI agents looked the
+values up on the web, without ROR, Wikidata or DEQAR as evidence (column `sources`); the team has not yet
+checked them** (columns `checked_by`, `hand_note`). After the final links, 78 of the 80 are still in a
+group with two or more sources and are evaluated.
+
+**Two halves.** As in the lecture (choose the function on a validation part of the ground truth), the 80
+are split at random into two halves of 40 with the same mix of conflict and random draws (column `half`
+in `gold_candidates.csv`): on *choose* we pick the function per attribute, on *test* we measure how
+accurate that choice is. Each half has 39 evaluated universities, so one value moves an accuracy by .026.
 
 ## What we tried
 
-Four strategies built from PyDI's functions, plus one of our own, for the single-valued attributes:
+Four strategies built from PyDI's functions, plus one of our own, for the single-valued attributes
+(`results/strategies.csv`; it also has the whole gold standard and the conflict and random draws).
+
+**Strict and tolerant comparison.** As in the exercise, we compare names and cities with the gold
+standard twice. *Strict*: the fused value is written exactly like an accepted value. *Tolerant*: case,
+accents, punctuation and word order do not count, and up to a fifth of the words may differ (PyDI's
+`tokenized_match` with threshold 0.8, as in the exercise; letters such as *ł* and *ø* count as *l* and
+*o*). Country codes, years and domains are compared the same way in both. The tolerant comparison only
+changes what we count as an error, not the fused data; we use it to choose the final strategy.
+
+Accuracy on the *choose* half (strict / tolerant where it differs):
 
 | Strategy | Name | Country | City | Year | Mean |
 |---|---|---|---|---|---|
-| content-based (longest name and website, earliest year, vote otherwise) | .917 | .977 | .891 | .972 | .939 |
-| voting | .947 | .977 | .891 | .965 | .945 |
-| trust, Wikidata first | .938 | .976 | .867 | .963 | .936 |
-| trust, ROR first | .977 | .994 | **.988** | **.979** | .985 |
-| **voting, ties broken by trust (ours)** | **.978** | **.997** | **.988** | **.979** | **.986** |
+| content-based (longest name and website, earliest year, vote otherwise) | .821 / .974 | .949 | .615 / .667 | .590 | .744 / .795 |
+| voting | .872 / .974 | .949 | .615 / .667 | **.718** | .788 / .827 |
+| trust, Wikidata first | .897 / .974 | .949 | .615 / .667 | .667 | .782 / .814 |
+| trust, ROR first | .846 / **1.000** | **1.000** | .692 / .718 | .692 | .808 / .853 |
+| **voting, ties broken by trust (ours)** | .846 / **1.000** | **1.000** | **.718** / **.744** | **.718** | **.821** / **.865** |
 
-- **Voting** cannot decide when two records disagree, and 10,992 of the 13,642 groups have only two.
-- **Trust with ROR first** is the best of PyDI's strategies, but since every group contains a ROR
-  record, it ignores the other sources wherever ROR has a value.
-- **Our function** takes the value most records agree on and breaks ties by trust. It differs from
-  "ROR first" only where Wikidata and DEQAR agree against ROR: that changes 284 names and five country
-  codes, and on the gold standard it fixes one name and two country codes and breaks nothing.
+The tolerant comparison raises names the most: most strict misses are the same name written differently
+(*Mingdao* for *MingDao*, a hyphen for a dash, *Wroclaw* for *Wrocław*). One accepted match is generous:
+*University College of Tourism and Ecology* passes because the gold standard also accepts *College of
+Tourism and Ecology*, five of its six words.
 
-**Final strategy:** our function for name and country code (the country name follows the code), trust
-with ROR first for everything else. Our function would also change 72 cities and 107 founding years,
-but there both are equally accurate, so we kept the simpler one.
+- **Voting** cannot decide when two records disagree, and 11,225 of the 13,981 groups have only two.
+- **Trust with ROR first:** every group contains a ROR record, so it ignores the other sources
+  wherever ROR has a value.
+- **Our function** takes the value most records agree on and breaks ties by trust.
+
+**Domains** (a list; `results/list_functions.csv`). A fused list counts as correct when it holds an
+accepted domain and nothing else (a subdomain of an accepted domain may come along). The earlier check,
+"at least one accepted domain", let union score 1.0 every time, because union keeps everything.
+
+| Function for domains | Choose | Test | Domains per university | Universities left without domain |
+|---|---|---|---|---|
+| union | .897 | .897 | 1.16 | 104 |
+| in at least 2 sources (`intersection_k_sources`, k = 2) | .846 | .872 | 0.90 | 1,440 |
+| **trust, ROR first** | **.949** | **.949** | 1.00 | 104 |
+| trust, Wikidata first | .923 | **.949** | 1.03 | 104 |
+
+- **Union** keeps the wrong domain whenever one source has one (*aeht.eu* for WSHiG Poznań).
+- **In at least 2 sources** drops every domain the sources do not share, so 1,440 universities lose
+  their domain altogether, and it is the least accurate.
+- **Trust** takes one source's list. The errors left with ROR first are mostly ROR subdomains
+  (*eng.mdu.edu.tw*, *eng.bspu.ru*) where the other source has the main domain.
+
+Alternative names, acronyms and coordinates are not in the gold standard, so we cannot score functions
+for them; they keep union and the median.
+
+**Final strategy** ("best per attribute" in `strategies.csv`): for each attribute the function that is
+most accurate on the *choose* half (tolerant comparison), the first listed on a tie: trust with ROR first
+for names, country codes and domains, our function for cities, voting for founding years; everything else
+uses trust with ROR first. On the *test* half:
+
+| | Name | Country | City | Year | Domains | Mean of the four single-valued |
+|---|---|---|---|---|---|---|
+| strict | .897 | .974 | .795 | .789 | .949 | .864 |
+| tolerant | .949 | .974 | .846 | .789 | .949 | **.890** |
+
+The test half is a fair estimate because it played no part in the choice. It also shows how little 39
+universities can tell apart: on the test half our function alone (.909) would have done slightly better,
+because voting, chosen for founding years over our function only by the order of the list (both .718 on
+the *choose* half), is three values worse there.
 
 ## What worked and what did not
 
-- **Worked:** fusion fills gaps. For universities that ROR also describes, the share of filled
-  attributes rises from 0.581 to 0.638, mostly with what ROR lacks (student numbers and memberships from
-  Wikidata, quality assurance data from DEQAR). Founding years go from 95.3% filled in ROR to 99.0%.
-  Fusion adds 10,077 universities to ROR (39% more), all from Wikidata or DEQAR alone.
-- **Errors left:** 51 of 4,341 gold values are wrong: 19 names, 3 country codes, 10 cities, 18 founding
-  years, 1 domain. Mostly ROR gives a local-language name where another source has the English one, a
-  system or campus name (*University of the West Indies System*), or another city (Seoul where
-  Wikidata says Yongin). For 11 of the 18 wrong years no source has the right one.
-- **Did not help:** changing the source order. Trust with Wikidata first fixes 22 of the 34 errors
-  where another source was right, but breaks 195 values that are right now. No vote helps either: in
-  none of those 34 cases do two sources agree on the right value.
+- **Worked:** fusion fills gaps (`results/density.csv`: share of filled values per attribute; the row
+  *all attributes* is the mean over the 21 attributes of the target schema, an attribute a source lacks
+  counting as empty). Compared with ROR, the largest source:
+
+  | | Universities | Density |
+  |---|---|---|
+  | ROR | 25,919 | 0.581 |
+  | fused, universities with a ROR record | 25,919 | 0.639 |
+  | fused, all | 35,551 | 0.564 |
+
+  For ROR's universities density rises, mostly with what ROR lacks (student numbers and memberships from
+  Wikidata, quality assurance data from DEQAR). Over the whole fused table it is lower than ROR's, because
+  the 9,632 universities fusion adds (37% more than ROR) come from Wikidata or DEQAR alone and have
+  sparser records.
+- **Errors left** (`results/fusion_errors.jsonl`, test half, tolerant comparison): 19 values are wrong:
+  8 founding years, 6 cities, 2 names, 2 domain lists, 1 country code. Most wrong cities are the same place
+  at another level or under another name (*Pok Fu Lam* for Hong Kong, *Nazrēt* for Adama, *Shorouk city*
+  for El Shorouk) or in a spelling the tolerant comparison does not catch (*Bireun*/*Bireuen*,
+  *Ansan-si*/*Ansan*). Most wrong years are a different event in the history of the university (founding
+  of a predecessor, university status, a renaming); in two cases both sources agree on a year the gold
+  standard does not accept (*Universitas Hasyim Asy'ari* 2013, *Tokyo Future University* 2006). The country
+  code (SJ for NO) and the wrong domains come from ROR.
 - **Inherited errors:** a wrong link from step 4 puts two institutions into one entry, and values of
-  one fill gaps of the other (*Télécom Lille* gets the website of *Telecom Nancy*).
+  one fill gaps of the other (*Télécom Lille* gets the website of *Telecom Nancy*). The gold standard
+  catches one: the ROR record of *Sendai Seiyo Gakuin College* (a junior college, 2009) is linked to the
+  Wikidata item of *Sendai Seiyo Gakuin University* (opened 2024), and voting takes 2024. Likewise the
+  Wikidata item linked to *Kazan Law Institute* (1974) gives 1931, which the lookup traced to a
+  different institute of the same name.
 - **Consistency:** country codes almost always agree within a group; names and cities often do not, so
   the choice matters. Websites agree least, partly because we compare them as text
   (`https://www.x.edu` vs `http://x.edu/en`); normalising them would be the next step.
-
-An AI check of every fused university (`results/ai_check_fused.csv`, and `ai_check_fused_before_cutoff.csv`
-for the run without the final cut-off) found that most remaining errors are non-universities, almost
-all in entries from a single source, and that the cut-off clearly reduced entries that merge two
-institutions. These are AI verdicts, not checked by a person.
 
 ## Files and how to run
 
 | File | What it is |
 |---|---|
 | `fusion.py` | groups the linked records, compares the strategies on the gold standard, fuses everything with the final strategy |
-| `build_gold.py` | draws the universities for the gold standard |
+| `build_gold.py` | draws the 80 universities for the gold standard and splits them into two halves |
+| `gold_to_xml.py` | writes `fusion_gold.csv` as `fusion_gold.xml` in the target schema and validates it |
+| `gold_candidates.csv` | the 80 drawn, with the values of each source, why each was drawn and its half |
 | `results/universities_fused.csv` | the fused dataset |
 | `results/strategies.csv` | accuracy of each strategy on the gold standard |
-| `results/density.csv`, `consistency.csv`, `group_sizes.csv` | how complete and consistent the data is |
+| `results/list_functions.csv` | accuracy of each list function for domains |
+| `results/density.csv` | share of filled values per attribute and over all attributes, per source and after fusion |
+| `results/consistency.csv`, `group_sizes.csv` | how often the sources agree; universities by number of sources |
 | `results/fusion_errors.jsonl` | the wrong values left, for the error analysis |
-| `results/ai_check_fused*.csv` | the AI check of every fused university |
 
 ```
+python gold_to_xml.py   # only after fusion_gold.csv changed
 python fusion.py
 ```
