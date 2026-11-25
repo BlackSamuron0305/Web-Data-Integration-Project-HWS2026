@@ -1,0 +1,67 @@
+  wikidata-ror: 300 validation pairs, 236 of them in the candidates
+  deqar-ror: 300 validation pairs, 230 of them in the candidates
+  training on 600 pairs (306 matches), 4 epochs, learning rate 3e-05, batch 16
+  epoch 1: training loss 0.7483
+  epoch 2: training loss 0.1393
+  epoch 3: training loss 0.0745
+  epoch 4: training loss 0.0498
+  trained in 170.0s
+  -> {'epochs': 4, 'learning_rate': 3e-05, 'batch': 16, 'train_seconds': 170.0, 'wikidata_ror_threshold': np.float64(0.95), 'wikidata_ror_P': 0.944, 'wikidata_ror_R': 0.944, 'wikidata_ror_F1': 0.944, 'deqar_ror_threshold': np.float64(0.9), 'deqar_ror_P': 0.965, 'deqar_ror_R': 0.914, 'deqar_ror_F1': 0.939, 'mean_F1': 0.9414}
+  training on 600 pairs (306 matches), 2 epochs, learning rate 2e-05, batch 16
+  epoch 1: training loss 0.6647
+  epoch 2: training loss 0.1393
+  trained in 87.3s
+  -> {'epochs': 2, 'learning_rate': 2e-05, 'batch': 16, 'train_seconds': 87.3, 'wikidata_ror_threshold': np.float64(0.35), 'wikidata_ror_P': 0.903, 'wikidata_ror_R': 0.979, 'wikidata_ror_F1': 0.939, 'deqar_ror_threshold': np.float64(0.65), 'deqar_ror_P': 0.965, 'deqar_ror_R': 0.901, 'deqar_ror_F1': 0.932, 'mean_F1': 0.9356}
+  training on 600 pairs (306 matches), 2 epochs, learning rate 3e-05, batch 16
+  epoch 1: training loss 0.6115
+  epoch 2: training loss 0.1205
+  trained in 85.7s
+  -> {'epochs': 2, 'learning_rate': 3e-05, 'batch': 16, 'train_seconds': 85.7, 'wikidata_ror_threshold': np.float64(0.35), 'wikidata_ror_P': 0.908, 'wikidata_ror_R': 0.979, 'wikidata_ror_F1': 0.942, 'deqar_ror_threshold': np.float64(0.35), 'deqar_ror_P': 0.94, 'deqar_ror_R': 0.934, 'deqar_ror_F1': 0.937, 'mean_F1': 0.9398}
+  training on 600 pairs (306 matches), 2 epochs, learning rate 5e-05, batch 16
+  epoch 1: training loss 0.6655
+  epoch 2: training loss 0.1147
+  trained in 87.3s
+  -> {'epochs': 2, 'learning_rate': 5e-05, 'batch': 16, 'train_seconds': 87.3, 'wikidata_ror_threshold': np.float64(0.6), 'wikidata_ror_P': 0.938, 'wikidata_ror_R': 0.958, 'wikidata_ror_F1': 0.948, 'deqar_ror_threshold': np.float64(0.5), 'deqar_ror_P': 0.972, 'deqar_ror_R': 0.921, 'deqar_ror_F1': 0.946, 'mean_F1': 0.9468}
+  training on 600 pairs (306 matches), 4 epochs, learning rate 2e-05, batch 16
+  epoch 1: training loss 0.8167
+  epoch 2: training loss 0.1613
+  epoch 3: training loss 0.0962
+  epoch 4: training loss 0.0763
+  trained in 170.8s
+  -> {'epochs': 4, 'learning_rate': 2e-05, 'batch': 16, 'train_seconds': 170.8, 'wikidata_ror_threshold': np.float64(0.9), 'wikidata_ror_P': 0.925, 'wikidata_ror_R': 0.958, 'wikidata_ror_F1': 0.941, 'deqar_ror_threshold': np.float64(0.85), 'deqar_ror_P': 0.972, 'deqar_ror_R': 0.901, 'deqar_ror_F1': 0.935, 'mean_F1': 0.9382}
+  training on 600 pairs (306 matches), 4 epochs, learning rate 5e-05, batch 16
+  epoch 1: training loss 0.6323
+  epoch 2: training loss 0.1655
+  epoch 3: training loss 0.0584
+  epoch 4: training loss 0.0271
+  trained in 172.0s
+  -> {'epochs': 4, 'learning_rate': 5e-05, 'batch': 16, 'train_seconds': 172.0, 'wikidata_ror_threshold': np.float64(0.8), 'wikidata_ror_P': 0.932, 'wikidata_ror_R': 0.965, 'wikidata_ror_F1': 0.948, 'deqar_ror_threshold': np.float64(0.35), 'deqar_ror_P': 0.947, 'deqar_ror_R': 0.947, 'deqar_ror_F1': 0.947, 'mean_F1': 0.9477}
+  training on 600 pairs (306 matches), 6 epochs, learning rate 2e-05, batch 16
+  epoch 1: training loss 0.9526
+  epoch 2: training loss 0.1656
+  epoch 3: training loss 0.0968
+  epoch 4: training loss 0.0687
+  epoch 5: training loss 0.0428
+  epoch 6: training loss 0.0293
+  trained in 253.3s
+  -> {'epochs': 6, 'learning_rate': 2e-05, 'batch': 16, 'train_seconds': 253.3, 'wikidata_ror_threshold': np.float64(0.9), 'wikidata_ror_P': 0.944, 'wikidata_ror_R': 0.951, 'wikidata_ror_F1': 0.947, 'deqar_ror_threshold': np.float64(0.4), 'deqar_ror_P': 0.947, 'deqar_ror_R': 0.947, 'deqar_ror_F1': 0.947, 'mean_F1': 0.9474}
+  training on 600 pairs (306 matches), 6 epochs, learning rate 3e-05, batch 16
+  epoch 1: training loss 0.8194
+  epoch 2: training loss 0.1560
+  epoch 3: training loss 0.0842
+  epoch 4: training loss 0.0458
+  epoch 5: training loss 0.0218
+  epoch 6: training loss 0.0108
+  trained in 427.9s
+  -> {'epochs': 6, 'learning_rate': 3e-05, 'batch': 16, 'train_seconds': 427.9, 'wikidata_ror_threshold': np.float64(0.55), 'wikidata_ror_P': 0.932, 'wikidata_ror_R': 0.972, 'wikidata_ror_F1': 0.952, 'deqar_ror_threshold': np.float64(0.55), 'deqar_ror_P': 0.959, 'deqar_ror_R': 0.928, 'deqar_ror_F1': 0.943, 'mean_F1': 0.9474}
+  training on 600 pairs (306 matches), 6 epochs, learning rate 5e-05, batch 16
+  epoch 1: training loss 0.7205
+  epoch 2: training loss 0.1672
+  epoch 3: training loss 0.0681
+  epoch 4: training loss 0.0262
+  epoch 5: training loss 0.0105
+  epoch 6: training loss 0.0033
+  trained in 927.3s
+  -> {'epochs': 6, 'learning_rate': 5e-05, 'batch': 16, 'train_seconds': 927.3, 'wikidata_ror_threshold': np.float64(0.85), 'wikidata_ror_P': 0.931, 'wikidata_ror_R': 0.951, 'wikidata_ror_F1': 0.941, 'deqar_ror_threshold': np.float64(0.6), 'deqar_ror_P': 0.947, 'deqar_ror_R': 0.941, 'deqar_ror_F1': 0.944, 'mean_F1': 0.9423}
+
+best: 4 epochs, learning rate 5e-05, batch 16, mean validation F1 0.9477

@@ -1,0 +1,17 @@
+pair,blocker,candidates,pair_completeness,split,P,R,F1,corr
+wikidata-ror,token: country + name word,497896,0.9155,validation,0.968,0.859,0.91,12300
+wikidata-ror,token: country + name word,497896,0.9155,test,0.991,0.879,0.932,12300
+wikidata-ror,token: same web domain,11363,0.7606,validation,0.972,0.732,0.835,10391
+wikidata-ror,token: same web domain,11363,0.7606,test,0.989,0.718,0.832,10391
+wikidata-ror,union: country + name word | same domain,498300,0.9789,validation,0.97,0.908,0.938,12448
+wikidata-ror,union: country + name word | same domain,498300,0.9789,test,0.991,0.903,0.945,12448
+wikidata-ror,union: country + name word | same domain | embedding,631099,0.993,validation,0.97,0.915,0.942,12499
+wikidata-ror,union: country + name word | same domain | embedding,631099,0.993,test,0.991,0.903,0.945,12499
+deqar-ror,token: country + name word,181630,0.9342,validation,0.992,0.855,0.919,4199
+deqar-ror,token: country + name word,181630,0.9342,test,1.0,0.881,0.937,4199
+deqar-ror,token: same web domain,4110,0.75,validation,0.982,0.704,0.82,3533
+deqar-ror,token: same web domain,4110,0.75,test,0.99,0.726,0.838,3533
+deqar-ror,union: country + name word | same domain,181891,0.9803,validation,0.993,0.882,0.934,4233
+deqar-ror,union: country + name word | same domain,181891,0.9803,test,0.992,0.881,0.933,4233
+deqar-ror,union: country + name word | same domain | embedding,228426,0.9868,validation,0.993,0.888,0.938,4238
+deqar-ror,union: country + name word | same domain | embedding,228426,0.9868,test,0.992,0.881,0.933,4238

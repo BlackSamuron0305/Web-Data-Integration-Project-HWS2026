@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+first_pass,deqar-ror,"logistic regression + TF-IDF, embedding",0.55,0.9194630872483222,169.2

@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,deqar-ror,rule: TF-IDF words 0.5 + country 0.2 + domain 0.3,0.5,0.8874172185430463,14.0

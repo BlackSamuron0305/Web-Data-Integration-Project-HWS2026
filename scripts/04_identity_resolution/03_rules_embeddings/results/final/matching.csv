@@ -1,0 +1,5 @@
+run,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
+final,wikidata-ror,name embedding,union: country + name word | same domain | embedding,validation,0.65,0.643,0.937,0.762,307185,46.6,
+final,wikidata-ror,rule: embedding 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.7,0.958,0.81,0.878,12190,42.0,
+final,deqar-ror,name embedding,union: country + name word | same domain | embedding,validation,0.65,0.714,0.888,0.792,88180,12.4,
+final,deqar-ror,rule: embedding 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.6,0.813,0.914,0.861,17788,13.4,

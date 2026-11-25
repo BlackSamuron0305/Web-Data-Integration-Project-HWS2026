@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+first_pass,deqar-ror,"qwen2.5:3b, top-3 candidates, 4-shot",0.35,0.9324324324324325,2689.4

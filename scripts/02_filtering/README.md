@@ -6,7 +6,7 @@ not a campus, faculty or branch. The exact definition is in [`rules.md`](rules.m
 
 ## Why we clean, and why before matching
 
-We found the problem late. The first matching pass (step 4, rounds 1-3) produced links such as
+We found the problem late. The first matching runs (step 4) produced links such as
 *Pacific University Health Professions Campus* to *Pacific University Oregon*: correct-looking links
 between things that are not universities of their own. A look at random samples showed that a large
 share of the ROR and DEQAR records are not universities at all (schools, school districts, hospitals,
@@ -119,9 +119,9 @@ So about 98-99% of what is removed really is junk, and roughly 8-15% of what is 
 left is mostly what a name cannot show: US community colleges called "X College", campuses and research
 institutes with a plain name, diploma-level schools.
 
-A hand check of 50 random removed records per source is prepared in
-`validation/<source>/hand_check_removed.csv` (column `hand_verdict`); **ROR is checked (Lakpa), Wikidata and DEQAR not yet**.
-`validation/hand_check_summary.py` counts the result once it is.
+A hand check of 50 random removed records per source is in `validation/<source>/hand_check_removed.csv`
+(column `hand_verdict`; Wikidata checked by Keerthan, ROR and DEQAR by Lakpa). It found 1, 4 and 8 real
+universities among the 50 removed records (2%, 8%, 16%); `validation/hand_check_summary.py` counts them.
 
 ## How we found the rules, and what did not work
 
@@ -145,7 +145,7 @@ Tried and dropped:
 - **Cleaning ROR through the ID links** (remove a ROR record if its Wikidata partner was removed): it
   worked, but it uses the answer key, so it is not allowed.
 - **Removing non-universities only before or only after matching, from hand-check lists**
-  (identity-resolution rounds 4-6): before matching, a record removed in one source left its partner
+  (tried in step 4 before the final run): before matching, a record removed in one source left its partner
   in another without a match, and the matcher gave it a wrong one (76 new links, e.g. *Islamic Azad
   University of Nishapur* to *Neyshabur University of Medical Sciences*). After matching, the links
   were gone but the non-universities stayed in the data.

@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,wikidata-ror,rule: Soft TF-IDF 0.5 + country 0.2 + domain 0.3,0.55,0.88339222614841,46.1

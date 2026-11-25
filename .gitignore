@@ -14,7 +14,7 @@ results/cache/
 __pycache__/
 .venv/
 logs/
-scripts/04_identity_resolution/02_blocking/results/candidates/
-scripts/04_identity_resolution/02_blocking/results/pydi_output/
+scripts/04_identity_resolution/blocking/results/candidates/
+scripts/04_identity_resolution/blocking/results/pydi_output/
 
 .DS_Store

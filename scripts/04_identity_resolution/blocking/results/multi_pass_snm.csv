@@ -1,0 +1,25 @@
+run,pair,blocker,candidates,pair_completeness,reduction_ratio,seconds,matches_not_in_union
+final,wikidata-ror,sorted neighbourhood pass: name,426461,0.6972,0.999161,0.5,0
+final,wikidata-ror,"sorted neighbourhood pass: name words, sorted",438479,0.6831,0.999137,0.5,0
+final,wikidata-ror,sorted neighbourhood pass: web domain,375389,0.8028,0.999261,0.4,0
+final,wikidata-ror,sorted neighbourhood pass: country + city + name,382418,0.669,0.999247,0.4,1
+final,wikidata-ror,"sorted neighbourhood, multi-pass (all 4 merged)",1451334,0.9789,0.997144,1.8,1
+final,wikidata-ror,union: country + name word | same domain | embedding + multi-pass,1921022,1.0,0.99622,1.8,1
+final,deqar-ror,sorted neighbourhood pass: name,181361,0.5592,0.998966,0.3,0
+final,deqar-ror,"sorted neighbourhood pass: name words, sorted",194907,0.5855,0.998888,0.3,0
+final,deqar-ror,sorted neighbourhood pass: web domain,186161,0.8092,0.998938,0.3,0
+final,deqar-ror,sorted neighbourhood pass: country + city + name,121379,0.6974,0.999308,0.2,2
+final,deqar-ror,"sorted neighbourhood, multi-pass (all 4 merged)",628174,0.9803,0.996417,1.1,2
+final,deqar-ror,union: country + name word | same domain | embedding + multi-pass,801963,1.0,0.995426,1.1,2
+first_pass,wikidata-ror,sorted neighbourhood pass: name,481860,0.6972,0.999295,0.5,0
+first_pass,wikidata-ror,"sorted neighbourhood pass: name words, sorted",496762,0.6831,0.999274,0.6,0
+first_pass,wikidata-ror,sorted neighbourhood pass: web domain,420952,0.8028,0.999384,0.5,0
+first_pass,wikidata-ror,sorted neighbourhood pass: country + city + name,427709,0.6549,0.999375,0.6,1
+first_pass,wikidata-ror,"sorted neighbourhood, multi-pass (all 4 merged)",1638446,0.9789,0.997604,2.2,1
+first_pass,wikidata-ror,union: country + name word | same domain | embedding + multi-pass,2207949,1.0,0.996771,2.2,1
+first_pass,deqar-ror,sorted neighbourhood pass: name,208585,0.5592,0.999229,0.3,0
+first_pass,deqar-ror,"sorted neighbourhood pass: name words, sorted",232086,0.5855,0.999142,0.3,0
+first_pass,deqar-ror,sorted neighbourhood pass: web domain,225784,0.8026,0.999165,0.3,0
+first_pass,deqar-ror,sorted neighbourhood pass: country + city + name,130795,0.6974,0.999517,0.2,2
+first_pass,deqar-ror,"sorted neighbourhood, multi-pass (all 4 merged)",739137,0.9803,0.997268,1.1,2
+first_pass,deqar-ror,union: country + name word | same domain | embedding + multi-pass,953313,1.0,0.996476,1.1,2

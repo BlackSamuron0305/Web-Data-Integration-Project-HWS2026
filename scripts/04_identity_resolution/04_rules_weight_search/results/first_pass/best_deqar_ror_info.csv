@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+first_pass,deqar-ror,searched weights: names 0.2 + country 0.2 + domain 0.2 + year 0.2 + geo 0.2,0.4,0.8780487804878049,38.1

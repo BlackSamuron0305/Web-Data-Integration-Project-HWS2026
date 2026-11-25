@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,deqar-ror,rule: overlap 0.5 + country 0.2 + domain 0.3,0.7,0.9049180327868853,13.2

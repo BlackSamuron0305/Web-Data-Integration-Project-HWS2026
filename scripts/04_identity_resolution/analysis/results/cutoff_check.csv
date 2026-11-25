@@ -1,0 +1,4 @@
+pair,cut-off,chosen,links,ID key: right,ID key: wrong,ID key: share wrong,ID key: wrong removed,ID key: right removed,validation: wrong matches,validation: missed matches
+wikidata-ror,0.95,True,12499,11927,115,0.0095,0,0,4,12
+deqar-ror,0.9,True,4238,3106,69,0.0217,0,0,1,17
+deqar-ror,0.95,False,4182,3082,67,0.0213,2,24,1,20

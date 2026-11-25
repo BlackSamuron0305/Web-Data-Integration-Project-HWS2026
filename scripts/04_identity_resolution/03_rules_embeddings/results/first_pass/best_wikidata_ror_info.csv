@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+first_pass,wikidata-ror,rule: embedding 0.5 + country 0.2 + domain 0.3,0.7,0.8778625954198473,51.9

@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,deqar-ror,SVM,0.35,0.9012345679012346,89.4

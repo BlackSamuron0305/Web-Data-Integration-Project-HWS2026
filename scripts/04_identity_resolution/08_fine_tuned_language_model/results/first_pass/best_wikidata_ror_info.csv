@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder,0.95,0.9436619718309859,6921.8

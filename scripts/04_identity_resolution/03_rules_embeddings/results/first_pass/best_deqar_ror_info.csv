@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+first_pass,deqar-ror,rule: embedding 0.5 + country 0.2 + domain 0.3,0.6,0.8606811145510835,16.9

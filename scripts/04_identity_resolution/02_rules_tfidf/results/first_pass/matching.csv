@@ -1,0 +1,13 @@
+run,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
+first_pass,wikidata-ror,name TF-IDF (words),union: country + name word | same domain | embedding,validation,0.35,0.747,0.768,0.757,70574,52.2,
+first_pass,wikidata-ror,name TF-IDF (letter groups),union: country + name word | same domain | embedding,validation,0.6,0.75,0.803,0.776,57302,56.9,
+first_pass,wikidata-ror,name Soft TF-IDF (similar words count),union: country + name word | same domain | embedding,validation,0.55,0.752,0.852,0.799,69643,62.3,
+first_pass,wikidata-ror,rule: TF-IDF words 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.5,0.889,0.901,0.895,20816,58.2,
+first_pass,wikidata-ror,rule: TF-IDF letter groups 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.55,0.869,0.887,0.878,26958,63.7,
+first_pass,wikidata-ror,rule: Soft TF-IDF 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.55,0.88,0.88,0.88,26711,68.2,
+first_pass,deqar-ror,name TF-IDF (words),union: country + name word | same domain | embedding,validation,0.3,0.761,0.711,0.735,25286,17.6,
+first_pass,deqar-ror,name TF-IDF (letter groups),union: country + name word | same domain | embedding,validation,0.3,0.713,0.849,0.775,78896,18.9,
+first_pass,deqar-ror,name Soft TF-IDF (similar words count),union: country + name word | same domain | embedding,validation,0.35,0.749,0.842,0.793,54473,23.3,
+first_pass,deqar-ror,rule: TF-IDF words 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.5,0.887,0.882,0.884,6601,22.3,
+first_pass,deqar-ror,rule: TF-IDF letter groups 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.5,0.82,0.928,0.87,11992,22.1,
+first_pass,deqar-ror,rule: Soft TF-IDF 0.5 + country 0.2 + domain 0.3,union: country + name word | same domain | embedding,validation,0.45,0.809,0.947,0.873,17016,25.9,

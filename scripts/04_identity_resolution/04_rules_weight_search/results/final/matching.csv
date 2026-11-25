@@ -1,0 +1,7 @@
+run,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
+final,wikidata-ror,searched weights: country 0.2 + domain 0.6 + year 0.2,union: country + name word | same domain | embedding,validation,0.4,0.913,0.887,0.9,22490,44.3,
+final,wikidata-ror,searched weights: country 0.2 + domain 0.4 + year 0.2 + geo 0.2,union: country + name word | same domain | embedding,validation,0.45,0.912,0.88,0.896,23182,53.2,
+final,wikidata-ror,searched weights: names 0.2 + country 0.2 + domain 0.2 + year 0.2 + geo 0.2,union: country + name word | same domain | embedding,validation,0.6,0.917,0.852,0.883,23365,99.5,
+final,deqar-ror,searched weights: names 0.4 + country 0.2 + domain 0.2 + year 0.2,union: country + name word | same domain | embedding,validation,0.6,0.816,0.934,0.871,24608,29.3,
+final,deqar-ror,searched weights: names 0.2 + country 0.4 + domain 0.2 + year 0.2,union: country + name word | same domain | embedding,validation,0.6,0.822,0.941,0.877,30908,29.7,
+final,deqar-ror,searched weights: names 0.2 + country 0.2 + domain 0.2 + year 0.2 + geo 0.2,union: country + name word | same domain | embedding,validation,0.4,0.818,0.947,0.878,30987,34.4,

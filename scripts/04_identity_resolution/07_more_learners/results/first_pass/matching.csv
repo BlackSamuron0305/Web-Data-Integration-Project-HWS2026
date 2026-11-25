@@ -1,0 +1,9 @@
+run,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
+first_pass,wikidata-ror,decision tree,union: country + name word | same domain | embedding,validation,0.3,0.884,0.915,0.9,39197,318.2,
+first_pass,wikidata-ror,SVM,union: country + name word | same domain | embedding,validation,0.5,0.913,0.958,0.935,21221,321.9,
+first_pass,wikidata-ror,k-nearest neighbours,union: country + name word | same domain | embedding,validation,0.5,0.931,0.951,0.941,27790,318.8,
+first_pass,wikidata-ror,naive Bayes,union: country + name word | same domain | embedding,validation,0.95,0.868,0.923,0.894,24263,318.4,
+first_pass,deqar-ror,decision tree,union: country + name word | same domain | embedding,validation,0.55,0.888,0.888,0.888,9975,108.4,
+first_pass,deqar-ror,SVM,union: country + name word | same domain | embedding,validation,0.35,0.849,0.961,0.901,12494,109.9,
+first_pass,deqar-ror,k-nearest neighbours,union: country + name word | same domain | embedding,validation,0.5,0.876,0.928,0.901,10691,108.6,
+first_pass,deqar-ror,naive Bayes,union: country + name word | same domain | embedding,validation,0.65,0.847,0.875,0.861,10059,108.5,

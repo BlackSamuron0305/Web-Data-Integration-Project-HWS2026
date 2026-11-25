@@ -1,0 +1,80 @@
+{
+  "run": "first_pass",
+  "model": "qwen2.5:3b",
+  "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "parameter_size": "3.1B",
+  "quantization": "Q4_K_M",
+  "ollama_version": "0.40.18",
+  "k": 3,
+  "threads": 8,
+  "prompt_version": "v3",
+  "temperature": 0,
+  "shortlist": "top-k ROR candidates per record among the blocked candidate pairs, ranked by best Jaro-Winkler over all name variants + 1 if a web domain is shared + 0.2 if the city is the same",
+  "score": "probability of the answer true (from the token log-probabilities), spread out by a logistic curve on its log-odds fitted on the training pairs (Platt scaling)",
+  "pairs": {
+    "wikidata-ror": {
+      "blocked_pairs": 756322,
+      "left_records": 22592,
+      "shortlist_pairs": 67401,
+      "seconds_this_run": 7546.1,
+      "pairs_per_second_this_run": 8.96,
+      "same_answers": 13903,
+      "no_answer": 0,
+      "calibration_on_train": {
+        "pairs": 296,
+        "slope": 0.2846,
+        "intercept": 1.0815
+      },
+      "few_shot_train_pairs": [
+        [
+          "wikidata_Q4652198",
+          "ror_04ff49a90"
+        ],
+        [
+          "wikidata_Q1353248",
+          "ror_01kbvt179"
+        ],
+        [
+          "wikidata_Q5017301",
+          "ror_017tszr07"
+        ],
+        [
+          "wikidata_Q3106542",
+          "ror_01e8b7f16"
+        ]
+      ]
+    },
+    "deqar-ror": {
+      "blocked_pairs": 274187,
+      "left_records": 8962,
+      "shortlist_pairs": 26823,
+      "seconds_this_run": 2689.4,
+      "pairs_per_second_this_run": 10.03,
+      "same_answers": 4190,
+      "no_answer": 0,
+      "calibration_on_train": {
+        "pairs": 296,
+        "slope": 0.3974,
+        "intercept": 2.9239
+      },
+      "few_shot_train_pairs": [
+        [
+          "deqar_DEQARINST7275",
+          "ror_01dv2a529"
+        ],
+        [
+          "deqar_DEQARINST8005",
+          "ror_03fkbz285"
+        ],
+        [
+          "deqar_DEQARINST0685",
+          "ror_05w6fhk97"
+        ],
+        [
+          "deqar_DEQARINST7747",
+          "ror_02xe5ns62"
+        ]
+      ]
+    }
+  }
+}

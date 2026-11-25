@@ -63,7 +63,8 @@ Lessons and known issues:
   valid XML.
 - A field with several cities or countries stays one text value, because the schema allows one of each
   (587 city and 102 country fields in Wikidata, 23 DEQAR records).
-- Namibia lost its country code `NA` in the cleaned files, because pandas reads "NA" as a missing value.
+- Namibia lost its country code `NA` in the cleaned files, because pandas reads "NA" as a missing value. We
+  found it in the output and fixed it (the filters now read only empty cells as missing) and regenerated the XML.
 
 ## Files and how to run
 

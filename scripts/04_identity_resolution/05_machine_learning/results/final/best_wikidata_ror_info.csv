@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,wikidata-ror,"logistic regression + TF-IDF, embedding",0.45,0.9411764705882353,230.0

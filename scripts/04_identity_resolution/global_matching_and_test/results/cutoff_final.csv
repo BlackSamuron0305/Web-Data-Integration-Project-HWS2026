@@ -1,0 +1,3 @@
+pair,matcher_threshold,cutoff,precision_target,validation_P,validation_R,validation_F1
+wikidata-ror,0.95,0.95,0.99,0.97,0.915,0.942
+deqar-ror,0.9,0.9,0.99,0.993,0.888,0.938

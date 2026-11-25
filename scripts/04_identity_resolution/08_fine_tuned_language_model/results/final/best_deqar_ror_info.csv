@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder,0.9,0.9391891891891891,2012.2

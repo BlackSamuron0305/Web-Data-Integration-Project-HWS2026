@@ -1,0 +1,2 @@
+run,pair,matcher,threshold,F1,seconds
+final,wikidata-ror,"qwen2.5:3b, top-3 candidates, 4-shot",0.35,0.9318996415770608,6441.8

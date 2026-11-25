@@ -1,2 +1,0 @@
-round,pair,matcher,threshold,F1,seconds
-1,wikidata-ror,name Levenshtein 0.5 + year 0.5,0.3,0.9337979094076655,33.5
