@@ -1,0 +1,21 @@
+function,gold subset,universities,domains,domains per university,universities without domain
+union,all,78,0.897,1.16,104
+union,choose,39,0.897,1.16,104
+union,test,39,0.897,1.16,104
+union,conflict,63,0.889,1.16,104
+union,random,15,0.933,1.16,104
+in at least 2 sources,all,78,0.859,0.9,1440
+in at least 2 sources,choose,39,0.846,0.9,1440
+in at least 2 sources,test,39,0.872,0.9,1440
+in at least 2 sources,conflict,63,0.841,0.9,1440
+in at least 2 sources,random,15,0.933,0.9,1440
+trust: ROR first,all,78,0.949,1.0,104
+trust: ROR first,choose,39,0.949,1.0,104
+trust: ROR first,test,39,0.949,1.0,104
+trust: ROR first,conflict,63,0.937,1.0,104
+trust: ROR first,random,15,1.0,1.0,104
+trust: Wikidata first,all,78,0.936,1.03,104
+trust: Wikidata first,choose,39,0.923,1.03,104
+trust: Wikidata first,test,39,0.949,1.03,104
+trust: Wikidata first,conflict,63,0.921,1.03,104
+trust: Wikidata first,random,15,1.0,1.03,104

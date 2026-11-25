@@ -40,18 +40,20 @@ identity resolution, otherwise ties between equal scores can come out differentl
 | Collect | `01_data_collection/fetch_wikidata.py`, `fetch_ror.py`, `fetch_deqar.py` | `data/<source>/original/` (already included) |
 | Clean | `02_filtering/<source>/filter.py`, then `02_filtering/validation/validate.ipynb` | `data/<source>/filtered/` |
 | Schema mapping | `03_schema_mapping/build_lookup_tables.py`, then in MapForce `<source>/filtered/*_Mapping_filtered.mfd` | `03_schema_mapping/<source>/filtered/*_Mapping.xml` |
-| Labelled pairs | `04_identity_resolution/01_labels/split_labelled_pairs.py` | `data/golden_set/labelled_pairs/<pair>_<split>.csv` |
-| Blocking | `04_identity_resolution/02_blocking/blocking.py 8` | `candidates/` |
-| Matching | `03_rule_based/rule_based.py 8`, `04_ml_based/ml_based.py 8` | `matching.csv` |
-| Final links | `05_final/final.py 8`, then `05_final/cutoff_check.py` | `correspondences_*`, `cutoff_check.csv` |
+| Labelled pairs | `04_identity_resolution/gold_standard/split_labelled_pairs.py` | `data/golden_set/labelled_pairs/<pair>_<split>.csv` |
+| Blocking | `04_identity_resolution/blocking/blocking.py final` | `candidates/` |
+| Matching | the nine approach folders `01_` to `09_` (string similarity, TF-IDF, embeddings, weight search, machine learning, more similarity measures, more learners, fine-tuned language model, local LLM); commands in the step-4 README | `matching.csv`, best matcher per folder |
+| Final links | `global_matching_and_test/final.py final` (best of the nine by validation F1, one-to-one, cut-off, test) | `correspondences_*` |
+| Checks | `analysis/cutoff_check.py`, `error_analysis.py`, `blocking_effect.py` | `cutoff_check.csv`, `error_analysis.csv`, `blocking_effect.csv` |
 | Fusion | `05_data_fusion/fusion.py` | `results/universities_fused.csv` |
 | Report | `submission/final-report/scripts/report_numbers.py`, `report_figures.py` (from the repo root) | `submission/final-report/figures/` |
 
-The number after a script is the round. Round 8 is the final pipeline: cleaned data and a strict final
-cut-off (0.7 Wikidata-ROR, 0.55 DEQAR-ROR), because a wrong match is worse for us than a duplicate.
-Rounds 1-3 are the earlier passes on the uncleaned data; rounds 4-7 were experiments we dropped.
-Folders `06_...` to `11_...` in identity resolution are extra matchers we tried; none replaced the
-round-8 matchers. Each step folder has a README on what we did, why, and what worked and what did not.
+The word after a script is the run: `final` is the pipeline on the cleaned data, `first_pass` the same
+pipeline on the data as downloaded, kept to show what the cleaning changed (step-4 README). In the final run, the nine matching approaches (folders `01_` to `09_`) all run on the same cleaned data, candidates and labels, and
+`global_matching_and_test` takes the one with the best validation F1 (the fine-tuned language model),
+applies one-to-one matching and a cut-off chosen on the validation pairs (a wrong match is worse for us
+than a duplicate), and scores it once on the test pairs. Each step folder has a README on what we did,
+why, and what worked and what did not.
 
 ## Gold standards
 
@@ -60,9 +62,11 @@ round-8 matchers. Each step folder has a README on what we did, why, and what wo
   486 were labelled by hand (Chellapuram Keerthan Reddy), the others by two independent passes of AI
   agents (Claude), disagreements settled with web research. Columns `hand_check`, `checked_by` and
   `hand_note` are for the team's check of every label. `split_labelled_pairs.py` writes the six set files.
-- `data/golden_set/fusion/fusion_gold.csv`: the fusion gold standard, 50 universities in two or more
-  sources (40 with conflicting values, 10 random). Name, country code, city, founding year and domain were
+- `data/golden_set/fusion/fusion_gold.csv`: the fusion gold standard, 80 universities in two or more
+  sources (64 with conflicting values, 16 random), split into halves to choose and to test. Name, country code, city, founding year and domain were
   looked up on the web (sources in `sources`) by AI agents; `checked_by` / `hand_note` for the team's check.
+  `scripts/05_data_fusion/gold_to_xml.py` writes it as `fusion_gold.xml` in the target schema (one city
+  and one founding year each), which is what fusion is evaluated against.
 
 ## Checked by AI, not yet by a person
 
@@ -71,8 +75,6 @@ These files were filled in or judged by AI agents (Claude) and still need a chec
 - `scripts/02_filtering/validation/<source>/ai_checks.csv`: records checked to validate the cleaning.
 - `data/golden_set/labelled_pairs/labelled_pairs.csv`: the 1,314 labels with `labelled_by` = AI agents.
 - `data/golden_set/fusion/fusion_gold.csv`: the looked-up values of the fusion gold standard.
-- `scripts/04_identity_resolution/05_final/results/ai_check_links_r8.csv`: 6,000 round-8 links.
-- `scripts/05_data_fusion/results/ai_check_fused*.csv`: every fused university.
 - `scripts/06_abandoned_approaches/01_selection/results/sample_200_ai_checked.csv`: 200 items of a
   wider Wikidata selection we dropped (see `scripts/06_abandoned_approaches/README.md`).
 

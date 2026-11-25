@@ -1,0 +1,19 @@
+\multicolumn{9}{@{}l}{\emph{First pass (original data)}}\\
+No blocking (all pairs) & 684M & -- & -- & -- & 271M & -- & -- & --\\
+Exercise key (2 letters of 3 words) & 238,020 & .549 & .99965 & 0.5\,s & 56,213 & .447 & .99979 & 0.4\,s\\
+Same normalised name & 10,626 & .465 & .99998 & 0.2\,s & 2,399 & .336 & .99999 & 0.1\,s\\
+Sorted neighbourhood, window 20 & 481,875 & .697 & .99930 & 0.3\,s & 208,585 & .559 & .99923 & 0.2\,s\\
+Any shared name word & 283M$^*$ & -- & -- & -- & 85M$^*$ & -- & -- & --\\
+Any shared 3-gram & 2.1B$^*$ & -- & -- & -- & 693M$^*$ & -- & -- & --\\
+Country + name word & 602,373 & .915 & .99912 & 0.7\,s & 207,638 & .934 & .99923 & 0.5\,s\\
+Same web domain & 12,445 & .761 & .99998 & 0.1\,s & 4,826 & .750 & .99998 & 0.1\,s\\
+Embedding, 10 nearest names & 220,647 & .838 & .99968 & 41\,s & 87,153 & .789 & .99968 & 28\,s\\
+Union: word, domain & 602,909 & .979 & .99912 & 0.8\,s & 208,397 & .980 & .99923 & 0.6\,s\\
+Union: word, domain, embedding & 756,322 & .993 & .99889 & 42\,s & 274,187 & .987 & .99899 & 29\,s\\
+\multicolumn{9}{@{}l}{\emph{Final run (cleaned data)}}\\
+No blocking (all pairs) & 508M & -- & -- & -- & 175M & -- & -- & --\\
+Country + name word & 497,896 & .915 & .99902 & 1.7\,s & 181,630 & .934 & .99896 & 0.5\,s\\
+Same web domain & 11,363 & .761 & .99998 & 0.2\,s & 4,110 & .750 & .99998 & 0.2\,s\\
+Embedding, 10 nearest names & 191,828 & .838 & .99962 & 7,169\,s & 65,725 & .789 & .99962 & 5,307\,s\\
+Union: word, domain & 498,300 & .979 & .99902 & 1.9\,s & 181,891 & .980 & .99896 & 0.7\,s\\
+Union: word, domain, embedding & 631,099 & .993 & .99876 & 7,170\,s & 228,426 & .987 & .99870 & 5,308\,s\\
