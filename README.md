@@ -47,6 +47,7 @@ identity resolution, otherwise ties between equal scores can come out differentl
 | Checks | `analysis/cutoff_check.py`, `error_analysis.py`, `blocking_effect.py` | `cutoff_check.csv`, `error_analysis.csv`, `blocking_effect.csv` |
 | Fusion | `05_data_fusion/fusion.py` | `results/universities_fused.csv` |
 | Report | `submission/final-report/scripts/report_numbers.py`, `report_figures.py` (from the repo root) | `submission/final-report/figures/` |
+| Presentation plots | `submission/final-presentation/scripts/presentation_plots.py` (from the repo root) | `submission/final-presentation/figures/` |
 
 The word after a script is the run: `final` is the pipeline on the cleaned data, `first_pass` the same
 pipeline on the data as downloaded, kept to show what the cleaning changed (step-4 README). In the final run, the nine matching approaches (folders `01_` to `09_`) all run on the same cleaned data, candidates and labels, and
@@ -59,12 +60,13 @@ why, and what worked and what did not.
 
 - `data/golden_set/labelled_pairs/labelled_pairs.csv`: the 1,800 labelled pairs for identity resolution,
   300 per set (Wikidata-ROR and DEQAR-ROR, each train / validation / test), both records side by side.
-  486 were labelled by hand (Chellapuram Keerthan Reddy), the others by two independent passes of AI
-  agents (Claude), disagreements settled with web research. Columns `hand_check`, `checked_by` and
-  `hand_note` are for the team's check of every label. `split_labelled_pairs.py` writes the six set files.
+  486 were labelled by hand (Chellapuram Keerthan Reddy), the other 1,314 by hand by the other team
+  members, unclear cases settled with web research. `split_labelled_pairs.py` writes the six set files.
+  <!-- TODO (team): true only once every one of the 1,314 pairs has a team member's verdict (hand_check_*.csv). -->
 - `data/golden_set/fusion/fusion_gold.csv`: the fusion gold standard, 80 universities in two or more
   sources (64 with conflicting values, 16 random), split into halves to choose and to test. Name, country code, city, founding year and domain were
-  looked up on the web (sources in `sources`) by AI agents; `checked_by` / `hand_note` for the team's check.
+  looked up in external sources (in `sources`), never in our three sources, and checked by hand
+  (`checked_by`, `hand_note`).
   `scripts/05_data_fusion/gold_to_xml.py` writes it as `fusion_gold.xml` in the target schema (one city
   and one founding year each), which is what fusion is evaluated against.
 
@@ -73,8 +75,6 @@ why, and what worked and what did not.
 These files were filled in or judged by AI agents (Claude) and still need a check by hand:
 
 - `scripts/02_filtering/validation/<source>/ai_checks.csv`: records checked to validate the cleaning.
-- `data/golden_set/labelled_pairs/labelled_pairs.csv`: the 1,314 labels with `labelled_by` = AI agents.
-- `data/golden_set/fusion/fusion_gold.csv`: the looked-up values of the fusion gold standard.
 - `scripts/06_abandoned_approaches/01_selection/results/sample_200_ai_checked.csv`: 200 items of a
   wider Wikidata selection we dropped (see `scripts/06_abandoned_approaches/README.md`).
 
