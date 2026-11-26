@@ -238,16 +238,16 @@
 			</domains>
 		</web>
 		<lifecycle>
-			<foundingYear>1992</foundingYear>
+			<foundingYear>1991</foundingYear>
 		</lifecycle>
 	</institution>
 	<institution>
 		<id>ror_02k11zt98</id>
-		<name>Dagestan State Pedagogical University</name>
+		<name>Dagestan State Pedagogical University named after R. Gamzatov</name>
 		<alternativeNames>
 			<alternativeName>Дагестанский государственный педагогический университет им. Р. Гамзатова</alternativeName>
 			<alternativeName>Дагестанский государственный педагогический университет</alternativeName>
-			<alternativeName>Dagestan State Pedagogical University named after R. Gamzatov</alternativeName>
+			<alternativeName>Dagestan State Pedagogical University</alternativeName>
 		</alternativeNames>
 		<location>
 			<countryCode>RU</countryCode>
@@ -261,7 +261,7 @@
 			</domains>
 		</web>
 		<lifecycle>
-			<foundingYear>1917</foundingYear>
+			<foundingYear>1943</foundingYear>
 		</lifecycle>
 	</institution>
 	<institution>
@@ -434,7 +434,7 @@
 		</alternativeNames>
 		<location>
 			<countryCode>UA</countryCode>
-			<city>Mariupol</city>
+			<city>Kyiv</city>
 		</location>
 		<web>
 			<domains>
@@ -957,7 +957,7 @@
 		</alternativeNames>
 		<location>
 			<countryCode>CH</countryCode>
-			<city>Geneva</city>
+			<city>Lancy</city>
 		</location>
 		<web>
 			<domains>
@@ -1061,7 +1061,7 @@
 			</domains>
 		</web>
 		<lifecycle>
-			<foundingYear>1998</foundingYear>
+			<foundingYear>1973</foundingYear>
 		</lifecycle>
 	</institution>
 	<institution>

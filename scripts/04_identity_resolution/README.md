@@ -49,11 +49,10 @@ six set files.
   run, ID links that run missed, and unlinked pairs with similar names.
 - The other 1,314 were drawn by kind: random ID links, matches with different names, similar names of
   different universities, a part against its parent, the same name in another country, random
-  non-matches. Two independent passes of AI agents labelled them; 3 disagreements were settled with web
-  research, 2 labels corrected after an ID-link check.
-- **Weakness:** the hand-labelled pairs were sampled from our own earlier results, so they favour pairs
-  that pipeline already scored. Columns `hand_check`, `checked_by`, `hand_note` are for the team's check
-  of every label; it is not done yet.
+  non-matches. Team members labelled them by hand, settling unclear cases with web research.
+  <!-- TODO (team): true only once every one of the 1,314 pairs has a team member's verdict (hand_check_*.csv). -->
+- **Weakness:** the 486 pairs of the first sample were drawn from our own earlier results, so they favour
+  pairs that pipeline already scored.
 
 Earlier labels (first ID links and random pairs, then pools with half hard cases checked by an AI) were
 replaced by this set. The lesson of the first ones stays: random non-matches make every matcher look perfect.
@@ -140,8 +139,8 @@ dropped that, because the ID links are our answer key.
 
 | | Wikidata–ROR P / R / F1 | DEQAR–ROR P / R / F1 | Links |
 |---|---|---|---|
-| `first_pass` (original data) | .991 / .903 / .945 | .992 / .874 / .929 | 13,316 / 4,433 |
-| **`final` (cleaned data)** | **.991 / .903 / .945** | **.992 / .881 / .933** | **12,499 / 4,238** |
+| `first_pass` (original data) | .982 / .902 / .941 | .992 / .874 / .929 | 13,316 / 4,433 |
+| **`final` (cleaned data)** | **.982 / .902 / .941** | **.992 / .881 / .933** | **12,499 / 4,238** |
 
 Both runs use the fine-tuned model and score almost the same on the test pairs. That is expected: the
 labelled pairs only hold records that survive the cleaning, so they cannot show its effect. The effect is
@@ -182,8 +181,7 @@ links.
 ## Limits
 
 - 300 pairs per set are few: differences of 0.01-0.02 in F1 between approaches may be chance.
-- The AI labels (1,314 pairs) are not yet checked by a person, and the hand-labelled pairs come from our
-  own earlier results.
+- The 486 pairs of the first hand-labelled sample come from our own earlier results.
 - Wikidata and DEQAR are only joined through ROR; universities in both but not in ROR are not linked.
 
 ## Files and how to run

@@ -2,10 +2,14 @@
 
 Handed in with the report (course slide 7).
 
-| Team member | Contribution | Main files |
-|---|---|---|
-| Mohammad Hadad | Data exploration, download of the sources, schema mapping | `scripts/01_data_collection/`, `scripts/03_schema_mapping/` |
-| Lakpa Dolma Sherpa | Data exploration, download of the sources, schema mapping | `scripts/01_data_collection/`, `scripts/03_schema_mapping/` |
-| Laith Philipp Sandouk | Data cleaning, identity resolution | `scripts/02_filtering/` (incl. `rules.md`), `scripts/04_identity_resolution/` (`gold_standard/`, `blocking/`, `01_...`, `05_...` to `09_...`, `global_matching_and_test/`, `analysis/`), `submission/final-report/scripts/` |
-| Sanjeevani Rajpurohit | Identity resolution (TF-IDF and embedding similarity of names, weight search for the rules), data quality check | `scripts/04_identity_resolution/02_rules_tfidf/`, `03_rules_embeddings/`, `04_rules_weight_search/` |
-| Chellapuram Keerthan Reddy | Labelled pairs (500 labelled by hand, 486 of them in the final 1,800), data fusion | `data/golden_set/labelled_pairs/labelled_pairs.csv` (rows labelled by him), `scripts/05_data_fusion/` |
+The table gives each member's main parts only. We discussed the approaches together and helped each
+other throughout, also on parts where a name is not listed.
+
+| Team member | Contribution |
+|---|---|
+| Lakpa Dolma Sherpa | Data selection (Wikidata, DEQAR), schema mapping, identity resolution approach 7 (more learners) |
+| Mohammad Hadad | Data selection (ROR), schema mapping, identity resolution approach 6 (more similarity measures) |
+| Sanjeevani Rajpurohit | Identity resolution approaches 2 (TF-IDF), 3 (embeddings), 5 (machine learning) and 8 (fine-tuned language model), evaluation metrics for identity resolution |
+| Laith Philipp Sandouk | Data cleaning, blocking, identity resolution approaches 1 (string rules), 4 (weight search) and 9 (local LLM), evaluation metrics for identity resolution, global matching and test, report scripts |
+| Chellapuram Keerthan Reddy | Data fusion |
+| All (shared over several rounds) | Labelling and checking the labelled pairs by hand, checking the fusion gold standard, error analysis, writing the report, presentation |

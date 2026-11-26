@@ -405,7 +405,6 @@ on a value, \goldRandom{} at random. It uses our target schema and the ROR ID of
 name (other official names in \emph{alternativeNames} also count), country code, city, founding year and
 domains. The values were looked up in external sources (official websites, registries, Wikipedia), never
 in our three sources, and checked by hand.
-% TODO (team): true only once checked_by is filled for all 80 rows of fusion_gold.csv.
 As in the lecture, we choose the function per attribute on one half and measure it on the other, each
 with \goldUsed{} universities still in a group. Like the exercise, we compare names and cities strictly
 (written exactly alike) and tolerantly (PyDI's token match with threshold 0.8 after removing case, accents
@@ -424,7 +423,7 @@ strategy takes the best function per attribute on the choosing half (Table~\ref{
 names, country codes and domains, our function for cities, voting for founding years. On the test half it
 gets \accFinal{} right (\accFinalStrict{} strictly). The split shows how little \goldUsed{} universities
 tell apart: voting was chosen for founding years only because it is listed before our function (both
-.718), and on the test half our function alone reaches \accOursTest{}.
+.692), and on the test half our function alone reaches \accOursTest{}.
 
 \begin{table}[tb]
 \caption{Accuracy of the conflict resolution functions, tolerant comparison. Name to Mean (of the four):
@@ -444,9 +443,9 @@ Function & Name & Country & City & Year & Mean & Test & Test strict\\
 \paragraph{Errors.} On the test half the final strategy gets \fusWrong{} values wrong: \fusWrongName{}
 names, \fusWrongCountry{} country code, \fusWrongCity{} cities, \fusWrongYear{} founding years and
 \fusWrongDomain{} domain lists. Most wrong cities are the same place at another level or under another
-name (\emph{Pok Fu Lam} for Hong Kong, \emph{Nazr\=et} for Adama). In half the wrong years voting took
-Wikidata's year over ROR's correct one, which our function would have avoided; twice both sources agree on
-a year the gold standard rejects. The country code (SJ for NO) and the domains
+name (\emph{Pok Fu Lam} for Hong Kong, \emph{Nazr\=et} for Adama). In four of the wrong years voting took
+Wikidata's year over ROR's correct one, which our function would have avoided; three times both sources
+agree on a year the gold standard rejects. The country code (SJ for NO) and the domains
 (English subdomains) come from ROR. Fusion also inherits errors from matching: the junior college
 \emph{Sendai Seiyo Gakuin College} (2009) is linked to \emph{Sendai Seiyo Gakuin University} and gets its
 year 2024, and \emph{Kazan Law Institute} gets 1931 from the Wikidata item of another institute.

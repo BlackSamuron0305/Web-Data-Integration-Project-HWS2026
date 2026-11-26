@@ -29,9 +29,9 @@ sources, 64 whose sources disagree on a value and 16 at random (`build_gold.py` 
 (`target.xsd`) and the ROR ID of each university. It holds name, country code, city, founding year and
 domains; other accepted names are in `alternativeNames` and also count as correct. The schema has one city
 and one founding year, so these have exactly one correct value. The values are kept and checked in
-`fusion_gold.csv`, and `gold_to_xml.py` writes the XML from it and validates it. **AI agents looked the
-values up on the web, without ROR, Wikidata or DEQAR as evidence (column `sources`); the team has not yet
-checked them** (columns `checked_by`, `hand_note`). After the final links, 78 of the 80 are still in a
+`fusion_gold.csv`, and `gold_to_xml.py` writes the XML from it and validates it. The values were looked
+up in external sources, never in ROR, Wikidata or DEQAR (column `sources`), and checked by hand (columns
+`checked_by`, `hand_note`); the check corrected six values. After the final links, 78 of the 80 are still in a
 group with two or more sources and are evaluated.
 
 **Two halves.** As in the lecture (choose the function on a validation part of the ground truth), the 80
@@ -55,11 +55,11 @@ Accuracy on the *choose* half (strict / tolerant where it differs):
 
 | Strategy | Name | Country | City | Year | Mean |
 |---|---|---|---|---|---|
-| content-based (longest name and website, earliest year, vote otherwise) | .821 / .974 | .949 | .615 / .667 | .590 | .744 / .795 |
-| voting | .872 / .974 | .949 | .615 / .667 | **.718** | .788 / .827 |
-| trust, Wikidata first | .897 / .974 | .949 | .615 / .667 | .667 | .782 / .814 |
-| trust, ROR first | .846 / **1.000** | **1.000** | .692 / .718 | .692 | .808 / .853 |
-| **voting, ties broken by trust (ours)** | .846 / **1.000** | **1.000** | **.718** / **.744** | **.718** | **.821** / **.865** |
+| content-based (longest name and website, earliest year, vote otherwise) | .821 / .974 | .949 | .615 / .667 | .564 | .737 / .788 |
+| voting | .872 / .974 | .949 | .615 / .667 | **.692** | .782 / .821 |
+| trust, Wikidata first | .897 / .974 | .949 | .615 / .667 | .641 | .776 / .808 |
+| trust, ROR first | .846 / **1.000** | **1.000** | .667 / .692 | .667 | .795 / .840 |
+| **voting, ties broken by trust (ours)** | .846 / **1.000** | **1.000** | **.692** / **.718** | **.692** | **.808** / **.853** |
 
 The tolerant comparison raises names the most: most strict misses are the same name written differently
 (*Mingdao* for *MingDao*, a hyphen for a dash, *Wroclaw* for *Wrocław*). One accepted match is generous:
@@ -98,12 +98,12 @@ uses trust with ROR first. On the *test* half:
 
 | | Name | Country | City | Year | Domains | Mean of the four single-valued |
 |---|---|---|---|---|---|---|
-| strict | .897 | .974 | .795 | .789 | .949 | .864 |
-| tolerant | .949 | .974 | .846 | .789 | .949 | **.890** |
+| strict | .897 | .974 | .769 | .763 | .949 | .851 |
+| tolerant | .949 | .974 | .821 | .763 | .949 | **.877** |
 
 The test half is a fair estimate because it played no part in the choice. It also shows how little 39
-universities can tell apart: on the test half our function alone (.909) would have done slightly better,
-because voting, chosen for founding years over our function only by the order of the list (both .718 on
+universities can tell apart: on the test half our function alone (.896) would have done slightly better,
+because voting, chosen for founding years over our function only by the order of the list (both .692 on
 the *choose* half), is three values worse there.
 
 ## What worked and what did not
@@ -122,14 +122,14 @@ the *choose* half), is three values worse there.
   Wikidata, quality assurance data from DEQAR). Over the whole fused table it is lower than ROR's, because
   the 9,632 universities fusion adds (37% more than ROR) come from Wikidata or DEQAR alone and have
   sparser records.
-- **Errors left** (`results/fusion_errors.jsonl`, test half, tolerant comparison): 19 values are wrong:
-  8 founding years, 6 cities, 2 names, 2 domain lists, 1 country code. Most wrong cities are the same place
-  at another level or under another name (*Pok Fu Lam* for Hong Kong, *Nazrēt* for Adama, *Shorouk city*
-  for El Shorouk) or in a spelling the tolerant comparison does not catch (*Bireun*/*Bireuen*,
-  *Ansan-si*/*Ansan*). Most wrong years are a different event in the history of the university (founding
-  of a predecessor, university status, a renaming); in two cases both sources agree on a year the gold
-  standard does not accept (*Universitas Hasyim Asy'ari* 2013, *Tokyo Future University* 2006). The country
-  code (SJ for NO) and the wrong domains come from ROR.
+- **Errors left** (`results/fusion_errors.jsonl`, test half, tolerant comparison): 21 values are wrong:
+  9 founding years, 7 cities, 2 names, 2 domain lists, 1 country code. Most wrong cities are the same place
+  at another level or under another name (*Pok Fu Lam* for Hong Kong, *Nazrēt* for Adama, *Mariupol* for
+  Kyiv, where the university moved in 2022) or in a spelling the tolerant comparison does not catch
+  (*Bireun*/*Bireuen*, *Ansan-si*/*Ansan*). In four of the wrong years voting took Wikidata's year over
+  ROR's correct one, which our function would have avoided; three times both sources agree on a year the
+  gold standard does not accept (Dagestan State Pedagogical University 1917, Universitas Hasyim Asy'ari
+  2013, Tokyo Future University 2006). The country code (SJ for NO) and the wrong domains come from ROR.
 - **Inherited errors:** a wrong link from step 4 puts two institutions into one entry, and values of
   one fill gaps of the other (*Télécom Lille* gets the website of *Telecom Nancy*). The gold standard
   catches one: the ROR record of *Sendai Seiyo Gakuin College* (a junior college, 2009) is linked to the

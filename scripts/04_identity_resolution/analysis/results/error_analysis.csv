@@ -8,6 +8,7 @@ wikidata-ror,missed match,below the threshold,wikidata_Q1773512,ror_04k15jp43,Ru
 wikidata-ror,missed match,below the threshold,wikidata_Q11228893,ror_05f211872,LEC Graduate School,LEC Tokyo Legal Mind University,,from the hand-labelled sample,0.28,True,True,True,False,False
 wikidata-ror,missed match,below the threshold,wikidata_Q6778564,ror_009pxn909,Marwari College,"Marwari College, Darbhanga",,"match, different names",0.75,True,,,,False
 wikidata-ror,missed match,not a candidate,wikidata_Q1653042,ror_0530gbs37,IB-Hochschule Berlin,Health Innovation University of Applied Sciences,,"match, different names",0.79,True,True,False,True,False
+wikidata-ror,wrong match,,wikidata_Q7389672,ror_05crr5s63,SEGi University and Colleges,SEGi University,0.9997632,"match, different names",0.77,True,True,,True,False
 wikidata-ror,missed match,below the threshold,wikidata_Q4828888,ror_05dxzqa20,Avinashilingam Institute for Home Science and Higher Education for Women,Avinashilingam University,,"match, different names",0.54,True,False,True,False,False
 wikidata-ror,missed match,below the threshold,wikidata_Q8049772,ror_01kxpxf76,"Yashwantrao Chavan Institute of Science, Satara (Autonomous)",Yashwantrao Chavan Maharashtra Open University,,"match, different names",0.6,True,False,False,True,True
 wikidata-ror,missed match,not a candidate,wikidata_Q7894313,ror_01vzsje31,Universidad San Juan de la Cruz,University John of the Cross,,"match, different names",0.71,True,False,,,False

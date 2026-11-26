@@ -2,24 +2,24 @@ run,pair,matcher,blocker,split,threshold,P,R,F1,corr,seconds,note
 first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + no global matching,union: country + name word | same domain | embedding,validation,0.95,0.944,0.944,0.944,17597,6921.8,
 first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.95,0.97,0.915,0.942,13316,6922.3,
 first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + stable matching,union: country + name word | same domain | embedding,validation,0.95,0.977,0.908,0.942,13268,6921.9,
-first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.95,0.961,0.873,0.915,13367,6922.3,
-first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,test,0.95,0.991,0.903,0.945,13316,6921.8,final choice of this run
+first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.95,0.976,0.866,0.918,13367,6922.3,
+first_pass,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,test,0.95,0.982,0.902,0.941,13316,6921.8,final choice of this run
 first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + no global matching,union: country + name word | same domain | embedding,validation,0.9,0.965,0.914,0.939,5878,2695.0,
-first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.9,0.993,0.882,0.934,4433,2695.3,
+first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.9,0.993,0.882,0.934,4433,2695.4,
 first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + stable matching,union: country + name word | same domain | embedding,validation,0.9,0.993,0.882,0.934,4426,2695.0,
-first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.9,0.978,0.882,0.927,4449,2695.2,
+first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.9,0.985,0.875,0.927,4449,2695.2,
 first_pass,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,test,0.9,0.992,0.874,0.929,4433,2695.0,final choice of this run
 final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + no global matching,union: country + name word | same domain | embedding,validation,0.95,0.944,0.944,0.944,15582,5129.9,
 final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.95,0.97,0.915,0.942,12499,5130.4,
 final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + stable matching,union: country + name word | same domain | embedding,validation,0.95,0.977,0.908,0.942,12471,5130.0,
-final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.95,0.955,0.887,0.92,12531,5130.3,
-final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,test,0.95,0.991,0.903,0.945,12499,5129.9,"before the final cut-off, for comparison"
+final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.95,0.962,0.88,0.919,12531,5130.4,
+final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,test,0.95,0.982,0.902,0.941,12499,5129.9,"before the final cut-off, for comparison"
 final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one + cut-off 0.95,union: country + name word | same domain | embedding,validation,0.95,0.97,0.915,0.942,12499,5129.9,
-final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one + cut-off 0.95,union: country + name word | same domain | embedding,test,0.95,0.991,0.903,0.945,12499,5129.9,final choice of this run
+final,wikidata-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one + cut-off 0.95,union: country + name word | same domain | embedding,test,0.95,0.982,0.902,0.941,12499,5129.9,final choice of this run
 final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + no global matching,union: country + name word | same domain | embedding,validation,0.9,0.965,0.914,0.939,5360,2012.2,
 final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,validation,0.9,0.993,0.888,0.938,4238,2012.3,
 final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + stable matching,union: country + name word | same domain | embedding,validation,0.9,0.993,0.888,0.938,4230,2012.2,
-final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.9,0.979,0.901,0.938,4250,2012.3,
+final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + maximum bipartite,union: country + name word | same domain | embedding,validation,0.9,0.978,0.888,0.931,4250,2012.4,
 final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one,union: country + name word | same domain | embedding,test,0.9,0.992,0.881,0.933,4238,2012.2,"before the final cut-off, for comparison"
 final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one + cut-off 0.9,union: country + name word | same domain | embedding,validation,0.9,0.993,0.888,0.938,4238,2012.2,
 final,deqar-ror,fine-tuned multilingual MiniLM cross-encoder + greedy one-to-one + cut-off 0.9,union: country + name word | same domain | embedding,test,0.9,0.992,0.881,0.933,4238,2012.2,final choice of this run
