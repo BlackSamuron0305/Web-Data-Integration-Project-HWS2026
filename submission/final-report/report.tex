@@ -43,8 +43,7 @@
 \author{Laith Sandouk \and Mohammad Hadad \and Sanjeevani Rajpurohit \and Chellapuram Keerthan Reddy
 \and Lakpa Dolma Sherpa}
 \authorrunning{Web Data Integration 2026}
-\institute{University of Mannheim, Germany\\
-\url{https://github.com/BlackSamuron0305/Web-Data-Integration-Project-HWS2026}}
+\institute{University of Mannheim, Germany}
 
 \maketitle
 
@@ -76,8 +75,10 @@ and disagree on values: where DEQAR and ROR link the same institution, their fou
 For us, a university awards degrees at bachelor's level or higher and is an organisation of its own, not a
 faculty, branch or campus. The sources blur this, and we found out only after matching
 (Fig.~\ref{fig:flow}). So the project ran twice: a \emph{first pass} on the sources as downloaded, and a
-\emph{final run} on sources cleaned by fixed rules. Sections~\ref{sec:phase1}--\ref{sec:phase3} follow the
-three phases. Section~\ref{sec:lessons} collects what we tried, where we struggled and what we learned.
+\emph{final run} on sources cleaned by fixed rules. Sections~\ref{sec:phase1}, \ref{sec:phase2} and
+\ref{sec:phase3} follow the three phases of the project (data translation, identity resolution, data
+fusion); Section~\ref{sec:cleaning} compares the first pass and the final run. Section~\ref{sec:lessons}
+collects what we tried, where we struggled and what we learned.
 
 \begin{figure}[tb]
 \centering
@@ -156,13 +157,15 @@ turns \emph{https://www2.unesp.br/} into \emph{unesp.br}, also for the 13,470 RO
 but no domain. Names and countries keep their source spelling; matching normalises them later.
 
 \paragraph{What went wrong, and what we could not transform.} Our first MapForce output had an empty ROR
-file, lower-cased names, stray spaces and lost parent institutions. It took two weeks until the mappings
-matched a Python script that wrote the XML in the meantime. MapForce did not read list
+file, stray spaces and lost parent institutions. It also lower-cased all names; but a needless one, as matching normalises names anyway, so we went back to the source spelling. While
+we fixed the mappings, a Python script of our own wrote the same XML files, so that matching could start,
+and it became our reference for checking the MapForce output. It took two weeks until the MapForce output
+was identical to the script's, apart from the domains of 14 institutions with messy website fields.
+MapForce did not read list
 items of the generic \emph{xs:any} type until we defined them in the schema. A filter against empty groups
 such as \emph{<web/>} checked one field only and deleted whole groups with founding years and websites,
 and the domain function removed \emph{www.} anywhere (\emph{wwww.meduniv.lviv.ua} became
-\emph{wmeduniv.lviv.ua}). All these files were valid XML. The final files differ from the script's output
-only in the domains of 14 institutions with messy website fields. We could not transform the 20\% of ROR
+\emph{wmeduniv.lviv.ua}). All these files were valid XML. We could not transform the 20\% of ROR
 parents that lie outside our data (they keep their ID), and a field with several cities or countries stays
 one value (587 city and 102 country fields in Wikidata), as the schema allows one of each. Namibia briefly
 lost its country code: pandas reads \emph{NA} as missing. We found it in the output and fixed the readers.
@@ -271,10 +274,9 @@ threshold accepts almost every candidate pair, because \emph{Seisen University} 
 Nagano. Which name measure we use hardly matters, the hybrid and phonetic ones included. What makes rules
 precise is the web domain and the country. The learners gain another few points, mostly because they learn
 that a missing year or website is no evidence against a match. The fine-tuned model is best for both
-dataset pairs (\wrBestF{} and \drBestF{}), ahead of the learners (\wrSecondF{}) and the local LLM (\drSecondF{}).
-On 300 validation pairs, such a lead may be chance, and the model needs hours of CPU time where the learners
-need minutes. The local LLM comes second for DEQAR--ROR, although its shortlist already misses 3\% of the validation
-matches.
+dataset pairs (\wrBestF{} and \drBestF{}), ahead of the learners (\wrSecondF{}) and, for DEQAR--ROR, the
+local LLM (\drSecondF{}), whose shortlist already misses 3\% of the validation matches. On 300 validation
+pairs, such a lead may be chance, and the model needs hours of CPU time where the learners need minutes.
 
 \subsection{Global Matching, Group Sizes and Errors}\label{sec:global}
 A source should list a university once, so we keep at most one link per record and dataset pair. Greedy
@@ -324,7 +326,7 @@ story: \emph{Pacific University Health Professions Campus} was linked to \emph{P
 ROR's type \emph{education} also holds schools, school districts, hospitals and research institutes, DEQAR
 lists faculties and vocational centres, and Wikidata's subclasses of \emph{university} include seminaries and
 Japanese junior colleges. The labelled pairs we had then could not show this (only 132 of their 1,020 test pairs held such
-a record), and the current pairs, drawn from records that survive the cleaning, hold none.
+a record); the current pairs hold none.
 
 \paragraph{What did not work.} LLM agents judging each record left many \emph{unsure}; keeping only names
 with \emph{univers} removed 38--60\% of each source, including 1,149 checked universities; and removing
@@ -351,7 +353,7 @@ universities, but 8--15\% of the kept records are still not, mostly US community
 wrong removals than the agents (DEQAR 8 of 50, agents 2\%), so the agent figures are optimistic.
 
 \paragraph{Effect.} The final run repeats mapping and matching on the cleaned sources. The labelled pairs
-contain only records that survive the cleaning, so the scores on them hardly change: validation F1 moves by
+hold no removed records, so the scores on them hardly change: validation F1 moves by
 at most 0.012 (Table~\ref{tab:cleaning}), and both runs choose the fine-tuned model with almost the same
 test scores (Table~\ref{tab:matching}, bottom). We ran all nine approaches twice to see
 where the effect is: in the links. In the first pass, \removedShareMin{}--\removedShareMax{} of each approach's links touch a record the
@@ -458,29 +460,29 @@ Table~\ref{tab:tried} lists the attempts that did not make it into the final pip
 \caption{What we tried and dropped, and what it taught us}\label{tab:tried}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\begin{tabularx}{\textwidth}{@{}P{3.1cm}LP{3.6cm}@{}}
+\begin{tabularx}{\textwidth}{@{}rP{3.0cm}LP{3.4cm}@{}}
 \toprule
-Attempt & What happened & What we changed\\
+\# & Attempt & What happened & What we changed\\
 \midrule
-DBpedia and THE ranking as sources & DBpedia not independent of Wikidata, THE only 3,118 institutions &
+1 & DBpedia and THE ranking as sources & DBpedia not independent of Wikidata, THE only 3,118 institutions &
 DEQAR instead\\
-First MapForce mappings & empty ROR file, lower-cased names, deleted groups; files still valid & rebuilt
+2 & First MapForce mappings & empty ROR file, deleted groups; files still valid & rebuilt
 until equal to a script, value by value\\
-Labels from identifier links + random pairs & precision 1.000 for every matcher, 133,694 links & corner
+3 & Labels from identifier links + random pairs & precision 1.000 for every matcher, 133,694 links & corner
 cases, then the 1,800-pair set\\
-Choosing global matching by validation F1 & one group of 4,509 records & always one-to-one; check group
+4 & Choosing global matching by validation F1 & one group of 4,509 records & always one-to-one; check group
 sizes\\
-Removing non-universities around matching (4 variants) & orphaned partners got wrong links, or junk stayed &
+5 & Removing non-universities around matching (4 variants) & orphaned partners got wrong links, or junk stayed &
 fixed rules before mapping\\
-LLM agents deciding per record; \emph{univers} rule & many unsure, usage limits; 1,149 universities lost &
+6 & LLM agents deciding per record; \emph{univers} rule & many unsure, usage limits; 1,149 universities lost &
 LLM only to check samples\\
-Identifier links in a ROR filter and a hand-set cut-off & our answer key inside the pipeline & removed;
+7 & Identifier links in a ROR filter and a hand-set cut-off & our answer key inside the pipeline & removed;
 cut-off chosen on validation\\
-Searching rule weights; more name measures & no clear gain over the hand-set string rule & evidence
+8 & Searching rule weights; more name measures & no clear gain over the hand-set string rule & evidence
 (domain, country) over measures\\
-Choosing settings by test F1 (early rounds) & the test pairs were no longer unseen & only the final script
+9 & Choosing settings by test F1 (early rounds) & the test pairs were no longer unseen & only the final script
 reads test pairs\\
-Fusion gold standards: 39 well-known, 1,000 drawn, our first 50 & too easy, ROR-biased, or chosen and
+10 & Fusion gold standards: 39 well-known, 1,000 drawn, our first 50 & too easy, ROR-biased, or chosen and
 scored on the same universities & 80, 64 with conflicts; halves to choose and test\\
 \bottomrule
 \end{tabularx}
@@ -490,9 +492,8 @@ scored on the same universities & 80, 64 with conflicts; halves to choose and te
 non-universities were visible in our own proposal, which counted ROR branches and DEQAR faculties, yet we
 kept them as ``hard non-matches'' and found the problem only four weeks later, in the links. Tools cost
 time: a GPU that a Windows security policy blocked, so the fine-tuned model scored on the CPU for hours, and
-an embedding search that grew from 41\,s to two hours without a code change. Results went out of step with
-the code when we changed scripts while runs were going, and we had to rerun. Much of our checking was done
-by LLM agents, and where we checked them by hand, they were too optimistic.
+the embedding search (Sect.~\ref{sec:blocking}). Results went out of step with the code when we changed
+scripts while runs were going, and we had to rerun.
 
 \paragraph{What we learned.}
 \begin{itemize}
@@ -517,8 +518,7 @@ hand check disagreed with the LLM check 7 times in 50 DEQAR records.
 than ROR after cleaning (\nRor{}), the largest source (\nAddedRaw{} more than ROR as downloaded); all of
 them come from Wikidata or DEQAR alone.
 \item \emph{Density:} for the universities ROR describes, the mean density rises from \densRor{} to
-\densFusedRor{}, mostly through attributes ROR lacks. Over all fused universities it is \densFused{}, as
-the added universities have sparser records.
+\densFusedRor{}; over all fused universities it is \densFused{} (Sect.~\ref{sec:phase3}).
 \item \emph{Accuracy:} on the test half of the gold standard (\goldUsed{} universities from at least two
 sources, not used to choose the functions), \accFinal{} of names, country codes, cities and founding years
 are correct (\accFinalStrict{} strict; \accRandom{} on the \goldRandomUsed{} drawn at random rather than
@@ -531,9 +531,8 @@ riskier (Sect.~\ref{sec:global}).
 between methods may be chance. 486 of the 1,800 labelled pairs come from our own earlier results. The cleaning loses up to 16\% real
 universities among its removals and leaves 8--15\% non-universities among the kept records. A name alone
 often cannot tell: \emph{college} is a university in the UK or US, a school below bachelor's level (US
-community, Japanese junior colleges) or a secondary school elsewhere. The junior college \emph{Sendai Seiyo
-Gakuin College}, recognisable only by its alternative names (like 98 cleaned ROR records), stayed and was
-linked to a university of nearly the same name. Selecting
+community, Japanese junior colleges) or a secondary school elsewhere; 98 cleaned ROR records, such as
+\emph{Sendai Seiyo Gakuin College}, show their type only in their alternative names. Selecting
 Wikidata by class \emph{university} misses 8,089 items that cleaned ROR records link to; a wider class
 added 79,364 items; of those passing our cleaning rules, an LLM sample judged only about one in eight a
 university. Universities in Wikidata and DEQAR but not in ROR stay unlinked, as we match only through ROR.
@@ -543,6 +542,7 @@ classifier for the remaining non-universities, which sit mostly in single-source
 cross-lingual name matching for the missed matches in other languages, (4)~review Wikidata--ROR links that
 no identifier link supports, and (5)~normalise websites and prefer cities over districts in fusion.
 
+\clearpage
 \bibliographystyle{splncs04}
 \bibliography{references}
 
