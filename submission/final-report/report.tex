@@ -43,7 +43,8 @@
 \author{Laith Sandouk \and Mohammad Hadad \and Sanjeevani Rajpurohit \and Chellapuram Keerthan Reddy
 \and Lakpa Dolma Sherpa}
 \authorrunning{Web Data Integration 2026}
-\institute{University of Mannheim, Germany}
+\institute{University of Mannheim, Germany\\
+\url{https://github.com/BlackSamuron0305/Web-Data-Integration-Project-HWS2026}}
 
 \maketitle
 
@@ -157,7 +158,8 @@ turns \emph{https://www2.unesp.br/} into \emph{unesp.br}, also for the 13,470 RO
 but no domain. Names and countries keep their source spelling; matching normalises them later.
 
 \paragraph{What went wrong, and what we could not transform.} Our first MapForce output had an empty ROR
-file, stray spaces and lost parent institutions. It also lower-cased all names; but a needless one, as matching normalises names anyway, so we went back to the source spelling. While
+file, stray spaces and lost parent institutions. It also lower-cased all names, needlessly, as matching
+normalises them anyway, so we went back to the source spelling. While
 we fixed the mappings, a Python script of our own wrote the same XML files, so that matching could start,
 and it became our reference for checking the MapForce output. It took two weeks until the MapForce output
 was identical to the script's, apart from the domains of 14 institutions with messy website fields.
@@ -493,7 +495,8 @@ non-universities were visible in our own proposal, which counted ROR branches an
 kept them as ``hard non-matches'' and found the problem only four weeks later, in the links. Tools cost
 time: a GPU that a Windows security policy blocked, so the fine-tuned model scored on the CPU for hours, and
 the embedding search (Sect.~\ref{sec:blocking}). Results went out of step with the code when we changed
-scripts while runs were going, and we had to rerun.
+scripts while runs were going, and we had to rerun. LLM agents did much of our checking and were too
+optimistic where we checked them by hand.
 
 \paragraph{What we learned.}
 \begin{itemize}
@@ -542,7 +545,6 @@ classifier for the remaining non-universities, which sit mostly in single-source
 cross-lingual name matching for the missed matches in other languages, (4)~review Wikidata--ROR links that
 no identifier link supports, and (5)~normalise websites and prefer cities over districts in fusion.
 
-\clearpage
 \bibliographystyle{splncs04}
 \bibliography{references}
 
