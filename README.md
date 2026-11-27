@@ -11,7 +11,7 @@ project abstract are in `submission/`.
 | 2. Clean | `scripts/02_filtering/` | removes everything that is not a university ([rules](scripts/02_filtering/rules.md)), writes `data/<source>/filtered/` |
 | 3. Schema mapping | `scripts/03_schema_mapping/` | MapForce mappings to the target schema (`target.xsd`), output in `<source>/filtered/` |
 | 4. Identity resolution | `scripts/04_identity_resolution/` | labelled pairs, blocking, matching, final links |
-| 5. Data fusion | `scripts/05_data_fusion/` | one record per university, written to `results/universities_fused.csv` and, in the target schema, `results/universities_fused.xml` |
+| 5. Data fusion | `scripts/05_data_fusion/` | one record per university, written to `scripts/05_data_fusion/results/universities_fused.csv` and, in the target schema, `universities_fused.xml` next to it |
 | Abandoned approaches | `scripts/06_abandoned_approaches/` | what we tried and dropped, per step (`01_selection/`, `02_filtering/`), with a README on why |
 
 `submission/final-report/scripts/` recomputes the numbers and figures of the report.
@@ -30,7 +30,7 @@ Python 3.12 (PyDI needs numpy 2.1, which does not install on 3.14):
 pip install -r requirements.txt
 ```
 
-Run each script from its own folder; each one prints what it writes. Set `PYTHONHASHSEED=0` before
+Run each script from its own folder. Each one prints what it writes. Set `PYTHONHASHSEED=0` before
 identity resolution, otherwise ties between equal scores can come out differently between runs.
 
 ## Run order
@@ -42,11 +42,11 @@ identity resolution, otherwise ties between equal scores can come out differentl
 | Schema mapping | `03_schema_mapping/build_lookup_tables.py`, then in MapForce `<source>/filtered/*_Mapping_filtered.mfd` | `03_schema_mapping/<source>/filtered/*_Mapping.xml` |
 | Labelled pairs | `04_identity_resolution/gold_standard/split_labelled_pairs.py` | `data/golden_set/labelled_pairs/<pair>_<split>.csv` |
 | Blocking | `04_identity_resolution/blocking/blocking.py final` | `candidates/` |
-| Matching | the nine approach folders `01_` to `09_` (string similarity, TF-IDF, embeddings, weight search, machine learning, more similarity measures, more learners, fine-tuned language model, local LLM); commands in the step-4 README | `matching.csv`, best matcher per folder |
+| Matching | the nine approach folders `01_` to `09_` (string similarity, TF-IDF, embeddings, weight search, machine learning, more similarity measures, more learners, fine-tuned language model, local LLM). Commands are in the step-4 README. Approach 8 retrains its model, as the weights are not included | `matching.csv`, best matcher per folder |
 | Final links | `global_matching_and_test/final.py final` (best of the nine by validation F1, one-to-one, cut-off, test) | `correspondences_*` |
 | Checks | `analysis/cutoff_check.py`, `error_analysis.py`, `blocking_effect.py` | `cutoff_check.csv`, `error_analysis.csv`, `blocking_effect.csv` |
-| Fusion | `05_data_fusion/fusion.py` | `results/universities_fused.csv`, `results/universities_fused.xml` |
-| Report | `submission/final-report/scripts/report_numbers.py`, `report_figures.py` (from the repo root) | `submission/final-report/figures/` |
+| Fusion | `05_data_fusion/fusion.py` | `scripts/05_data_fusion/results/universities_fused.csv` and `.xml` |
+| Report | `submission/final-report/scripts/report_tables.py`, `report_figures.py`, `report_numbers.py` (from the repo root) | `submission/final-report/tables/*.tex` (tables and numbers), `figures/`, printed checks |
 | Presentation plots | `submission/final-presentation/scripts/presentation_plots.py` (from the repo root) | `submission/final-presentation/figures/` |
 
 The word after a script is the run: `final` is the pipeline on the cleaned data, `first_pass` the same

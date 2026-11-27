@@ -45,10 +45,10 @@ not work".
 DEQAR–ROR, each train / validation / test), 41-55% matches per set. `split_labelled_pairs.py` writes the
 six set files.
 
-- The pairs were drawn by kind (column `kind`): final links of an earlier run, ID links that run missed,
-  unlinked pairs with similar names, random ID links, matches with different names, similar names of
-  different universities, a part against its parent, the same name in another country, random
-  non-matches. Every kind appears in each of the six sets.
+- The pairs were drawn by kind (column `kind`, seven kinds): pairs from an interim run (its final links, ID
+  links it missed, unlinked pairs with similar names), random ID links, matches with different names,
+  similar names of different universities, a part against its parent, the same name in another country,
+  random non-matches. Every kind appears in each of the six sets, at least eight times.
 - Team members labelled every pair by hand (column `labelled_by`), settling unclear cases with web
   research.
 

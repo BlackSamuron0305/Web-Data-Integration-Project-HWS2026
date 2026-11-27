@@ -200,7 +200,7 @@ the *choose* half), is three values worse there.
   2013, Tokyo Future University 2006). The country code (SJ for NO) and the wrong domains come from ROR.
   The file also lists the two wrong websites (see *Websites*).
 - **Inherited errors:** a wrong link from step 4 puts two institutions into one entry, and values of
-  one fill gaps of the other (*Télécom Lille* gets the website of *Telecom Nancy*). The gold standard
+  one fill gaps of the other. The gold standard
   catches one: the ROR record of *Sendai Seiyo Gakuin College* (a junior college, 2009) is linked to the
   Wikidata item of *Sendai Seiyo Gakuin University* (opened 2024), and voting takes 2024. Likewise the
   Wikidata item linked to *Kazan Law Institute* (1974) gives 1931, which the lookup traced to a

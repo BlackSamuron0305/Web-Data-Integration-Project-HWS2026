@@ -6,6 +6,9 @@
   tables/blocking.tex     Table: blockers (pairs, pair completeness, reduction ratio, time), per dataset pair,
                           the first pass and the final run side by side
   tables/groups.tex       Table: group size distribution of both runs and of the final links without one-to-one
+  tables/localllm.tex     Table: a local LLM (Qwen2.5 3B, 7B) against the cleaning rules (abandoned approach)
+  tables/lists.tex        Table: list functions for domains and coordinate functions (fusion)
+  tables/errors.tex       Table: wrong values of the final fusion strategy per attribute, with the typical cause
 
 Run from the repo root after the pipeline:  python submission/final-report/scripts/report_tables.py
 """
@@ -49,6 +52,11 @@ def num(x, digits=3):
 def best_cell(text):
     # the best value of a column, marked by colour (\best is defined in report.tex)
     return f"\\best{{{text}}}"
+
+
+def bad_cell(text):
+    # a problem value, marked red (\bad is defined in report.tex)
+    return f"\\bad{{{text}}}"
 
 
 def seconds(s):
@@ -109,7 +117,8 @@ def matching_table():
         lines.append(" & ".join(row) + "\\\\")
     lines.append("\\midrule")
     lines.append("\\multicolumn{12}{@{}l}{\\emph{Test pairs (300 per dataset pair): best matcher of the run + one-to-one}}\\\\")
-    for run, name in [("first_pass", "First pass"), ("final", "Final run")]:
+    for run, name, colour in [("first_pass", "First pass", "runfirst"), ("final", "Final run", "runfinal")]:
+        lines.append(f"\\rowcolor{{{colour}}}")   # the run colours of the blocking table (defined in report.tex)
         row = ["", name]
         for pair in PAIRS:
             r = final[(final["run"] == run) & (final["pair"] == pair) & (final["split"] == "test")
@@ -145,13 +154,13 @@ def cleaning_table():
     return "\n".join(lines) + "\n"
 
 
+# the blockers of the table. No blocking, any shared name word and any shared 3-gram were too many pairs to
+# run (only an estimated pair count, no PC or RR): the text gives their pair counts (numbers(): allPairs*,
+# tokenPairsMax), not the table
 SHORT_BLOCKER = {
-    "no blocking (all pairs)": "No blocking (all pairs)",
     "standard: exercise key (2 letters x 3 words)": "Exercise key (2 letters of 3 words)",
     "standard: normalised name": "Same normalised name",
     "sorted neighbourhood: name, window 20": "Sorted neighbourhood, window 20",
-    "token: words of all names": "Any shared name word",
-    "token: character 3-grams of the name": "Any shared 3-gram",
     "token: country + name word": "Country + name word",
     "token: same web domain": "Same web domain",
     "embedding: name, top 10": "Embedding, 10 nearest names",
@@ -179,12 +188,129 @@ def blocking_table():
                     row += ["--"] * 4
                     continue
                 r = r.iloc[0]
-                skipped = pd.isna(r["pair_completeness"])
-                row += [big(r["candidates"]) + ("$^*$" if skipped and "no blocking" not in blocker else ""),
-                        "--" if skipped else num(r["pair_completeness"]),
-                        "--" if skipped else f"{r['reduction_ratio']:.5f}",
-                        "--" if skipped else seconds(r["seconds"])]
+                row += [big(r["candidates"]), num(r["pair_completeness"]), f"{r['reduction_ratio']:.5f}",
+                        seconds(r["seconds"])]
             lines.append(" & ".join(row) + "\\\\")
+    return "\n".join(lines) + "\n"
+
+
+def words(n):
+    # 508 million, 2.1 billion (pair counts in the text)
+    n = float(n)
+    return f"{n / 1e9:.1f} billion" if n >= 1e9 else f"{n / 1e6:.0f} million"
+
+
+def pct(part, whole):
+    return f"{part / whole:.0%}".replace("%", "\\%")
+
+
+def local_llm_table():
+    """Qwen2.5 (3B, 7B) against the cleaning rules: on the 150 removals we checked by hand, on 150 kept records
+    (truth: the AI agents' verdicts) and, record only, on all removed records (rescue)."""
+    res = ROOT / "scripts" / "06_abandoned_approaches" / "02_filtering" / "results"
+    tests = pd.concat([pd.read_csv(res / f"evaluation_test_qwen2.5_{m}.csv") for m in ["3b", "7b"]])
+    rescue = pd.concat([pd.read_csv(res / f"evaluation_rescue_qwen2.5_{m}.csv") for m in ["3b", "7b"]])
+    assert (tests["no answer"] == 0).all() and (rescue["no answer"] == 0).all()
+    hand = tests[tests["set"] == "hand"]
+    kept = tests[tests["set"] == "kept"]
+    # the same records for every model and variant
+    for part in (hand, kept):
+        assert part[["records", "universities", "others", "rules right"]].nunique().max() == 1
+    h, k = hand.iloc[0], kept.iloc[0]
+    every = rescue[rescue["group"] == "all removed records"]
+    real = rescue[rescue["group"] == "agents: real"]
+    assert every["records"].nunique() == 1 and real["records"].nunique() == 1
+    n_removed, n_real = int(every["records"].iloc[0]), int(real["records"].iloc[0])
+    lines = [
+        "& \\multicolumn{2}{c}{Removals checked by hand} & \\multicolumn{2}{c}{Kept records}"
+        " & \\multicolumn{2}{c}{Rescue: all removals}\\\\",
+        "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(l){6-7}",
+        "Judge & right & univ.\\ kept & right & univ.\\ dropped & back & univ.\\ back\\\\",
+        f"& of {int(h['records'])} & of {int(h['universities'])} & of {int(k['records'])}"
+        f" & of {int(k['universities'])} & of {n_removed:,} & of {n_real}\\\\",
+        "\\midrule",
+        # the rules removed every hand-checked record and kept every kept record; the rescue is the model's
+        f"Our rules & {int(h['rules right'])} ({pct(h['rules right'], h['records'])}) & 0"
+        f" & {int(k['rules right'])} ({pct(k['rules right'], k['records'])}) & 0 & -- & --\\\\",
+    ]
+    for model, size in [("qwen2.5:3b", "3B"), ("qwen2.5:7b", "7B")]:
+        for variant in ["record only", "with homepage"]:
+            a = hand[(hand["model"] == model) & (hand["variant"] == variant)].iloc[0]
+            b = kept[(kept["model"] == model) & (kept["variant"] == variant)].iloc[0]
+            dropped = int(b["universities"] - b["universities kept"])
+            label = f"Qwen2.5 {size}" if variant == "record only" else "\\quad with homepage"
+            row = [label, f"{int(a['model right'])} ({pct(a['model right'], a['records'])})",
+                   f"{int(a['universities kept'])}", f"{int(b['model right'])} ({pct(b['model right'], b['records'])})",
+                   f"{dropped} ({pct(dropped, b['universities'])})"]
+            if variant == "record only":   # the rescue ran on the records only
+                back = rescue[rescue["model"] == model].set_index("group")["brought back"]
+                row += [f"{int(back['all removed records']):,}", f"{int(back['agents: real'])}"]
+            else:
+                row += ["--", "--"]
+            lines.append(" & ".join(row) + "\\\\")
+    return "\n".join(lines) + "\n"
+
+
+def errors_table():
+    """Wrong values of the final fusion strategy on the test half (fusion_errors.csv), per attribute of the gold
+    standard, with the typical cause (our reading of the rows, see the README of step 5). Websites are not in
+    the table: the text names them."""
+    rows = pd.read_csv(ROOT / "scripts" / "05_data_fusion" / "results" / "fusion_errors.csv", dtype=str,
+                       keep_default_na=False).to_dict("records")
+    for r in rows:
+        r["sources"] = dict(part.split(": ", 1) for part in r["source_values"].split(" | "))
+    count = {a: sum(r["attribute"] == a for r in rows) for a in ["name", "country_code", "city", "founding_year",
+                                                                    "domains", "website"]}
+    # the wrong names, country codes, domains and websites are all ROR's values (the text says so)
+    for a in ["name", "country_code", "domains", "website"]:
+        assert all(r["fused_value"] == r["sources"].get("ror") for r in rows if r["attribute"] == a), a
+    years = [r for r in rows if r["attribute"] == "founding_year"]
+    # voting took Wikidata's year where ROR had the right one
+    over_ror = sum(r["sources"].get("ror") == r["expected_value"] and r["fused_value"] == r["sources"].get("wikidata")
+                   for r in years)
+    # both sources give the same year, and the gold standard rejects it
+    agree = [r for r in years if len(set(r["sources"].values())) == 1]
+    assert all(len(r["sources"]) == 2 for r in agree)
+    causes = [("name", "Name", "ROR's spelling or short name (\\emph{Daghestan} for Dagestan)"),
+              ("country_code", "Country code", "ROR's code for a territory (SJ for NO)"),
+              ("city", "City", "mostly the same place, other level or name"
+                               " (\\emph{Pok Fu Lam} for Hong Kong)"),
+              ("founding_year", "Founding year", f"Wikidata's year over ROR's correct one ({over_ror}),"
+                                                 f" both sources wrong alike ({len(agree)})"),
+              ("domains", "Domains", "ROR's English subdomains (\\emph{eng.bspu.ru} for bspu.ru)")]
+    return "\n".join(f"{label} & {count[a]} & {text}\\\\" for a, label, text in causes) + "\n"
+
+
+def lists_table():
+    """Domains (left): list functions on the choosing half (accuracy, fused universities left without a domain).
+    Coordinates (right): share of fused points within 1 and 5 km of the gold point, on both halves. Green: best.
+    Both blocks have three functions, so they share the rows and the table wastes no line."""
+    res = ROOT / "scripts" / "05_data_fusion" / "results"
+    lists = pd.read_csv(res / "list_functions.csv")
+    lists = lists[lists["gold subset"] == "choose"].set_index("function")
+    coords = pd.read_csv(res / "coordinate_functions.csv").set_index(["function", "gold subset"])
+    names = {"trust: ROR first": "ROR first", "union": "Union", "in at least 2 sources": "In at least 2 sources",
+             "trust: Wikidata first": "Wikidata first", "median": "Median"}
+    dom = ["trust: ROR first", "union", "in at least 2 sources"]
+    top_acc = lists.loc[dom, "domains"].max()
+    top_empty = lists.loc[dom, "universities without domain"].min()   # fewer is better
+    crd = ["trust: Wikidata first", "median", "trust: ROR first"]
+    cols = [("choose", "within 1 km"), ("choose", "within 5 km"), ("test", "within 1 km"), ("test", "within 5 km")]
+    top = {c: max(coords.at[(f, c[0]), c[1]] for f in crd) for c in cols}
+    # the accuracy is measured on the choosing half, the count without a domain over all fused universities
+    lines = ["& choosing half & all fused & & \\multicolumn{2}{c}{Choosing half}"
+             " & \\multicolumn{2}{c}{Test half}\\\\",
+             "\\cmidrule(lr){5-6}\\cmidrule(l){7-8}",
+             "\\emph{Domains} & accuracy & no domain & \\emph{Coordinates} & 1\\,km & 5\\,km"
+             " & 1\\,km & 5\\,km\\\\", "\\midrule"]
+    for d, f in zip(dom, crd):
+        acc, empty = lists.at[d, "domains"], int(lists.at[d, "universities without domain"])
+        cells = [names[d], best_cell(num(acc)) if acc == top_acc else num(acc),
+                 best_cell(f"{empty:,}") if empty == top_empty else f"{empty:,}", names[f]]
+        for c in cols:
+            x = coords.at[(f, c[0]), c[1]]
+            cells.append(best_cell(num(x)) if x == top[c] else num(x))
+        lines.append(" & ".join(cells) + "\\\\")
     return "\n".join(lines) + "\n"
 
 
@@ -201,9 +327,17 @@ def groups_table():
     for label, lo, hi in buckets:
         row = [label]
         for s in sizes.values():
-            row.append(f"{int(s[(s.index >= lo) & (s.index <= hi)].sum()):,}")
+            n = int(s[(s.index >= lo) & (s.index <= hi)].sum())
+            # groups larger than a triple are a problem: red (\bad is defined in report.tex)
+            row.append(bad_cell(f"{n:,}") if lo > 3 and n > 0 else f"{n:,}")
         lines.append(" & ".join(row) + "\\\\")
-    largest = ["Largest group"] + [f"{int(s.index.max()):,}" if len(s) else "--" for s in sizes.values()]
+    largest = ["Largest group"]
+    for s in sizes.values():
+        if not len(s):
+            largest.append("--")
+        else:
+            n = int(s.index.max())
+            largest.append(bad_cell(f"{n:,}") if n > 3 else f"{n:,}")
     lines.append("\\midrule")
     lines.append(" & ".join(largest) + "\\\\")
     return "\n".join(lines) + "\n"
@@ -254,6 +388,26 @@ def numbers():
         v[f"{p}FirstRemoved"] = f"{int((fp['id1'].isin(gone) | fp['id2'].isin(gone)).sum()):,}"
     v["firstRemoved"] = f"{sum(int(v[f'{p}FirstRemoved'].replace(',', '')) for p in ['wr', 'dr']):,}"
 
+    # pair counts of the blockers too large to run (not in the blocking table): all pairs in the final run,
+    # and the largest of "any shared name word" and "any shared 3-gram" (first pass)
+    blocking = pd.read_csv(IR / "blocking" / "results" / "blocking.csv")
+    for pair, p in [("wikidata-ror", "Wr"), ("deqar-ror", "Dr")]:
+        r = blocking[(blocking["run"] == "final") & (blocking["pair"] == pair)
+                     & (blocking["blocker"] == "no blocking (all pairs)")]
+        v[f"allPairs{p}"] = words(r["candidates"].iloc[0])
+    tokens = blocking[(blocking["run"] == "first_pass") & blocking["blocker"].isin(
+        ["token: words of all names", "token: character 3-grams of the name"])]
+    assert tokens["pair_completeness"].isna().all()   # not run
+    v["tokenPairsMax"] = words(tokens["candidates"].max())
+
+    # links the embedding blocker adds for the chosen matcher after one-to-one matching (validation)
+    effect = pd.read_csv(IR / "analysis" / "results" / "blocking_effect.csv")
+    effect = effect[effect["split"] == "validation"].set_index(["pair", "blocker"])["corr"]
+    for pair, p in [("wikidata-ror", "wr"), ("deqar-ror", "dr")]:
+        added = (effect[(pair, "union: country + name word | same domain | embedding")]
+                 - effect[(pair, "union: country + name word | same domain")])
+        v[f"{p}EmbLinks"] = f"{int(added):,}"
+
     errors = pd.read_csv(IR / "analysis" / "results" / "error_analysis.csv")
     missed = errors[errors["error"] == "missed match"]
     v["errWrong"] = str((errors["error"] == "wrong match").sum())
@@ -266,6 +420,11 @@ def numbers():
     sizes = pd.read_csv(res / "group_sizes_final.csv").set_index("cluster_size")["frequency"]
     v["groupsTwo"], v["groupsThree"] = f"{int(sizes.get(2, 0)):,}", f"{int(sizes.get(3, 0)):,}"
     v["groupsMax"] = f"{int(sizes.index.max())}"
+    # the final links before one-to-one matching: the largest group and the groups larger than a triple
+    loose = pd.read_csv(res / "group_sizes_final_without_one_to_one.csv").set_index("cluster_size")["frequency"]
+    v["groupsLooseMax"] = f"{int(loose.index.max()):,}"
+    v["groupsLooseOverThree"] = f"{int(loose[loose.index > 3].sum()):,}"
+    assert int(sizes[sizes.index > 3].sum()) == 0
 
     # fusion
     fused = pd.read_csv(ROOT / "scripts" / "05_data_fusion" / "results" / "universities_fused.csv", low_memory=False)
@@ -317,6 +476,11 @@ def numbers():
     ours = strategies[(strategies["strategy"] == "voting: ties by trust") & (strategies["gold subset"] == "test")
                       & (strategies["comparison"] == "tolerant")].iloc[0]
     v["accOursTest"] = f"{ours['mean single-valued']:.0%}".replace("%", "\\%")
+    # with provenance (trust: ROR first) and without (voting), on the test half
+    for strategy, name in [("trust: ROR first", "accTrustRorTest"), ("voting", "accVotingTest")]:
+        row = strategies[(strategies["strategy"] == strategy) & (strategies["gold subset"] == "test")
+                         & (strategies["comparison"] == "tolerant")].iloc[0]
+        v[name] = f"{row['mean single-valued']:.0%}".replace("%", "\\%")
     rand = strategies[(strategies["strategy"] == "best per attribute") & (strategies["gold subset"] == "random")
                       & (strategies["comparison"] == "tolerant")].iloc[0]
     v["accRandom"] = f"{rand['mean single-valued']:.0%}".replace("%", "\\%")
@@ -412,6 +576,9 @@ def main():
     (OUT / "cleaning.tex").write_text(cleaning_table(), encoding="utf-8")
     (OUT / "blocking.tex").write_text(blocking_table(), encoding="utf-8")
     (OUT / "groups.tex").write_text(groups_table(), encoding="utf-8")
+    (OUT / "localllm.tex").write_text(local_llm_table(), encoding="utf-8")
+    (OUT / "lists.tex").write_text(lists_table(), encoding="utf-8")
+    (OUT / "errors.tex").write_text(errors_table(), encoding="utf-8")
     print("chosen matchers:", label)
     for f in sorted(OUT.glob("*.tex")):
         print(f"--- {f.name}\n{f.read_text(encoding='utf-8')}")
