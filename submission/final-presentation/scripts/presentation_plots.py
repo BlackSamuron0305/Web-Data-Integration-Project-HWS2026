@@ -72,7 +72,7 @@ def approaches():
             tick.set_fontweight("bold")
     ax.set_xlim(0.72, 0.97)
     ticks = [0.75, 0.80, 0.85, 0.90, 0.95]
-    ax.set_xticks(ticks, [f"{t:.2f}".lstrip("0") for t in ticks])  # .75, like F1 in the text
+    ax.set_xticks(ticks, [f"{t:.2f}" for t in ticks])  # 0.75, like F1 in the text
     ax.set_xlabel("F1 on the validation pairs (final run)")
     clean(ax)
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, frameon=False, handletextpad=0.4, borderaxespad=0.2)
