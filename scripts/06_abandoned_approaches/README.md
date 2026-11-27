@@ -6,11 +6,44 @@ that step's README.
 
 | Folder | Approach | Step it belongs to |
 |---|---|---|
+| `01_selection/` | DBpedia and the THE ranking as sources (replaced by DEQAR) | 1, data collection |
 | `01_selection/` | select Wikidata by *higher education institution* instead of *university* | 1, data collection |
 | `02_filtering/` | AI agents decide for each record (no code) | 2, cleaning |
 | `02_filtering/` | keep only names with the word "university" | 2, cleaning |
+| `02_filtering/` | a local LLM decides for each record, and rescues removed records | 2, cleaning |
 
-## 1. A wider Wikidata selection (`01_selection/wider_wikidata.py`)
+## 1. DBpedia and the THE ranking as sources (`01_selection/fetch_dbpedia.py`, `01_selection/build_the_rankings.py`)
+
+**Idea.** Our project proposal planned four sources: Wikidata, DBpedia, ROR and the Times Higher Education
+(THE) World University Rankings 2026. DBpedia would add a second open knowledge graph, and THE would add
+ranks, scores and student figures.
+
+**What we did** (first download on 3 October 2026). `fetch_dbpedia.py` downloads every resource of class
+`dbo:University` from the DBpedia SPARQL endpoint, one query per attribute and page by page.
+`build_the_rankings.py` turns the table data that THE's ranking page loads into one row per university.
+
+| | DBpedia | THE ranking |
+|---|---|---|
+| universities | 27,728 | 3,118 |
+| of those | 25,715 (92.7%) link to a Wikidata item | 2,191 ranked, 927 "reporters" without a rank |
+
+**Why we dropped them.**
+- DBpedia is extracted from Wikipedia, and 92.7% of its universities link to a Wikidata item. Its facts
+  largely repeat Wikidata's, so it is not an independent source. Of the linked items, 13,021 are in our
+  Wikidata selection, and the rest are Wikidata items of other classes, the same gap as in section 2.
+- The THE ranking lists only 3,118 institutions, about a tenth of ROR's 30,131 education records, and its
+  terms do not allow republishing the data.
+- DEQAR replaced both: 8,979 institutions, with their quality assurance reports.
+
+The downloads are not in the repository. The DBpedia endpoint returns today's data, and THE's data must
+not be republished (the script's output is git-ignored).
+
+```
+python scripts/06_abandoned_approaches/01_selection/fetch_dbpedia.py        # results/dbpedia_universities.csv
+python scripts/06_abandoned_approaches/01_selection/build_the_rankings.py   # results/the_rankings_2026.csv
+```
+
+## 2. A wider Wikidata selection (`01_selection/wider_wikidata.py`)
 
 **Idea.** Step 1 takes every Wikidata item whose type is *university* (Q3918) or a subclass. Universities
 that Wikidata types otherwise are missing: 8,089 of the cleaned ROR records point to a Wikidata item
@@ -42,14 +75,14 @@ schools.
 
 **Why we dropped it.**
 - It would add about 46,000 non-universities for about 7,000 universities. Today about 11% of the
-  cleaned Wikidata records are not universities; among the new items it would be about 87%.
+  cleaned Wikidata records are not universities, while among the new items it would be about 87%.
 - Our cleaning rules were written for the types of the *university* class and do not cover the new
   types. Using them would need new rules, a new check of them, new mapping, matching and fusion runs
   and new evaluation sets, which did not fit before the deadline.
 - The gain is small: only 3,762 of the kept items link to a ROR-only entry, and about half of those are
   universities.
 
-The report mentions this in its limitations. The verdicts are AI judgements, not checked by a person;
+The report mentions this in its limitations. The verdicts are AI judgements, not checked by a person, and
 `results/wider_new_records.csv` is the download of 24 November 2026 (Wikidata changes daily).
 
 ```
@@ -57,7 +90,7 @@ python scripts/06_abandoned_approaches/01_selection/wider_wikidata.py fetch   # 
 python scripts/06_abandoned_approaches/01_selection/wider_wikidata.py check
 ```
 
-## 2. Letting AI agents decide (no code)
+## 3. Letting AI agents decide (no code)
 
 **Idea.** Instead of writing rules, let AI agents (Claude with subagents) look at each record and
 decide whether it is a university, then remove everything judged "not a university".
@@ -72,7 +105,7 @@ decide whether it is a university, then remove everything judged "not a universi
 The agents are still useful for **checking** the fixed rules on samples
 (`scripts/02_filtering/validation/`), but not for making the decision itself.
 
-## 3. Keep only names with the word "university" (`02_filtering/university_word_rule.py`)
+## 4. Keep only names with the word "university" (`02_filtering/university_word_rule.py`)
 
 **Idea.** The simplest possible rule: a record stays only if its name contains "univers" (university,
 universidad, université, Universität, ...).
@@ -93,4 +126,64 @@ stayed.
 
 ```
 python scripts/06_abandoned_approaches/02_filtering/university_word_rule.py
+```
+
+## 5. A local LLM decides, or rescues removed records (`02_filtering/local_llm_cleaning.py`)
+
+**Idea.** Section 3 failed on the cost of a paid model. A small model on our own GPU costs nothing, so
+could it take the decision instead of the fixed rules? Qwen2.5 (3B and 7B weights, via Ollama, the same
+family as identity resolution approach 9) gets the cleaning rules in short and one record, and answers keep
+or drop. We asked each record twice: with the record only, and with text from the internet, which is the
+title, description and start of the record's homepage, or its Wikidata description if it has no website.
+The run took place on 27 November 2026 on a laptop GPU (RTX 5070, 8 GB), at about 9 records/s for 3B and
+4-5 records/s for 7B.
+
+**Test on 300 records with a known answer.**
+- The 150 removed records we checked by hand: 13 of them are real universities.
+- 150 kept records from the agents' random sample: 133 universities and 17 others, by the agents' verdict.
+
+| | right on the 150 hand-checked removals | universities rescued | others brought back | right on the 150 kept records | universities dropped |
+|---|---|---|---|---|---|
+| our rules | 137 (91%) | 0 of 13 | 0 of 137 | 133 (89%) | 0 of 133 |
+| 3B, record only | 122 (81%) | 4 | 19 | 112 (75%) | 31 (23%) |
+| 3B, with homepage | 129 (86%) | 4 | 12 | 99 (66%) | 45 (34%) |
+| 7B, record only | 132 (88%) | 2 | 7 | 93 (62%) | 55 (41%) |
+| 7B, with homepage | 130 (87%) | 3 | 10 | 90 (60%) | 58 (44%) |
+
+**Rescue: all 9,519 removed records.** Next, the model judged every record the rules removed, with the
+record only. We compared its answers with the verdicts the AI agents gave 8,480 of these removals: 118
+universities, 162 unsure and 8,200 not universities.
+
+| | brought back | of the agents' 118 universities | agents' non-universities brought back |
+|---|---|---|---|
+| 3B | 1,152 (12%) | 32 | 780 |
+| 7B | 387 (4%) | 16 | 247 |
+
+**Why we dropped it.**
+- **Worse than the rules on both sides.** The model throws out real colleges whose name lacks
+  "university": *Davao de Oro State College*, *Recaredo Castillo College*, *Florida College*.
+  It keeps campuses, units and systems whose name has it: branches of *Islamic Azad University*, *School of
+  Mathematics, Peking University*, *Colorado State University System*.
+- **The bigger model is stricter, not better.** It drops more of everything, including 41% of the kept
+  universities.
+- **The homepage text does not help.** It filters out a little more junk among the removals, but throws
+  out more real universities among the kept records.
+- **Rescuing does not pay off either.** For every university it brings back, it brings back about 15 (7B)
+  to 24 (3B) non-universities. 869 of the 3B model's 1,152 rescues are rule-3 removals (faculties, campuses,
+  branches).
+- **A comparison, not knowledge.** In identity resolution the model compares two records that are both
+  in the prompt. Here it would need to know the institution, and a small model knows little about
+  thousands of small colleges.
+
+The verdicts on the kept records and the agents' verdicts on the removals are AI judgements, not checked
+by hand. Only the 150 hand-checked removals are a hand-made answer. `results/` holds the model's answers
+per record (`llm_test_*.csv`, `llm_rescue_*.csv`) and the counts above (`evaluation_*.csv`). The raw
+answers and the fetched web text are cached in `results/cache/local_llm_cleaning/` at the repository
+root (not in git, like approach 9), so a rerun asks only what is missing.
+
+```
+ollama pull qwen2.5:3b
+ollama pull qwen2.5:7b
+python scripts/06_abandoned_approaches/02_filtering/local_llm_cleaning.py test qwen2.5:3b      # ~2 minutes
+python scripts/06_abandoned_approaches/02_filtering/local_llm_cleaning.py rescue qwen2.5:3b    # ~20 minutes
 ```

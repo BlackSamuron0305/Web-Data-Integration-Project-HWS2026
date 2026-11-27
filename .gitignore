@@ -16,5 +16,7 @@ __pycache__/
 logs/
 scripts/04_identity_resolution/blocking/results/candidates/
 scripts/04_identity_resolution/blocking/results/pydi_output/
+# THE ranking data may not be republished (see build_the_rankings.py)
+scripts/06_abandoned_approaches/01_selection/results/the_rankings_2026.csv
 
 .DS_Store

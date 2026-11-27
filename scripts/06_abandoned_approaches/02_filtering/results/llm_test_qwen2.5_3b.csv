@@ -1,0 +1,301 @@
+set,source,id,name,truth,plain,web
+hand,wikidata,Q11609552,"College of Medical Care and Technology, Gumma University",False,False,False
+hand,wikidata,Q136546567,Higher Institute of Religious Sciences “San Isidoro y San Leandror”,False,False,False
+hand,wikidata,Q11074004,サレジオ短期大学,False,False,False
+hand,wikidata,Q107475538,"Federal Polytechnic Ekowe, Bayelsa State",False,True,True
+hand,wikidata,Q85875527,Nakamura Gakuen University Junior College,False,False,False
+hand,wikidata,Q14715789,Northpoint Bible College,False,False,False
+hand,wikidata,Q1667803,Internationales Priesterseminar Herz Jesu,False,False,False
+hand,wikidata,Q4696575,Aichi Kiwami College of Nursing,False,False,False
+hand,wikidata,Q7600111,Stann Creek Ecumenical Junior College,False,False,False
+hand,wikidata,Q7105574,Osaka Junior College of Social Health and Welfare,False,False,False
+hand,wikidata,Q21644313,Séminaire catholique romain de Saint-Pétersbourg,False,False,False
+hand,wikidata,Q7489671,Sharif University of Technology International Campus,False,True,True
+hand,wikidata,Q110904486,Pontificia Facultad de Teología San Esteban,False,False,False
+hand,wikidata,Q106207047,petit séminaire de Nantes,False,False,False
+hand,wikidata,Q18639767,Israel College of the Bible,False,False,False
+hand,wikidata,Q119844651,University of ilorin department of Human Kinetics Education (Jumpology),False,False,False
+hand,wikidata,Q7432397,School of Business at Clayton State University,False,False,False
+hand,wikidata,Q6352866,KIIT Polytechnic,False,False,False
+hand,wikidata,Q136412333,Erie County Community College,False,False,False
+hand,wikidata,Q27951732,Konkuk University Glocal Campus,False,False,False
+hand,wikidata,Q2317220,St. Anthony-on-Hudson Seminary,False,False,False
+hand,wikidata,Q120886636,grand séminaire catholique d'Athènes,False,False,False
+hand,wikidata,Q118917962,Faculty of Theology of the Pontifical Salesian University,False,False,False
+hand,wikidata,Q55137589,Seattle Bible College,False,False,False
+hand,wikidata,Q3955056,Diocesan Seminary of Fiesole,False,False,False
+hand,wikidata,Q19310252,Infantry School,False,False,False
+hand,wikidata,Q29033704,Petit séminaire Saint-Gildas,False,False,False
+hand,wikidata,Q2820567,Conception Abbey,False,False,False
+hand,wikidata,Q11524641,東京基督教短期大学,False,False,False
+hand,wikidata,Q6082275,Islamic Azad University of Gorgan,False,True,True
+hand,wikidata,Q2820388,abbaye Saint-Joseph de Saint Benedict,False,False,False
+hand,wikidata,Q11581026,皇學館短期大学,False,False,False
+hand,wikidata,Q141304518,"School of Mathematics, Peking University",False,True,True
+hand,wikidata,Q4780834,Appalachian Bible College,False,False,False
+hand,wikidata,Q5954937,"Islamic Azad University, Khorramabad branch",False,False,False
+hand,wikidata,Q120486432,京都社会福祉短期大学,False,False,False
+hand,wikidata,Q137440783,All Hallows Seminary,False,False,False
+hand,wikidata,Q7567348,South Georgia Technical College,False,False,False
+hand,wikidata,Q57979445,Islamic Azad University Yasuj,False,True,False
+hand,wikidata,Q7500131,Shohoku College,False,False,False
+hand,wikidata,Q11591286,福井女子短期大学,False,False,False
+hand,wikidata,Q126901442,Satkhira University of Science and Technology,False,False,False
+hand,wikidata,Q6379697,Kawartha Lakes Bible College,False,False,False
+hand,wikidata,Q6082336,Islamic Azad University of Shiraz,False,True,True
+hand,wikidata,Q101248149,Rheinische Friedrich-Wilhelms Universität Bonn Katholisch-Theologische Fakultät,False,False,False
+hand,wikidata,Q7401567,Saint Joseph Seminary College,False,False,False
+hand,wikidata,Q10429004,Bethlehem Bible College,False,False,False
+hand,wikidata,Q28136908,Kuwait Technical College,True,False,False
+hand,wikidata,Q42556163,Theological College Wuppertal,False,False,False
+hand,wikidata,Q61801313,"Government Women's Polytechnic College, Nedupuzha, Thrissur",False,False,False
+kept,wikidata,Q7722398,The Chicago School of Professional Psychology,True,False,False
+kept,wikidata,Q134428150,Farwestern University,True,True,True
+kept,wikidata,Q7710683,Thapar Institute of Engineering and Technology,True,True,True
+kept,wikidata,Q6959000,Nagoya Aoi University,True,True,True
+kept,wikidata,Q7588856,St. John's University of Tanzania,True,True,True
+kept,wikidata,Q1074363,Dalian Ocean University,True,True,True
+kept,wikidata,Q11798134,Olsztyńska Szkoła Wyższa,True,False,False
+kept,wikidata,Q109911639,Politeknik Kesehatan Kementerian Kesehatan Palangka Raya,True,True,False
+kept,wikidata,Q7755195,The Open University of Tanzania,True,True,True
+kept,wikidata,Q140540772,New Generation University,True,True,True
+kept,wikidata,Q4738816,Alzaiem Alazhari University,True,True,True
+kept,wikidata,Q10941044,Taiyuan Institute of Technology,True,True,True
+kept,wikidata,Q1972050,University of Johannesburg,True,True,True
+kept,wikidata,Q314536,Norwegian University of Science and Technology,True,True,True
+kept,wikidata,Q55625253,Nile University of Uganda,True,True,True
+kept,wikidata,Q122809735,Davao de Oro State College,True,False,False
+kept,wikidata,Q6671315,San Francisco College for Women/Lone Mountain College,True,False,False
+kept,wikidata,Q109912866,Politeknik Penerbangan Medan,True,False,False
+kept,wikidata,Q3467737,Zhejiang University of Finance and Economics,True,True,True
+kept,wikidata,Q25464537,Madura University,True,True,True
+kept,wikidata,Q2495752,Universidade do Extremo Sul Catarinense,True,True,True
+kept,wikidata,Q2165900,Japan Institute of the Moving Image,True,False,True
+kept,wikidata,Q18389231,Politecnico degli Studi Internazionali,False,True,True
+kept,wikidata,Q7260992,"Purdue University College of Pharmacy, Nursing, and Health Sciences",False,True,False
+kept,wikidata,Q497766,Yewon Arts University,True,True,True
+kept,wikidata,Q29072755,Universidad Laboral Jose Antonio Primo de Rivera,False,True,True
+kept,wikidata,Q6041556,Instituto Tecnológico Superior de Irapuato,True,True,True
+kept,wikidata,Q129585458,"Delta State College Of Health Technology, Ofuoma",False,False,False
+kept,wikidata,Q2496139,University of Rinteln,True,True,True
+kept,wikidata,Q1087492,Pacific Western University,False,True,True
+kept,wikidata,Q107717858,Eko University of Medical and Health Sciences Ijanikin Lagos,True,True,True
+kept,wikidata,Q16932785,Mauritius Institute of Training and Development,False,False,False
+kept,wikidata,Q16481353,Trường Đại học Mỹ thuật Công nghiệp,True,False,False
+kept,wikidata,Q112123135,"Christian Service University College, Kumasi",True,False,False
+kept,wikidata,Q3183238,French University of Egypt,True,True,True
+kept,wikidata,Q5358247,Electronic Engineering Polytechnic Institute of Surabaya,True,True,False
+kept,wikidata,Q3551848,Yamaguchi Prefectural University,True,True,True
+kept,wikidata,Q12204428,جامعة الزهراء للعلوم الدينية,False,False,False
+kept,wikidata,Q917899,University of New Haven,True,True,True
+kept,wikidata,Q7494354,Shenyang Pharmaceutical University,True,True,False
+kept,wikidata,Q19894551,"College of the Immaculate Conception, Cabanatuan",True,False,False
+kept,wikidata,Q22963,German University of Administrative Sciences Speyer,True,True,True
+kept,wikidata,Q4076909,Baltic International Academy,True,True,True
+kept,wikidata,Q7302290,Recaredo Castillo College,True,False,False
+kept,wikidata,Q140964673,Abaarso Tech University,True,True,True
+kept,wikidata,Q2992066,Belarusian State University of Foreign Languages,True,True,True
+kept,wikidata,Q1036312,Seinan Gakuin University,True,True,True
+kept,wikidata,Q12513112,Bandung Institute of Indonesian Arts and Culture,True,True,True
+kept,wikidata,Q11063789,University of Kang Ning,True,False,False
+kept,wikidata,Q6979247,National University of Health Sciences,True,False,False
+hand,ror,00vbbfz92,Welding Research Institute - Industrial Institute SR,False,False,False
+hand,ror,01dwwtp07,Tokyo Metropolitan East High School,False,False,False
+hand,ror,04vcs0j60,"Islamic Azad University, Ahvaz Branch",False,True,False
+hand,ror,04zx0r281,Hebei Arts and Crafts Vocational College,False,False,False
+hand,ror,017h0sc12,Guangdong Jiangmen Vocational College of Traditional Chinese Medicine,False,False,False
+hand,ror,003yfz041,Zhejiang Electric Power Polytechnic,False,True,True
+hand,ror,05spzbw39,Brown Mackie College,False,False,False
+hand,ror,0345pw561,Kolej Vokasional Kuala Kangsar,False,False,False
+hand,ror,015n0my11,Alabama Southern Community College,False,False,False
+hand,ror,01ch7qh32,Shanxi Vocational Technology College of Economic Management,False,False,False
+hand,ror,03xj0x983,Colorado State University System,False,True,True
+hand,ror,044jx8018,Islamic Azad University of Malard,False,True,True
+hand,ror,030gep771,Roanoke-Chowan Community College,False,False,False
+hand,ror,05e2reg39,Shizhen College of Guizhou University of Traditional Chinese Medicine,True,False,False
+hand,ror,02844jh83,Sanmenxia Polytechnic,False,False,False
+hand,ror,02t43b062,Kolej Kemahiran Tinggi MARA Rembau,False,False,False
+hand,ror,02knnmc06,Anshan Vocational and Technical College,False,False,False
+hand,ror,04eyjff96,Australian and New Zealand Association of Psychotherapists,False,False,False
+hand,ror,034948b51,Calhoun Community College,False,False,False
+hand,ror,009g6xd12,Taichung Municipal Taichung First Senior High School,False,False,False
+hand,ror,01abzeb36,Bladen Community College,False,False,False
+hand,ror,00xefvv79,"National Institute of Technology, Kurume College",False,False,False
+hand,ror,04h7e4549,American Neurological Association,False,False,False
+hand,ror,0372th171,Université de Bretagne Occidentale,True,True,True
+hand,ror,01awnd472,Rayat College of Polytechnic,False,False,False
+hand,ror,02xm6sp43,"National Institute of Technology, Kagoshima College",False,False,False
+hand,ror,01kzn7k21,"Islamic Azad University, Tehran",True,True,True
+hand,ror,005ym4r66,Rishra High School,False,False,False
+hand,ror,03z54xm22,Near East School of Theology,False,False,False
+hand,ror,03gsgdw67,Nanyang Vocational College,False,False,False
+hand,ror,05sy4b952,Saba University School of Medicine,True,False,False
+hand,ror,00tpr5718,Centro de Investigação em Sistemas e Tecnologias,False,False,False
+hand,ror,00p324w42,Heritage Polytechnic,False,False,False
+hand,ror,02vdp8t87,Jiangxi Metallurgical Vocational and Technical College,False,False,False
+hand,ror,00n1gz317,Tokyo Kasei Junior College,False,False,False
+hand,ror,00f9r7e77,Roane State Community College,False,False,False
+hand,ror,01phpae37,Multidisciplinary Association for Psychedelic Studies,False,False,False
+hand,ror,003w0hs43,Sekolah Tinggi Filsafat Theologia Indonesia Timur,False,False,False
+hand,ror,05v3qjj19,Baoding Preschool Teachers College,False,False,False
+hand,ror,05jhctt84,Malaysia Theological Seminary,False,False,False
+hand,ror,04mg21y19,Tyler Junior College,False,False,False
+hand,ror,00drgb713,Kolej Vokasional Keningau,False,False,False
+hand,ror,00jsack41,Carteret County Public School System,False,False,False
+hand,ror,012tjde79,Tianjin Vocational Institute,False,False,False
+hand,ror,04j7dyy47,St. Charles Community College,False,False,False
+hand,ror,047137m93,Prince George's County Public Schools,False,False,False
+hand,ror,053qq7k62,Sichuan Judicial and Police Officers Professional College,False,False,False
+hand,ror,030kcmg43,Zhejiang Automotive Vocational and Technical College,False,False,False
+hand,ror,053sbg434,Aomori Prefectural Mito High School,False,False,False
+hand,ror,00vk1xe75,Liaoning Vocational College of Medical,False,False,False
+kept,ror,03vdarm34,Al-Hadba University,True,True,True
+kept,ror,012wtwr40,Centro Universitário Newton Paiva,True,False,False
+kept,ror,04df39v43,"State Scientific Institution ""Institute of Educational Analytics""",False,False,False
+kept,ror,00s2qq515,"Dr. D.Y. Patil Vidyapeeth, Pune",True,True,True
+kept,ror,02pekjk69,Sekolah Tinggi Teologi Widya Agape,False,False,False
+kept,ror,03efbq855,Károli Gáspár University of the Reformed Church in Hungary,True,True,True
+kept,ror,00p2tmy87,Instituto Superior de Espinho,True,True,True
+kept,ror,014m3pp97,San Diego Mesa College,False,False,False
+kept,ror,04tj88f69,National University of Medical Sciences,True,True,True
+kept,ror,0372j2579,Cambodian Institute for Cooperation and Peace,False,True,True
+kept,ror,02rsxaa93,Saint Petersburg State University of Aerospace and Instrumentation,True,True,True
+kept,ror,03p7vg590,Al-Zahra College for Women,True,False,False
+kept,ror,001yqrb02,Hochschule Bremerhaven,True,True,True
+kept,ror,05x2td559,Tianjin Normal University,True,True,True
+kept,ror,03eqedq43,Northern Zambales College,True,False,False
+kept,ror,00k2r9g11,LeeMing Institute of Technology,True,True,True
+kept,ror,05x2njz20,University of Abra,True,True,True
+kept,ror,04t5yz624,Defense Information School,False,False,False
+kept,ror,057d6z539,Chitkara University,True,True,True
+kept,ror,001y2wd07,Lunghwa University of Science and Technology,True,True,True
+kept,ror,03m098d13,Damascus University,True,True,True
+kept,ror,05t918283,Sekolah Tinggi Ilmu Pertanian Belitang,True,False,False
+kept,ror,03d0yjb51,IST-Hochschule für Management,True,True,True
+kept,ror,028vqfs63,Amherst College,True,False,False
+kept,ror,00pb8h375,Bauman Moscow State Technical University,True,True,True
+kept,ror,023azqp90,Academy of Management of the Interior Ministry of Russia,True,False,False
+kept,ror,04daenq52,Valley View University,True,True,True
+kept,ror,02kdm5630,Riphah International University,True,True,True
+kept,ror,003eaqr04,Technological University of the Mixteca,True,True,True
+kept,ror,01r4khx38,Aichi Prefectural University of Fine Arts and Music,True,True,True
+kept,ror,000qzf213,Korea University of Science and Technology,True,True,False
+kept,ror,03ys49e51,Volga State University of Technology,True,True,True
+kept,ror,03rsm0k65,Afe Babalola University,True,True,True
+kept,ror,057ngt219,Universidad de Sotavento,True,True,True
+kept,ror,0276e3d41,Viet Nam National Academy of Music,True,True,True
+kept,ror,01b8jmq89,Polytechnic University of Puerto Rico,True,True,True
+kept,ror,01epn2q93,Weber State University,True,True,True
+kept,ror,00e49gy82,China University of Political Science and Law,True,True,True
+kept,ror,02w5pxz31,Assiut University Hospitals,False,False,False
+kept,ror,04bhgg012,Universidad Politécnica de Tulancingo,True,True,True
+kept,ror,00emtkt50,Jilin Sport University,True,True,True
+kept,ror,017nweb49,Roger Williams University,True,True,True
+kept,ror,033cvvt68,Kazakh National Agrarian Research University,True,True,True
+kept,ror,04heexg31,Sekolah Tinggi Ilmu Ekonomi LPI Makassar,True,False,True
+kept,ror,0276bwh55,Eastern and Southern African Management Institute,True,True,True
+kept,ror,05701wm02,Equator University of Science and Technology,True,True,False
+kept,ror,05vv4xn30,Kobe Tokiwa University,True,True,True
+kept,ror,00ssvzv66,Karpagam Academy of Higher Education,True,True,True
+kept,ror,05byvp690,The University of Texas Southwestern Medical Center,True,False,False
+kept,ror,05p6hp428,Arab Board Of Health Specializations,False,False,False
+hand,deqar,DEQARINST6056,Doctoral School in Humanities. Social Sciences and Law (EDHCSJ),False,True,False
+hand,deqar,DEQARINST5668,Palencia Faculty of Education,False,False,False
+hand,deqar,DEQARINST2913,Yerevan «International Accountancy Training Center» Educational Fund,True,False,False
+hand,deqar,DEQARINST5947,Faculty of Sport Sciences,False,False,False
+hand,deqar,DEQARINST8320,Centre of Environmental Mediterranean Sea Studies (IAMA),False,False,False
+hand,deqar,DEQARINST7724,Electrotechnical College,False,False,False
+hand,deqar,DEQARINST3542,"HIGHER STATE EDUCATIONAL INSTITUTION ""DNIPROPETROVSK COLLEGE OF TRANSPORT INFRASTRUCTURE""",False,False,False
+hand,deqar,DEQARINST5961,Faculty of Labour Science,False,False,False
+hand,deqar,DEQARINST6814,Department of Mediterranean Archeology of the Polish Academy of Sciences,False,False,False
+hand,deqar,DEQARINST0185,Bulgarian Academy of Sciences,False,False,False
+hand,deqar,DEQARINST3770,Kharkiv State Socio-economic College,False,False,False
+hand,deqar,DEQARINST9643,Rennes Ynov Campus,False,False,False
+hand,deqar,DEQARINST1660,Stockholm School of Economics in Riga,True,False,False
+hand,deqar,DEQARINST3774,"Limited Liability Medical College ""Monada""",False,False,False
+hand,deqar,DEQARINST8334,Information Systems and Computers Department.,False,False,False
+hand,deqar,DEQARINST5337,Faculty of Economic & Business Sciences,False,False,False
+hand,deqar,DEQARINST5494,"Centre of Humanities, Communication and Documentation. Civil Campus",False,False,False
+hand,deqar,DEQARINST5979,School of Economics and Business Sciences (Sevilla campus),False,True,False
+hand,deqar,DEQARINST7219,Glion Institute of Higher Education,True,True,True
+hand,deqar,DEQARINST8532,Social Studies and Applied Languages Faculty,False,True,True
+hand,deqar,DEQARINST6614,Central Laboratory of Seismic Mechanics and Seismic Engineering,False,False,False
+hand,deqar,DEQARINST6788,Institute of Geophysics of the Polish Academy of Sciences,False,False,False
+hand,deqar,DEQARINST6755,Institute of Rural Development and Agriculture of the Polish Academy of Sciences,False,False,False
+hand,deqar,DEQARINST7445,Etablissement d'Enseignement pour Adultes et de Formation Continue (EAFC) Péruwelz,True,False,False
+hand,deqar,DEQARINST5964,Faculty of Social Work,False,False,False
+hand,deqar,DEQARINST8381,"Personality, Assessment and Psycological Treatment Department",False,True,False
+hand,deqar,DEQARINST5272,School of Engineering,False,True,True
+hand,deqar,DEQARINST5457,Faculty of Communication Sciences,False,False,False
+hand,deqar,DEQARINST9237,Institut de formation public varois des professions de santé - Saint-Raphaël,False,False,False
+hand,deqar,DEQARINST5972,School of Human and Social Sciences (Cordoba campus),False,True,False
+hand,deqar,DEQARINST5129,School of Higher Education in Aviation (CESDA),False,True,False
+hand,deqar,DEQARINST5340,Faculty of Social Sciences & Communications,False,False,False
+hand,deqar,DEQARINST3674,Poltava Construction College of Transport Construction,False,False,False
+hand,deqar,DEQARINST3618,Lubny Forest Engineering College,False,False,False
+hand,deqar,DEQARINST5253,Faculty of Economics and Business,False,False,False
+hand,deqar,DEQARINST8944,Institut de formation des professions paramédicales René Tostivint,False,False,False
+hand,deqar,DEQARINST5502,Faculty of Medicine and Health Sciences. Guadalajara Campus,False,False,False
+hand,deqar,DEQARINST7894,University of Colorado Denver/Anschutz Medical Campus,False,True,True
+hand,deqar,DEQARINST3583,"Municipal Higher Educational Institution ""Kamensky Music College""",False,False,False
+hand,deqar,DEQARINST7441,Ecole des Arts et métiers promotion sociale,True,False,False
+hand,deqar,DEQARINST8992,Institut de formation en masso-kinésithérapie - Rennes,True,False,False
+hand,deqar,DEQARINST5254,Faculty of Nursing and Podiatry,False,False,False
+hand,deqar,DEQARINST5358,Faculty of Law,False,False,False
+hand,deqar,DEQARINST6773,Institute of Parasitology Witold Stefański Polish Academy of Sciences,False,False,False
+hand,deqar,DEQARINST0692,German open Business School - HS für Wirtschaft und Verwaltung Berlin (Priv- FH),True,False,False
+hand,deqar,DEQARINST6790,Mathematical Institute of the Polish Academy of Sciences,False,False,False
+hand,deqar,DEQARINST5266,International Doctoral School of the Santiago de Compostela University,False,True,True
+hand,deqar,DEQARINST2882,Goris branch of Yerevan State Institute of Theatre and Cinema,False,False,False
+hand,deqar,DEQARINST1685,Riga 1st Medical College of the University of Latvia,False,False,False
+hand,deqar,DEQARINST2631,Courtauld Institute of Art,True,True,True
+kept,deqar,DEQARINST2035,"""Studium Generale Sandomiriense"" Higher School Humanistic-Natural in Sandomierz",True,False,False
+kept,deqar,DEQARINST5554,Juarez University of the State of Durango,True,True,True
+kept,deqar,DEQARINST8702,University of Nigeria Nsukka,True,True,True
+kept,deqar,DEQARINST1402,"LUM ""Giuseppe Degennaro""",True,True,True
+kept,deqar,DEQARINST3250,"State Higher Educational Institution ""Donbas State Pedagogical University""",True,True,False
+kept,deqar,DEQARINST7392,Saint Petersburg State University of Aerospace Instrumentation,True,True,True
+kept,deqar,DEQARINST3334,Dnipropetrovsk State Institute of Physical Culture and Sport,True,False,False
+kept,deqar,DEQARINST0206,Kalaidos University of Applied Sciences,True,True,False
+kept,deqar,DEQARINST0811,Technical University of Madrid,True,True,True
+kept,deqar,DEQARINST5596,Higher Polytechnic School,False,False,True
+kept,deqar,DEQARINST2260,"""Artifex"" University of Bucharest",True,True,True
+kept,deqar,DEQARINST0787,University of Barcelona,True,True,True
+kept,deqar,DEQARINST6663,ESTA Belfort,True,True,True
+kept,deqar,DEQARINST7845,Federal University of Piauí,True,True,True
+kept,deqar,DEQARINST8593,Batterjee Medical College,True,False,False
+kept,deqar,DEQARINST3191,Central-Kazakhstan Academy,True,True,False
+kept,deqar,DEQARINST8043,Greensboro College,True,False,False
+kept,deqar,DEQARINST0695,"Hochschule Weserbergland (HSW), Hameln (Priv.FH)",True,True,False
+kept,deqar,DEQARINST2540,İhsan Doğramacı Bilkent University,True,True,True
+kept,deqar,DEQARINST1068,Groupe ESPI École supérieure des professions immobilières,True,False,False
+kept,deqar,DEQARINST6124,Ural Federal University named after the first President of Russia B. N. Yeltsin,True,True,True
+kept,deqar,DEQARINST3177,International Humanitarian and Technical University,True,False,False
+kept,deqar,DEQARINST1496,Academy of fine arts of Roma,True,True,False
+kept,deqar,DEQARINST4557,Hésam Université,True,True,False
+kept,deqar,DEQARINST0798,University of Valencia,True,True,True
+kept,deqar,DEQARINST1168,University Center of Mayotte,True,True,True
+kept,deqar,DEQARINST6935,Academy for Tonkunst Darmstadt,True,True,True
+kept,deqar,DEQARINST4455,Design School,False,True,False
+kept,deqar,DEQARINST0060,FHWien der WKW,True,True,True
+kept,deqar,DEQARINST0939,École nationale supérieure de chimie de Montpellier,True,True,True
+kept,deqar,DEQARINST4752,Higher School of Hotel Industry and Gastronomy in Poznań,True,False,False
+kept,deqar,DEQARINST0001,University of Vienna,True,True,True
+kept,deqar,DEQARINST1456,European University of Rome,True,True,True
+kept,deqar,DEQARINST5224,Urals State Medical University of the Ministry of Healthcare of the Russian Federation,True,True,False
+kept,deqar,DEQARINST6820,Institute of Technology and Life Sciences,True,True,False
+kept,deqar,DEQARINST2387,Catholic University in Ružomberok,True,True,True
+kept,deqar,DEQARINST0732,Zealand Institute of Business and Technology,False,True,True
+kept,deqar,DEQARINST1603,University of Liechtenstein,True,True,True
+kept,deqar,DEQARINST8674,Northern School of Contemporary Dance,True,False,False
+kept,deqar,DEQARINST7389,Institut Teknologi Sepuluh Nopember,True,True,True
+kept,deqar,DEQARINST9102,Ecole pour l'informatique et les nouvelles technologies,True,False,False
+kept,deqar,DEQARINST0306,College of Tourism and Hotel Management,True,True,False
+kept,deqar,DEQARINST0690,Akkon University for Applied Sciences,True,True,True
+kept,deqar,DEQARINST4744,Higher School of Economics and Computer Science in Cracow,True,False,False
+kept,deqar,DEQARINST5576,Beirut Arab University,True,True,True
+kept,deqar,DEQARINST3347,Vinnitsya Economical and Financial University,True,True,True
+kept,deqar,DEQARINST2657,Kingston University,True,True,False
+kept,deqar,DEQARINST0926,Catholic University of Toulouse,True,True,True
+kept,deqar,DEQARINST7670,Anka Technology University,True,False,False
+kept,deqar,DEQARINST4717,Silesian Higher Medical School in Katowice,True,True,False

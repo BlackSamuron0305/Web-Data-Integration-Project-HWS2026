@@ -45,14 +45,12 @@ not work".
 DEQAR–ROR, each train / validation / test), 41-55% matches per set. `split_labelled_pairs.py` writes the
 six set files.
 
-- 486 pairs come from a sample labelled by hand (Chellapuram Keerthan Reddy): final links of an earlier
-  run, ID links that run missed, and unlinked pairs with similar names.
-- The other 1,314 were drawn by kind: random ID links, matches with different names, similar names of
+- The pairs were drawn by kind (column `kind`): final links of an earlier run, ID links that run missed,
+  unlinked pairs with similar names, random ID links, matches with different names, similar names of
   different universities, a part against its parent, the same name in another country, random
-  non-matches. Team members labelled them by hand, settling unclear cases with web research.
-  <!-- TODO (team): true only once every one of the 1,314 pairs has a team member's verdict (hand_check_*.csv). -->
-- **Weakness:** the 486 pairs of the first sample were drawn from our own earlier results, so they favour
-  pairs that pipeline already scored.
+  non-matches. Every kind appears in each of the six sets.
+- Team members labelled every pair by hand (column `labelled_by`), settling unclear cases with web
+  research.
 
 Earlier labels (first ID links and random pairs, then pools with half hard cases checked by an AI) were
 replaced by this set. The lesson of the first ones stays: random non-matches make every matcher look perfect.
@@ -181,7 +179,6 @@ links.
 ## Limits
 
 - 300 pairs per set are few: differences of 0.01-0.02 in F1 between approaches may be chance.
-- The 486 pairs of the first hand-labelled sample come from our own earlier results.
 - Wikidata and DEQAR are only joined through ROR; universities in both but not in ROR are not linked.
 
 ## Files and how to run

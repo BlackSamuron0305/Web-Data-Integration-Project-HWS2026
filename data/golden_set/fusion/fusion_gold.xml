@@ -9,6 +9,8 @@
 		<location>
 			<countryCode>JP</countryCode>
 			<city>Yokohama</city>
+			<latitude>35.4590810</latitude>
+			<longitude>139.6227757</longitude>
 		</location>
 		<web>
 			<domains>
@@ -30,6 +32,8 @@
 		<location>
 			<countryCode>HK</countryCode>
 			<city>Tai Po</city>
+			<latitude>22.4693164</latitude>
+			<longitude>114.1947005</longitude>
 		</location>
 		<web>
 			<domains>
@@ -52,6 +56,8 @@
 		<location>
 			<countryCode>PL</countryCode>
 			<city>Poznań</city>
+			<latitude>52.4151894</latitude>
+			<longitude>16.9813444</longitude>
 		</location>
 		<web>
 			<domains>
@@ -74,6 +80,8 @@
 		<location>
 			<countryCode>SK</countryCode>
 			<city>Bratislava</city>
+			<latitude>48.1262565</latitude>
+			<longitude>17.1224633</longitude>
 		</location>
 		<web>
 			<domains>
@@ -94,6 +102,8 @@
 		<location>
 			<countryCode>JP</countryCode>
 			<city>Hiroshima</city>
+			<latitude>34.3665380</latitude>
+			<longitude>132.4687967</longitude>
 		</location>
 		<web>
 			<domains>
@@ -113,6 +123,8 @@
 		<location>
 			<countryCode>US</countryCode>
 			<city>Atlanta</city>
+			<latitude>33.7495240</latitude>
+			<longitude>-84.4129421</longitude>
 		</location>
 		<web>
 			<domains>
@@ -133,6 +145,8 @@
 		<location>
 			<countryCode>NO</countryCode>
 			<city>Longyearbyen</city>
+			<latitude>78.2222594</latitude>
+			<longitude>15.6573080</longitude>
 		</location>
 		<web>
 			<domains>
@@ -152,6 +166,8 @@
 		<location>
 			<countryCode>CZ</countryCode>
 			<city>Mladá Boleslav</city>
+			<latitude>50.4144459</latitude>
+			<longitude>14.9029681</longitude>
 		</location>
 		<web>
 			<domains>
@@ -191,6 +207,8 @@
 		<location>
 			<countryCode>US</countryCode>
 			<city>Fond du Lac</city>
+			<latitude>43.7774111</latitude>
+			<longitude>-88.4141279</longitude>
 		</location>
 		<web>
 			<domains>
@@ -211,6 +229,8 @@
 		<location>
 			<countryCode>AR</countryCode>
 			<city>Buenos Aires</city>
+			<latitude>-34.6023141</latitude>
+			<longitude>-58.3952672</longitude>
 		</location>
 		<web>
 			<domains>
@@ -231,6 +251,8 @@
 		<location>
 			<countryCode>GE</countryCode>
 			<city>Tbilisi</city>
+			<latitude>41.7732249</latitude>
+			<longitude>44.7762808</longitude>
 		</location>
 		<web>
 			<domains>
@@ -252,6 +274,8 @@
 		<location>
 			<countryCode>RU</countryCode>
 			<city>Makhachkala</city>
+			<latitude>42.9701199</latitude>
+			<longitude>47.5091488</longitude>
 		</location>
 		<web>
 			<domains>
@@ -274,6 +298,8 @@
 		<location>
 			<countryCode>HK</countryCode>
 			<city>Hong Kong</city>
+			<latitude>22.2828768</latitude>
+			<longitude>114.1378586</longitude>
 		</location>
 		<web>
 			<domains>
@@ -355,6 +381,8 @@
 		<location>
 			<countryCode>GR</countryCode>
 			<city>Thessaloniki</city>
+			<latitude>40.6575637</latitude>
+			<longitude>22.8108475</longitude>
 		</location>
 		<web>
 			<domains>
@@ -376,6 +404,8 @@
 		<location>
 			<countryCode>IR</countryCode>
 			<city>Isfahan</city>
+			<latitude>34.0111285</latitude>
+			<longitude>51.4058367</longitude>
 		</location>
 		<web>
 			<domains>
@@ -395,6 +425,8 @@
 		<location>
 			<countryCode>FR</countryCode>
 			<city>Paris</city>
+			<latitude>48.8468997</latitude>
+			<longitude>2.3574487</longitude>
 		</location>
 		<web>
 			<domains>
@@ -415,6 +447,8 @@
 		<location>
 			<countryCode>BH</countryCode>
 			<city>East Eker</city>
+			<latitude>26.1435350</latitude>
+			<longitude>50.6145509</longitude>
 		</location>
 		<web>
 			<domains>
@@ -435,6 +469,8 @@
 		<location>
 			<countryCode>UA</countryCode>
 			<city>Kyiv</city>
+			<latitude>47.1018768</latitude>
+			<longitude>37.5253329</longitude>
 		</location>
 		<web>
 			<domains>
@@ -455,6 +491,8 @@
 		<location>
 			<countryCode>KR</countryCode>
 			<city>Seoul</city>
+			<latitude>37.5970815</latitude>
+			<longitude>127.0587413</longitude>
 		</location>
 		<web>
 			<domains>
@@ -476,6 +514,8 @@
 		<location>
 			<countryCode>CH</countryCode>
 			<city>Zurich</city>
+			<latitude>47.3769059</latitude>
+			<longitude>8.5337765</longitude>
 		</location>
 		<web>
 			<domains>
@@ -495,6 +535,8 @@
 		<location>
 			<countryCode>TW</countryCode>
 			<city>Minxiong</city>
+			<latitude>23.5629482</latitude>
+			<longitude>120.4751218</longitude>
 		</location>
 		<web>
 			<domains>
@@ -516,6 +558,8 @@
 		<location>
 			<countryCode>IT</countryCode>
 			<city>Latina</city>
+			<latitude>41.4714596</latitude>
+			<longitude>12.9107090</longitude>
 		</location>
 		<web>
 			<domains>
@@ -535,6 +579,8 @@
 		<location>
 			<countryCode>KR</countryCode>
 			<city>Yangju</city>
+			<latitude>37.8104859</latitude>
+			<longitude>127.0712119</longitude>
 		</location>
 		<web>
 			<domains>
@@ -554,6 +600,8 @@
 		<location>
 			<countryCode>KP</countryCode>
 			<city>Pyongyang</city>
+			<latitude>39.0050184</latitude>
+			<longitude>125.7451988</longitude>
 		</location>
 		<web>
 			<domains>
@@ -575,6 +623,8 @@
 		<location>
 			<countryCode>AT</countryCode>
 			<city>Salzburg</city>
+			<latitude>47.8038202</latitude>
+			<longitude>13.0436455</longitude>
 		</location>
 		<web>
 			<domains>
@@ -595,6 +645,8 @@
 		<location>
 			<countryCode>DE</countryCode>
 			<city>Munich</city>
+			<latitude>48.1489917</latitude>
+			<longitude>11.5828061</longitude>
 		</location>
 		<web>
 			<domains>
@@ -616,6 +668,8 @@
 		<location>
 			<countryCode>IE</countryCode>
 			<city>Dún Laoghaire</city>
+			<latitude>53.2819152</latitude>
+			<longitude>-6.1520208</longitude>
 		</location>
 		<web>
 			<domains>
@@ -636,6 +690,8 @@
 		<location>
 			<countryCode>CN</countryCode>
 			<city>Chengdu</city>
+			<latitude>30.7902409</latitude>
+			<longitude>103.8842376</longitude>
 		</location>
 		<web>
 			<domains>
@@ -655,6 +711,8 @@
 		<location>
 			<countryCode>TR</countryCode>
 			<city>Yalova</city>
+			<latitude>40.6525449</latitude>
+			<longitude>29.2173066</longitude>
 		</location>
 		<web>
 			<domains>
@@ -674,6 +732,8 @@
 		<location>
 			<countryCode>BI</countryCode>
 			<city>Bujumbura</city>
+			<latitude>-3.3473228</latitude>
+			<longitude>29.3711891</longitude>
 		</location>
 		<web>
 			<domains>
@@ -695,6 +755,8 @@
 		<location>
 			<countryCode>TW</countryCode>
 			<city>Pitou Township</city>
+			<latitude>23.8679630</latitude>
+			<longitude>120.4950326</longitude>
 		</location>
 		<web>
 			<domains>
@@ -717,6 +779,8 @@
 		<location>
 			<countryCode>NL</countryCode>
 			<city>Wageningen</city>
+			<latitude>51.9854450</latitude>
+			<longitude>5.6632120</longitude>
 		</location>
 		<web>
 			<domains>
@@ -740,6 +804,8 @@
 		<location>
 			<countryCode>PL</countryCode>
 			<city>Sucha Beskidzka</city>
+			<latitude>49.7461765</latitude>
+			<longitude>19.6015996</longitude>
 		</location>
 		<web>
 			<domains>
@@ -761,6 +827,8 @@
 		<location>
 			<countryCode>ES</countryCode>
 			<city>Vic</city>
+			<latitude>41.9308229</latitude>
+			<longitude>2.2457473</longitude>
 		</location>
 		<web>
 			<domains>
@@ -782,6 +850,8 @@
 		<location>
 			<countryCode>IN</countryCode>
 			<city>Thanjavur</city>
+			<latitude>10.7210165</latitude>
+			<longitude>79.0431284</longitude>
 		</location>
 		<web>
 			<domains>
@@ -841,6 +911,8 @@
 		<location>
 			<countryCode>ID</countryCode>
 			<city>Bireuen</city>
+			<latitude>5.1926383</latitude>
+			<longitude>96.7902335</longitude>
 		</location>
 		<web>
 			<domains>
@@ -861,6 +933,8 @@
 		<location>
 			<countryCode>RU</countryCode>
 			<city>Tomsk</city>
+			<latitude>56.4968878</latitude>
+			<longitude>84.9593918</longitude>
 		</location>
 		<web>
 			<domains>
@@ -880,6 +954,8 @@
 		<location>
 			<countryCode>FR</countryCode>
 			<city>Lille</city>
+			<latitude>50.6464248</latitude>
+			<longitude>3.0622780</longitude>
 		</location>
 		<web>
 			<domains>
@@ -899,6 +975,8 @@
 		<location>
 			<countryCode>ID</countryCode>
 			<city>Mataram</city>
+			<latitude>-8.5832653</latitude>
+			<longitude>116.1011687</longitude>
 		</location>
 		<web>
 			<domains>
@@ -919,6 +997,8 @@
 		<location>
 			<countryCode>AR</countryCode>
 			<city>Rosario</city>
+			<latitude>-32.9461498</latitude>
+			<longitude>-60.6370036</longitude>
 		</location>
 		<web>
 			<domains>
@@ -938,6 +1018,8 @@
 		<location>
 			<countryCode>KR</countryCode>
 			<city>Ansan</city>
+			<latitude>37.3332253</latitude>
+			<longitude>126.8371411</longitude>
 		</location>
 		<web>
 			<domains>
@@ -978,6 +1060,8 @@
 		<location>
 			<countryCode>FR</countryCode>
 			<city>Bordeaux</city>
+			<latitude>44.8306496</latitude>
+			<longitude>-0.5603499</longitude>
 		</location>
 		<web>
 			<domains>
@@ -995,6 +1079,8 @@
 		<location>
 			<countryCode>LT</countryCode>
 			<city>Kaunas</city>
+			<latitude>54.8991564</latitude>
+			<longitude>23.9150825</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1014,6 +1100,8 @@
 		<location>
 			<countryCode>AR</countryCode>
 			<city>Buenos Aires</city>
+			<latitude>-34.6052816</latitude>
+			<longitude>-58.3889385</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1034,6 +1122,8 @@
 		<location>
 			<countryCode>ES</countryCode>
 			<city>Pamplona</city>
+			<latitude>42.8011377</latitude>
+			<longitude>-1.6585535</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1054,6 +1144,8 @@
 		<location>
 			<countryCode>TN</countryCode>
 			<city>Ariana</city>
+			<latitude>36.8907032</latitude>
+			<longitude>10.1831996</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1073,6 +1165,8 @@
 		<location>
 			<countryCode>GU</countryCode>
 			<city>Mangilao</city>
+			<latitude>13.4323798</latitude>
+			<longitude>144.8029233</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1092,6 +1186,8 @@
 		<location>
 			<countryCode>BJ</countryCode>
 			<city>Abomey-Calavi</city>
+			<latitude>6.4159381</latitude>
+			<longitude>2.3417259</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1112,6 +1208,8 @@
 		<location>
 			<countryCode>ES</countryCode>
 			<city>Mondragón</city>
+			<latitude>43.0618111</latitude>
+			<longitude>-2.4969588</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1128,6 +1226,8 @@
 		<location>
 			<countryCode>IN</countryCode>
 			<city>Waknaghat</city>
+			<latitude>31.0163380</latitude>
+			<longitude>77.0714790</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1147,6 +1247,8 @@
 		<location>
 			<countryCode>ID</countryCode>
 			<city>Cirebon</city>
+			<latitude>-6.7287772</latitude>
+			<longitude>108.5457946</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1168,6 +1270,8 @@
 		<location>
 			<countryCode>MD</countryCode>
 			<city>Chisinau</city>
+			<latitude>47.0225799</latitude>
+			<longitude>28.8174302</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1187,6 +1291,8 @@
 		<location>
 			<countryCode>ID</countryCode>
 			<city>Jombang</city>
+			<latitude>-7.6101155</latitude>
+			<longitude>112.2361451</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1208,6 +1314,8 @@
 		<location>
 			<countryCode>CN</countryCode>
 			<city>Guangzhou</city>
+			<latitude>23.0481899</latitude>
+			<longitude>113.4204913</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1253,6 +1361,8 @@
 		<location>
 			<countryCode>DE</countryCode>
 			<city>Gera</city>
+			<latitude>50.8810178</latitude>
+			<longitude>12.0720116</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1274,6 +1384,8 @@
 		<location>
 			<countryCode>JP</countryCode>
 			<city>Sendai</city>
+			<latitude>38.2534535</latitude>
+			<longitude>140.8837176</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1296,6 +1408,8 @@
 		<location>
 			<countryCode>RU</countryCode>
 			<city>Ufa</city>
+			<latitude>54.7233584</latitude>
+			<longitude>55.9489208</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1317,6 +1431,8 @@
 		<location>
 			<countryCode>ID</countryCode>
 			<city>Medan</city>
+			<latitude>3.597036</latitude>
+			<longitude>98.6809369</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1336,6 +1452,8 @@
 		<location>
 			<countryCode>JP</countryCode>
 			<city>Tokyo</city>
+			<latitude>35.7431316</latitude>
+			<longitude>139.8170696</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1355,6 +1473,8 @@
 		<location>
 			<countryCode>SE</countryCode>
 			<city>Solna</city>
+			<latitude>59.3515453</latitude>
+			<longitude>18.0310658</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1375,6 +1495,8 @@
 		<location>
 			<countryCode>TR</countryCode>
 			<city>İskenderun</city>
+			<latitude>36.5779100</latitude>
+			<longitude>36.1513847</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1394,6 +1516,8 @@
 		<location>
 			<countryCode>US</countryCode>
 			<city>Greensburg</city>
+			<latitude>40.3108880</latitude>
+			<longitude>-79.5568866</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1410,6 +1534,8 @@
 		<location>
 			<countryCode>ET</countryCode>
 			<city>Adama</city>
+			<latitude>8.5633204</latitude>
+			<longitude>39.2903752</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1429,6 +1555,8 @@
 		<location>
 			<countryCode>US</countryCode>
 			<city>Richardson</city>
+			<latitude>32.9875855</latitude>
+			<longitude>-96.7497840</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1470,6 +1598,8 @@
 		<location>
 			<countryCode>PH</countryCode>
 			<city>Mabalacat</city>
+			<latitude>15.2180009</latitude>
+			<longitude>120.6203156</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1489,6 +1619,8 @@
 		<location>
 			<countryCode>IT</countryCode>
 			<city>Brescia</city>
+			<latitude>45.5441230</latitude>
+			<longitude>10.2204569</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1510,6 +1642,8 @@
 		<location>
 			<countryCode>EG</countryCode>
 			<city>El Shorouk</city>
+			<latitude>30.1505487</latitude>
+			<longitude>31.6067252</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1549,6 +1683,8 @@
 		<location>
 			<countryCode>KZ</countryCode>
 			<city>Astana</city>
+			<latitude>51.1435470</latitude>
+			<longitude>71.3692986</longitude>
 		</location>
 		<web>
 			<domains>
@@ -1589,6 +1725,8 @@
 		<location>
 			<countryCode>RU</countryCode>
 			<city>Kazan</city>
+			<latitude>55.7339290</latitude>
+			<longitude>49.1683095</longitude>
 		</location>
 		<web>
 			<domains>

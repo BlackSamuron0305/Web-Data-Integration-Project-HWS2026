@@ -5,7 +5,8 @@ Input:  data/golden_set/fusion/fusion_gold.csv (the file the team looks values u
 Output: data/golden_set/fusion/fusion_gold.xml (the file fusion.py evaluates against)
 
 The target schema holds one city and one founding year per university, so only the main value is kept;
-the other accepted names go to alternativeNames and the other accepted domains to domains.
+the other accepted names go to alternativeNames and the other accepted domains to domains. Coordinates
+(columns latitude and longitude, where coordinates_source has a point) go to location.
 """
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -43,6 +44,8 @@ def main():
         location = ET.SubElement(inst, "location")
         add(location, "countryCode", row["country_code"])
         add(location, "city", row["city"])
+        add(location, "latitude", row.get("latitude", ""))
+        add(location, "longitude", row.get("longitude", ""))
         if split(row["domain"]):
             domains = ET.SubElement(ET.SubElement(inst, "web"), "domains")
             for domain in split(row["domain"]) + split(row["domain_alternatives"]):

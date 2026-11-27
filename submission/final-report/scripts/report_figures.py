@@ -140,7 +140,7 @@ def fig_density():
     ax.set_ylim(-0.6, n - 0.4)
     ax.set_xlim(0, 1.0)
     ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_xticklabels(["0", ".25", ".50", ".75", "1"])
+    ax.set_xticklabels(["0", "0.25", "0.50", "0.75", "1"])
     ax.set_xlabel("Density (share of records with a value)", labelpad=1.5)
     ax.tick_params(axis="y", length=0)
     ax.spines["left"].set_visible(False)
@@ -159,7 +159,7 @@ def fig_density():
     ax2.set_ylim(-0.6, n - 0.4)
     ax2.set_xlim(0, 1.32)
     ax2.set_xticks([0, 0.5, 1.0])
-    ax2.set_xticklabels(["0", ".5", "1"])
+    ax2.set_xticklabels(["0", "50", "100%"])  # percent, like the bar labels
     ax2.set_yticks([])
     ax2.set_xlabel("Consistency", labelpad=1.5)
     for s in ("top", "right", "left"):

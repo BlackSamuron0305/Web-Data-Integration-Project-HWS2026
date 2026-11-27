@@ -1,0 +1,11 @@
+model,group,records,brought back,no answer
+qwen2.5:3b,all removed records,9519,1152,0
+qwen2.5:3b,source: wikidata,3092,463,0
+qwen2.5:3b,source: ror,4212,407,0
+qwen2.5:3b,source: deqar,2215,282,0
+qwen2.5:3b,agents: real,118,32,0
+qwen2.5:3b,agents: unsure,162,26,0
+qwen2.5:3b,agents: junk,8200,780,0
+qwen2.5:3b,agents: no verdict,1039,314,0
+qwen2.5:3b,hand check: real_university,13,4,0
+qwen2.5:3b,hand check: removal_correct,137,19,0

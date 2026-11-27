@@ -1,0 +1,24 @@
+attribute,id,fused_value,expected_value,source_values,conflict_rule,evaluation_rule
+city,ror_017n1k193,Shorouk city,El Shorouk,deqar: Shorouk City | ror: Cairo | wikidata: Shorouk city,voting_ties_by_trust,same_text_tolerant
+city,ror_01b4h2w02,Ansan-si,Ansan,ror: Ansan-si | wikidata: Seoul,voting_ties_by_trust,same_text_tolerant
+city,ror_01nrk6j30,Bitou,Pitou Township,ror: Bitou | wikidata: Pitou Township,voting_ties_by_trust,same_text_tolerant
+city,ror_02ccba128,Nazrēt,Adama,ror: Nazrēt | wikidata: Adama,voting_ties_by_trust,same_text_tolerant
+city,ror_02f49t952,Bireun,Bireuen,ror: Bireun | wikidata: Peusangan,voting_ties_by_trust,same_text_tolerant
+city,ror_02zhqgq86,Pok Fu Lam,Hong Kong,ror: Pok Fu Lam | wikidata: Hong Kong,voting_ties_by_trust,same_text_tolerant
+city,ror_03x95bs79,Mariupol,Kyiv,ror: Mariupol | wikidata: Kyiv,voting_ties_by_trust,same_text_tolerant
+country_code,ror_03cyjf656,SJ,NO,deqar: NO | ror: SJ,prefer_higher_trust,same_code
+domains,ror_01nrk6j30,eng.mdu.edu.tw,mdu.edu.tw,ror: eng.mdu.edu.tw | wikidata: mdu.edu.tw,prefer_higher_trust,same_domain
+domains,ror_05qcjpk30,eng.bspu.ru,bspu.ru,ror: eng.bspu.ru | wikidata: bspu.ru,prefer_higher_trust,same_domain
+founding_year,ror_0077sy889,2003,2004,deqar: 2004 | ror: 2003,voting,same_year
+founding_year,ror_01nsv4k44,1962,1961,ror: 1961 | wikidata: 1962,voting,same_year
+founding_year,ror_02k11zt98,1917,1943,ror: 1917 | wikidata: 1917,voting,same_year
+founding_year,ror_02yz8wm13,2006,2007,ror: 2006 | wikidata: 2006,voting,same_year
+founding_year,ror_03e1t0653,2024,2009,ror: 2009 | wikidata: 2024,voting,same_year
+founding_year,ror_03gz5yh89,2013,1967,ror: 2013 | wikidata: 2013,voting,same_year
+founding_year,ror_041awyd76,1919,1931,deqar: 1919 | ror: 1967 | wikidata: 1919,voting,same_year
+founding_year,ror_05v0eqq44,2018,2002,ror: 2002 | wikidata: 2018,voting,same_year
+founding_year,ror_05wwvg270,1931,1974,ror: 1974 | wikidata: 1931,voting,same_year
+name,ror_02k11zt98,Daghestan State Pedagogical University,Dagestan State Pedagogical University named after R. Gamzatov | Дагестанский государственный педагогический университет им. Р. Гамзатова | Дагестанский государственный педагогический университет | Dagestan State Pedagogical University,ror: Daghestan State Pedagogical University | wikidata: Dagestan State Pedagogical University,prefer_higher_trust,same_text_tolerant
+name,ror_05wwvg270,Kazan Law Institute,Казанский юридический институт Министерства внутренних дел Российской Федерации | Казанский юридический институт МВД России | Kazan Law Institute of the Ministry of Internal Affairs of Russia,ror: Kazan Law Institute | wikidata: Kazan Law Institute,prefer_higher_trust,same_text_tolerant
+website,ror_01nrk6j30,http://eng.mdu.edu.tw/,mdu.edu.tw,ror: http://eng.mdu.edu.tw/ | wikidata: https://mdu.edu.tw/,prefer_higher_trust,same_website
+website,ror_05qcjpk30,http://eng.bspu.ru/,bspu.ru,ror: http://eng.bspu.ru/ | wikidata: http://www.bspu.ru/,prefer_higher_trust,same_website

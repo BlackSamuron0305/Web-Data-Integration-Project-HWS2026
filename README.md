@@ -11,7 +11,7 @@ project abstract are in `submission/`.
 | 2. Clean | `scripts/02_filtering/` | removes everything that is not a university ([rules](scripts/02_filtering/rules.md)), writes `data/<source>/filtered/` |
 | 3. Schema mapping | `scripts/03_schema_mapping/` | MapForce mappings to the target schema (`target.xsd`), output in `<source>/filtered/` |
 | 4. Identity resolution | `scripts/04_identity_resolution/` | labelled pairs, blocking, matching, final links |
-| 5. Data fusion | `scripts/05_data_fusion/` | one record per university, written to `results/universities_fused.csv` |
+| 5. Data fusion | `scripts/05_data_fusion/` | one record per university, written to `results/universities_fused.csv` and, in the target schema, `results/universities_fused.xml` |
 | Abandoned approaches | `scripts/06_abandoned_approaches/` | what we tried and dropped, per step (`01_selection/`, `02_filtering/`), with a README on why |
 
 `submission/final-report/scripts/` recomputes the numbers and figures of the report.
@@ -45,7 +45,7 @@ identity resolution, otherwise ties between equal scores can come out differentl
 | Matching | the nine approach folders `01_` to `09_` (string similarity, TF-IDF, embeddings, weight search, machine learning, more similarity measures, more learners, fine-tuned language model, local LLM); commands in the step-4 README | `matching.csv`, best matcher per folder |
 | Final links | `global_matching_and_test/final.py final` (best of the nine by validation F1, one-to-one, cut-off, test) | `correspondences_*` |
 | Checks | `analysis/cutoff_check.py`, `error_analysis.py`, `blocking_effect.py` | `cutoff_check.csv`, `error_analysis.csv`, `blocking_effect.csv` |
-| Fusion | `05_data_fusion/fusion.py` | `results/universities_fused.csv` |
+| Fusion | `05_data_fusion/fusion.py` | `results/universities_fused.csv`, `results/universities_fused.xml` |
 | Report | `submission/final-report/scripts/report_numbers.py`, `report_figures.py` (from the repo root) | `submission/final-report/figures/` |
 | Presentation plots | `submission/final-presentation/scripts/presentation_plots.py` (from the repo root) | `submission/final-presentation/figures/` |
 
@@ -60,9 +60,7 @@ why, and what worked and what did not.
 
 - `data/golden_set/labelled_pairs/labelled_pairs.csv`: the 1,800 labelled pairs for identity resolution,
   300 per set (Wikidata-ROR and DEQAR-ROR, each train / validation / test), both records side by side.
-  486 were labelled by hand (Chellapuram Keerthan Reddy), the other 1,314 by hand by the other team
-  members, unclear cases settled with web research. `split_labelled_pairs.py` writes the six set files.
-  <!-- TODO (team): true only once every one of the 1,314 pairs has a team member's verdict (hand_check_*.csv). -->
+  Team members labelled every pair by hand (`labelled_by`), unclear cases settled with web research. `split_labelled_pairs.py` writes the six set files.
 - `data/golden_set/fusion/fusion_gold.csv`: the fusion gold standard, 80 universities in two or more
   sources (64 with conflicting values, 16 random), split into halves to choose and to test. Name, country code, city, founding year and domain were
   looked up in external sources (in `sources`), never in our three sources, and checked by hand

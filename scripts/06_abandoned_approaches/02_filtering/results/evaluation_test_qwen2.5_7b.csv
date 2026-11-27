@@ -1,0 +1,5 @@
+model,variant,set,records,universities,others,model right,rules right,universities kept,others dropped,no answer
+qwen2.5:7b,record only,hand,150,13,137,132,137,2,130,0
+qwen2.5:7b,record only,kept,150,133,17,93,133,78,15,0
+qwen2.5:7b,with homepage,hand,150,13,137,130,137,3,127,0
+qwen2.5:7b,with homepage,kept,150,133,17,90,133,75,15,0

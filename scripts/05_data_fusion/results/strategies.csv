@@ -1,61 +1,61 @@
-strategy,comparison,gold subset,universities,name,country_code,city,founding_year,domains,mean,mean single-valued
-content-based,strict,all,78,0.769,0.949,0.679,0.675,0.897,0.794,0.768
-content-based,strict,choose,39,0.821,0.949,0.615,0.564,0.897,0.769,0.737
-content-based,strict,test,39,0.718,0.949,0.744,0.789,0.897,0.819,0.8
-content-based,strict,conflict,63,0.73,0.937,0.651,0.677,0.889,0.777,0.749
-content-based,strict,random,15,0.933,1.0,0.8,0.667,0.933,0.867,0.85
-content-based,tolerant,all,78,0.897,0.949,0.718,0.675,0.897,0.827,0.81
-content-based,tolerant,choose,39,0.974,0.949,0.667,0.564,0.897,0.81,0.788
-content-based,tolerant,test,39,0.821,0.949,0.769,0.789,0.897,0.845,0.832
-content-based,tolerant,conflict,63,0.873,0.937,0.698,0.677,0.889,0.815,0.796
-content-based,tolerant,random,15,1.0,1.0,0.8,0.667,0.933,0.88,0.867
-voting,strict,all,78,0.821,0.949,0.679,0.727,0.897,0.815,0.794
-voting,strict,choose,39,0.872,0.949,0.615,0.692,0.897,0.805,0.782
-voting,strict,test,39,0.769,0.949,0.744,0.763,0.897,0.824,0.806
-voting,strict,conflict,63,0.825,0.937,0.651,0.726,0.889,0.805,0.785
-voting,strict,random,15,0.8,1.0,0.8,0.733,0.933,0.853,0.833
-voting,tolerant,all,78,0.923,0.949,0.718,0.727,0.897,0.843,0.829
-voting,tolerant,choose,39,0.974,0.949,0.667,0.692,0.897,0.836,0.821
-voting,tolerant,test,39,0.872,0.949,0.769,0.763,0.897,0.85,0.838
-voting,tolerant,conflict,63,0.921,0.937,0.698,0.726,0.889,0.834,0.82
-voting,tolerant,random,15,0.933,1.0,0.8,0.733,0.933,0.88,0.867
-trust: ROR first,strict,all,78,0.872,0.987,0.718,0.74,0.897,0.843,0.829
-trust: ROR first,strict,choose,39,0.846,1.0,0.667,0.667,0.897,0.815,0.795
-trust: ROR first,strict,test,39,0.897,0.974,0.769,0.816,0.897,0.871,0.864
-trust: ROR first,strict,conflict,63,0.873,0.984,0.667,0.742,0.889,0.831,0.816
-trust: ROR first,strict,random,15,0.867,1.0,0.933,0.733,0.933,0.893,0.883
-trust: ROR first,tolerant,all,78,0.974,0.987,0.756,0.74,0.897,0.871,0.865
-trust: ROR first,tolerant,choose,39,1.0,1.0,0.692,0.667,0.897,0.851,0.84
-trust: ROR first,tolerant,test,39,0.949,0.974,0.821,0.816,0.897,0.891,0.89
-trust: ROR first,tolerant,conflict,63,0.968,0.984,0.714,0.742,0.889,0.859,0.852
-trust: ROR first,tolerant,random,15,1.0,1.0,0.933,0.733,0.933,0.92,0.917
-trust: Wikidata first,strict,all,78,0.821,0.949,0.654,0.701,0.897,0.804,0.781
-trust: Wikidata first,strict,choose,39,0.897,0.949,0.615,0.641,0.897,0.8,0.776
-trust: Wikidata first,strict,test,39,0.744,0.949,0.692,0.763,0.897,0.809,0.787
-trust: Wikidata first,strict,conflict,63,0.81,0.937,0.635,0.694,0.889,0.793,0.769
-trust: Wikidata first,strict,random,15,0.867,1.0,0.733,0.733,0.933,0.853,0.833
-trust: Wikidata first,tolerant,all,78,0.91,0.949,0.692,0.701,0.897,0.83,0.813
-trust: Wikidata first,tolerant,choose,39,0.974,0.949,0.667,0.641,0.897,0.826,0.808
-trust: Wikidata first,tolerant,test,39,0.846,0.949,0.718,0.763,0.897,0.835,0.819
-trust: Wikidata first,tolerant,conflict,63,0.905,0.937,0.683,0.694,0.889,0.821,0.804
-trust: Wikidata first,tolerant,random,15,0.933,1.0,0.733,0.733,0.933,0.867,0.85
-voting: ties by trust,strict,all,78,0.859,0.987,0.731,0.766,0.897,0.848,0.836
-voting: ties by trust,strict,choose,39,0.846,1.0,0.692,0.692,0.897,0.826,0.808
-voting: ties by trust,strict,test,39,0.872,0.974,0.769,0.842,0.897,0.871,0.864
-voting: ties by trust,strict,conflict,63,0.857,0.984,0.683,0.774,0.889,0.837,0.825
-voting: ties by trust,strict,random,15,0.867,1.0,0.933,0.733,0.933,0.893,0.883
-voting: ties by trust,tolerant,all,78,0.974,0.987,0.769,0.766,0.897,0.879,0.874
-voting: ties by trust,tolerant,choose,39,1.0,1.0,0.718,0.692,0.897,0.862,0.853
-voting: ties by trust,tolerant,test,39,0.949,0.974,0.821,0.842,0.897,0.897,0.896
-voting: ties by trust,tolerant,conflict,63,0.968,0.984,0.73,0.774,0.889,0.869,0.864
-voting: ties by trust,tolerant,random,15,1.0,1.0,0.933,0.733,0.933,0.92,0.917
-best per attribute,strict,all,78,0.872,0.987,0.731,0.727,0.949,0.853,0.829
-best per attribute,strict,choose,39,0.846,1.0,0.692,0.692,0.949,0.836,0.808
-best per attribute,strict,test,39,0.897,0.974,0.769,0.763,0.949,0.871,0.851
-best per attribute,strict,conflict,63,0.873,0.984,0.683,0.726,0.937,0.84,0.816
-best per attribute,strict,random,15,0.867,1.0,0.933,0.733,1.0,0.907,0.883
-best per attribute,tolerant,all,78,0.974,0.987,0.769,0.727,0.949,0.881,0.865
-best per attribute,tolerant,choose,39,1.0,1.0,0.718,0.692,0.949,0.872,0.853
-best per attribute,tolerant,test,39,0.949,0.974,0.821,0.763,0.949,0.891,0.877
-best per attribute,tolerant,conflict,63,0.968,0.984,0.73,0.726,0.937,0.869,0.852
-best per attribute,tolerant,random,15,1.0,1.0,0.933,0.733,1.0,0.933,0.917
+strategy,comparison,gold subset,universities,name,country_code,city,founding_year,domains,website,mean,mean single-valued
+content-based,strict,all,78,0.769,0.949,0.679,0.675,0.897,0.885,0.794,0.768
+content-based,strict,choose,39,0.821,0.949,0.615,0.564,0.897,0.897,0.769,0.737
+content-based,strict,test,39,0.718,0.949,0.744,0.789,0.897,0.872,0.819,0.8
+content-based,strict,conflict,63,0.73,0.937,0.651,0.677,0.889,0.857,0.777,0.749
+content-based,strict,random,15,0.933,1.0,0.8,0.667,0.933,1.0,0.867,0.85
+content-based,tolerant,all,78,0.897,0.949,0.718,0.675,0.897,0.885,0.827,0.81
+content-based,tolerant,choose,39,0.974,0.949,0.667,0.564,0.897,0.897,0.81,0.788
+content-based,tolerant,test,39,0.821,0.949,0.769,0.789,0.897,0.872,0.845,0.832
+content-based,tolerant,conflict,63,0.873,0.937,0.698,0.677,0.889,0.857,0.815,0.796
+content-based,tolerant,random,15,1.0,1.0,0.8,0.667,0.933,1.0,0.88,0.867
+voting,strict,all,78,0.821,0.949,0.679,0.727,0.897,0.923,0.815,0.794
+voting,strict,choose,39,0.872,0.949,0.615,0.692,0.897,0.923,0.805,0.782
+voting,strict,test,39,0.769,0.949,0.744,0.763,0.897,0.923,0.824,0.806
+voting,strict,conflict,63,0.825,0.937,0.651,0.726,0.889,0.905,0.805,0.785
+voting,strict,random,15,0.8,1.0,0.8,0.733,0.933,1.0,0.853,0.833
+voting,tolerant,all,78,0.923,0.949,0.718,0.727,0.897,0.923,0.843,0.829
+voting,tolerant,choose,39,0.974,0.949,0.667,0.692,0.897,0.923,0.836,0.821
+voting,tolerant,test,39,0.872,0.949,0.769,0.763,0.897,0.923,0.85,0.838
+voting,tolerant,conflict,63,0.921,0.937,0.698,0.726,0.889,0.905,0.834,0.82
+voting,tolerant,random,15,0.933,1.0,0.8,0.733,0.933,1.0,0.88,0.867
+trust: ROR first,strict,all,78,0.872,0.987,0.718,0.74,0.897,0.949,0.843,0.829
+trust: ROR first,strict,choose,39,0.846,1.0,0.667,0.667,0.897,0.949,0.815,0.795
+trust: ROR first,strict,test,39,0.897,0.974,0.769,0.816,0.897,0.949,0.871,0.864
+trust: ROR first,strict,conflict,63,0.873,0.984,0.667,0.742,0.889,0.937,0.831,0.816
+trust: ROR first,strict,random,15,0.867,1.0,0.933,0.733,0.933,1.0,0.893,0.883
+trust: ROR first,tolerant,all,78,0.974,0.987,0.756,0.74,0.897,0.949,0.871,0.865
+trust: ROR first,tolerant,choose,39,1.0,1.0,0.692,0.667,0.897,0.949,0.851,0.84
+trust: ROR first,tolerant,test,39,0.949,0.974,0.821,0.816,0.897,0.949,0.891,0.89
+trust: ROR first,tolerant,conflict,63,0.968,0.984,0.714,0.742,0.889,0.937,0.859,0.852
+trust: ROR first,tolerant,random,15,1.0,1.0,0.933,0.733,0.933,1.0,0.92,0.917
+trust: Wikidata first,strict,all,78,0.821,0.949,0.654,0.701,0.897,0.923,0.804,0.781
+trust: Wikidata first,strict,choose,39,0.897,0.949,0.615,0.641,0.897,0.923,0.8,0.776
+trust: Wikidata first,strict,test,39,0.744,0.949,0.692,0.763,0.897,0.923,0.809,0.787
+trust: Wikidata first,strict,conflict,63,0.81,0.937,0.635,0.694,0.889,0.905,0.793,0.769
+trust: Wikidata first,strict,random,15,0.867,1.0,0.733,0.733,0.933,1.0,0.853,0.833
+trust: Wikidata first,tolerant,all,78,0.91,0.949,0.692,0.701,0.897,0.923,0.83,0.813
+trust: Wikidata first,tolerant,choose,39,0.974,0.949,0.667,0.641,0.897,0.923,0.826,0.808
+trust: Wikidata first,tolerant,test,39,0.846,0.949,0.718,0.763,0.897,0.923,0.835,0.819
+trust: Wikidata first,tolerant,conflict,63,0.905,0.937,0.683,0.694,0.889,0.905,0.821,0.804
+trust: Wikidata first,tolerant,random,15,0.933,1.0,0.733,0.733,0.933,1.0,0.867,0.85
+voting: ties by trust,strict,all,78,0.859,0.987,0.731,0.766,0.897,0.949,0.848,0.836
+voting: ties by trust,strict,choose,39,0.846,1.0,0.692,0.692,0.897,0.949,0.826,0.808
+voting: ties by trust,strict,test,39,0.872,0.974,0.769,0.842,0.897,0.949,0.871,0.864
+voting: ties by trust,strict,conflict,63,0.857,0.984,0.683,0.774,0.889,0.937,0.837,0.825
+voting: ties by trust,strict,random,15,0.867,1.0,0.933,0.733,0.933,1.0,0.893,0.883
+voting: ties by trust,tolerant,all,78,0.974,0.987,0.769,0.766,0.897,0.949,0.879,0.874
+voting: ties by trust,tolerant,choose,39,1.0,1.0,0.718,0.692,0.897,0.949,0.862,0.853
+voting: ties by trust,tolerant,test,39,0.949,0.974,0.821,0.842,0.897,0.949,0.897,0.896
+voting: ties by trust,tolerant,conflict,63,0.968,0.984,0.73,0.774,0.889,0.937,0.869,0.864
+voting: ties by trust,tolerant,random,15,1.0,1.0,0.933,0.733,0.933,1.0,0.92,0.917
+best per attribute,strict,all,78,0.872,0.987,0.731,0.727,0.949,0.949,0.853,0.829
+best per attribute,strict,choose,39,0.846,1.0,0.692,0.692,0.949,0.949,0.836,0.808
+best per attribute,strict,test,39,0.897,0.974,0.769,0.763,0.949,0.949,0.871,0.851
+best per attribute,strict,conflict,63,0.873,0.984,0.683,0.726,0.937,0.937,0.84,0.816
+best per attribute,strict,random,15,0.867,1.0,0.933,0.733,1.0,1.0,0.907,0.883
+best per attribute,tolerant,all,78,0.974,0.987,0.769,0.727,0.949,0.949,0.881,0.865
+best per attribute,tolerant,choose,39,1.0,1.0,0.718,0.692,0.949,0.949,0.872,0.853
+best per attribute,tolerant,test,39,0.949,0.974,0.821,0.763,0.949,0.949,0.891,0.877
+best per attribute,tolerant,conflict,63,0.968,0.984,0.73,0.726,0.937,0.937,0.869,0.852
+best per attribute,tolerant,random,15,1.0,1.0,0.933,0.733,1.0,1.0,0.933,0.917

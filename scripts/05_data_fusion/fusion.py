@@ -1,7 +1,9 @@
 """Data fusion of the cleaned sources with the final correspondences, built like the PyDI
 fusion exercise: compares conflict resolution strategies on the gold standard.  Usage: python fusion.py
 """
+import json
 import logging
+import math
 import re
 import sys
 import unicodedata
@@ -14,6 +16,8 @@ from PyDI.fusion import (DataFusionEngine, DataFusionEvaluator, DataFusionStrate
                          longest_string, median, minimum, prefer_higher_trust, tokenized_match, union,
                          voting)
 from PyDI.io import load_xml
+
+import fused_to_xml
 
 logging.disable(logging.WARNING)
 
@@ -49,6 +53,14 @@ SCALARS = ["name", "country", "country_code", "region", "city", "website", "foun
            "closure_year", "students", "status", "qa_reports", "qa_last_report"]
 EVALUATED = ["name", "country_code", "city", "founding_year", "domains"]
 SINGLE = ["name", "country_code", "city", "founding_year"]
+# scored too, but left out of both means: the gold standard holds no website of its own (its accepted
+# domains decide), and its coordinates come from a geocoder (column coordinates_source)
+EXTRA = ["website"]
+# a fused point is right if it lies this close to the gold point: strict (the campus), tolerant (the same
+# part of the city). Fixed before the coordinates were evaluated.
+NEAR_KM = {"strict": 1, "tolerant": 5}
+# sensitivity: the same shares for stricter and looser limits (only reported, the choice stays at 5 km)
+SENSITIVITY_KM = [0.1, 0.5, 1, 5, 10]
 
 
 def norm(text):
@@ -111,6 +123,38 @@ def same_code(fused, expected):
     return str(fused) == expected
 
 
+def host(url):
+    """The host of a website without scheme, "www." and path: "https://www.x.edu/en/" is "x.edu"."""
+    url = re.sub(r"^[a-z][a-z0-9+.-]*://", "", str(url).strip().lower())
+    url = re.split(r"[/?#:]", url, maxsplit=1)[0]
+    return re.sub(r"^www\d*\.", "", url).rstrip(".")
+
+
+def same_website(fused, accepted):
+    """The gold standard has no website of its own, so its accepted domains decide: the website is right
+    when its host is one of them. A subdomain (eng.x.edu) counts as wrong, as in the domain lists."""
+    return host(fused) in {d.lower() for d in accepted}
+
+
+def km(a, b):
+    """Great-circle distance in km between two (latitude, longitude) points."""
+    (la1, lo1), (la2, lo2) = [(math.radians(float(x)), math.radians(float(y))) for x, y in (a, b)]
+    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+    return 2 * 6371 * math.asin(math.sqrt(h))
+
+
+def near(limit):
+    def same_place(fused, expected):
+        return km(fused, expected) <= limit
+    same_place.__name__ = f"within_{limit}_km"
+    return same_place
+
+
+def point(lat, lon):
+    # latitude and longitude as one value, so that a point is evaluated as a whole
+    return None if pd.isna(lat) or pd.isna(lon) else (float(lat), float(lon))
+
+
 # our own conflict resolution function: voting cannot choose between two sources that disagree,
 # trust ignores two sources that agree against the most trusted one
 
@@ -159,6 +203,8 @@ def make_strategy(name, rules, comparison="tolerant"):
     s.add_evaluation_function("country_code", same_code)
     s.add_evaluation_function("founding_year", same_year)
     s.add_evaluation_function("domains", same_domain)
+    s.add_evaluation_function("website", same_website)
+    s.add_evaluation_function("coordinates", near(NEAR_KM[comparison]))
     return s
 
 
@@ -172,7 +218,8 @@ STRATEGIES = {
     # ours: the content decides (votes), the metadata (trust) only on a tie
     "voting: ties by trust": {"other": (voting_ties_by_trust, {}),
                               "country_code": (voting_ties_by_trust, {"key": str}),
-                              "founding_year": (voting_ties_by_trust, {"key": year})},
+                              "founding_year": (voting_ties_by_trust, {"key": year}),
+                              "website": (voting_ties_by_trust, {"key": host})},
 }
 
 # what we compare for lists (lecture: union, intersection, intersection of k sources, favour sources);
@@ -180,6 +227,14 @@ STRATEGIES = {
 LIST_FUNCTIONS = {
     "union": (union, {}),
     "in at least 2 sources": (intersection_k_sources, {"k": 2}),
+    "trust: ROR first": (prefer_higher_trust, {}),
+    "trust: Wikidata first": (prefer_higher_trust, {"trust_map": TRUST_WIKIDATA}),
+}
+
+# what we compare for coordinates (only ROR and Wikidata have them): the median, which with two points is
+# their midpoint, against the point of one source, which keeps latitude and longitude together
+COORDINATE_FUNCTIONS = {
+    "median": (median, {}),
     "trust: ROR first": (prefer_higher_trust, {}),
     "trust: Wikidata first": (prefer_higher_trust, {"trust_map": TRUST_WIKIDATA}),
 }
@@ -194,8 +249,9 @@ def load(source):
 
 def load_gold():
     """The fusion gold standard in the target schema (gold_to_xml.py writes it from fusion_gold.csv): 80
-    universities, values looked up in external sources. Every accepted value of a name (name and
-    alternativeNames) and of the domains counts as correct; city and founding year have one value."""
+    universities, values looked up in external sources (coordinates: a geocoder, then checked by
+    hand, see the README). Every accepted value of a name (name and alternativeNames) and of the domains counts as
+    correct; city and founding year have one value."""
     gold = load_xml(GOLD / "fusion_gold.xml", name="gold").rename(columns=COLUMNS)
     # from build_gold.py: why each university was drawn (conflicting sources or random) and its half
     # ("choose": to choose the function per attribute, "test": to measure the accuracy of that choice)
@@ -208,25 +264,69 @@ def load_gold():
     expected["city"] = gold["city"].map(as_list)
     expected["domains"] = gold["domains"].map(as_list)
     expected["founding_year"] = gold["founding_year"].map(as_list)
+    # no website of its own: a website is right when its host is an accepted domain
+    expected["website"] = expected["domains"]
+    if "latitude" in gold:
+        expected["coordinates"] = [point(a, b) for a, b in zip(gold["latitude"], gold["longitude"])]
+    else:
+        expected["coordinates"] = None
     return expected
 
 
-def evaluate(strategy, fused, expected, debug_file=None, attributes=EVALUATED):
+def coordinate_errors(fused, expected):
+    """Distance in km from each fused point to its gold point, for the gold universities that have both."""
+    gold = {i: p for i, p in zip(expected["eval_id"], expected["coordinates"]) if p}
+    out = []
+    for sources, lat, lon in zip(fused["_fusion_sources"], fused["latitude"], fused["longitude"]):
+        gid = next((s for s in sources if s in gold), None)
+        if gid and point(lat, lon):
+            out.append(km(point(lat, lon), gold[gid]))
+    return pd.Series(out, dtype=float)
+
+
+def errors_to_csv(log, out):
+    """One row per wrong value from PyDI's debug log: the university, the fused and the accepted values
+    (several accepted values joined by " | ") and what each source offered. Sorted, because PyDI's order
+    changes between runs. Deletes the log."""
+    joined = lambda v: " | ".join(map(str, v)) if isinstance(v, list) else v
+    rows = []
+    for line in open(log, encoding="utf-8"):
+        e = json.loads(line) if line.strip() else {}
+        if e.get("type") != "evaluation_mismatch":
+            continue
+        rows.append({"attribute": e["attribute"], "id": e["expected_id"], "fused_value": joined(e["fused_value"]),
+                     "expected_value": joined(e["expected_value"]),
+                     "source_values": " | ".join(f"{i['dataset']}: {joined(i['value'])}" for i in e["inputs"]),
+                     "conflict_rule": e["conflict_rule"], "evaluation_rule": e["evaluation_rule"]})
+    pd.DataFrame(rows, columns=["attribute", "id", "fused_value", "expected_value", "source_values",
+                                "conflict_rule", "evaluation_rule"]).sort_values(["attribute", "id"]).to_csv(
+        out, index=False)
+    log.unlink()
+
+
+def evaluate(strategy, fused, expected, debug_file=None, attributes=EVALUATED + EXTRA):
     fused = fused.copy()
+    if "coordinates" in attributes:
+        fused["coordinates"] = [point(a, b) for a, b in zip(fused["latitude"], fused["longitude"])]
     ids = set(expected["eval_id"])
     fused["eval_id"] = [next((s for s in sources if s in ids), None) for sources in fused["_fusion_sources"]]
     fused = fused[["eval_id", "_fusion_sources", "_fusion_metadata", *attributes]]
     expected = expected[expected["eval_id"].isin(set(fused["eval_id"]))][["eval_id", *attributes]]
-    if debug_file:
-        evaluator = DataFusionEvaluator(strategy, debug=True, debug_file=debug_file)
+    # PyDI writes its debug log as JSON lines, we keep it as a CSV like the other error files
+    log = debug_file.with_suffix(".jsonl") if debug_file else None
+    if log:
+        log.unlink(missing_ok=True)
+        evaluator = DataFusionEvaluator(strategy, debug=True, debug_file=log)
     else:
         evaluator = DataFusionEvaluator(strategy)
     metrics = evaluator.evaluate(fused_df=fused, fused_id_column="eval_id",
                                  expected_df=expected, expected_id_column="eval_id")
+    if log:
+        errors_to_csv(log, debug_file)
     row = {"universities": len(expected)}
     for attribute in attributes:
         row[attribute] = round(metrics[f"{attribute}_accuracy"], 3)
-    if attributes != EVALUATED:
+    if not set(EVALUATED) <= set(attributes):
         return row
     # mean of the unrounded accuracies (averaging the rounded ones can be off by 0.001)
     row["mean"] = round(sum(metrics[f"{a}_accuracy"] for a in EVALUATED) / len(EVALUATED), 3)
@@ -309,9 +409,36 @@ def main():
                               **evaluate(strategy, fused, part, attributes=["domains"]),
                               "domains per university": round(kept.mean(), 2),
                               "universities without domain": int((kept == 0).sum())})
-        print(f"  domains, {name}: accuracy on the choose half {list_rows[-4]['domains']}", flush=True)
+        choose = next(r for r in list_rows if r["function"] == name and r["gold subset"] == "choose")
+        print(f"  domains, {name}: accuracy on the choose half {choose['domains']}", flush=True)
     lists = pd.DataFrame(list_rows)
     lists.to_csv(RESULTS / "list_functions.csv", index=False)
+
+    # coordinates: the functions for latitude and longitude, everything else as in "trust: ROR first".
+    # Only when the gold standard has coordinates (column coordinates_source of fusion_gold.csv)
+    coord_rows = []
+    within = {c: f"within {NEAR_KM[c]} km" for c in NEAR_KM}
+    if expected["coordinates"].notna().any():
+        for name, rule in COORDINATE_FUNCTIONS.items():
+            rules = {**STRATEGIES["trust: ROR first"], "latitude": rule, "longitude": rule}
+            fused = DataFusionEngine(make_strategy(f"coordinates: {name}", rules)).run(data, corr, id_column="id")
+            for subset, part in parts():
+                row = {"function": name, "gold subset": subset}
+                errors = coordinate_errors(fused, part)
+                for limit in SENSITIVITY_KM:
+                    row[f"within {limit:g} km"] = round((errors <= limit).mean(), 3)
+                for comparison in NEAR_KM:
+                    r = evaluate(make_strategy(name, rules, comparison), fused, part, attributes=["coordinates"])
+                    # PyDI's evaluation and the distances must agree (every fused university has a point)
+                    assert abs(r["coordinates"] - row[within[comparison]]) < 0.001, (name, subset, comparison)
+                    row[within[comparison]] = r["coordinates"]
+                row["universities"] = len(errors)
+                row["median distance km"] = round(errors.median(), 2)
+                coord_rows.append(row)
+            choose = next(r for r in coord_rows if r["function"] == name and r["gold subset"] == "choose")
+            print(f"  coordinates, {name}: {within['tolerant']} on the choose half {choose[within['tolerant']]}",
+                  flush=True)
+        pd.DataFrame(coord_rows).to_csv(RESULTS / "coordinate_functions.csv", index=False)
 
     # final strategy: for every evaluated attribute the function that was best on the "choose" half of the
     # gold standard (lecture: choose on a validation part of the ground truth), compared tolerantly as in
@@ -322,7 +449,13 @@ def main():
     best = lists[lists["gold subset"] == "choose"].sort_values("domains", ascending=False, kind="stable").iloc[0]
     final["domains"] = LIST_FUNCTIONS[best["function"]]
     print(f"  best for domains: {best['function']}")
-    for attribute in SINGLE:
+    if coord_rows:
+        coords = pd.DataFrame(coord_rows)
+        best = coords[coords["gold subset"] == "choose"].sort_values(
+            within["tolerant"], ascending=False, kind="stable").iloc[0]
+        final["latitude"] = final["longitude"] = COORDINATE_FUNCTIONS[best["function"]]
+        print(f"  best for coordinates: {best['function']}")
+    for attribute in SINGLE + EXTRA:
         best = overall.sort_values(attribute, ascending=False, kind="stable").iloc[0]["strategy"]
         rules = STRATEGIES[best]
         final[attribute] = rules.get(attribute, rules["other"])
@@ -332,7 +465,7 @@ def main():
         final["country"] = (country_of_code, {})
     strategy = make_strategy("best per attribute", final)
     fused = DataFusionEngine(strategy).run(data, corr, id_column="id")
-    rows += score("best per attribute", final, fused, RESULTS / "fusion_errors.jsonl")
+    rows += score("best per attribute", final, fused, RESULTS / "fusion_errors.csv")
     table = pd.DataFrame(rows)
     table.to_csv(RESULTS / "strategies.csv", index=False)
     print(table.to_string(index=False))
@@ -342,6 +475,8 @@ def main():
     fused = fused[[c for c in keep if c in fused]]
     fused["sources"] = fused["_fusion_source_datasets"].map(lambda x: " | ".join(sorted(set(x))))
     fused.to_csv(RESULTS / "universities_fused.csv", index=False)
+    # the same universities in the target schema, checked against target.xsd
+    fused_to_xml.main()
 
     sizes = fused["_fusion_source_datasets"].map(len).value_counts().sort_index()
     sizes.rename_axis("sources per university").rename("universities").to_csv(RESULTS / "group_sizes.csv")

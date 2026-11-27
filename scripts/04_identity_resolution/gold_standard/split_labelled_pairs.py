@@ -3,8 +3,7 @@ data/golden_set/labelled_pairs/labelled_pairs.csv -> data/golden_set/labelled_pa
 
 labelled_pairs.csv holds 1,800 pairs, 300 per set (Wikidata-ROR and DEQAR-ROR, each train / validation /
 test). Column label (match / non_match) is what the matchers use; pairs labelled unsure are left out and the
-script says which sets then drop below 300. labelled_by says who gave the label; hand_check, checked_by and
-hand_note are for the team's check of the labels.
+script says which sets then drop below 300. labelled_by says which team member labelled the pair by hand.
 
 Usage: python split_labelled_pairs.py
 """

@@ -1,0 +1,16 @@
+function,gold subset,within 0.1 km,within 0.5 km,within 1 km,within 5 km,within 10 km,universities,median distance km
+median,all,0.0,0.104,0.313,0.776,0.881,67,1.67
+median,choose,0.0,0.03,0.273,0.758,0.879,33,1.75
+median,test,0.0,0.176,0.353,0.794,0.882,34,1.52
+median,conflict,0.0,0.109,0.291,0.818,0.927,55,1.67
+median,random,0.0,0.083,0.417,0.583,0.667,12,2.14
+trust: ROR first,all,0.0,0.075,0.179,0.731,0.851,67,2.5
+trust: ROR first,choose,0.0,0.0,0.091,0.697,0.818,33,3.3
+trust: ROR first,test,0.0,0.147,0.265,0.765,0.882,34,2.17
+trust: ROR first,conflict,0.0,0.073,0.182,0.764,0.891,55,2.5
+trust: ROR first,random,0.0,0.083,0.167,0.583,0.667,12,3.16
+trust: Wikidata first,all,0.269,0.642,0.687,0.866,0.91,67,0.27
+trust: Wikidata first,choose,0.152,0.545,0.606,0.818,0.879,33,0.33
+trust: Wikidata first,test,0.382,0.735,0.765,0.912,0.941,34,0.14
+trust: Wikidata first,conflict,0.273,0.691,0.727,0.909,0.945,55,0.23
+trust: Wikidata first,random,0.25,0.417,0.5,0.667,0.75,12,0.99
