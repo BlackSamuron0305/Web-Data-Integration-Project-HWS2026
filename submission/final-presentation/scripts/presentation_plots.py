@@ -71,6 +71,8 @@ def approaches():
         if tick.get_text() in ("8 Fine-tuned LM", "9 Local LLM"):
             tick.set_fontweight("bold")
     ax.set_xlim(0.72, 0.97)
+    ticks = [0.75, 0.80, 0.85, 0.90, 0.95]
+    ax.set_xticks(ticks, [f"{t:.2f}".lstrip("0") for t in ticks])  # .75, like F1 in the text
     ax.set_xlabel("F1 on the validation pairs (final run)")
     clean(ax)
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, frameon=False, handletextpad=0.4, borderaxespad=0.2)
@@ -125,7 +127,7 @@ def groups():
         ax.bar(xs, records, width=w - 0.04, color=GREY if j == 0 else NAVY, label=name)
         for x, v in zip(xs, records):
             if v:
-                ax.text(x, v + 300, f"{v / 1000:.1f}k", ha="center", fontsize=11, color=INK)
+                ax.text(x, v + 300, f"{v / 1000:.1f}K", ha="center", fontsize=11, color=INK)
     ax.set_xticks(range(len(buckets)), [b[0] for b in buckets])
     ax.set_xlabel("Records in the group")
     ax.set_ylabel("Records")
