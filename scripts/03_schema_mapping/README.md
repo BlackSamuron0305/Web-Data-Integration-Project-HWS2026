@@ -1,85 +1,45 @@
 # Step 3: Schema mapping
 
-This step translates the three sources into one common XML format, so identity resolution and fusion
-can treat them alike. We built one MapForce mapping per source.
+This folder holds the target schema, the MapForce mappings of the three sources, their XML outputs and the lookup tables the mappings read.
 
-## What we did
+## Contents
 
-**Target schema (`target.xsd`).** One class, *institution*, with an ID and 21 attributes. No source has
-all attributes, so every attribute is optional. The ID keeps the source and its key
-(`ror_00003ef66`), so every record can be traced back to where it came from.
-
-| Attributes | In which sources |
+| Path | What it is |
 |---|---|
-| name, alternative names, country, country code, city, website, domains, founding year | all three |
-| acronyms, latitude, longitude | Wikidata, ROR |
-| parent institutions | ROR, DEQAR |
-| institution types, memberships, students | Wikidata only |
-| region, status | ROR only |
-| closure year, history, QA reports, last QA report | DEQAR only |
+| `target.xsd` | the target schema: root `<institutions>`, one `<institution>` per record with an `id` (source prefix and source key, e.g. `ror_00003ef66`) and 21 optional attributes |
+| `functions.mfd` | MapForce function library the three mappings share (list splitting and trimming, domain from URL) |
+| `build_lookup_tables.py` | reads the CSVs in `data/<source>/original/` and writes the two lookup tables below |
+| `ror/ror_names.csv` | lookup table, one row per ROR record (`ror_id`, `name`), used to turn parent ROR ids into names |
+| `deqar/country_codes.csv` | lookup table, one row per DEQAR country name (`country`, `code`), 135 names |
+| `<source>/original/<Source>_Mapping.mfd` | mapping of the downloaded CSV in `data/<source>/original/` |
+| `<source>/original/<Source>_Mapping.xml` | its output, one `<institution>` per source record |
+| `<source>/filtered/<Source>_Mapping_filtered.mfd` | the same mapping, reading the cleaned CSV in `data/<source>/filtered/` |
+| `<source>/filtered/<Source>_Mapping.xml` | its output, the input of identity resolution and fusion |
 
-Twelve attributes are in at least two sources, which is what matching and fusion need.
+`<source>` / `<Source>` is `ror` / `ROR`, `wikidata` / `Wikidata` or `deqar` / `deqar`.
 
-**The mappings (`<source>/original/*_Mapping.mfd`).** Each one turns the source CSV into XML using a
-small library of our own functions (`functions.mfd`):
+## Inputs and outputs of the mappings
 
-- lists (alternative names, acronyms, domains, ...) are split at `|` and trimmed;
-- names and countries keep the source spelling; matching cleans them later;
-- a domain function turns `https://www2.unesp.br/` into `unesp.br`, for Wikidata, DEQAR and the 13,470
-  ROR records that have a website but no domain; domains are lower-cased;
-- DEQAR has country names but no codes: a lookup table of 135 country names (12 set by hand) adds them;
-- ROR gives parents as ROR ids: a lookup table replaces them by names, except for the 20% of parents
-  outside our data.
+| Mapping | Reads | Writes |
+|---|---|---|
+| `ror/*/ROR_Mapping*.mfd` | `data/ror/<run>/ror_education.csv`, `ror/ror_names.csv` | `ror/<run>/ROR_Mapping.xml` |
+| `wikidata/*/Wikidata_Mapping*.mfd` | `data/wikidata/<run>/wikidata_universities.csv` | `wikidata/<run>/Wikidata_Mapping.xml` |
+| `deqar/*/deqar_Mapping*.mfd` | `data/deqar/<run>/deqar_institutions.csv`, `deqar/country_codes.csv` | `deqar/<run>/deqar_Mapping.xml` |
 
-`build_lookup_tables.py` builds the two lookup tables (`ror/ror_names.csv`, `deqar/country_codes.csv`)
-from the downloaded CSV files.
+`<run>` is `original` or `filtered`. All paths in the `.mfd` files are relative, so the repository can sit anywhere.
 
-**Two runs.** `<source>/original/` maps the downloaded data (the first matching pass);
-`<source>/filtered/` maps the cleaned data from step 2 with the same mapping
-(`*_Mapping_filtered.mfd`). The filtered XML is the input of identity resolution and fusion.
+## Requirements
 
-## What did not work at first, and how we fixed it
+- Python 3.12 with pandas (see `requirements.txt` in the repository root) for `build_lookup_tables.py`.
+- Altova MapForce to open and run the `.mfd` mappings.
+- The lookup tables are UTF-8 with BOM, CRLF line ends and every field in quotes, as MapForce reads them.
+- The XML outputs are UTF-8 and point to `../../target.xsd` for validation.
 
-Our first MapForce attempt had several errors, so we rebuilt the mappings and checked their output by
-hand until it was correct:
+## Run
 
-- names were lower-cased, stray spaces stayed, some lists were not split, and the parent institutions
-  were lost;
-- MapForce could not read list items of the generic `xs:any` type; after defining the list items in the
-  schema and mapping values directly to them, they appeared in the XML;
-- a filter against empty groups such as `<web/>` checked only one field and deleted whole groups with
-  founding years and websites in them;
-- the domain function removed `www.` anywhere in the text (`wwww.meduniv.lviv.ua` became
-  `wmeduniv.lviv.ua`), so we rebuilt it.
+From this folder:
 
-## How we checked it
+    python build_lookup_tables.py     # writes ror/ror_names.csv and deqar/country_codes.csv
 
-We checked the output files by hand until they were correct. They pass schema validation and have no
-stray spaces or unsplit lists.
-
-Lessons and known issues:
-
-- A valid file is not necessarily a correct one: the files that lost founding years and websites were
-  valid XML.
-- A field with several cities or countries stays one text value, because the schema allows one of each
-  (587 city and 102 country fields in Wikidata, 23 DEQAR records).
-- Namibia lost its country code `NA` in the cleaned files, because pandas reads "NA" as a missing value. We
-  found it in the output and fixed it (the filters now read only empty cells as missing) and regenerated the XML.
-
-## Files and how to run
-
-| File | What it is |
-|---|---|
-| `target.xsd` | the target schema |
-| `functions.mfd` | the functions the three mappings share |
-| `<source>/original/*_Mapping.mfd`, `*_Mapping.xml` | mapping of the downloaded data and its output |
-| `<source>/filtered/*_Mapping_filtered.mfd`, `*_Mapping.xml` | mapping of the cleaned data and its output |
-| `ror/ror_names.csv`, `deqar/country_codes.csv` | the lookup tables |
-| `build_lookup_tables.py` | builds the lookup tables |
-
-```
-python build_lookup_tables.py
-```
-
-then open each `.mfd` in MapForce and run it. For the final pipeline only the three
-`*_Mapping_filtered.mfd` are needed.
+Then open each `.mfd` in MapForce and run it. Each one writes its `*_Mapping.xml` next to it.
+The pipeline needs only the three `<source>/filtered/*_Mapping_filtered.mfd`.
