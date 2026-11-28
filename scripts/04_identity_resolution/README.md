@@ -31,7 +31,7 @@ The whole pipeline runs twice; the word after a script (`final.py final`) says w
 | **`final`** | **cleaned (step 2)** | **the links the fusion uses** |
 
 Only the data differs: both runs use the same blockers, all nine approaches, the same labelled pairs
-(the final run leaves out pairs with a record the cleaning removed) and greedy one-to-one matching. So
+(none of them holds a record the cleaning removed) and greedy one-to-one matching. So
 comparing the same approach across the two runs shows the effect of the cleaning alone. The cut-off is
 applied in the final run only, because only its links go into the fusion. Before these two runs we
 tried other label sets and other ways of removing non-universities; they are listed under "What did
@@ -68,11 +68,13 @@ data). Pair completeness (PC) is the share of validation matches that survive bl
 | every name word / name 3-grams | – | – | too many pairs (up to 1.7 billion), not runnable |
 | country + name word (`DE_heidelberg`) | 0.92 | 0.93 | good |
 | same web domain | 0.76 | 0.75 | finds renamed universities |
-| embedding: 10 nearest names | 0.84 | 0.79 | finds other spellings |
+| embedding: 10 nearest names (PyDI's default English model, `all-MiniLM-L6-v2`) | 0.84 | 0.79 | finds other spellings |
 | **union of the last three** | **0.993** | **0.987** | **used**: 631,099 and 228,426 candidate pairs |
 
 The embedding search was the slowest: its Wikidata–ROR run grew from 41 s in the first pass to about 2
-hours in the second with unchanged code, for reasons we could not find. `analysis/blocking_effect.py`
+hours in the second with unchanged code, for reasons we could not find. A rerun of the same blocker on the
+same data and CPU took 65 s (`scripts/06_abandoned_approaches/04_identity_resolution/`, which also shows that a
+multilingual model keeps no more matches). `analysis/blocking_effect.py`
 shows it adds little (51 Wikidata–ROR and 5 DEQAR–ROR links).
 
 ### Matching: nine approaches (`01_` to `09_`)
@@ -97,7 +99,8 @@ What we learned:
 
 - A name alone is not enough: the best threshold accepts almost every pair (*Seisen University* exists
   in Tokyo and in Nagano). Which name measure we use hardly matters (01, 02, 03, 06).
-- The web domain and the country are what make rules precise: every rule with them reaches 0.86-0.91.
+- The web domain is what makes rules precise (the country adds little): every rule with them reaches
+  0.86-0.91.
   Searching the weights (04) does not beat weights set by hand by much; on 300 training pairs it even
   picks rules without the name for Wikidata–ROR.
 - Learned models (05, 07) gain another 0.02-0.05, mostly because they learn that a missing year or
@@ -153,8 +156,8 @@ links.
   contradict and how many validation pairs are wrong or missed (`results/cutoff_check.csv`). It chooses
   nothing.
 - `error_analysis.py`: every test pair the final links get wrong and where it was lost
-  (`results/error_analysis.csv`). One wrong link per dataset pair (*Hellenic Mediterranean
-  University* linked to its research centre). Of 28 missed matches, 20 scored below the threshold, 5
+  (`results/error_analysis.csv`). Three wrong links, two Wikidata–ROR and one
+  DEQAR–ROR (*Hellenic Mediterranean University* linked to its research centre). Of 28 missed matches, 20 scored below the threshold, 5
   lost to a higher-scored link, 3 were never candidates; most have names that differ or are in another
   language.
 - `blocking_effect.py`: the final setup with fewer blockers (`results/blocking_effect.csv`). Country +

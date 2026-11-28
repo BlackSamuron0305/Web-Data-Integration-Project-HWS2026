@@ -40,8 +40,8 @@ from the downloaded CSV files.
 
 ## What did not work at first, and how we fixed it
 
-Our first MapForce attempt had several errors, so we rebuilt the mappings until their output matched
-that of a Python script written for the same job:
+Our first MapForce attempt had several errors, so we rebuilt the mappings and checked their output by
+hand until it was correct:
 
 - names were lower-cased, stray spaces stayed, some lists were not split, and the parent institutions
   were lost;
@@ -54,8 +54,8 @@ that of a Python script written for the same job:
 
 ## How we checked it
 
-Compared value by value with the Python script, the files differ only in the domains of 14 institutions
-with messy website fields. They pass schema validation and have no stray spaces or unsplit lists.
+We checked the output files by hand until they were correct. They pass schema validation and have no
+stray spaces or unsplit lists.
 
 Lessons and known issues:
 

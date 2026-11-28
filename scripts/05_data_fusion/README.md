@@ -93,7 +93,7 @@ Tourism and Ecology*, five of its six words.
 accepted domain and nothing else (a subdomain of an accepted domain may come along). The earlier check,
 "at least one accepted domain", let union score 1.0 every time, because union keeps everything.
 
-| Function for domains | Choose | Test | Domains per university | Universities left without domain |
+| Function for domains | Choose | Test | Domains per university | Universities left without domain (of the 13,981 with two or more sources) |
 |---|---|---|---|---|
 | union | 0.897 | 0.897 | 1.16 | 104 |
 | in at least 2 sources (`intersection_k_sources`, k = 2) | 0.846 | 0.872 | 0.90 | 1,440 |
@@ -101,8 +101,8 @@ accepted domain and nothing else (a subdomain of an accepted domain may come alo
 | trust, Wikidata first | 0.923 | **0.949** | 1.03 | 104 |
 
 - **Union** keeps the wrong domain whenever one source has one (*aeht.eu* for WSHiG Poznań).
-- **In at least 2 sources** drops every domain the sources do not share, so 1,440 universities lose
-  their domain altogether, and it is the least accurate.
+- **In at least 2 sources** drops every domain the sources do not share, so 1,440 of the 13,981 linked
+  universities lose their domain altogether, and it is the least accurate.
 - **Trust** takes one source's list. The errors left with ROR first are mostly ROR subdomains
   (*eng.mdu.edu.tw*, *eng.bspu.ru*) where the other source has the main domain.
 

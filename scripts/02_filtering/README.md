@@ -79,7 +79,7 @@ checks showed to be necessary:
   (ComUE) and the grandes écoles are institutions of their own.
 
 The links between the sources (`ror_id`, `wikidata_id`) are the answer key of identity resolution, so
-rules 1-4 never use them. Rule 5 still counts them as filled fields when it picks which of two
+no rule uses them. Rule 5 leaves them out when it counts filled fields to pick which of two
 duplicates stays.
 
 ## Result

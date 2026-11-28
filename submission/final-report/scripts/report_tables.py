@@ -282,7 +282,8 @@ def errors_table():
 
 
 def lists_table():
-    """Domains (left): list functions on the choosing half (accuracy, fused universities left without a domain).
+    """Domains (left): list functions on the choosing half (accuracy, universities with two or more sources left
+    without a domain).
     Coordinates (right): share of fused points within 1 and 5 km of the gold point, on both halves. Green: best.
     Both blocks have three functions, so they share the rows and the table wastes no line."""
     res = ROOT / "scripts" / "05_data_fusion" / "results"
@@ -297,8 +298,9 @@ def lists_table():
     crd = ["trust: Wikidata first", "median", "trust: ROR first"]
     cols = [("choose", "within 1 km"), ("choose", "within 5 km"), ("test", "within 1 km"), ("test", "within 5 km")]
     top = {c: max(coords.at[(f, c[0]), c[1]] for f in crd) for c in cols}
-    # the accuracy is measured on the choosing half, the count without a domain over all fused universities
-    lines = ["& choosing half & all fused & & \\multicolumn{2}{c}{Choosing half}"
+    # the accuracy is measured on the choosing half. The count without a domain is over the universities with
+    # two or more sources (\nMulti), as fusion.py fuses the groups only (no include_singletons there)
+    lines = ["& Choosing half & of \\nMulti{} & & \\multicolumn{2}{c}{Choosing half}"
              " & \\multicolumn{2}{c}{Test half}\\\\",
              "\\cmidrule(lr){5-6}\\cmidrule(l){7-8}",
              "\\emph{Domains} & accuracy & no domain & \\emph{Coordinates} & 1\\,km & 5\\,km"
@@ -348,7 +350,7 @@ def numbers():
     import ast
     import sys
     sys.path.insert(0, str(IR))
-    from common import links, removed_ids
+    from common import labels, links, removed_ids
 
     v = {}
     res = IR / "global_matching_and_test" / "results"
@@ -357,6 +359,7 @@ def numbers():
     cut = pd.read_csv(res / "cutoff_final.csv").set_index("pair")
     key = links()
     gone = removed_ids()
+    labelled = {}   # labelled final links by identifier-link support, summed over both dataset pairs
     for pair, p in [("wikidata-ror", "wr"), ("deqar-ror", "dr")]:
         a = pair.split("-")[0]
         for run, r in [("final", "Test"), ("first_pass", "First")]:
@@ -376,26 +379,57 @@ def numbers():
         v[f"{p}Best"], v[f"{p}BestF"] = name, num(row["F1"])
         second = sorted(found, key=lambda x: -x[0]["F1"])[1]
         v[f"{p}SecondF"], v[f"{p}Second"] = num(second[0]["F1"]), second[1]
+        # best learner (approaches 5 and 7), which the text compares with the fine-tuned model
+        v[f"{p}LearnerF"] = num(max(best(matching_log(f), "final", pair)["F1"]
+                                    for f in ("05_machine_learning", "07_more_learners")))
         # identifier links: how many final links they confirm or contradict, and how many they recover
         chosen = pd.read_csv(IR / "analysis" / "results" / "cutoff_check.csv")
         chosen = chosen[(chosen["pair"] == pair) & chosen["chosen"]].iloc[0]
         v[f"{p}KeyWrong"] = f"{int(chosen['ID key: wrong']):,}"
+        # final links that no identifier link confirms or contradicts
+        v[f"{p}NoKey"] = f"{int(chosen['links'] - chosen['ID key: right'] - chosen['ID key: wrong']):,}"
         kept_links = [(x, y) for x, y in key[(a, "ror")] if x not in gone and y not in gone]   # cleaned data
         v[f"{p}KeyRecovered"] = f"{chosen['ID key: right'] / len(kept_links):.0%}".replace("%", "\\%")
         v[f"{p}IdLinks"] = f"{len(kept_links):,}"
+        # the hand labels of the final links (validation and test pairs), by identifier-link support: a link is
+        # supported if it is an identifier link, unsupported if neither record has one (as in cutoff_check.py)
+        fin = pd.read_csv(res / f"correspondences_{a}_ror_final.csv")
+        fin = set(zip(fin["id1"], fin["id2"]))
+        left = {x: y for x, y in key[(a, "ror")]}
+        right = {y: x for x, y in key[(a, "ror")]}
+        for split in ("validation", "test"):
+            lab = labels(a, "ror", split, "final")
+            for x, y, match in zip(lab["id1"], lab["id2"], lab["label"]):
+                if (x, y) not in fin:
+                    continue
+                kind = "Key" if left.get(x) == y else "NoKey" if x not in left and y not in right else None
+                if kind:
+                    labelled[kind] = labelled.get(kind, 0) + 1
+                    labelled[kind + "Wrong"] = labelled.get(kind + "Wrong", 0) + (not match)
         # first-pass links that touch a record the cleaning removed
         fp = pd.read_csv(res / f"correspondences_{a}_ror_first_pass.csv")
         v[f"{p}FirstRemoved"] = f"{int((fp['id1'].isin(gone) | fp['id2'].isin(gone)).sum()):,}"
     v["firstRemoved"] = f"{sum(int(v[f'{p}FirstRemoved'].replace(',', '')) for p in ['wr', 'dr']):,}"
+    # both dataset pairs together: labelled final links without / with identifier-link support, and how many are wrong
+    v["labNoKey"], v["labNoKeyWrong"] = f"{labelled['NoKey']:,}", f"{labelled['NoKeyWrong']:,}"
+    v["labKey"], v["labKeyWrong"] = f"{labelled['Key']:,}", f"{labelled['KeyWrong']:,}"
+    # a multilingual model for the embedding blocker (06_abandoned_approaches/04_identity_resolution), final
+    # run, main name as in the pipeline: how much slower it is, and the English blocker's time in that rerun
+    ml = pd.read_csv(ROOT / "scripts" / "06_abandoned_approaches" / "04_identity_resolution" / "results"
+                     / "multilingual_blocking.csv")
+    ml = ml[(ml["run"] == "final") & (ml["text"] == "name")].set_index(["pair", "model"])["seconds"]
+    slower = [ml[pair, "multilingual"] / ml[pair, "English (PyDI default)"] for pair in ("wikidata-ror", "deqar-ror")]
+    v["mlSlowMin"], v["mlSlowMax"] = f"{min(slower):.1f}", f"{max(slower):.1f}"
+    v["embRerunWr"] = f"{ml['wikidata-ror', 'English (PyDI default)']:.0f}"
 
     # pair counts of the blockers too large to run (not in the blocking table): all pairs in the final run,
-    # and the largest of "any shared name word" and "any shared 3-gram" (first pass)
+    # and the largest of "any shared name word" and "any shared 3-gram", both in the final run
     blocking = pd.read_csv(IR / "blocking" / "results" / "blocking.csv")
     for pair, p in [("wikidata-ror", "Wr"), ("deqar-ror", "Dr")]:
         r = blocking[(blocking["run"] == "final") & (blocking["pair"] == pair)
                      & (blocking["blocker"] == "no blocking (all pairs)")]
         v[f"allPairs{p}"] = words(r["candidates"].iloc[0])
-    tokens = blocking[(blocking["run"] == "first_pass") & blocking["blocker"].isin(
+    tokens = blocking[(blocking["run"] == "final") & blocking["blocker"].isin(
         ["token: words of all names", "token: character 3-grams of the name"])]
     assert tokens["pair_completeness"].isna().all()   # not run
     v["tokenPairsMax"] = words(tokens["candidates"].max())

@@ -1,0 +1,17 @@
+run,pair,model,text,candidates,pc,union_candidates,union_pc,validation_matches,seconds
+first_pass,wikidata-ror,English (PyDI default),name,220647,0.838,756322,0.993,142,138.4
+first_pass,wikidata-ror,English (PyDI default),name + city + country,224549,0.915,747500,1.0,142,96.7
+first_pass,wikidata-ror,multilingual,name,226821,0.789,772133,0.993,142,125.2
+first_pass,wikidata-ror,multilingual,name + city + country,226820,0.923,755139,1.0,142,137.5
+first_pass,deqar-ror,English (PyDI default),name,87153,0.789,274187,0.987,152,50.8
+first_pass,deqar-ror,English (PyDI default),name + city + country,88735,0.842,262704,0.993,152,61.6
+first_pass,deqar-ror,multilingual,name,89690,0.783,280018,0.987,152,83.0
+first_pass,deqar-ror,multilingual,name + city + country,89751,0.882,264259,0.993,152,101.2
+final,wikidata-ror,English (PyDI default),name,191828,0.838,631099,0.993,142,64.8
+final,wikidata-ror,English (PyDI default),name + city + country,194205,0.915,622501,1.0,142,75.1
+final,wikidata-ror,multilingual,name,195893,0.789,643149,0.993,142,92.3
+final,wikidata-ror,multilingual,name + city + country,195924,0.923,628778,1.0,142,118.0
+final,deqar-ror,English (PyDI default),name,65725,0.789,228426,0.987,152,41.1
+final,deqar-ror,English (PyDI default),name + city + country,66959,0.849,219315,0.993,152,49.8
+final,deqar-ror,multilingual,name,67574,0.783,232929,0.987,152,67.0
+final,deqar-ror,multilingual,name + city + country,67599,0.882,220370,0.993,152,81.5

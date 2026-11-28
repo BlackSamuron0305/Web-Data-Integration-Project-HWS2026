@@ -11,6 +11,7 @@ that step's README.
 | `02_filtering/` | AI agents decide for each record (no code) | 2, cleaning |
 | `02_filtering/` | keep only names with the word "university" | 2, cleaning |
 | `02_filtering/` | a local LLM decides for each record, and rescues removed records | 2, cleaning |
+| `04_identity_resolution/` | a multilingual model for the embedding blocker | 4, identity resolution |
 
 ## 1. DBpedia and the THE ranking as sources (`01_selection/fetch_dbpedia.py`, `01_selection/build_the_rankings.py`)
 
@@ -186,4 +187,65 @@ ollama pull qwen2.5:3b
 ollama pull qwen2.5:7b
 python scripts/06_abandoned_approaches/02_filtering/local_llm_cleaning.py test qwen2.5:3b      # ~2 minutes
 python scripts/06_abandoned_approaches/02_filtering/local_llm_cleaning.py rescue qwen2.5:3b    # ~20 minutes
+```
+
+## 6. A multilingual model for the embedding blocker (`04_identity_resolution/multilingual_blocking.py`)
+
+**Idea.** One of the three blockers of identity resolution takes, for every record, the ten ROR records
+with the nearest names in a sentence-embedding space, to catch names that are spelled differently. It uses
+PyDI's default model, the English *all-MiniLM-L6-v2*. Many of our missed matches have names in two
+languages (*Koninklijk Conservatorium Brussel* and *Royal Conservatory of Brussels*), so a multilingual
+model should place them closer together. We tried *paraphrase-multilingual-MiniLM-L12-v2*, the model of
+matching approach 3.
+
+**What we did.** Lakpa first compared the two models on 23 November 2026, with our older labelled pairs
+(git commit a68f02b), and found no gain. We redid the test on 28 November 2026 with the final labelled
+pairs, on both runs and with the pipeline's settings (ten nearest names, similarity at least 0.5). As in
+the first test, we also embedded the name together with the city and the country. PC (pair completeness)
+is the share of the validation matches kept (142 Wikidata–ROR, 152 DEQAR–ROR), by the embedding blocker
+alone and in the union with the pipeline's other two blockers (country + name word, same web domain).
+The time is that of the embedding blocker on our CPU, model loading and embedding included.
+
+Final run (cleaned data):
+
+| Model | Text | Wikidata–ROR pairs | PC | PC in union | Time | DEQAR–ROR pairs | PC | PC in union | Time |
+|---|---|---|---|---|---|---|---|---|---|
+| **English (PyDI default, used)** | **name** | **191,828** | **0.838** | **0.993** | **65 s** | **65,725** | **0.789** | **0.987** | **41 s** |
+| English | name + city + country | 194,205 | 0.915 | 1.0 | 75 s | 66,959 | 0.849 | 0.993 | 50 s |
+| multilingual | name | 195,893 | 0.789 | 0.993 | 92 s | 67,574 | 0.783 | 0.987 | 67 s |
+| multilingual | name + city + country | 195,924 | 0.923 | 1.0 | 118 s | 67,599 | 0.882 | 0.993 | 82 s |
+
+First pass (sources as downloaded):
+
+| Model | Text | Wikidata–ROR pairs | PC | PC in union | Time | DEQAR–ROR pairs | PC | PC in union | Time |
+|---|---|---|---|---|---|---|---|---|---|
+| **English (PyDI default, used)** | **name** | **220,647** | **0.838** | **0.993** | **138 s** | **87,153** | **0.789** | **0.987** | **51 s** |
+| English | name + city + country | 224,549 | 0.915 | 1.0 | 97 s | 88,735 | 0.842 | 0.993 | 62 s |
+| multilingual | name | 226,821 | 0.789 | 0.993 | 125 s | 89,690 | 0.783 | 0.987 | 83 s |
+| multilingual | name + city + country | 226,820 | 0.923 | 1.0 | 138 s | 89,751 | 0.882 | 0.993 | 101 s |
+
+- The rows in bold are the pipeline's blocker. They reproduce the report's blocking table exactly
+  (candidate pairs, PC and union), in both runs.
+- The PC values hardly differ between the runs, as the labelled pairs hold only records that survive the
+  cleaning. The first-pass row in bold took longer than the others because it was the first model the
+  script loaded.
+- **The multilingual model keeps fewer matches on its own** (0.789 against 0.838 for Wikidata–ROR) and
+  **exactly the same matches in the union**: no validation match is kept by one union and missed by the
+  other (`results/multilingual_only_matches.csv` is empty).
+- It takes 1.4 to 1.6 times as long in the final run.
+- **The text matters more than the model.** Embedding name, city and country keeps 0.915 instead of
+  0.838 on its own, and in the union every Wikidata–ROR validation match (1.0) and 151 of the 152
+  DEQAR–ROR ones (0.993), one match more per dataset pair than the pipeline. We found this after the
+  pipeline had run. Using it would mean new candidate pairs and scoring them again with all nine
+  approaches (the fine-tuned model alone takes about two hours on our CPU), for one match per 150, so we
+  kept the pipeline as it is.
+- The pipeline logged 7,169 s for the English embedding blocker in the final run (report, blocking
+  table). Here the same code on the same data and the same CPU took 65 s, so the two hours came from that
+  run, not from the blocker.
+
+**Why we dropped it.** In the union the multilingual model keeps exactly the same matches as the English
+one, on its own it keeps fewer, and it is slower.
+
+```
+python scripts/06_abandoned_approaches/04_identity_resolution/multilingual_blocking.py   # about 25 minutes on our CPU
 ```
